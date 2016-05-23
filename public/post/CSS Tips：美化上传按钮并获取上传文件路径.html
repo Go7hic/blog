@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="css," />
+
+
+<meta name="description" content="上传功能很常见了，就是一个 input file 功能。
+但是默认的上传很丑啊有没有，所以网上也有很多美化的 css 文章，但是很多也只是美化以下按钮而已，今天遇到一个问题就是还要显示上传文件的路径，一般默认的都会在后面显示上传文件名，但是按照网上的教程美化之后，就把文件名这些东西看不到了，这也是很郁闷的。所以这里等于有两个需求，一个是按钮要美化，另一个就是还要显示上传文件的路径。
+首先我们来看一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS Tips：美化上传按钮并获取上传文件路径">
+<meta property="og:url" content="http://blog.yongyuan.com/post/CSS Tips：美化上传按钮并获取上传文件路径.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="上传功能很常见了，就是一个 input file 功能。
+但是默认的上传很丑啊有没有，所以网上也有很多美化的 css 文章，但是很多也只是美化以下按钮而已，今天遇到一个问题就是还要显示上传文件的路径，一般默认的都会在后面显示上传文件名，但是按照网上的教程美化之后，就把文件名这些东西看不到了，这也是很郁闷的。所以这里等于有两个需求，一个是按钮要美化，另一个就是还要显示上传文件的路径。
+首先我们来看一">
+<meta property="og:updated_time" content="2015-09-11T16:46:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS Tips：美化上传按钮并获取上传文件路径">
+<meta name="twitter:description" content="上传功能很常见了，就是一个 input file 功能。
+但是默认的上传很丑啊有没有，所以网上也有很多美化的 css 文章，但是很多也只是美化以下按钮而已，今天遇到一个问题就是还要显示上传文件的路径，一般默认的都会在后面显示上传文件名，但是按照网上的教程美化之后，就把文件名这些东西看不到了，这也是很郁闷的。所以这里等于有两个需求，一个是按钮要美化，另一个就是还要显示上传文件的路径。
+首先我们来看一">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> CSS Tips：美化上传按钮并获取上传文件路径 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> CSS Tips：美化上传按钮并获取上传文件路径 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-11-19T11:21:04+08:00" content="2014-11-19">
+              2014-11-19
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/CSS Tips：美化上传按钮并获取上传文件路径.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/CSS Tips：美化上传按钮并获取上传文件路径.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>上传功能很常见了，就是一个 input file 功能。</p>
+<p>但是默认的上传很丑啊有没有，所以网上也有很多美化的 css 文章，但是很多也只是美化以下按钮而已，今天遇到一个问题就是还要显示上传文件的路径，一般默认的都会在后面显示上传文件名，但是按照网上的教程美化之后，就把文件名这些东西看不到了，这也是很郁闷的。所以这里等于有两个需求，一个是按钮要美化，另一个就是还要显示上传文件的路径。</p>
+<p>首先我们来看一下默认的上传样式</p>
+ <figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"file"</span> &gt;</span><br></pre></td></tr></table></figure>
+<p>选择上传文件后，后面会显示文件的名字，但是很多按钮美化的方法都把这个名字也隐藏掉了，所以这是不符合需求的。看一下美化后的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"report-file"</span>&gt;</span><br><span class="line">     <span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>上传文件<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">tabindex</span>=<span class="string">"3"</span> <span class="attr">size</span>=<span class="string">"3"</span> <span class="attr">name</span>=<span class="string">"report"</span> <span class="attr">class</span>=<span class="string">"file-prew"</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">onchange</span>=<span class="string">"document.getElementById('textName').value=this.value"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;input type=<span class="string">"text"</span> id=<span class="string">"textName"</span> style=<span class="string">"height: 28px;border:1px solid #f1f1f1"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.report-file</span> &#123;</span><br><span class="line">           <span class="attribute">display</span>: block;</span><br><span class="line">           <span class="attribute">position</span>: relative;</span><br><span class="line">           <span class="attribute">width</span>: <span class="number">120px</span>;</span><br><span class="line">           <span class="attribute">height</span>: <span class="number">28px</span>;</span><br><span class="line">           <span class="attribute">overflow</span>: hidden;</span><br><span class="line">           <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#428bca</span>;</span><br><span class="line">           <span class="attribute">background</span>: none repeat scroll <span class="number">0</span> <span class="number">0</span> <span class="number">#428bca</span>;</span><br><span class="line">           <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">           <span class="attribute">cursor</span>: pointer;</span><br><span class="line">           <span class="attribute">text-align</span>: center;</span><br><span class="line">           <span class="attribute">float</span>: left;</span><br><span class="line">           <span class="attribute">margin-right</span>:<span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.report-file</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">           <span class="attribute">cursor</span>: pointer;</span><br><span class="line">           <span class="attribute">display</span>: block;</span><br><span class="line">           <span class="attribute">line-height</span>: <span class="number">28px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.file-prew</span> &#123;</span><br><span class="line">           <span class="attribute">position</span>: absolute;</span><br><span class="line">           <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">           <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">           <span class="attribute">width</span>: <span class="number">120px</span>;</span><br><span class="line">           <span class="attribute">height</span>: <span class="number">30px</span>;</span><br><span class="line">           <span class="attribute">font-size</span>: <span class="number">100px</span>; </span><br><span class="line">           <span class="attribute">opacity</span>: <span class="number">0</span>; </span><br><span class="line">           <span class="attribute">filter</span>: <span class="built_in">alpha</span>(opacity=0);</span><br><span class="line">           <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> DEMO </p>
+<p> 可以看到每当我们上传一个文件后都会显示文件的路径，感觉这样会给用户一种更好的体验吧，相对那种直接一个上传按钮。</p>
+ <iframe width="100%" height="300" src="http://jsfiddle.net/gothic/ah62jejz/2/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+
+
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#css" rel="tag">#css</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/CSS Tips：美化上传按钮并获取上传文件路径.html"
+           data-title="CSS Tips：美化上传按钮并获取上传文件路径" data-url="http://blog.yongyuan.com/post/CSS Tips：美化上传按钮并获取上传文件路径.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

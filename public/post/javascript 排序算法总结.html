@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="^_^" />
+
+
+<meta name="description" content="JavaScript 排序算法总结在业务里有时候需要对一些数据进行排序操作，虽然现在用 lodash 比较多，但还是从网上总结了这几个排序方法，更具体的内容可以参考《数据结构与算法 javascript描述》http://www.ituring.com.cn/tupubarticle/1325#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript 排序算法总结">
+<meta property="og:url" content="http://blog.yongyuan.com/post/javascript 排序算法总结.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="JavaScript 排序算法总结在业务里有时候需要对一些数据进行排序操作，虽然现在用 lodash 比较多，但还是从网上总结了这几个排序方法，更具体的内容可以参考《数据结构与算法 javascript描述》http://www.ituring.com.cn/tupubarticle/1325#">
+<meta property="og:updated_time" content="2015-07-25T16:24:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript 排序算法总结">
+<meta name="twitter:description" content="JavaScript 排序算法总结在业务里有时候需要对一些数据进行排序操作，虽然现在用 lodash 比较多，但还是从网上总结了这几个排序方法，更具体的内容可以参考《数据结构与算法 javascript描述》http://www.ituring.com.cn/tupubarticle/1325#">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> javascript 排序算法总结 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> javascript 排序算法总结 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-07-24T11:21:04+08:00" content="2015-07-24">
+              2015-07-24
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/javascript 排序算法总结.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/javascript 排序算法总结.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>JavaScript 排序算法总结<br>在业务里有时候需要对一些数据进行排序操作，虽然现在用 lodash 比较多，但还是从网上总结了这几个排序方法，更具体的内容可以参考《数据结构与算法 javascript描述》<a href="http://www.ituring.com.cn/tupubarticle/1325#" target="_blank" rel="external">http://www.ituring.com.cn/tupubarticle/1325#</a><br><a id="more"></a></p>
+<p>###1.冒泡排序</p>
+<p>####简介<br>冒泡排序（Bubble Sort）是最易懂的排序算法，但是效率较低，生产环境中很少使用。</p>
+<p>####它的基本思想是：</p>
+<p>依次比较相邻的两个数，如果不符合排序规则，则调换两个数的位置。这样一遍比较下来，能够保证最大（或最小）的数排在最后一位。</p>
+<p>再对最后一位以外的数组，重复前面的过程，直至全部排序完成。</p>
+<p>由于每进行一次这个过程，在该次比较的最后一个位置上，正确的数会自己冒出来，就好像“冒泡”一样，这种算法因此得名。</p>
+<p>以对数组[3, 2, 4, 5, 1] 进行从小到大排序为例，步骤如下：</p>
+<p>第一位的“3”与第二位的“2”进行比较，3大于2，互换位置，数组变成[2, 3, 4, 5, 1] 。</p>
+<p>第二位的“3”与第三位的“4”进行比较，3小于4，数组不变。</p>
+<p>第三位的“4”与第四位的“5”进行比较，4小于5，数组不变。</p>
+<p>第四位的“5”与第五位的“1”进行比较，5大于1，互换位置，数组变成[2, 3, 4, 1, 5] 。</p>
+<p>第一轮排序完成，可以看到最后一位的5，已经是正确的数了。然后，再对剩下的数[2, 3, 4, 1] 重复这个过程，每一轮都会在本轮最后一位上出现正确的数。直至剩下最后一个位置，所有排序结束。</p>
+<p>####算法实现<br>先定义一个交换函数，作用是交换两个位置的值。</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">function</span> swap(myArray, <span class="built_in">p1</span>, <span class="built_in">p2</span>)&#123;</span><br><span class="line">    var temp = myArray[<span class="built_in">p1</span>]<span class="comment">;</span></span><br><span class="line">    myArray[<span class="built_in">p1</span>] = myArray[<span class="built_in">p2</span>]<span class="comment">;</span></span><br><span class="line">    myArray[<span class="built_in">p2</span>] = temp<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后定义主函数。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function <span class="keyword">bubbleSort(myArray)&#123;</span><br><span class="line"></span>    var len = myArray.length,</span><br><span class="line">        i,</span><br><span class="line">        <span class="keyword">j,</span><br><span class="line"></span>        stop<span class="comment">;</span></span><br><span class="line">    for (i=<span class="number">0</span><span class="comment">; i &lt; len; i++)&#123;</span></span><br><span class="line">        for (<span class="keyword">j=0, </span>stop=len-i<span class="comment">; j &lt; stop; j++)&#123;</span></span><br><span class="line">            if (myArray[<span class="keyword">j] </span>&gt; myArray[<span class="keyword">j+1])&#123;</span><br><span class="line"></span>                <span class="keyword">swap(myArray, </span><span class="keyword">j, </span><span class="keyword">j+1);</span><br><span class="line"></span>            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return myArray<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###2.选择排序</p>
+<p>####简介<br>选择排序（Selection Sort）与冒泡排序类似，也是依次对相邻的数进行两两比较。不同之处在于，它不是每比较一次就调换位置，而是一轮比较完毕，找到最大值（或最小值）之后，将其放在正确的位置，其他数的位置不变。</p>
+<p>以对数组[3, 2, 4, 5, 1] 进行从小到大排序为例，步骤如下：</p>
+<p>假定第一位的“3”是最小值。</p>
+<p>最小值“3”与第二位的“2”进行比较，2小于3，所以新的最小值是第二位的“2”。</p>
+<p>最小值“2”与第三位的“4”进行比较，2小于4，最小值不变。</p>
+<p>最小值“2”与第四位的“5”进行比较，2小于5，最小值不变。</p>
+<p>最小值“2”与第五位的“1”进行比较，1小于2，所以新的最小值是第五位的“1”。</p>
+<p>第五位的“1”与第一位的“3”互换位置，数组变为[1, 2, 4, 5, 3]。</p>
+<p>这一轮比较结束后，最小值“1”已经排到正确的位置了，然后对剩下的[2, 4, 5, 3]重复上面的过程。每一轮排序都会将该轮的最小值排到正确的位置，直至剩下最后一个位置，所有排序结束。</p>
+<p>####算法实现<br>先定义一个交换函数。<br>function swap(myArray, p1, p2){<br>    var temp = myArray[p1];<br>    myArray[p1] = myArray[p2];<br>    myArray[p2] = temp;<br>}<br>然后定义主函数。</p>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectionSort</span><span class="params">(myArray)</span>&#123;</span></span><br><span class="line">    var len = myArray.<span class="built_in">length</span>,</span><br><span class="line">        <span class="built_in">min</span>;</span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">        <span class="comment">// 将当前位置设为最小值</span></span><br><span class="line">        <span class="built_in">min</span> = i;</span><br><span class="line">        <span class="comment">// 检查数组其余部分是否更小</span></span><br><span class="line">        <span class="keyword">for</span> (j=i+<span class="number">1</span>; j &lt; len; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (myArray[j] &lt; myArray[min])&#123;</span><br><span class="line">                <span class="built_in">min</span> = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 如果当前位置不是最小值，将其换为最小值</span></span><br><span class="line">        <span class="keyword">if</span> (i != <span class="built_in">min</span>)&#123;</span><br><span class="line">            swap(myArray, i, <span class="built_in">min</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> myArray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###3.插入排序</p>
+<p>####简介<br>插入排序（insertion sort）比前面两种排序方法都更有效率。它将数组分成“已排序”和“未排序”两部分，一开始的时候，“已排序”的部分只有一个元素，然后将它后面一个元素从“未排序”部分插入“已排序”部分，从而“已排序”部分增加一个元素，“未排序”部分减少一个元素。以此类推，完成全部排序。</p>
+<p>以对数组[3, 2, 4, 5, 1] 进行从小到大排序为例，步骤如下：</p>
+<p>将数组分成[3]和[2, 4, 5, 1]两部分，前者是已排序的，后者是未排序的。</p>
+<p>取出未排序部分的第一个元素“2”，与已排序部分最后一个元素“3”比较，因为2小于3，所以2排在3前面，整个数组变成[2, 3]和[4, 5, 1]两部分。</p>
+<p>取出未排序部分的第一个元素“4”，与已排序部分最后一个元素“3”比较，因为4大于3，所以4排在3后面，整个数组变成[2, 3, 4]和[5, 1]两部分。</p>
+<p>取出未排序部分的第一个元素“5”，与已排序部分最后一个元素“4”比较，因为5大于4，所以5排在4后面，整个数组变成[2, 3, 4, 5]和[1]两部分。</p>
+<p>取出未排序部分的第一个元素“1”，与已排序部分最后一个元素“5”比较，因为1小于5，所以再与前一个元素“4”比较；因为1小于4，再与前一个元素“3”比较；因为1小于3，再与前一个元素“2”比较；因为小于1小于2，所以“1”排在2的前面，整个数组变成[1, 2, 3, 4, 5]。</p>
+<p>####算法实现<br>算法的实现如下：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">insertionSort</span>(<span class="params">myArray</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> len     = myArray.length,     <span class="comment">// 数组的长度</span></span><br><span class="line">        <span class="keyword">value</span>,                      <span class="comment">// 当前比较的值</span></span><br><span class="line">        i,                          <span class="comment">// 未排序部分的当前位置</span></span><br><span class="line">        j;                          <span class="comment">// 已排序部分的当前位置</span></span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="comment">// 储存当前位置的值</span></span><br><span class="line">        <span class="keyword">value</span> = myArray[i];</span><br><span class="line">        <span class="comment">//当已排序部分的当前元素大于value，</span></span><br><span class="line">        <span class="comment">//就将当前元素向后移一位，再将前一位与value比较</span></span><br><span class="line">        <span class="keyword">for</span> (j=i<span class="number">-1</span>; j &gt; <span class="number">-1</span> &amp;&amp; myArray[j] &gt; <span class="keyword">value</span>; j--) &#123;</span><br><span class="line">            myArray[j+<span class="number">1</span>] = myArray[j];</span><br><span class="line">        &#125;</span><br><span class="line">        myArray[j+<span class="number">1</span>] = <span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> myArray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###4.合并排序</p>
+<p>####简介<br>前面三种排序算法只有教学价值，因为效率低，很少实际使用。合并排序（Merge sort）则是一种被广泛使用的排序方法。</p>
+<p>它的基本思想是，将两个已经排序的数组合并，要比从头开始排序所有元素来得快。因此，可以将数组拆开，分成n个只有一个元素的数组，然后不断地两两合并，直到全部排序完成。</p>
+<p>以对数组[3, 2, 4, 5, 1] 进行从小到大排序为例，步骤如下：</p>
+<p>将数组分成[3, 2, 4]和[5, 1]两部分。</p>
+<p>将[3, 2, 4]分成[3, 2]和[4]两部分。</p>
+<p>将[3, 2]分成[3]和[2]两部分，然后合并成[2, 3]。</p>
+<p>将[2, 3]和[4]合并成[2, 3, 4]。</p>
+<p>将[5, 1]分成[5]和[1]两部分，然后合并成[1, 5]。</p>
+<p>将[2, 3, 4]和[1, 5]合并成[1, 2, 3, 4, 5]。</p>
+<p>####算法实现<br>这里的关键是如何合并两个已经排序的数组。具体实现请看下面的函数。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function merge(<span class="keyword">left</span>, <span class="keyword">right</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> result  = [],</span><br><span class="line">        il      = <span class="number">0</span>,</span><br><span class="line">        ir      = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (il &lt; <span class="keyword">left</span>.length &amp;&amp; ir &lt; <span class="keyword">right</span>.length)&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">left</span>[il] &lt; <span class="keyword">right</span>[ir])&#123;</span><br><span class="line">            result.push(<span class="keyword">left</span>[il++]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            result.push(<span class="keyword">right</span>[ir++]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result.concat(<span class="keyword">left</span>.slice(il)).concat(<span class="keyword">right</span>.slice(ir));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的merge函数，合并两个已经按升序排好序的数组。首先，比较两个数组的第一个元素，将其中较小的一个放入result数组；然后，将其中较大的一个与另一个数组的第二个元素进行比较，再将其中较小的一个放入result数组的第二个位置。以此类推，直到一个数组的所有元素都进入result数组为止，再将另一个数组剩下的元素接着result数组后面返回（使用concat方法）。</p>
+<p>有了merge函数，就可以对任意数组排序了。基本方法是将数组不断地拆成两半，直到每一半只包含零个元素或一个元素为止，然后就用merge函数，将拆成两半的数组不断合并，直到合并成一整个排序完成的数组。</p>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeSort</span><span class="params">(myArray)</span>&#123;</span></span><br><span class="line">    <span class="keyword">if</span> (myArray.<span class="built_in">length</span> &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> myArray;</span><br><span class="line">    &#125;</span><br><span class="line">    var middle = Math.<span class="built_in">floor</span>(myArray.<span class="built_in">length</span> / <span class="number">2</span>),</span><br><span class="line">        left    = myArray.slice(<span class="number">0</span>, middle),</span><br><span class="line">        right   = myArray.slice(middle);</span><br><span class="line">    <span class="keyword">return</span> merge(mergeSort(left), mergeSort(right));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码有一个问题，就是返回的是一个全新的数组，会多占用空间。因此，修改上面的函数，使之在原地排序，不多占用空间。</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeSort</span><span class="params">(myArray)</span><span class="comment">&#123;</span><br><span class="line">    if (myArray.length &lt; 2) &#123;</span><br><span class="line">        return myArray;</span><br><span class="line">    &#125;</span></span><br><span class="line">    <span class="title">var</span> <span class="title">middle</span> = <span class="title">Math</span>.<span class="title">floor</span><span class="params">(myArray.length / 2)</span>,</span><br><span class="line">        <span class="title">left</span>    = <span class="title">myArray</span>.<span class="title">slice</span><span class="params">(0, middle)</span>,</span><br><span class="line">        <span class="title">right</span>   = <span class="title">myArray</span>.<span class="title">slice</span><span class="params">(middle)</span>,</span><br><span class="line">        <span class="title">params</span> = <span class="title">merge</span><span class="params">(mergeSort(left)</span>, <span class="title">mergeSort</span><span class="params">(right)</span>);</span></span><br><span class="line">    <span class="comment">// 在返回的数组头部，添加两个元素，第一个是0，第二个是返回的数组长度</span></span><br><span class="line">    <span class="keyword">params</span>.unshift(<span class="number">0</span>, myArray.length);</span><br><span class="line">    <span class="comment">// splice用来替换数组元素，它接受多个参数，</span></span><br><span class="line">    <span class="comment">// 第一个是开始替换的位置，第二个是需要替换的个数，后面就是所有新加入的元素。</span></span><br><span class="line">    <span class="comment">// 因为splice不接受数组作为参数，所以采用apply的写法。</span></span><br><span class="line">    <span class="comment">// 这一句的意思就是原来的myArray数组替换成排序后的myArray</span></span><br><span class="line">    myArray.splice.apply(myArray, <span class="keyword">params</span>);</span><br><span class="line">    <span class="comment">// 返回排序后的数组</span></span><br><span class="line">    return myArray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###5.快速排序</p>
+<p>####简介</p>
+<p>快速排序（quick sort）是公认最快的排序算法之一，有着广泛的应用。</p>
+<p>它的基本思想很简单：先确定一个“支点”（pivot），将所有小于“支点”的值都放在该点的左侧，大于“支点”的值都放在该点的右侧，然后对左右两侧不断重复这个过程，直到所有排序完成。</p>
+<p>具体做法是：</p>
+<p>确定“支点”（pivot）。虽然数组中任意一个值都能作为“支点”，但通常是取数组的中间值。</p>
+<p>建立两端的指针。左侧的指针指向数组的第一个元素，右侧的指针指向数组的最后一个元素。</p>
+<p>左侧指针的当前值与“支点”进行比较，如果小于“支点”则指针向后移动一位，否则指针停在原地。</p>
+<p>右侧指针的当前值与“支点”进行比较，如果大于“支点”则指针向前移动一位，否则指针停在原地。</p>
+<p>左侧指针的位置与右侧指针的位置进行比较，如果前者大于等于后者，则本次排序结束；否则，左侧指针的值与右侧指针的值相交换。</p>
+<p>对左右两侧重复第2至5步。</p>
+<p>以对数组[3, 2, 4, 5, 1] 进行从小到大排序为例，步骤如下：</p>
+<p>选择中间值“4”作为“支点”。</p>
+<p>第一个元素3小于4，左侧指针向后移动一位；第二个元素2小于4，左侧指针向后移动一位；第三个元素4等于4，左侧指针停在这个位置（数组的第2位）。</p>
+<p>倒数第一个元素1小于4，右侧指针停在这个位置（数组的第4位）。</p>
+<p>左侧指针的位置（2）小于右侧指针的位置（4），两个位置的值互换，数组变成[3, 2, 1, 5, 4]。</p>
+<p>左侧指针向后移动一位，第四个元素5大于4，左侧指针停在这个位置（数组的第3位）。</p>
+<p>右侧指针向前移动一位，第四个元素5大于4，右侧指针移动向前移动一位，第三个元素1小于4，右侧指针停在这个位置（数组的第3位）。</p>
+<p>左侧指针的位置（3）大于右侧指针的位置（2），本次排序结束。</p>
+<p>对 [3, 2, 1]和[5, 4]两部分各自不断重复上述步骤，直到排序完成。</p>
+<h4 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h4><p>首先部署一个swap函数，用于互换两个位置的值。</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function swap(myArray, firstIndex, secondIndex)&#123;</span><br><span class="line">    var temp = myArray<span class="string">[firstIndex]</span>;</span><br><span class="line">    myArray<span class="string">[firstIndex]</span> = myArray<span class="string">[secondIndex]</span>;</span><br><span class="line">    myArray<span class="string">[secondIndex]</span> = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，部署一个partition函数，用于完成一轮排序。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">partition</span><span class="params">(myArray, left, right)</span> &#123;</span></span><br><span class="line">    var pivot   = myArray[Math.floor((right + left) / <span class="number">2</span>)],</span><br><span class="line">        <span class="built_in">i</span>       = left,</span><br><span class="line">        <span class="built_in">j</span>       = right;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">i</span> &lt;= <span class="built_in">j</span>) &#123;</span><br><span class="line">        while (myArray[i] &lt; pivot) &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (myArray[j] &gt; pivot) &#123;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">i</span> &lt;= <span class="built_in">j</span>) &#123;</span><br><span class="line">            swap(myArray, i, j);</span><br><span class="line">            i++;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">i</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来，就是递归上面的过程，完成整个排序。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function <span class="built_in">quickSort</span>(myArray, <span class="keyword">left</span>, <span class="keyword">right</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (myArray.length &lt; <span class="number">2</span>) <span class="keyword">return</span> myArray;</span><br><span class="line">    <span class="keyword">left</span> = (typeof <span class="keyword">left</span> !== <span class="string">"number"</span> ? <span class="number">0</span> : <span class="keyword">left</span>);</span><br><span class="line">    <span class="keyword">right</span> = (typeof <span class="keyword">right</span> !== <span class="string">"number"</span> ? myArray.length - <span class="number">1</span> : <span class="keyword">right</span>);</span><br><span class="line">    <span class="keyword">var</span> index  = <span class="built_in">partition</span>(myArray, <span class="keyword">left</span>, <span class="keyword">right</span>);</span><br><span class="line">     <span class="keyword">if</span> (<span class="keyword">left</span> &lt; index - <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">quickSort</span>(myArray, <span class="keyword">left</span>, index - <span class="number">1</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span> (index &lt; <span class="keyword">right</span>) &#123;</span><br><span class="line">            <span class="built_in">quickSort</span>(myArray, index, <span class="keyword">right</span>);</span><br><span class="line">      &#125;</span><br><span class="line">     <span class="keyword">return</span> myArray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法实现"><span class="nav-text">算法实现</span></a></li></ol></div>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/javascript 排序算法总结.html"
+           data-title="javascript 排序算法总结" data-url="http://blog.yongyuan.com/post/javascript 排序算法总结.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

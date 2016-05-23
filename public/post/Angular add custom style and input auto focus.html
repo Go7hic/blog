@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="JavaScript," />
+
+
+<meta name="description" content="首先我本人並不是很喜歡 angular 1.X 的，但是項目既然用了，還是要用心去做的。所以從零基礎到直接獨自上手開發肯定會遇到很多坑的，在這裏只是記錄一些遇到的坑，相信很多新人會遇到的。一：ui.bootstrap 的模態框 modal 組件添加自定義樣式
+modal 官方示例的模板是这样的1234567891011121314151617&amp;lt;script type=&quot;text/ng-tem">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular add custom style and input auto focus">
+<meta property="og:url" content="http://blog.yongyuan.com/post/Angular add custom style and input auto focus.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="首先我本人並不是很喜歡 angular 1.X 的，但是項目既然用了，還是要用心去做的。所以從零基礎到直接獨自上手開發肯定會遇到很多坑的，在這裏只是記錄一些遇到的坑，相信很多新人會遇到的。一：ui.bootstrap 的模態框 modal 組件添加自定義樣式
+modal 官方示例的模板是这样的1234567891011121314151617&amp;lt;script type=&quot;text/ng-tem">
+<meta property="og:updated_time" content="2015-11-19T16:45:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular add custom style and input auto focus">
+<meta name="twitter:description" content="首先我本人並不是很喜歡 angular 1.X 的，但是項目既然用了，還是要用心去做的。所以從零基礎到直接獨自上手開發肯定會遇到很多坑的，在這裏只是記錄一些遇到的坑，相信很多新人會遇到的。一：ui.bootstrap 的模態框 modal 組件添加自定義樣式
+modal 官方示例的模板是这样的1234567891011121314151617&amp;lt;script type=&quot;text/ng-tem">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> Angular add custom style and input auto focus </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> Angular add custom style and input auto focus </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-11-19T11:21:04+08:00" content="2015-11-19">
+              2015-11-19
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/Angular add custom style and input auto focus.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/Angular add custom style and input auto focus.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>首先我本人並不是很喜歡 angular 1.X 的，但是項目既然用了，還是要用心去做的。所以從零基礎到直接獨自上手開發肯定會遇到很多坑的，在這裏只是記錄一些遇到的坑，相信很多新人會遇到的。<br>一：ui.bootstrap 的模態框 modal 組件添加自定義樣式</p>
+<p>modal 官方示例的模板是这样的<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/ng-template"</span> <span class="attr">id</span>=<span class="string">"myModalContent.html"</span>&gt;</span><span class="handlebars"><span class="xml"></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-header"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"modal-title"</span>&gt;</span>I'm a modal!<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-body"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">a</span> <span class="attr">ng-click</span>=<span class="string">"selected.item = item"</span>&gt;</span></span><span class="template-variable">&#123;&#123; item &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">       Selected: <span class="tag">&lt;<span class="name">b</span>&gt;</span></span><span class="template-variable">&#123;&#123; selected.item &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-footer"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">ng-click</span>=<span class="string">"ok()"</span>&gt;</span>OK<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-warning"</span> <span class="attr">ng-click</span>=<span class="string">"cancel()"</span>&gt;</span>Cancel<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$scope.open = <span class="function"><span class="keyword">function</span> <span class="params">(size)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> modalInstance = $modal.open(&#123;</span><br><span class="line">      templateUrl: <span class="string">'myModalContent.html'</span>,</span><br><span class="line">      controller: <span class="string">'ModalInstanceCtrl'</span>,</span><br><span class="line">      size: size,</span><br><span class="line">      resolve: &#123;</span><br><span class="line">        items: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> $scope.items;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    modalInstance.result.then(<span class="function"><span class="keyword">function</span> <span class="params">(selectedItem)</span> </span>&#123;</span><br><span class="line">      $scope.selected = selectedItem;</span><br><span class="line">    &#125;, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">      $log.info(<span class="string">'Modal dismissed at: '</span> + <span class="keyword">new</span> Date());</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>他只支持 lg,sm 两种大小的弹框，有时候需要定制弹框的大小就有点麻烦了，因为这个 modal 的宽度通过 lg，sm 参数都是在 modal 内容最外层生成的，在 modal-header 的外层，你不可能自己定义 modal-header/body 等宽度样子来设置，当然你不能直接设置 modal-dialog/content 的样式，因为不是这一个地方要用弹窗的，所以我今天看了下，发现是有个解决办法的。那就是，你继续给 open 传参数，但是不是传 lg,sm，传一个你自己定义的一个参数即可，发现这个参数是会在外层 modal 元素标签属性里显示的，也就是说你可以通过属性选择器来设置这个弹框的样式，是不是很巧。比如我传了一个 open(‘blog’)。最终在页面上可以看到最外层弹框里多了一个属性 siz=”blog”。那么我们就可以通过 .modal[size=”blog”]来单独设置这个弹窗的样式了。</p>
+<p>二.自动触发 focus 焦点<br>angular 实现这个比较简单，写一个通用的指令即可<br>Demo:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-app</span>=<span class="string">"sampleapp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"samplecontoller"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"focusexample"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Auto Focus : <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        With Out Focus : <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        Auto Focus : <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">focus</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myapp = angular.module(<span class="string">'sampleapp'</span>, [ ]);</span><br><span class="line"></span><br><span class="line">myapp.controller(<span class="string">'samplecontoller'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($scope)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">angular.module(<span class="string">'sampleapp'</span>).directive(<span class="string">'focus'</span>,</span><br><span class="line">	<span class="function"><span class="keyword">function</span><span class="params">($timeout)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> &#123;</span><br><span class="line">			scope : &#123;</span><br><span class="line">				trigger : <span class="string">'@focus'</span></span><br><span class="line">			&#125;,</span><br><span class="line">			link : <span class="function"><span class="keyword">function</span><span class="params">(scope, element)</span> </span>&#123;</span><br><span class="line">				scope.$watch(<span class="string">'trigger'</span>, <span class="function"><span class="keyword">function</span><span class="params">(value)</span> </span>&#123;</span><br><span class="line">					<span class="keyword">if</span> (value === <span class="string">"true"</span>) &#123;</span><br><span class="line">						$timeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">							element[<span class="number">0</span>].focus();</span><br><span class="line">						&#125;);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#JavaScript" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/Angular add custom style and input auto focus.html"
+           data-title="Angular add custom style and input auto focus" data-url="http://blog.yongyuan.com/post/Angular add custom style and input auto focus.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

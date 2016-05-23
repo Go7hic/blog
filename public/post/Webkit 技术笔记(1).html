@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="webkit," />
+
+
+<meta name="description" content="作为一个绝大部分工作是给浏览器打工的前端狗来说，觉得还是有必要了解一下浏览器的内核关于前端方面的技术。这里主要记录一下 Webkit 内核前端相关的一些东西,主要内容是总结《webkit技术内幕》一书里的。
+Webkit 是苹果发起的一个开源项目，后来谷歌用这个项目以 webkit 创建了一个新的项目 Chromium，我们平常用的 Chrome 浏览器一般都是基于 Chromium 开发出来的稳">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webkit 技术笔记(1)">
+<meta property="og:url" content="http://blog.yongyuan.com/post/Webkit 技术笔记(1).html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="作为一个绝大部分工作是给浏览器打工的前端狗来说，觉得还是有必要了解一下浏览器的内核关于前端方面的技术。这里主要记录一下 Webkit 内核前端相关的一些东西,主要内容是总结《webkit技术内幕》一书里的。
+Webkit 是苹果发起的一个开源项目，后来谷歌用这个项目以 webkit 创建了一个新的项目 Chromium，我们平常用的 Chrome 浏览器一般都是基于 Chromium 开发出来的稳">
+<meta property="og:image" content="http://dyy.im/wp-content/uploads/2014/09/20130921092322593.png">
+<meta property="og:image" content="http://dyy.im/wp-content/uploads/2014/09/20130921092344312.png">
+<meta property="og:updated_time" content="2015-09-05T07:52:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Webkit 技术笔记(1)">
+<meta name="twitter:description" content="作为一个绝大部分工作是给浏览器打工的前端狗来说，觉得还是有必要了解一下浏览器的内核关于前端方面的技术。这里主要记录一下 Webkit 内核前端相关的一些东西,主要内容是总结《webkit技术内幕》一书里的。
+Webkit 是苹果发起的一个开源项目，后来谷歌用这个项目以 webkit 创建了一个新的项目 Chromium，我们平常用的 Chrome 浏览器一般都是基于 Chromium 开发出来的稳">
+<meta name="twitter:image" content="http://dyy.im/wp-content/uploads/2014/09/20130921092322593.png">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> Webkit 技术笔记(1) </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> Webkit 技术笔记(1) </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-09-26T11:21:04+08:00" content="2014-09-26">
+              2014-09-26
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/Webkit 技术笔记(1).html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/Webkit 技术笔记(1).html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>作为一个绝大部分工作是给浏览器打工的前端狗来说，觉得还是有必要了解一下浏览器的内核关于前端方面的技术。这里主要记录一下 Webkit 内核前端相关的一些东西,主要内容是总结<a href="http://book.douban.com/subject/25910556/" target="_blank" rel="external">《webkit技术内幕》</a>一书里的。</p>
+<p>Webkit 是苹果发起的一个开源项目，后来谷歌用这个项目以 webkit 创建了一个新的项目 Chromium，我们平常用的 Chrome 浏览器一般都是基于 Chromium 开发出来的稳定版本。也就是说 苹果的sf和谷歌的chrome 浏览器都是基于 webkit 内核的(前两年 chrome基于webkit分离出来了一个新的blink内核，就目前而言，Blink的渲染和WebKit是一样，但是，以后两者将各自走不同的路，这个另说)。</p>
+<p>浏览器的功能就不多介绍了，主要介绍浏览器的渲染引擎即 webkit内核。webkit 作为浏览器的渲染引擎能够将 html/css/js文本及相应的资源文件转换成图像结果。它里面包含一些很重要的模块，当然作为浏览器的一部分，webkit工作时还要依赖一些其他的模块。<br>可以从下面这个图来理解：<br><img src="http://dyy.im/wp-content/uploads/2014/09/20130921092322593.png" alt=""></p>
+<p>可以看出渲染引擎大致包括HTML解释器，CSS解释器，布局和JavaScript引擎等模块。这些模块可能又依赖其他的基础模块，比如依赖第二层的一些基础模块。</p>
+<p>我们可以通过下图了解这些模块是如何一起完成网页的基本渲染过程的。<br><img src="http://dyy.im/wp-content/uploads/2014/09/20130921092344312.png" alt=""></p>
+<p>首先是网页内容，送到HTML解释器。HTML解释器在解释它后形成DOM树，中间如果遇到JavaScript代码则交给JavaScript引擎去处理。如果页面包含CSS，则交给CSS解释器去解析。当DOM建立的时候，接受来自CSS解释的样式信息，构建一个新的内部绘图模型。该模型由布局模块计算模型内部的各个元素的位置和大小信息，最后由绘图模块完成从该模型到图像的绘制。 </p>
+<p>最后解释图中虚线箭头的指向含义。它们表示在渲染过程中，每个阶段可能使用到的其他模块。在网页内容的下载中，需要使用到网络和存储，这个是显而易见地。但计算布局和绘图的时候，需要使用2D/3D的图形模块，同时因为要生成最后的可视化结果，这时候需要开始解码音频视频和图片，同其它内容一起绘制到最后的图像中。 在渲染完成之后，用户可能需要跟渲染的结果进行交互，或者网页自身有动画，一般而言，这会持续的重新渲染过程。</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#webkit" rel="tag">#webkit</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/Webkit 技术笔记(1).html"
+           data-title="Webkit 技术笔记(1)" data-url="http://blog.yongyuan.com/post/Webkit 技术笔记(1).html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

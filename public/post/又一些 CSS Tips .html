@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="CSS," />
+
+
+<meta name="description" content="CSS Tips原文地址： https://github.com/AllThingsSmitty/css-protips
+
+Use :not() to Apply/Unapply Borders on Navigation
+Add Line-Height to body
+Vertically-Center Anything
+Comma-Separated Lists
+Select Items Us">
+<meta property="og:type" content="article">
+<meta property="og:title" content="又一些 CSS Tips">
+<meta property="og:url" content="http://blog.yongyuan.com/post/又一些 CSS Tips .html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="CSS Tips原文地址： https://github.com/AllThingsSmitty/css-protips
+
+Use :not() to Apply/Unapply Borders on Navigation
+Add Line-Height to body
+Vertically-Center Anything
+Comma-Separated Lists
+Select Items Us">
+<meta property="og:updated_time" content="2015-10-23T16:41:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="又一些 CSS Tips">
+<meta name="twitter:description" content="CSS Tips原文地址： https://github.com/AllThingsSmitty/css-protips
+
+Use :not() to Apply/Unapply Borders on Navigation
+Add Line-Height to body
+Vertically-Center Anything
+Comma-Separated Lists
+Select Items Us">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 又一些 CSS Tips </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 又一些 CSS Tips </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-10-23T11:21:04+08:00" content="2015-10-23">
+              2015-10-23
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/又一些 CSS Tips .html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/又一些 CSS Tips .html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><h1 id="CSS-Tips"><a href="#CSS-Tips" class="headerlink" title="CSS Tips"></a>CSS Tips</h1><p>原文地址： <a href="https://github.com/AllThingsSmitty/css-protips" target="_blank" rel="external">https://github.com/AllThingsSmitty/css-protips</a></p>
+<ol>
+<li><a href="#use-not-to-applyunapply-borders-on-navigation">Use <code>:not()</code> to Apply/Unapply Borders on Navigation</a></li>
+<li><a href="#add-line-height-to-body">Add Line-Height to <code>body</code></a></li>
+<li><a href="#vertically-center-anything">Vertically-Center Anything</a></li>
+<li><a href="#comma-separated-lists">Comma-Separated Lists</a></li>
+<li><a href="#select-items-using-negative-nth-child">Select Items Using Negative <code>nth-child</code></a></li>
+<li><a href="#use-svg-for-icons">Use SVG for Icons</a></li>
+<li><a href="#text-display-optimization">Text Display Optimization</a></li>
+<li><a href="#use-max-height-for-pure-css-sliders">Use <code>max-height</code> for Pure CSS Sliders</a></li>
+<li><a href="#inherit-box-sizing">Inherit <code>box-sizing</code></a></li>
+<li><a href="#equal-width-table-cells">Equal Width Table Cells</a></li>
+<li><a href="#get-rid-of-margin-hacks-with-flexbox">Get Rid of Margin Hacks With Flexbox</a></li>
+<li><a href="#use-attribute-selectors-with-empty-links">Use Attribute Selectors with Empty Links</a></li>
+</ol>
+<h3 id="用-not-给导航条之间添加间隔线"><a href="#用-not-给导航条之间添加间隔线" class="headerlink" title="用:not()给导航条之间添加间隔线"></a>用<code>:not()</code>给导航条之间添加间隔线</h3><p>给元素添加边框</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* add border */</span></span><br><span class="line"><span class="selector-class">.nav</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">border-right</span>: <span class="number">1px</span> solid <span class="number">#666</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>…然后把最后一个元素的边框去掉…</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* remove border */</span></span><br><span class="line"><span class="selector-class">.nav</span> <span class="selector-tag">li</span><span class="selector-pseudo">:last-child</span> &#123;</span><br><span class="line">  <span class="attribute">border-right</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>…现在只需这样，给你想要应用的元素使用用 <code>:not()</code> 伪类选择器:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> <span class="selector-tag">li</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:last-child)</span> &#123;</span><br><span class="line">  <span class="attribute">border-right</span>: <span class="number">1px</span> solid <span class="number">#666</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，你也可以用 <code>.nav li + li</code> 或者 <code>.nav li:first-child ~ li</code> 实现, 但是用 <code>:not()</code> 非常简单。</p>
+<h3 id="给-body-元素增加-Line-Height-属性"><a href="#给-body-元素增加-Line-Height-属性" class="headerlink" title="给 body 元素增加 Line-Height 属性"></a>给 body 元素增加 Line-Height 属性</h3><p>我们不需要给每个 p、h1 元素设置 <code>line-height</code>，只需要给 body 元素设置，其他文本元素会自动继承body 的特性。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="垂直居中任何元素"><a href="#垂直居中任何元素" class="headerlink" title="垂直居中任何元素"></a>垂直居中任何元素</h3><p>不是黑魔法，确实可以让任意元素垂直居中。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>, <span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-align-items</span>: center;  </span><br><span class="line">  <span class="attribute">-ms-flex-align</span>: center;  </span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-flex;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Want to center something else? Vertically, horizontally…anything, anytime, anywhere? CSS-Tricks has <a href="https://css-tricks.com/centering-css-complete-guide/" target="_blank" rel="external">a nice write-up</a> on doing all of that.</p>
+<p><strong>Note:</strong> Watch for some <a href="https://github.com/philipwalton/flexbugs#3-min-height-on-a-flex-container-wont-apply-to-its-flex-items" target="_blank" rel="external">buggy behavior</a> with flexbox in IE11.</p>
+<h3 id="逗号分隔的列表"><a href="#逗号分隔的列表" class="headerlink" title="逗号分隔的列表"></a>逗号分隔的列表</h3><p>让列表项看起来像真的逗号分隔的列表</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> &gt; <span class="selector-tag">li</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:last-child)</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">","</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Use the <code>:not()</code> pseudo-class so no comma is added to the last item.</p>
+<h3 id="在-nth-child-中使用负数"><a href="#在-nth-child-中使用负数" class="headerlink" title="在 nth-child 中使用负数"></a>在 <code>nth-child</code> 中使用负数</h3><p>在css的nth-child中使用负数选择1~n条记录。<br>使用 <code>nth-child</code> 负数来选择 1到 n 的元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* select items 1 through 3 and display them */</span></span><br><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(-n+3)</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或者如果你已经知道了一点点关于 <a href="#use-not-to-applyunapply-borders-on-navigation">using <code>:not()</code></a>，可以试试:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* select items 1 through 3 and display them */</span></span><br><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:nth-child(-n+3))</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="图标使用-SVG"><a href="#图标使用-SVG" class="headerlink" title="图标使用 SVG"></a>图标使用 SVG</h3><p>没有理由不用 SVG 图标:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.logo</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"logo.svg"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>SVG scales well for all resolution types and is supported in all browsers back to IE9. So ditch your .png, .jpg, or .gif-jif-whatev files.</p>
+<p><strong>Note:</strong> If you have SVG icon-only buttons for sighted users and the SVG fails to load, this will help maintain accessibility:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.no-svg</span> <span class="selector-class">.icon-only</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">attr</span>(aria-label);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="文本显示优化"><a href="#文本显示优化" class="headerlink" title="文本显示优化"></a>文本显示优化</h3><p>Sometimes fonts don’t display optimally on all devices, so let the device browser help:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">-moz-osx-font-smoothing</span>: grayscale;</span><br><span class="line">  <span class="attribute">-webkit-font-smoothing</span>: antialiased;</span><br><span class="line">  <span class="attribute">text-rendering</span>: optimizeLegibility;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Note:</strong> <a href="https://bocoup.com/weblog/text-rendering/" target="_blank" rel="external">Please play with <code>optimizeLegibility</code> responsibly</a>. Also, there’s no <code>text-rendering</code> support for IE/Edge.</p>
+<h3 id="在-Pure-CSS-Sliders中使用-max-height"><a href="#在-Pure-CSS-Sliders中使用-max-height" class="headerlink" title="在 Pure CSS Sliders中使用 max-height"></a>在 Pure CSS Sliders中使用 <code>max-height</code></h3><p>Implement CSS-only sliders using <code>max-height</code> with overflow hidden:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.slider</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">max-height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">overlow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.slider</span><span class="selector-pseudo">:hover</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">max-height</span>: <span class="number">1000px</span>;</span><br><span class="line">  <span class="attribute">transition</span>: .<span class="number">3s</span> ease; <span class="comment">/* animate to max-height */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="继承-box-sizing"><a href="#继承-box-sizing" class="headerlink" title="继承 box-sizing"></a>继承 <code>box-sizing</code></h3><p>Let <code>box-sizing</code> be inheritted from <code>html</code>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">*, *<span class="selector-pseudo">:before</span>, *<span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: inherit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This makes it easier to change <code>box-sizing</code> in plugins or other components that leverage other behavior.</p>
+<h3 id="表格单元格等宽"><a href="#表格单元格等宽" class="headerlink" title="表格单元格等宽"></a>表格单元格等宽</h3><p>Tables can be a pain to work with so try using <code>table-layout: fixed</code> to keep cells at equal width:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.calendar</span> &#123;</span><br><span class="line">  <span class="attribute">table-layout</span>: fixed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Pain-free table layouts.</p>
+<h3 id="使用Flexbox-消除各种-Margin-Hacks"><a href="#使用Flexbox-消除各种-Margin-Hacks" class="headerlink" title="使用Flexbox 消除各种 Margin Hacks"></a>使用Flexbox 消除各种 Margin Hacks</h3><p>When working with column gutters you can get rid of <code>nth-</code>, <code>first-</code>, and <code>last-child</code> hacks by using flexbox’s <code>space-between</code> property:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.list</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: space-between;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.list</span> <span class="selector-class">.person</span> &#123;</span><br><span class="line">  <span class="attribute">flex-basis</span>: <span class="number">23%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now column gutters always appear evenly-spaced.</p>
+<h3 id="给空连接使用属性选择符"><a href="#给空连接使用属性选择符" class="headerlink" title="给空连接使用属性选择符"></a>给空连接使用属性选择符</h3><p>Display links when the <code>&lt;a&gt;</code> element has no text value but the <code>href</code> attribute has a link: </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href^="http"]</span><span class="selector-pseudo">:empty</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">attr</span>(href);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-Tips"><span class="nav-text">CSS Tips</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用-not-给导航条之间添加间隔线"><span class="nav-text">用:not()给导航条之间添加间隔线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给-body-元素增加-Line-Height-属性"><span class="nav-text">给 body 元素增加 Line-Height 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垂直居中任何元素"><span class="nav-text">垂直居中任何元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逗号分隔的列表"><span class="nav-text">逗号分隔的列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-nth-child-中使用负数"><span class="nav-text">在 nth-child 中使用负数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图标使用-SVG"><span class="nav-text">图标使用 SVG</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本显示优化"><span class="nav-text">文本显示优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-Pure-CSS-Sliders中使用-max-height"><span class="nav-text">在 Pure CSS Sliders中使用 max-height</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承-box-sizing"><span class="nav-text">继承 box-sizing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格单元格等宽"><span class="nav-text">表格单元格等宽</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Flexbox-消除各种-Margin-Hacks"><span class="nav-text">使用Flexbox 消除各种 Margin Hacks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给空连接使用属性选择符"><span class="nav-text">给空连接使用属性选择符</span></a></li></ol></li></ol></li></ol></div>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#CSS" rel="tag">#CSS</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/又一些 CSS Tips .html"
+           data-title="又一些 CSS Tips" data-url="http://blog.yongyuan.com/post/又一些 CSS Tips .html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

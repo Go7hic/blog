@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="JavaScript," />
+
+
+<meta name="description" content="今天在 mdn 上看文档，看到一个陌生的东西，仔细看了一下感觉还是不错的，这个东西就是 Array.prototype.slice.call()。这个东西有啥用呢？一句话概括就是把类数组转成真的数组，怎么说呢，具体例子就是把 arguments 转成真正的数组。
+我们知道 argument 对象是函数内部的本地变量，并且已经不是函数的属性了。他并不是一个真正的数组，他是一个类数组，没有数组特有的方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Array.prototype.slice.call() 这个东西">
+<meta property="og:url" content="http://blog.yongyuan.com/post/Array.prototype.slice.call() 这个东西.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="今天在 mdn 上看文档，看到一个陌生的东西，仔细看了一下感觉还是不错的，这个东西就是 Array.prototype.slice.call()。这个东西有啥用呢？一句话概括就是把类数组转成真的数组，怎么说呢，具体例子就是把 arguments 转成真正的数组。
+我们知道 argument 对象是函数内部的本地变量，并且已经不是函数的属性了。他并不是一个真正的数组，他是一个类数组，没有数组特有的方">
+<meta property="og:updated_time" content="2015-09-02T14:09:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Array.prototype.slice.call() 这个东西">
+<meta name="twitter:description" content="今天在 mdn 上看文档，看到一个陌生的东西，仔细看了一下感觉还是不错的，这个东西就是 Array.prototype.slice.call()。这个东西有啥用呢？一句话概括就是把类数组转成真的数组，怎么说呢，具体例子就是把 arguments 转成真正的数组。
+我们知道 argument 对象是函数内部的本地变量，并且已经不是函数的属性了。他并不是一个真正的数组，他是一个类数组，没有数组特有的方">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> Array.prototype.slice.call() 这个东西 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> Array.prototype.slice.call() 这个东西 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-07-09T11:21:04+08:00" content="2015-07-09">
+              2015-07-09
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/Array.prototype.slice.call() 这个东西.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/Array.prototype.slice.call() 这个东西.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>今天在 mdn 上看文档，看到一个陌生的东西，仔细看了一下感觉还是不错的，这个东西就是 Array.prototype.slice.call()。<br>这个东西有啥用呢？一句话概括就是把类数组转成真的数组，怎么说呢，具体例子就是把 arguments 转成真正的数组。</p>
+<p>我们知道 argument 对象是函数内部的本地变量，并且已经不是函数的属性了。他并不是一个真正的数组，他是一个类数组，没有数组特有的方法和属性，除了 length。我们可以通过 arguments 来获取函数所有的参数。这个对象为传递给函数的每个参数建立一个条目，条目的索引号从 0 开始。例如，如果一个函数有三个参数，你可以通过以下方式获取参数：<br><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arguments<span class="string">[0]</span></span><br><span class="line">arguments<span class="string">[1]</span></span><br><span class="line">arguments<span class="string">[2]</span></span><br></pre></td></tr></table></figure></p>
+<p>很多时候我们需要把 arguments 里的内容转成数组来处理更方便，这时候我们就可以用这个方法来处理 arguments.<br><code>var args = Array.prototype.slice.call(arguments);</code></p>
+<p>我们还知道 slice 方法是数组自带的，所以通过 Array.prototype 来调用，在某些情况下也可以直接用 Array.slice 。我们再来分析一下， call() 方法在使用一个指定的 this 值和若干个指定的参数值的 v 前提下调用某个函数或方法。通过 call() 方法我们可以在一个对象上借用另一个对象上的方法，比如<br>Array.prototype.slice.call(arguments) 就是把 arguments 对象借用 Array 的 slice 方法，从而生成一个新的数组。我这里我就不继续分析 call() 方法了。</p>
+<p>最后我们可以看一个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myConcat</span>(<span class="params">separator</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> args.join(separator);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>myConcat 只接收一个参数，现在我想传多个参数进去，myConcat(‘,’,’1’,’2’,’3’)，我们前面说了，虽然 arguments 不是数组，但是有数组的 length 属性，所以上面函数里的1，就是从 arguments 参数里下表是1的参数开始，也就是第二个参数。所以我们可以得出 args = [1,2,3];因为函数只能接收一个参数，所以最后 return 里面的 separator为 <code>,</code>,最后通过 join 字符串拼接得到的就是 ‘1,2,3’了.<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">myConcat</span><span class="params">(<span class="string">','</span> ,<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>)</span></span> <span class="comment">//'1,2,3'</span></span><br></pre></td></tr></table></figure></p>
+<p>可以参考 so 上面的一个回答:<br> <a href="http://stackoverflow.com/questions/7056925/how-does-array-prototype-slice-call-work" target="_blank" rel="external">http://stackoverflow.com/questions/7056925/how-does-array-prototype-slice-call-work</a><br> MDN 关于 call 的介绍<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call</a></p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#JavaScript" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/Array.prototype.slice.call() 这个东西.html"
+           data-title="Array.prototype.slice.call() 这个东西" data-url="http://blog.yongyuan.com/post/Array.prototype.slice.call() 这个东西.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

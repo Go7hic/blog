@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="^_^" />
+
+
+<meta name="description" content="###一：隐式类型转换（0）：提要
+JavaScript 是非常宽容的，「来者不拒」，不在乎什么类型。 例如，它如果想要接受数字，它并不拒绝其他类型的值，而是试图把它们转换成数字：
+
+‘5’ - ‘2’3‘5’ * ‘2’10
+
+自动转换为布尔值通常不会引起问题，而且往往很有用（译注：比如在C语言里，根本就没有布尔类型。by @justjavac）。 即使如此，这些隐式转换也会引起怪癖（quirk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript的12个怪癖">
+<meta property="og:url" content="http://blog.yongyuan.com/post/2014-07-17-js-12-guaipi.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="###一：隐式类型转换（0）：提要
+JavaScript 是非常宽容的，「来者不拒」，不在乎什么类型。 例如，它如果想要接受数字，它并不拒绝其他类型的值，而是试图把它们转换成数字：
+
+‘5’ - ‘2’3‘5’ * ‘2’10
+
+自动转换为布尔值通常不会引起问题，而且往往很有用（译注：比如在C语言里，根本就没有布尔类型。by @justjavac）。 即使如此，这些隐式转换也会引起怪癖（quirk">
+<meta property="og:updated_time" content="2015-07-24T16:08:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript的12个怪癖">
+<meta name="twitter:description" content="###一：隐式类型转换（0）：提要
+JavaScript 是非常宽容的，「来者不拒」，不在乎什么类型。 例如，它如果想要接受数字，它并不拒绝其他类型的值，而是试图把它们转换成数字：
+
+‘5’ - ‘2’3‘5’ * ‘2’10
+
+自动转换为布尔值通常不会引起问题，而且往往很有用（译注：比如在C语言里，根本就没有布尔类型。by @justjavac）。 即使如此，这些隐式转换也会引起怪癖（quirk">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> JavaScript的12个怪癖 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> JavaScript的12个怪癖 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-07-17T00:00:00+08:00" content="2014-07-17">
+              2014-07-17
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/2014-07-17-js-12-guaipi.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/2014-07-17-js-12-guaipi.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>###一：隐式类型转换<br><strong>（0）：提要</strong></p>
+<p>JavaScript 是非常宽容的，「来者不拒」，不在乎什么类型。 例如，它如果想要接受数字，它并不拒绝其他类型的值，而是试图把它们转换成数字：</p>
+<blockquote>
+<p>‘5’ - ‘2’<br>3<br>‘5’ * ‘2’<br>10</p>
+</blockquote>
+<p>自动转换为布尔值通常不会引起问题，而且往往很有用（译注：比如在C语言里，根本就没有布尔类型。by @justjavac）。 即使如此，这些隐式转换也会引起怪癖（quirks）。 但是当自动转换为字符串时，可能会引起问题。<br><a id="more"></a><br><strong>(1)：隐式转换为布尔：“truthy”和“falsy”</strong></p>
+<p>当 JavaScript 需要一个布尔值时（例如：if 语句），任何值都可以被使用。 最终这些值将被转换为 true 或 false。</p>
+<p>下面的值被转换为 false：</p>
+<p>undefined, null<br>Boolean: false<br>Number: -0, +0, NaN<br>String: ‘’</p>
+<p>所有其他值都认为是 true。 被转换成 ‘false’ 的值我们成之为 falsy，被转换成 ‘true’ 的值我们成之为 truthy。 您可以使用 Boolean 来测试一个值到底被转换成了什么。</p>
+<p>Boolean 将其参数转换为布尔值（boolean）：</p>
+<blockquote>
+<p>Boolean(undefined)<br>false<br>Boolean(0)<br>false<br>Boolean(3)<br>true</p>
+</blockquote>
+<p><strong>(2)、字符串的隐式转换</strong></p>
+<p>在 Web 开发中，我们经常得到字符串值，实际上我们期望的却是数字或者布尔值。 例如，用户输入的表单中的数据。 如果你忘了对这些字符串进行显式的转换，那么 JavaScript 会令你感到惊讶，主要体现在两个方面：</p>
+<p>首先，系统不会有任何警告。<br>其次，这些值将被自动转换，但确实错误的。<br>例如，加运算符（+），就有这方面的问题，因为只要其中一个操作数是字符串，那么它就执行连接字符串的操作（而不是加法操作，即使它们是数字）。</p>
+<p>在下面的 JavaScript 代码中，我们本来预期是把 1 和 5 相加。 但是，我们使用了字符串 ‘5’ 和 ‘1’ 。</p>
+<blockquote>
+<p>var x = ‘5’;  // 错误的假设：x 是一个数字</p>
+<p>x + 1<br>‘51’<br>此外，还有一些看似是 false 的值，如果转换成字符串，却成了 ‘true’。</p>
+</blockquote>
+<p>例如：false。</p>
+<blockquote>
+<p>Boolean(false)<br>false<br>String(false)<br>‘false’<br>Boolean(‘false’)  // ！！<br>true<br>例如： undefined.</p>
+<p>Boolean(undefined)<br>false<br>String(undefined)<br>‘undefined’<br>Boolean(‘undefined’)  // ！！<br>true</p>
+</blockquote>
+<p><strong>(3)、对象的隐式转换</strong></p>
+<p>只有在 JavaScript 表达式或语句中需要用到数字或字符串时，对象才被隐式转换。 当需要将对象转换成数字时，需要以下三个步骤：</p>
+<p>调用 valueOf()。如果结果是原始值（不是一个对象），则将其转换为一个数字。<br>否则，调用 toString() 方法。如果结果是原始值，则将其转换为一个数字。<br>否则，抛出一个类型错误。<br>第一步示例:</p>
+<blockquote>
+<p>3 * { valueOf: function () { return 5 } }<br>15<br>第三步示例:</p>
+<p>function returnObject() { return {} }<br>3 * { valueOf: returnObject, toString: returnObject }<br>TypeError: Cannot convert object to primitive value</p>
+</blockquote>
+<p>如果把对象转换成字符串时，则转换操作的第一步和第二步的顺序会调换： 先尝试 toString() 进行转换，如果不是原始值，则再尝试使用 valueOf()。</p>
+<p>###二：两个「空值」：undefined 和 null<br>对于“空值”或“空引用”，大多数编程语言只有一个值。比如，在 Java 中用的是 null。 但是在 Javascript 中却有两个特殊的值: undefined 和 null。 他们基本上是相同，但用法上却略有些不同。 在这个 系列教程 的最后，我会解释一下在 ECMAScript 6 中的一些变化。</p>
+<p>undefined 是被语言本身所分配的。 如果一个变量还没有被初始化，那么它的值就是 undefined:</p>
+<blockquote>
+<p>var foo;<br>foo<br>undefined</p>
+</blockquote>
+<p>同理，当缺失参数时 JavaScript 会分配一个 undefined：</p>
+<blockquote>
+<p>function id(x) { return x }<br>id()<br>undefined</p>
+</blockquote>
+<p><code>null</code> 是被开发者用来明确指出某个值是缺失的， 例如，对于 JSON.stringify():</p>
+<blockquote>
+<p>console.log(JSON.stringify({ first: ‘Jane’ }, null, 4))<br>{<br>    “first”: “Jane”<br>}</p>
+</blockquote>
+<p>校检：一个变量是否有值？</p>
+<p>如果你想知道变量 v 是否有值，正常情况下，你需要同时检验 undefined 与 null。 幸运的是两个值都是 false 型。 因此，只用一个判断，就可以同时检验这两项是否为真:</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">if</span> (v) &#123;</span><br><span class="line">    <span class="comment">// v 有值</span></span><br><span class="line">&#125; <span class="selector-tag">else</span> &#123;</span><br><span class="line">    <span class="comment">// v 没有值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在本 系列 的第 5 部分——关于函数参数的处理——你将会看到更多的上面校检例子。 有一点要注意的是：这个检查也会把 false, -0, +0, NaN 与 ‘’ 当成“空值”。 如果这不是你想要的，那么就不能使用上面的校检方法了。</p>
+<p>你有两个选择。</p>
+<p>有些人提倡使用不等于（!=）来校检 v 既不是 undefined 或 null:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (v != <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="comment">// v 有值</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// v 没有值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不过，这要求你要明白 <code>!=</code>认为 <code>null</code> 只等于它自己或是<code>undefined</code>。 我喜欢用更有可读性的<code>!==</code>:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (v !== <span class="literal">undefined</span> &amp;&amp; v !== <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="comment">// v 有值</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// v 没有值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>性能方面，所有在这个章节中提到的这三个校检基本是相同的。 所以，最后用哪个取决于你的需求还有你的品味。 一些压缩工具甚至用 != 重写了最后一条校检。</p>
+<h3 id="三：标准的等号"><a href="#三：标准的等号" class="headerlink" title="三：标准的等号 (==)"></a>三：标准的等号 (==)</h3><p>让我们先看一个简单的例子： 由于一般的等于符号 <code>==</code>、<code>!=</code>经常会出现问题，以至于我们不得不使用严格等于(===、!==)。 当然有人说这些规则也有例外，我不同意这个观点2。 怀揣的这个问题，我们现在就来看一下这个奇怪的现象：== 是不必要。</p>
+<p>这个“正常”的等号（==）有很多怪癖。 虽然他很宽容（非严格比较），当与真值或者假值比较时，它会忽略类型（详见怪癖1）：</p>
+<blockquote>
+<p>0 == false  // OK<br>true<br>1 == true  // OK<br>true<br>2 == true  // not OK<br>false</p>
+<p>‘’ == false  // OK<br>true<br>‘1’ == true  // OK<br>true<br>‘2’ == true  // not OK<br>false</p>
+</blockquote>
+<p>除了这些，我们设置可以把那些明显不能比较的值进行比较（我勒个去～～比较的结果居然还是 true）：</p>
+<blockquote>
+<p>‘’ == 0<br>true<br>‘\n  123  \t’ == 123<br>true</p>
+</blockquote>
+<p>最后一次比较返回是 true，因为在 javascript 中把字符串转换数字类型时，会过滤掉首尾空白字符。 如果你仍然对关于 == 怎么工作感兴趣，你可以读读这篇文章。 对于严格比较符（===），不同类型的值比较是不相等的 1。也就是说试用严格比较符号，上诉的问题都不复存在。</p>
+<p>###四：未知变量名创建全局变量</p>
+<p>此文是 javascript 的 12 个怪癖（quirks） 系列的第四篇。</p>
+<p>当你使用了一个未知的变量名，通常 JavaScript 会自动创建全局变量：</p>
+<p><code>function f() { foo = 123 } f() foo 123</code></p>
+<p>好在你会在 ECMAScript5 的严谨模式得到警告[1]：</p>
+<p><code>function f() { &#39;use strict&#39;; foo = 123 } f() ReferenceError: foo is not defined</code></p>
+<p>###五：参数的处理</p>
+<p>1、参数处理的基本原理</p>
+<p>JavaScript 的参数处理包括两个要点</p>
+<p>1.1、要点：你可以传递任意数量的参数</p>
+<p>当调用一个 function 时，你想传递多少参数都可以，这与该函数声明了多少个正式的参数无关。 缺失参数的值是 undefined，多出来的参数则直接被忽略掉。</p>
+<p>我们用以下的函数做个示范：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">function</span> <span class="selector-tag">f</span>(x, y) &#123;</span><br><span class="line">    console<span class="selector-class">.log</span>(<span class="string">'x: '</span>+x);</span><br><span class="line">    console<span class="selector-class">.log</span>(<span class="string">'y: '</span>+y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你可以用任意数量的参数调用这个 function：</p>
+<blockquote>
+<p>f()<br>x: undefined<br>y: undefined</p>
+<p>f(‘a’)<br>x: a<br>y: undefined</p>
+<p>f(‘a’, ‘b’)<br>x: a<br>y: b</p>
+<p>f(‘a’, ‘b’, ‘c’)<br>x: a<br>y: b</p>
+</blockquote>
+<p>1.2要点：所有传递的参数都储存在 arguments 中</p>
+<p>所有传递的参数都储存在一个很特别、很像 Array（继续看就能知道为什么了）的变量里，arguments。 通过下面的 function 我们来看下这个变量怎么用的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Length: '</span>+<span class="built_in">arguments</span>.length);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Elements: '</span>+fromArray(<span class="built_in">arguments</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是 fromArray 函数，它把 arguments 转换成 array 这样就能存入数据了，调用 g()：</p>
+<blockquote>
+<p>g()<br>Length: 0<br>Elements:<br>g(‘a’)<br>Length: 1<br>Elements: a<br>g(‘a’, ‘b’)<br>Length: 2<br>Elements: a,b</p>
+</blockquote>
+<p>无论明确声明了多少个参数，arguments 是永远在那里的，它总是包含所有实际的参数。</p>
+<p><strong>2、参数传递了吗？</strong></p>
+<p>如果调用者没有提供参数，那么 undefined 就会传递给 function。 因为 undefined 是一个虚拟值[1]，你可以用一个 if 条件语句来检验它是否存在：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hasParameter</span><span class="params">(param)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (param) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'yes'</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'no'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，你不传参数与传入 undefined 获得的结果是一样的：</p>
+<p>‘no’</p>
+<blockquote>
+<p>hasParameter(undefined)<br>‘no’</p>
+</blockquote>
+<p>测试代码对真实值(truthy)同样有效：</p>
+<blockquote>
+<p>hasParameter([ ‘a’, ‘b’ ])<br>‘yes’<br>hasParameter({ name: ‘Jane’ })<br>‘yes’<br>hasParameter(‘Hello’)<br>‘yes’</p>
+</blockquote>
+<p>而对于虚拟值(falsy)的会用是需要多加小心的。 比如 false、0 以及空字符串都被解析为缺失参数：</p>
+<blockquote>
+<p>hasParameter(false)<br>‘no’<br>hasParameter(0)<br>‘no’<br>hasParameter(‘’)<br>‘no’</p>
+</blockquote>
+<p>这段代码足以证明。 你必须要多加注意，因为代码变得更加紧凑与调用者是否忽略了一个参数还是传递了 undefined 或者 null 都无关。</p>
+<p><strong>3、参数的默认值</strong></p>
+<p>以下的 function 可以传入 0 或者其他参数，x 和 y 如果未传参数则会是 0，以下是一种表现方式：</p>
+<figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function add(<span class="keyword">x</span>, y) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">x</span>) <span class="keyword">x</span> = <span class="number">0</span><span class="comment">;</span></span><br><span class="line">    <span class="keyword">if</span> (!y) y = <span class="number">0</span><span class="comment">;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">x</span> + y<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>交互后：</p>
+<blockquote>
+<p>add()<br>0<br>add(5)<br>5<br>add(2, 7)<br>9</p>
+</blockquote>
+<p>你可以用 or 运算符（||）使 add() 更简洁。 如果为真这个运算符会返回第一个值否则返回第二个。</p>
+<p>例如：</p>
+<blockquote>
+<p>‘abc’ || ‘def’<br>‘abc’<br>‘’ || ‘def’<br>‘def’<br>undefined || { foo: 123 }<br>{ foo: 123 }<br>{ foo: 123 } || ‘def’<br>{ foo: 123 }</p>
+</blockquote>
+<p>我们用 || 来指定参数默认值：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title">add</span>(x, y) &#123;</span><br><span class="line">    x = x || 0;</span><br><span class="line">    y = y || 0;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">x</span> + y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>4、任意数量的参数</strong></p>
+<p>你也可以用 arguments 来接收任意数量的参数，其中一个例子是以下的函数 format()，它在 C 函数 sprintf 之后输出语句：</p>
+<blockquote>
+<p>format(‘Hello %s! You have %s new message(s).’, ‘Jane’, 5)<br>‘Hello Jane! You have 5 new message(s).</p>
+</blockquote>
+<p>第一个参数是一个样式，由 %s 标记空白，后面的参数则填入这些标记，简单的 format 函数实现如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">format</span><span class="params">(pattern)</span> &#123;</span></span><br><span class="line">    <span class="keyword">for</span>(var <span class="built_in">i</span>=<span class="number">1</span>; <span class="built_in">i</span> &lt; arguments.<span class="built_in">length</span>; <span class="built_in">i</span>++) &#123;</span><br><span class="line">        pattern = pattern.replace(<span class="string">'%s'</span>, arguments[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pattern;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：循环跳过了第一个参数(arguments[0]) 并且忽略了 pattern。</p>
+<p><strong>5、强制执行一定数量的参数</strong></p>
+<p>如果你想要强制调用者执行一定数量的参数，你就要在运行阶段检查 arguments.length：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>.length &gt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Need at most 2 parameters'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>6、arguments 不是 array</strong></p>
+<p>arguments 并不是 array，它只是很像 array，你可以获取第 i 个参数比如 arguments[i]， 你也可以检查它有多少个参数比如 arguments.length。 但是你不能用 Array 的方法如 forEach 或者 indexOf。 更多详情与解答会在「怪癖8（未翻译）」中进行讨论，作为一个预习，以下函数能将一个类似 array 的值转换为 array：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title">fromArray</span>(arrayLikeValue) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Array.prototype.slice.call(arrayLikeValue)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>7、参考</strong></p>
+<p>[1] JavaScript quirk 1: implicit conversion of values [解释了“真实值(truthy)”与“虚拟值(falsy)”]</p>
+<p>###六：变量的作用范围 </p>
+<p>此文是 javascript 的 12 个怪癖（quirks） 系列的第六篇。</p>
+<p>在大多数编程语言中，变量的生命周期是“定义此变量的块（block）”。 但是在 JavaScript 中，变量的作用域却和函数息息相关，而不是大括号：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> tmp = <span class="number">100</span> - x;  <span class="comment">// (*)</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（译注：很多程序员会觉得 tmp 变量的作用于是 if 块，其实不然，javascript 根本没有块作用域。）</p>
+<p>上述代码引发的行为是：函数内部，在（*）处声明的变量 tmp 被移动到了函数的开头（赋值语句依然保留在原处）。 也就是说，实际上此段代码在 JavaScript 引擎中的运行时，看起来像这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> tmp;</span><br><span class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        tmp = <span class="number">100</span> - x;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是，有一招可以把一个变量限制在一个块作用域，它被称为立即函数表达式（IIFE，发音为“iffy”）。</p>
+<p>立即函数表达式：<code>Immediately Invoked Function Expression。</code></p>
+<p>下面，我们使用一个 IIFE，将 tmp 的作用域限制在包含它的 if 语句块中。</p>
+<figure class="highlight plain"><figcaption><span>func(x) &#123;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    console.log(tmp); // ReferenceError: tmp is not defined</span><br><span class="line">    if (x &lt; 0) &#123;</span><br><span class="line">        (function () &#123;  // open IIFE</span><br><span class="line">            var tmp = 100 - x;</span><br><span class="line">            ...</span><br><span class="line">        &#125;());  // close IIFE</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们在内部块的外面，写了一个函数，创建了一个新的作用域。 （译注：javascript 没有块作用域，OMG！。只有函数作用域，因此我们必须使用一个匿名函数，而且是立即执行的匿名函数创建了一个新的作用域。） 然后我们立即执行此函数。 tmp 仅仅存在于 IIFE 中。 需要注意的是围绕此 IIFE 的小括号是必须的。</p>
+<p>如果没有环绕 IIFE 的小括号，函数成了：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> tmp = <span class="number">100</span> - x;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure>
+<p>执行结果：</p>
+<figure class="highlight plain"><figcaption><span>Unexpected token (```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">（why？）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">作者写道，</span><br><span class="line"></span><br><span class="line">&gt; They lead to the function being interpreted as an expression, which is</span><br><span class="line">&gt; the only form in which it can be be immediately invoked.</span><br><span class="line"></span><br><span class="line">我们需要在 IIFE 的开始和结束的地方，写上小括号，把函数解析成一个表达式。 这是把函数变成立即调用的唯一形式。</span><br><span class="line">到底是不是唯一形式呢？</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      1. (function () &#123;</span><br><span class="line">            var tmp = 100 - x; </span><br><span class="line">      &#125;());</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">      2. (function () &#123;</span><br><span class="line">            var tmp = 100 - x; </span><br><span class="line">      &#125;)(); </span><br><span class="line">      </span><br><span class="line">（and why？）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">留下了几个疑问，原作者没有写明，由于篇幅关系，我会在随后的博文中解释。</span><br><span class="line"></span><br><span class="line">不过关于表达式的疑问可以去看我写的『代码之谜』系列之语句与表达式。 最后一个疑问可以读一下 命名函数表达式探秘</span><br><span class="line"></span><br><span class="line">###七:变量闭包之后的无意识共享 </span><br><span class="line">此文是 javascript 的 12 个怪癖（quirks） 系列的第七篇。</span><br><span class="line"></span><br><span class="line">闭包是 JavaScript 一个强大的特性：当函数离开了创建它的位置，仍然可以获取到该位置上存在的所有变量。 本文主要解释闭包的工作方式以及我们为什么要对于变量的无意识共享多加小心。</span><br><span class="line"></span><br><span class="line">**1、闭包**</span><br><span class="line"></span><br><span class="line">我们从一个闭包的例子开始吧：</span><br></pre></td></tr></table></figure>
+<p>function incrementorFactory(start, step) {<br>    return function () {  // (*)<br>        start += step;<br>        return start;<br>    }<br>}<br><figure class="highlight rsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">下面调用 incrementorFactory：</span><br><span class="line"></span><br><span class="line">&gt; var inc = incrementorFactory(<span class="number">20</span>, <span class="number">2</span>);</span><br><span class="line">&gt; inc()</span><br><span class="line"><span class="number">22</span></span><br><span class="line">&gt; inc()</span><br><span class="line"><span class="number">24</span></span><br><span class="line"></span><br><span class="line">在运行阶段，内部函数(*)能获取到外部函数 incrementorFactory 的变量 start 与 <span class="built_in">step</span>，而且 incrementorFactory 不只返回函数， 也连带返回了变量 start 与 <span class="built_in">step</span>。 存储这两个变量的数据结构叫做 <span class="built_in">environment</span>，<span class="built_in">environment</span> 与 object 非常相似——它将键名映射到键值。 以上返回的函数包含了 <span class="built_in">environment</span> 的引用，它在父级即外部的 <span class="built_in">environment</span> 时就已经激活。 组合函数 + <span class="built_in">environment</span> 就叫做闭包。 这名称来源于当 <span class="built_in">environment</span> “关闭”函数时：它为变量提供了可声明在函数外的值（这就是所谓的自由变量）。</span><br><span class="line"></span><br><span class="line">当函数被请求，就会为它的参数和局部变量创建一个新的 <span class="built_in">environment</span>。 所以总会有一连串的<span class="built_in">environment</span>：</span><br><span class="line"></span><br><span class="line">f 的 <span class="built_in">environment</span></span><br><span class="line">f 的外部 <span class="built_in">environment</span></span><br><span class="line">f 外的 <span class="built_in">environment</span> 外部的 <span class="built_in">environment</span></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line">全局变量的 <span class="built_in">environment</span>（全局 <span class="built_in">environment</span>）</span><br><span class="line">以上是从 f 的 <span class="built_in">environment</span>开始，完全搜索 <span class="built_in">environment</span> 链查看的所有变量值。</span><br><span class="line"></span><br><span class="line">**<span class="number">2</span>、怪癖：无意识共享**</span><br><span class="line"></span><br><span class="line">闭包并不是在特定的时间点获得快照，它是获取动态的变量，以下是这个问题的例子：</span><br></pre></td></tr></table></figure></p>
+<p>var result = [];<br>for (var i=0; i &lt; 5; i++) {<br>    result.push(function () { return i });  // (*)<br>}<br>console.log(result<a href="">3</a>); // 5 (not 3)<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">当函数在这里(*)创建的时候，变量 <span class="selector-tag">i</span> 有一个确定的值，你可能会觉得那个函数返回的会一直是那个值。 相反，它与动态的i是一直关联着的，就是说所有 result 数组中的函数都是通过它们的外部 environment 关联同一个 i，当循环结束时，<span class="selector-tag">i</span> 的值就是 <span class="number">5</span>。</span><br><span class="line"></span><br><span class="line">一种可行的解决方案就是通过一个返回值(Immediately Invoked Function Expression)<span class="number">1</span>来复制 <span class="selector-tag">i</span> 的当前值：</span><br></pre></td></tr></table></figure></p>
+<p>for (var i=0; i &lt; 5; i++) {<br>   (function (i2) {  // snaphot of i<br>       result.push(function () { return i2 });<br>   }(i));<br>}<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">你也可以用 <span class="keyword">bind() </span>函数，也有相似的效果：</span><br></pre></td></tr></table></figure></p>
+<p>for (var i=0; i &lt; 5; i++) {<br>    result.push(function (i2) { return i2 }.bind(null, i));<br>}<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">用 <span class="keyword">forEach</span> 和 Underscore.js 库中的 <span class="keyword">range</span>() 函数也可以办到：</span><br></pre></td></tr></table></figure></p>
+<p>_.range(5).forEach(function (i) {<br>    result.push(function () { return i });<br>});<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">以上的代码都可行，因为每次请求参数时，<span class="keyword">forEach</span> 都创建了一个新的i变量。</span><br><span class="line"></span><br><span class="line"><span class="comment">**2.1 一个实际应用的例子**</span></span><br><span class="line"></span><br><span class="line">下面我们用一个更加实用的例子来总结下。 两天前，我做了一 个Connect Four 游戏的 UI 来作为 DOM 的示例，它包含了以下的代码片段， 添加了事件侦听来连接到游戏板的行列上。</span><br></pre></td></tr></table></figure></p>
+<p>for(var col=0; col &lt; board4.DIM_X; col++) {<br>    document.getElementById(‘columnClick’+col)<br>            .addEventListener(‘click’, function (col) {<br>                currentState.columnClick(col);<br>                event.preventDefault();<br>            }.bind(null, col));<br>}<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">另一种方式是用 CSS 类来代替 ID，重写以上代码：</span><br></pre></td></tr></table></figure></p>
+<p>Array.prototype.forEach.call(<br>  document.getElementsByClassName(‘columnClick’),<br>  function (elem, col) {  // (*)<br>      elem.addEventListener(‘click’, function () {<br>          currentState.columnClick(col);<br>          event.preventDefault();<br>      });<br>  });<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">这样，函数(*)的每次调用都会创建一个新的变量 col，而且不会有无意识共享发现。</span><br><span class="line"></span><br><span class="line">本系列的最后一篇文章会讲解用 ECMAScript6 来处理无意识共享的问题。</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、引用</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>] JavaScript quirk <span class="number">6</span>: the scope of <span class="keyword">variables</span></span><br><span class="line"></span><br><span class="line">###八：“类数组对象”  </span><br><span class="line"></span><br><span class="line">JavaScript中有一些看起来像却又不是数组的对象，唤作类数组。 本文旨在探究类数组的确切含义和高效的使用方式。</span><br><span class="line"></span><br><span class="line"><span class="comment">**类数组**</span></span><br><span class="line"></span><br><span class="line">一个类数组对象：</span><br><span class="line"></span><br><span class="line">具有：指向对象元素的数字索引下标以及 length 属性告诉我们对象的元素个数</span><br><span class="line">不具有：诸如 push 、<span class="comment"> forEach</span> 以及<span class="comment"> indexOf</span> 等数组对象具有的方法</span><br><span class="line">两个典型的类数组的例子是：DOM方法 document.getElementsByClassName() 的返回结果（实际上许多<span class="comment">DOM</span>方法的返回值都是类数组）以及特殊变量<span class="comment"> arguments [1]</span>。</span><br><span class="line">例如你可以通过以下方法确定函数参数的个数</span><br><span class="line"></span><br><span class="line">`arguments.length`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">你也可以获取单个参数值，例如读取第一个参数：</span><br><span class="line"></span><br><span class="line">`arguments[0]`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">如果这些对象想使用数组的方法，就必须要用某种方式“借用”。由于大部分的数组方法都是通用的，因此我们可以这样做。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">**通用方法**</span></span><br><span class="line"></span><br><span class="line">所谓的通用方法就是不强制要求函数的调用对象 this 必须为数组，仅需要其拥有<span class="comment"> length</span> 属性和数字索引下标即可。 通常来讲，你可以用如下的方式在数组<span class="comment"> arr</span> 上调用方法<span class="comment"> m</span> ：</span><br><span class="line"></span><br><span class="line">```arr.m(arg0, arg1, ...)</span><br></pre></td></tr></table></figure></p>
+<p>所有的函数都拥有一个 call 方法来让我们用这样一种方式进行上述调用：</p>
+<p><code>Array.prototype.m.call(arr, arg0, arg1, ...)</code></p>
+<p>call 方法的第一个参数就是函数 m 的调用对象 this 的值（在这个例子里就是 arr）。 因为我们直接调用方法 m ，而非通过数组对象 arr ，因此我们可以为本方法更改任意的 this 值。</p>
+<p>例如改为 arguments :</p>
+<p><code>Array.prototype.m.call(arguments, arg0, arg1, ...)</code></p>
+<p>例子</p>
+<p>让我们来看一个具体的例子。 下面的 printArgs 列出了函数的全部参数值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printArgs</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">Array</span>.prototype.forEach.call(<span class="built_in">arguments</span>,</span><br><span class="line">        <span class="function"><span class="keyword">function</span> (<span class="params">arg, i</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i+<span class="string">'. '</span>+arg);</span><br><span class="line">        &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们“通用地”使用了方法 forEach。 printArgs 的运行结果如下：</p>
+<pre><code>&gt; printArgs()
+&gt; printArgs(&apos;a&apos;)
+0. a
+&gt; printArgs(&apos;a&apos;, &apos;b&apos;)
+0. a
+1. b
+</code></pre><p>你甚至可以应用通用方法给普通的对象：</p>
+<pre><code>&gt; var obj = {};
+&gt; Array.prototype.push.call(obj, &apos;a&apos;);
+1
+&gt; obj
+{ &apos;0&apos;: &apos;a&apos;, length: 1 }
+</code></pre><p>在上述例子中，length 属性原本不存在并以0为初始值自动创建。</p>
+<p>将类数组对象转化为数组</p>
+<p>有时候处理类数组对象的最好方法是将其转化为数组。 这项工作也可以使用通用方法来完成：</p>
+<p><code>Array.prototype.slice.call(arguments)</code></p>
+<p>对于正常复制数组对象而言，我们额外使用了 call 的方法。</p>
+<p><code>arr.slice()</code></p>
+<p>未完待续:<br>转自<a href="https://github.com/justjavac/12-javascript-quirks" target="_blank" rel="external">https://github.com/justjavac/12-javascript-quirks</a></p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#三：标准的等号"><span class="nav-text">三：标准的等号 (==)</span></a></li></ol></div>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/2014-07-17-js-12-guaipi.html"
+           data-title="JavaScript的12个怪癖" data-url="http://blog.yongyuan.com/post/2014-07-17-js-12-guaipi.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

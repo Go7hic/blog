@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="css," />
+
+
+<meta name="description" content="参考 http://css-tricks.com/line-clampin/
+不是一行，所以123overflow:hidden;white-space: nowrap;text-overflow: ellipsis;
+这个没用。
+我也只介绍上面那篇文章里看到的几种方法，具体看 demo ，里面有说明
+1234&amp;lt;p class=&quot;box1&quot;&amp;gt;Lorem ipsum dolor sit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多行文本溢出显示省略号解决方案">
+<meta property="og:url" content="http://blog.yongyuan.com/post/多行文本溢出显示省略号解决方案.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="参考 http://css-tricks.com/line-clampin/
+不是一行，所以123overflow:hidden;white-space: nowrap;text-overflow: ellipsis;
+这个没用。
+我也只介绍上面那篇文章里看到的几种方法，具体看 demo ，里面有说明
+1234&amp;lt;p class=&quot;box1&quot;&amp;gt;Lorem ipsum dolor sit">
+<meta property="og:updated_time" content="2015-09-04T17:41:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多行文本溢出显示省略号解决方案">
+<meta name="twitter:description" content="参考 http://css-tricks.com/line-clampin/
+不是一行，所以123overflow:hidden;white-space: nowrap;text-overflow: ellipsis;
+这个没用。
+我也只介绍上面那篇文章里看到的几种方法，具体看 demo ，里面有说明
+1234&amp;lt;p class=&quot;box1&quot;&amp;gt;Lorem ipsum dolor sit">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 多行文本溢出显示省略号解决方案 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 多行文本溢出显示省略号解决方案 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-01-29T11:21:04+08:00" content="2015-01-29">
+              2015-01-29
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/多行文本溢出显示省略号解决方案.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/多行文本溢出显示省略号解决方案.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>参考 <a href="http://css-tricks.com/line-clampin/" target="_blank" rel="external">http://css-tricks.com/line-clampin/</a></p>
+<p>不是一行，所以<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">overflow</span>:hidden;</span><br><span class="line"><span class="attribute">white-space</span>: nowrap;</span><br><span class="line"><span class="attribute">text-overflow</span>: ellipsis;</span><br></pre></td></tr></table></figure></p>
+<p>这个没用。</p>
+<p>我也只介绍上面那篇文章里看到的几种方法，具体看 demo ，里面有说明</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;p <span class="class"><span class="keyword">class</span>="<span class="title">box1</span>"&gt;<span class="title">Lorem</span> <span class="title">ipsum</span> <span class="title">dolor</span> <span class="title">sit</span> <span class="title">amet</span>, <span class="type">consectetur adipisicing elit. Deserunt ex</span>, <span class="type">magnam quidem sint cum fuga vero</span>, <span class="type">pariatur ratione reprehenderit laboriosam reiciendis id</span>, <span class="type">numquam sit. Possimus natus tempora suscipit</span>, <span class="type">totam omnis.Lorem ipsum dolor sit amet</span>, <span class="type">consectetur adipisicing elit. Deserunt ex</span>, <span class="type">magnam quidem sint cum fuga vero</span>, <span class="type">pariatur ratione reprehenderit laboriosam reiciendis id</span>, <span class="type">numquam sit. Possimus natus tempora suscipit</span>, <span class="type">totam omni</span>&lt;<span class="type">/p</span>&gt;</span></span><br><span class="line">    &lt;p <span class="class"><span class="keyword">class</span>="<span class="title">box2</span>"&gt;<span class="title">WebKit</span> <span class="title">Browsers</span> <span class="title">will</span> <span class="title">clamp</span> <span class="title">the</span> <span class="title">number</span> <span class="title">of</span> <span class="title">lines</span> <span class="title">in</span> <span class="title">this</span> <span class="title">paragraph</span> <span class="title">to</span> 2. <span class="title">Lorem</span> <span class="title">ipsum</span> <span class="title">dolor</span> <span class="title">sit</span> <span class="title">amet</span>, <span class="type">consectetur adipisicing elit</span>, <span class="type">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</span>, <span class="type">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</span>, <span class="type">sunt in culpa qui officia deserunt mollit anim id est laborum</span>&lt;<span class="type">/p</span>&gt;</span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span>="<span class="title">box3</span>"&gt;&lt;<span class="type">p</span>&gt;<span class="title">Lorem</span> <span class="title">ipsum</span> <span class="title">dolor</span> <span class="title">sit</span> <span class="title">amet</span>, <span class="type">consectetur adipisicing elit. Placeat dolore commodi perferendis inventore corporis modi quia maxime repellat iure</span>, <span class="type">atque ullam incidunLorem ipsum dolor sit amet</span>, <span class="type">consectetur adipisicing elit. Placeat dolore commodi perferendis inventore corporis modi quia maxime repellat iure</span>, <span class="type">atque ullam incidun</span>&lt;<span class="type">/p</span>&gt;&lt;<span class="type">/div</span>&gt;</span></span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span>="<span class="title">box3</span>"&gt;&lt;<span class="type">p</span>&gt;<span class="title">Lorem</span> <span class="title">ipsum</span> <span class="title">dolor</span> <span class="title">sit</span> <span class="title">amet</span>, <span class="type">consectetur adipisicing elit. Placeat dolore commodi perferendis inventore corporis modi quia maxime repellat iure</span>, <span class="type">atque ullam incidunLorem ipsum dolor sit amet</span>, <span class="type">consectetur adipisicing elit. Placeat dolore commodi perferendis inventore corporis modi quia maxime repellat iure</span>, <span class="type">atque ullam incidun</span>&lt;<span class="type">/p</span>&gt;&lt;<span class="type">/div</span>&gt;&lt;<span class="type">div class="box3"</span>&gt;&lt;<span class="type">p</span>&gt;<span class="title">Lorem</span> <span class="title">ipsum</span> <span class="title">dolor</span> <span class="title">sit</span> <span class="title">amet</span>, <span class="type">consectetur adipisicing elit. Placeat dolore commodi perferendis inventore corporis modi quia maxime repellat iure</span>, <span class="type">atque ullam incidunLorem ipsum dolor sit amet</span>, <span class="type">consectetur adipisicing elit. Placeat dolore commodi perferendis inventore corporis modi quia maxime repellat iure</span>, <span class="type">atque ullam incidun</span>&lt;<span class="type">/p</span>&gt;&lt;<span class="type">/div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> css：<br> <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">   <span class="selector-tag">p</span> &#123;<span class="attribute">width</span>: <span class="number">550px</span>;<span class="attribute">overflow</span>: hidden;<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#f00</span>;&#125;</span><br><span class="line"><span class="comment">/*方法1*/</span></span><br><span class="line">        <span class="selector-class">.box1</span> &#123;  <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">          <span class="attribute">-webkit-line-clamp</span>: <span class="number">3</span>;</span><br><span class="line">          <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">      &#125;</span><br><span class="line"><span class="comment">/*方法2*/</span></span><br><span class="line">      <span class="selector-class">.box2</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="attribute">position</span>:relative;</span><br><span class="line">        <span class="attribute">line-height</span>:<span class="number">1.4em</span>;</span><br><span class="line">        <span class="comment">/* 3 times the line-height to show 3 lines */</span></span><br><span class="line">        <span class="attribute">height</span>:<span class="number">4.2em</span>;</span><br><span class="line">        <span class="attribute">overflow</span>:hidden;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.box2</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">        <span class="attribute">content</span>:<span class="string">"..."</span>;</span><br><span class="line">        <span class="attribute">font-weight</span>:bold;</span><br><span class="line">        <span class="attribute">position</span>:absolute;</span><br><span class="line">        <span class="attribute">bottom</span>:<span class="number">0</span>;</span><br><span class="line">        <span class="attribute">right</span>:<span class="number">0</span>;</span><br><span class="line">        <span class="attribute">padding</span>:<span class="number">0</span> <span class="number">20px</span> <span class="number">1px</span> <span class="number">45px</span>;</span><br><span class="line">        <span class="attribute">background</span>:<span class="built_in">url</span>(http://css88.b0.upaiyun.com/css88/2014/09/ellipsis_bg.png) repeat-y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box3</span> &#123;<span class="attribute">height</span>:<span class="number">4em</span>;&#125;</span><br><span class="line"><span class="selector-class">.box3</span> <span class="selector-tag">p</span> &#123;<span class="attribute">line-height</span>: <span class="number">1.5em</span>;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>JS:</p>
+<pre><code>// jquery方法
+$(&quot;.box3&quot;).each(function(i){
+    var divH = $(this).height();
+    var $p = $(&quot;p&quot;, $(this)).eq(0);
+    while ($p.outerHeight() &gt; divH) {
+        $p.text($p.text().replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, &quot;...&quot;));
+    };
+});
+</code></pre><p>上面那篇文章还介绍了一个 js Clamp.js 的方法，有兴趣的可以看下，个人觉得咩必要为了这个小功能用这么复杂。</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#css" rel="tag">#css</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/多行文本溢出显示省略号解决方案.html"
+           data-title="多行文本溢出显示省略号解决方案" data-url="http://blog.yongyuan.com/post/多行文本溢出显示省略号解决方案.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

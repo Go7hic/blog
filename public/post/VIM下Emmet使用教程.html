@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="Vim," />
+
+
+<meta name="description" content="Emmet 项目原来叫 Zen Coding。由俄罗斯前端开发工程师 Sergey Chikuyonok 开发，后来在 Google Code 上释出 Zen Coding 项目。2012年的时候，项目启用新名称Emmet。
+Emmet 官方支持很多软件，比如 Sublime Text、Notepad++、Dreamweaver、Eclipse、Adobe Brackets 等。Emmet.vim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VIM下Emmet使用教程">
+<meta property="og:url" content="http://blog.yongyuan.com/post/VIM下Emmet使用教程.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="Emmet 项目原来叫 Zen Coding。由俄罗斯前端开发工程师 Sergey Chikuyonok 开发，后来在 Google Code 上释出 Zen Coding 项目。2012年的时候，项目启用新名称Emmet。
+Emmet 官方支持很多软件，比如 Sublime Text、Notepad++、Dreamweaver、Eclipse、Adobe Brackets 等。Emmet.vim">
+<meta property="og:updated_time" content="2015-09-05T04:38:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VIM下Emmet使用教程">
+<meta name="twitter:description" content="Emmet 项目原来叫 Zen Coding。由俄罗斯前端开发工程师 Sergey Chikuyonok 开发，后来在 Google Code 上释出 Zen Coding 项目。2012年的时候，项目启用新名称Emmet。
+Emmet 官方支持很多软件，比如 Sublime Text、Notepad++、Dreamweaver、Eclipse、Adobe Brackets 等。Emmet.vim">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> VIM下Emmet使用教程 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> VIM下Emmet使用教程 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-05-26T11:21:04+08:00" content="2014-05-26">
+              2014-05-26
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/VIM下Emmet使用教程.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/VIM下Emmet使用教程.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>Emmet 项目原来叫 Zen Coding。由俄罗斯前端开发工程师 Sergey Chikuyonok 开发，后来在 Google Code 上释出 Zen Coding 项目。2012年的时候，项目启用新名称Emmet。</p>
+<p>Emmet 官方支持很多软件，比如 Sublime Text、Notepad++、Dreamweaver、Eclipse、Adobe Brackets 等。Emmet.vim 并非 Emmet 亲生，它由日本 Yasuhiro Matsumoto 开发。</p>
+<p>下载 Emmet.vim</p>
+<p>你可以从两个地址下载，一是 <a href="http://www.vim.org/scripts/script.php?script_id=2981" target="_blank" rel="external">Vim 插件站点</a>，一是 <a href="https://github.com/mattn/emmet-vim/" target="_blank" rel="external">Github</a>。</p>
+<p>安装 Emmet.vim</p>
+<p>将下载的压缩包解压到 .vim 目录下：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~/.<span class="keyword">vim</span></span><br><span class="line">unzip emmet-<span class="keyword">vim</span>.zip</span><br></pre></td></tr></table></figure></p>
+<p>如果你使用 pathogen.vim 管理 Vim 插件：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~/.<span class="keyword">vim</span>/bundle</span><br><span class="line">unzip /path/<span class="keyword">to</span>/emmet-<span class="keyword">vim</span>.zip</span><br></pre></td></tr></table></figure></p>
+<p>或者直接从 Github 库克隆一份：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~/.<span class="keyword">vim</span>/bundle</span><br><span class="line">git clone http://github.<span class="keyword">com</span>/mattn/emmet-<span class="keyword">vim</span>.git</span><br></pre></td></tr></table></figure></p>
+<p>个人建议通过 Pathogen 或 Vundle 来安装管理 Vim 插件。</p>
+<p>使用 Emmet.vim</p>
+<p>以下内容译自 Emmet.vim tutorial，感谢作者。</p>
+<ol>
+<li>展开缩略词</li>
+</ol>
+<p>键入缩略词组 div&gt;p#foo$*3&gt;a 然后按快捷键 <c-y>, – 指按 <ctrl-y> 后再按逗号。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"foo1"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"foo2"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"foo3"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></ctrl-y></c-y></p>
+<ol>
+<li>包入</li>
+</ol>
+<p>如下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">test</span>1</span><br><span class="line"><span class="built_in">test</span>2</span><br><span class="line"><span class="built_in">test</span>3</span><br></pre></td></tr></table></figure></p>
+<p>按大写的 V 进入 Vim 可视模式，“行选取”上面三行内容，然后按键 ‘<c-y>,‘，这时 Vim 的命令行会提示 Tags:，键入ul&gt;li*，然后按 ENTER。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>test1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>test2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>test3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure></c-y></p>
+<p>而假如输入的 tag 是 ‘blockquote’，则结果会变成下面这样。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;blockquote&gt;</span><br><span class="line">    <span class="built_in">test</span>1</span><br><span class="line">    <span class="built_in">test</span>2</span><br><span class="line">    <span class="built_in">test</span>3</span><br><span class="line">&lt;/blockquote&gt;</span><br></pre></td></tr></table></figure></p>
+<p>3.插入模式下根据光标位置选中整个标签</p>
+<p>按 <code>‘&lt;C-Y&gt;D‘</code></p>
+<p>4.插入模式下根据光标位置选中整个标签内容</p>
+<p>按 <code>‘&lt;C-Y&gt;D‘</code></p>
+<p>5.跳转到下一个编辑点</p>
+<p>插入模式下按 <code>‘&lt;C-Y&gt;N‘</code></p>
+<p>6.跳转到上一个编辑点</p>
+<p>插入模式下按 <code>‘&lt;C-Y&gt;N‘</code></p>
+<p>7.更新图片大小</p>
+<p>移动光标到 img 标签。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">img</span> src=<span class="string">"foo.png"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后按 <code>‘&lt;C-Y&gt;I‘</code><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">img</span> src=<span class="string">"foo.png"</span> <span class="attribute">width</span>=<span class="string">"32"</span> height=<span class="string">"48"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>注：这个据个人使用经历，仅适用本地图片，互联网上的图片并无法取得其大小。</p>
+<p>8.合并行</p>
+<p>选择包含 <code>‘&lt;li&gt;’</code>的行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list1"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">    &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"list2"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">    &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"list3"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/ul&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>然后按 <code>‘&lt;C-Y&gt;M‘</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list1"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list2"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list3"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/ul&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>9.移除标签对</p>
+<p>移动光标到块中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"foo"</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">a</span>&gt;</span>cursor is here<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>在插入模式下按 <code>‘&lt;C-Y&gt;K‘</code>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"foo"</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>再次按 <code>‘&lt;C-Y&gt;K‘</code>则上述连 div 标签块都没了。</p>
+<p>10.分割/合并标签</p>
+<p>移动光标到块中<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"foo"</span>&gt;</span><br><span class="line">    cursor <span class="keyword">is</span> here</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在插入模式下按 <code>‘&lt;C-Y&gt;J‘</code>。<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"foo"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>再次按 <code>‘&lt;C-Y&gt;J‘</code>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"foo"</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>11.切换注释</p>
+<p>移动光标到块中<br><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;div&gt;</span></span><br><span class="line">    <span class="attribute">hello</span> world</span><br><span class="line"><span class="section">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>插入模式中按 <code>‘&lt;C-Y&gt;/‘</code>。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- &lt;div&gt;</span><br><span class="line">    hello world</span><br><span class="line">&lt;/div&gt; --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>再按 <code>‘&lt;C-Y&gt;/‘</code>。<br><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;div&gt;</span></span><br><span class="line">    <span class="attribute">hello</span> world</span><br><span class="line"><span class="section">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>12.从 URL 地址生成锚</p>
+<p>将光标移至 URL</p>
+<p><a href="http://www.google.com/" target="_blank" rel="external">http://www.google.com/</a><br>按 ‘<c-y>A‘<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.google.com"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure></c-y></p>
+<p>13.从 URL 地址生成引用文本#</p>
+<p>移动光标到 URL</p>
+<p><a href="http://github.com/" target="_blank" rel="external">http://github.com/</a><br>按 <code>‘&lt;C-Y&gt;A‘</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;blockquote <span class="class"><span class="keyword">class</span></span>=<span class="string">"quote"</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://github.com/"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cite</span>&gt;</span>http://github.com/<span class="tag">&lt;/<span class="name">cite</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>14.安装 Emmet.vim</p>
+<p>见文章头部。</p>
+<p>15.为你所用的语言启用 Emmet.vim#</p>
+<p>你可以为你用的语言自定义行为。<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cat &gt;&gt; ~/.vimrc</span></span><br><span class="line"><span class="keyword">let</span> g:user_emmet_settings = &#123;</span><br><span class="line"><span class="string">\</span> <span class="string">'php'</span> : &#123;</span><br><span class="line"><span class="string">\</span> <span class="string">'extends'</span> : <span class="string">'html'</span>,</span><br><span class="line"><span class="string">\</span> <span class="string">'filters'</span> : <span class="string">'c'</span>,</span><br><span class="line"><span class="string">\</span> &#125;,</span><br><span class="line"><span class="string">\</span> <span class="string">'xml'</span> : &#123;</span><br><span class="line"><span class="string">\</span> <span class="string">'extends'</span> : <span class="string">'html'</span>,</span><br><span class="line"><span class="string">\</span> &#125;,</span><br><span class="line"><span class="string">\</span> <span class="string">'haml'</span> : &#123;</span><br><span class="line"><span class="string">\</span> <span class="string">'extends'</span> : <span class="string">'html'</span>,</span><br><span class="line"><span class="string">\</span> &#125;,</span><br><span class="line"><span class="string">\&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>余话</p>
+<p>除开以上帮助，你还可以按冒号进入 Vim 命令行模式，然后输入 help emmet 在新窗口中调用 Emmet 的帮助内容。</p>
+<p>Emmet 在其他编辑器的触发快捷键一般是 TAB 或 CTRL+E，如果你更习惯它们，也可以在 .vimrc 文件中加入下一行命令来修改它的触发快捷键：</p>
+<p>let g:user_emmet_expandabbr_key = ‘<tab>‘<br>这样就可以按 TAB 来扩展了。</tab></p>
+<p>附:</p>
+<p>ZenCoding cheatsheet</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#Vim" rel="tag">#Vim</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/VIM下Emmet使用教程.html"
+           data-title="VIM下Emmet使用教程" data-url="http://blog.yongyuan.com/post/VIM下Emmet使用教程.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

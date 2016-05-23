@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="gulp," />
+
+
+<meta name="description" content="事情起因是这样的，公司一项目在 ie9 下面有点问题，但是打开控制台调试的时候又好了。调查发现原来 ie9 不支持代码里写一些 console 对象的方法，只有打开控制台才能触发。而我们平时开发的时候喜欢写一些 console 这样的调试代码，我们以为用 Grunt 压缩后会去掉这些调试代码，但是同事发现只会去除 console.log 这个方法，而其他的 console.error 这些方法不能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="修改 gulp-strip-debug 配置，不要删除 alert 调试方法">
+<meta property="og:url" content="http://blog.yongyuan.com/post/修改 gulp-strip-debug 配置，不要删除 alert 调试方法.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="事情起因是这样的，公司一项目在 ie9 下面有点问题，但是打开控制台调试的时候又好了。调查发现原来 ie9 不支持代码里写一些 console 对象的方法，只有打开控制台才能触发。而我们平时开发的时候喜欢写一些 console 这样的调试代码，我们以为用 Grunt 压缩后会去掉这些调试代码，但是同事发现只会去除 console.log 这个方法，而其他的 console.error 这些方法不能">
+<meta property="og:updated_time" content="2015-08-29T10:01:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="修改 gulp-strip-debug 配置，不要删除 alert 调试方法">
+<meta name="twitter:description" content="事情起因是这样的，公司一项目在 ie9 下面有点问题，但是打开控制台调试的时候又好了。调查发现原来 ie9 不支持代码里写一些 console 对象的方法，只有打开控制台才能触发。而我们平时开发的时候喜欢写一些 console 这样的调试代码，我们以为用 Grunt 压缩后会去掉这些调试代码，但是同事发现只会去除 console.log 这个方法，而其他的 console.error 这些方法不能">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 修改 gulp-strip-debug 配置，不要删除 alert 调试方法 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 修改 gulp-strip-debug 配置，不要删除 alert 调试方法 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-08-24T00:00:00+08:00" content="2015-08-24">
+              2015-08-24
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/修改 gulp-strip-debug 配置，不要删除 alert 调试方法.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/修改 gulp-strip-debug 配置，不要删除 alert 调试方法.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>事情起因是这样的，公司一项目在 ie9 下面有点问题，但是打开控制台调试的时候又好了。调查发现原来 ie9 不支持代码里写一些 console 对象的方法，只有打开控制台才能触发。而我们平时开发的时候喜欢写一些 console 这样的调试代码，我们以为用 Grunt 压缩后会去掉这些调试代码，但是同事发现只会去除 console.log 这个方法，而其他的 console.error 这些方法不能去掉。<br><a id="more"></a><br>遇到这个情况后，我看了下自己的项目，发现压缩后 console 的调式代码也没有清除干净，于是又找了一个插件，因为我用的是 gulp 构建，所以找到了 gulp-strip-debug 这个 gulp 插件。压缩后查了一下，嗯，果然把 console 的代码全清理了，果然很吊。但是后来我又发现一个问题，这个插件有三个模块console,alert,debuger，也就是说这个插件还会把代码里的 alert 方法也删掉。这个我可不想要，因为有时候我还是想弹个框给提示啥的，虽然不主张直接弹框给用户，但是也有例外嘛。所以我想看下怎么才可以在使用插件的时候配置一下不要 删除 alert 这个功能。配置了一下还是有效的，简单修改如下：</p>
+<p>使用的时候这样写</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stripDebug(&#123;<span class="string">debugger:</span> <span class="literal">true</span>, <span class="string">console:</span> <span class="literal">true</span>, <span class="string">alert:</span> <span class="literal">false</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>然后打开  gulp-strip-debug/index.js 换成下面的，其实就是加了个 options 参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> gutil = <span class="built_in">require</span>(<span class="string">'gulp-util'</span>);</span><br><span class="line"><span class="keyword">var</span> through = <span class="built_in">require</span>(<span class="string">'through2'</span>);</span><br><span class="line"><span class="keyword">var</span> stripDebug = <span class="built_in">require</span>(<span class="string">'strip-debug'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> through.obj(<span class="function"><span class="keyword">function</span> (<span class="params">file, enc, cb</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (file.isNull()) &#123;</span><br><span class="line">            cb(<span class="literal">null</span>, file);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (file.isStream()) &#123;</span><br><span class="line">            cb(<span class="keyword">new</span> gutil.PluginError(<span class="string">'gulp-strip-debug'</span>, <span class="string">'Streaming not supported'</span>));</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            file.contents = <span class="keyword">new</span> Buffer(stripDebug(file.contents.toString(), options).toString());</span><br><span class="line">            <span class="keyword">this</span>.push(file);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">            <span class="keyword">this</span>.emit(<span class="string">'error'</span>, <span class="keyword">new</span> gutil.PluginError(<span class="string">'gulp-strip-debug'</span>, err, &#123;fileName: file.path&#125;));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        cb();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>然后打开 gulp-strip-debug/node_modules/strip-debug/index.js ，换成下面的，也是加了个参数，然后判断参数进行运算</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> rocambole = <span class="built_in">require</span>(<span class="string">'rocambole'</span>);</span><br><span class="line"><span class="keyword">var</span> stripDebugger = <span class="built_in">require</span>(<span class="string">'rocambole-strip-debugger'</span>);</span><br><span class="line"><span class="keyword">var</span> stripConsole = <span class="built_in">require</span>(<span class="string">'rocambole-strip-console'</span>);</span><br><span class="line"><span class="keyword">var</span> stripAlert = <span class="built_in">require</span>(<span class="string">'rocambole-strip-alert'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// esprima@2.1 introduces a "handler" property on TryStatement, so we would</span></span><br><span class="line"><span class="comment">// loop the same node twice (see jquery/esprima/issues/1031 and #264)</span></span><br><span class="line">rocambole.BYPASS_RECURSION.handler = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">src, options</span>) </span>&#123;</span><br><span class="line">    options = options || &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rocambole.moonwalk(src, <span class="function"><span class="keyword">function</span> (<span class="params">node</span>) </span>&#123;</span><br><span class="line">        options.debugger !== <span class="literal">false</span> &amp;&amp; stripDebugger(node);</span><br><span class="line">        options.console !== <span class="literal">false</span> &amp;&amp; stripConsole(node);</span><br><span class="line">        options.alert !== <span class="literal">false</span> &amp;&amp; stripAlert(node);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p> 修改完之后就可以放心用了，你可以自由的配置你想删除哪个 调式代码的方法。</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#gulp" rel="tag">#gulp</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/修改 gulp-strip-debug 配置，不要删除 alert 调试方法.html"
+           data-title="修改 gulp-strip-debug 配置，不要删除 alert 调试方法" data-url="http://blog.yongyuan.com/post/修改 gulp-strip-debug 配置，不要删除 alert 调试方法.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

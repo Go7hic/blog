@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="JavaScript," />
+
+
+<meta name="description" content="我们在业务里可能经常有这养的需求，在页面上随机显示几个不重复的东西，还有肯能随机抽奖的时候也需要用到。所以今天就总结一下这个用法。方法一：这个是我在项目里写的方法，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript 在数组里抽取随机不重复的元素">
+<meta property="og:url" content="http://blog.yongyuan.com/post/javascript 在数组里抽取随机不重复的元素.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="我们在业务里可能经常有这养的需求，在页面上随机显示几个不重复的东西，还有肯能随机抽奖的时候也需要用到。所以今天就总结一下这个用法。方法一：这个是我在项目里写的方法，">
+<meta property="og:updated_time" content="2015-09-02T17:09:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript 在数组里抽取随机不重复的元素">
+<meta name="twitter:description" content="我们在业务里可能经常有这养的需求，在页面上随机显示几个不重复的东西，还有肯能随机抽奖的时候也需要用到。所以今天就总结一下这个用法。方法一：这个是我在项目里写的方法，">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> javascript 在数组里抽取随机不重复的元素 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> javascript 在数组里抽取随机不重复的元素 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-07-26T11:21:04+08:00" content="2015-07-26">
+              2015-07-26
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/javascript 在数组里抽取随机不重复的元素.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/javascript 在数组里抽取随机不重复的元素.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>我们在业务里可能经常有这养的需求，在页面上随机显示几个不重复的东西，还有肯能随机抽奖的时候也需要用到。所以今天就总结一下这个用法。<br>方法一：<br>这个是我在项目里写的方法，<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 从数组里随机取几个不重复的元素</span><br><span class="line"> * @param  &#123;Array&#125; arr [description]</span><br><span class="line"> * @param  &#123;Number&#125; num [description]</span><br><span class="line"> * @return &#123;[type]&#125;     返回新的数组</span><br><span class="line"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArrayItems</span> (<span class="params">arr, num</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//新建一个数组,将传入的数组复制过来,用于运算,而不直接操作传入的数组;</span></span><br><span class="line">    <span class="keyword">var</span> copyArr = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> index <span class="keyword">in</span> arr) &#123;</span><br><span class="line">        copyArr.push(arr[index]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//取出的数值项,保存在此数组返回</span></span><br><span class="line">    <span class="keyword">var</span> resultArr = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i&lt;num; i++) &#123;</span><br><span class="line">        <span class="comment">//判断如果数组还有可以取出的元素,以防下标越界</span></span><br><span class="line">        <span class="keyword">if</span> (copyArr.length&gt;<span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">//在数组中产生一个随机索引</span></span><br><span class="line">            <span class="keyword">var</span> arrIndex = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*copyArr.length);</span><br><span class="line">            <span class="comment">//将此随机索引的对应的数组元素值复制出来</span></span><br><span class="line">            resultArr[i] = copyArr[arrIndex];</span><br><span class="line">            <span class="comment">//然后删掉此索引的数组元素,这时候 copyArr 变为新的数组</span></span><br><span class="line">            copyArr.splice(arrIndex, <span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//数组中数据项取完后,退出循环,比如数组本来只有10项,但要求取出20项.</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> resultArr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后我用的时候，比如后端传给我的是一系列视频 Arr，我需要随机在页面显示 3 个，就这样调用 </p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getArrayItems (<span class="name">Arr</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p>在这里有的人可能是直接操作传入的数组，一般也不会有什么问题，但是为了谨慎起见，还是操作一个新的数组.</p>
+<p>方法二：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArrayItems</span> (<span class="params"> arr, num </span>)</span>&#123;</span><br><span class="line">	 <span class="keyword">var</span> copyArr = []</span><br><span class="line">	 <span class="keyword">for</span> (<span class="keyword">var</span> index <span class="keyword">in</span> arr) &#123;</span><br><span class="line">        copyArr.push(arr[index]);</span><br><span class="line">   &#125;</span><br><span class="line">    copyArr.sort(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// 从原数组中一次性返回需要的元素</span></span><br><span class="line">    <span class="keyword">return</span> copyArr.slice( <span class="number">0</span>,  num );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用： <code>getArrayItems(arr,3)</code></p>
+<p>第二个方法代码比第一个方法还简单，为什么我会用第一个方法呢，因为第二个方法看似简单，但是却也很暴力，只要数组长度一长性能损耗更大。</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#JavaScript" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/javascript 在数组里抽取随机不重复的元素.html"
+           data-title="javascript 在数组里抽取随机不重复的元素" data-url="http://blog.yongyuan.com/post/javascript 在数组里抽取随机不重复的元素.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="JavaScript," />
+
+
+<meta name="description" content="网上ajax的资料太多了，当然也有很多重复的，虽然早就接触过这个东西，但是一直没怎么具体学习，今天就花时间总结下ajax这个东西，总结的可能不全不详细，还望大牛指正，有的内容我还会继续深入学习写文章记录的，以下:
+##1:定义
+AJAX全称为“Asynchronous JavaScript and XML”（异步JavaScript和XML），是一种创建交互式网页应用的网页开发技术。Ajax 不是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="当我们谈论Ajax的时候我们在谈论什么">
+<meta property="og:url" content="http://blog.yongyuan.com/post/当我们谈论Ajax的时候我们在谈论什么.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="网上ajax的资料太多了，当然也有很多重复的，虽然早就接触过这个东西，但是一直没怎么具体学习，今天就花时间总结下ajax这个东西，总结的可能不全不详细，还望大牛指正，有的内容我还会继续深入学习写文章记录的，以下:
+##1:定义
+AJAX全称为“Asynchronous JavaScript and XML”（异步JavaScript和XML），是一种创建交互式网页应用的网页开发技术。Ajax 不是">
+<meta property="og:updated_time" content="2015-09-04T15:30:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="当我们谈论Ajax的时候我们在谈论什么">
+<meta name="twitter:description" content="网上ajax的资料太多了，当然也有很多重复的，虽然早就接触过这个东西，但是一直没怎么具体学习，今天就花时间总结下ajax这个东西，总结的可能不全不详细，还望大牛指正，有的内容我还会继续深入学习写文章记录的，以下:
+##1:定义
+AJAX全称为“Asynchronous JavaScript and XML”（异步JavaScript和XML），是一种创建交互式网页应用的网页开发技术。Ajax 不是">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 当我们谈论Ajax的时候我们在谈论什么 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 当我们谈论Ajax的时候我们在谈论什么 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-03-10T11:21:04+08:00" content="2014-03-10">
+              2014-03-10
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/当我们谈论Ajax的时候我们在谈论什么.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/当我们谈论Ajax的时候我们在谈论什么.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>网上ajax的资料太多了，当然也有很多重复的，虽然早就接触过这个东西，但是一直没怎么具体学习，今天就花时间总结下ajax这个东西，总结的可能不全不详细，还望大牛指正，有的内容我还会继续深入学习写文章记录的，以下:</p>
+<p>##1:定义</p>
+<p>AJAX全称为“Asynchronous JavaScript and XML”（异步JavaScript和XML），是一种创建交互式网页应用的网页开发技术。<br>Ajax 不是一种单一的技术。实际上是几种技术，每种技术都各有其特色，这些技术以全新强大方式融合在一起。Ajax 包含：</p>
+<p>使用 XHTML 和 CSS 基于标准的呈现<br>使用文档对象模型的动态显示和交互<br>使用 XML 和 XSLT 的数据交换和操作<br>使用 XMLHttpRequest 的异步数据检索<br>将它们绑定到一起的 JavaScript<br>虽然这个技术说明从某种程度上讲有些过时了，但基本模式依然是完整的：HTML 和 CSS 呈现数据和样式，DOM 和相关方法支持页面实时更新，XHR 支持与服务器通信，JavaScript 安排整体显示。</p>
+<p>##2.原理</p>
+<p>Ajax的原理简单来说通过XmlHttpRequest对象来向服务器发异步请求，从服务器获得数据，然后用javascript来操作DOM而更新页面。这其中最关键的一步就是从服务器获得请求数据。</p>
+<p>以往我们浏览网页的原理是由Client向Server提交页面申请，再由Server将申请通过HTTP传回给Client生成浏览页面：</p>
+<p>使用Ajax后的工作原理如下图，可见通过Ajax在用户交互方面有了很大改进，用户可以不用为提交了Form而长时间等待服务器应答，而且通过Ajax也可以开发出华丽的Web交互页面。</p>
+<p>要清楚这个过程和原理，我们必须对 XMLHttpRequest有所了解。</p>
+<p>##3：XMLHttpRequest</p>
+<p>XMLHttpRequest是ajax的核心机制，它是在IE5中首先引入的，是一种支持异步请求的技术。简单的说，也就是javascript可以及时向服务器提出请求和处理响应，而不阻塞用户。达到无刷新的效果。所以我们先从XMLHttpRequest讲起，来看看它的工作原理。</p>
+<p>首先，我们先来看看XMLHttpRequest这个对象的属性。</p>
+<p>它的属性有：</p>
+<p>属性  描述</p>
+<p>onreadystatechange     每次状态改变所触发事件的事件处理程序。</p>
+<p>responseText    从服务器进程返回数据的字符串形式。</p>
+<p>responseXML  从服务器进程返回的DOM兼容的文档数据对象。</p>
+<p>status   从服务器返回的数字代码，比如常见的404（未找到）和200（已就绪）</p>
+<p>status Text   伴随状态码的字符串信息</p>
+<p>readyState  对象状态值</p>
+<p>对象状态值：</p>
+<p>readyState          含义</p>
+<p>0 (未初始化)     对象已建立，但是尚未初始化（尚未调用open方法）；</p>
+<p>1 (初始化)    对象已建立，尚未调用send方法；</p>
+<p>2 (发送数据)   send方法已调用，但是当前的状态及http头未知；</p>
+<p>3 (数据传送中)  已接收部分数据，因为响应及http头不全，这时通过responseBody和responseText获取部分数据会出现错误；</p>
+<p>4 (完成)   数据接收完毕，此时可以通过通过responseXml和responseText获取完整的回应数据；</p>
+<p>但是，由于各浏览器之间存在差异，所以创建一个XMLHttpRequest对象可能需要不同的方法。这个差异主要体现在IE和其它浏览器之间。下面是一个比较标准的创建XMLHttpRequest对象的方法。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CreateXmlHttp</span>(<span class="params"></span>)</span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="comment">//非IE浏览器创建XmlHttpRequest对象</span></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.XmlHttpRequest)</span><br><span class="line">&#123;</span><br><span class="line">xmlhttp=<span class="keyword">new</span> XmlHttpRequest();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//IE浏览器创建XmlHttpRequest对象</span></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.ActiveXObject)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">try</span></span><br><span class="line">&#123;</span><br><span class="line">xmlhttp=<span class="keyword">new</span> ActiveXObject(“Microsoft.XMLHTTP”);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(e)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">xmlhttp=<span class="keyword">new</span> ActiveXObject(“msxml2.XMLHTTP”);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(ex)&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ustbwuyi</span>(<span class="params"></span>)</span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="keyword">var</span> data=<span class="built_in">document</span>.getElementById(“username”).value;</span><br><span class="line">CreateXmlHttp();</span><br><span class="line"><span class="keyword">if</span>(!xmlhttp)</span><br><span class="line">&#123;</span><br><span class="line">alert(“创建xmlhttp对象异常！”);</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">xmlhttp.open(“POST”,url,<span class="literal">false</span>);</span><br><span class="line">xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(xmlhttp.readyState==<span class="number">4</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">document</span>.getElementById(“user1″).innerHTML=”数据正在加载…”;</span><br><span class="line"><span class="keyword">if</span>(xmlhttp.status==<span class="number">200</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">document</span>.write(xmlhttp.responseText);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">xmlhttp.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如上所示，函数首先检查XMLHttpRequest的整体状态并且保证它已经完成（readyStatus=4），即数据已经发送完毕。然后根据服务器的设定询问请求状态，如果一切已经就绪（status=200），那么就执行下面需要的操作。</p>
+<p>对于XmlHttpRequest的两个方法，open和send，其中open方法指定了：</p>
+<p>向服务器提交数据的类型，即post还是get。<br>请求的url地址和传递的参数。<br>传输方式，false为同步，true为异步。默认为true。如果是异步通信方式(true)，客户机就不等待服务器的响应；如果是同步方式(false)，客户机就要等到服务器返回消息后才去执行其他操作。我们需要根据实际需要来指定同步方式，在某些页面中，可能会发出多个请求，甚至是有组织有计划有队形大规模的高强度的request，而后一个是会覆盖前一个的，这个时候当然要指定同步方式。<br>Send方法用来发送请求。</p>
+<p>知道了XMLHttpRequest的工作流程，我们可以看出，XMLHttpRequest是完全用来向服务器发出一个请求的，它的作用也局限于此，但它的作用是整个ajax实现的关键，因为ajax无非是两个过程，发出请求和响应请求。并且它完全是一种客户端的技术。而XMLHttpRequest正是处理了服务器端和客户端通信的问题所以才会如此的重要。</p>
+<p>现在，我们对ajax的原理大概可以有一个了解了。我们可以把服务器端看成一个数据接口，它返回的是一个纯文本流，当然，这个文本流可以是XML格式，可以是Html，可以是Javascript代码，也可以只是一个字符串。这时候，XMLHttpRequest向服务器端请求这个页面，服务器端将文本的结果写入页面，这和普通的web开发流程是一样的，不同的是，客户端在异步获取这个结果后，不是直接显示在页面，而是先由javascript来处理，然后再显示在页面。至于现在流行的很多ajax控件，比如magicajax等，可以返回DataSet等其它数据类型，只是将这个过程封装了的结果，本质上他们并没有什么太大的区别。</p>
+<p>##4：优缺点</p>
+<p>ajax的优点</p>
+<p>Ajax的给我们带来的好处大家基本上都深有体会，在这里我只简单的讲几点：</p>
+<p>最大的一点是页面无刷新，在页面内与服务器通信，给用户的体验非常好。<br>使用异步方式与服务器通信，不需要打断用户的操作，具有更加迅速的响应能力。<br>可以把以前一些服务器负担的工作转嫁到客户端，利用客户端闲置的能力来处理，减轻服务器和带宽的负担，节约空间和宽带租用成本。并且减轻服务器的负担，ajax的原则是“按需取数据”，可以最大程度的减少冗余请求，和响应对服务器造成的负担。<br>基于标准化的并被广泛支持的技术，不需要下载插件或者小程序。<br>ajax的缺点</p>
+<p>下面我着重讲一讲ajax的缺陷，因为平时我们大多注意的都是ajax给我们所带来的好处诸如用户体验的提升。而对ajax所带来的缺陷有所忽视。</p>
+<p>下面所阐述的ajax的缺陷都是它先天所产生的。</p>
+<p>####1.ajax干掉了back按钮</p>
+<p>ajax干掉了back按钮，即对浏览器后退机制的破坏。后退按钮是一个标准的web站点的重要功能，但是它没法和js进行很好的合作。这是ajax所带来的一个比较严重的问题，因为用户往往是希望能够通过后退来取消前一次操作的。那么对于这个问题有没有办法？答案是肯定的，用过Gmail的知道，Gmail下面采用的ajax技术解决了这个问题，在Gmail下面是可以后退的，但是，它也并不能改变ajax的机制，它只是采用的一个比较笨但是有效的办法，即用户单击后退按钮访问历史记录时，通过创建或使用一个隐藏的IFRAME来重现页面上的变更。（例如，当用户在Google Maps中单击后退时，它在一个隐藏的IFRAME中进行搜索，然后将搜索结果反映到Ajax元素上，以便将应用程序状态恢复到当时的状态。） 但是，虽然说这个问题是可以解决的，但是它所带来的开发成本是非常高的，和ajax框架所要求的快速开发是相背离的。这是ajax所带来的一个非常严重的问题。</p>
+<p>####2.安全问题</p>
+<p>技术同时也对IT企业带来了新的安全威胁，ajax技术就如同对企业数据建立了一个直接通道。这使得开发者在不经意间会暴露比以前更多的数据和服务器逻辑。ajax的逻辑可以对客户端的安全扫描技术隐藏起来，允许黑客从远端服务器上建立新的攻击。还有ajax也难以避免一些已知的安全弱点，诸如跨站点脚步攻击、SQL注入攻击和基于credentials的安全漏洞等。</p>
+<p>####3.对搜索引擎的支持比较弱</p>
+<p>####4.破坏了程序的异常机制</p>
+<p>至少从目前看来，像ajax.dll，ajaxpro.dll这些ajax框架是会破坏程序的异常机制的。关于这个问题，我曾经在开发过程中遇到过，但是查了一下网上几乎没有相关的介绍。后来我自己做了一次试验，分别采用ajax和传统的form提交的模式来删除一条数据……给我们的调试带来了很大的困难。</p>
+<p>####5.其他方面的一些问题</p>
+<p>另外，像其他方面的一些问题，比如说违背了url和资源定位的初衷。例如，我给你一个url地址，如果采用了ajax技术，也许你在该url地址下面看到的和我在这个url地址下看到的内容是不同的。这个和资源定位的初衷是相背离的。</p>
+<p>####6.一些手持设备（如手机、PDA等）现在还不能很好的支持ajax</p>
+<p>一些手持设备（如手机、PDA等）现在还不能很好的支持ajax，比如说我们在手机的浏览器上打开采用ajax技术的网站时，它目前是不支持的，当然，这个问题和我们没太多关系。</p>
+<p>##5 .GET与POST</p>
+<p>当我们不通过重新加载页面，用Ajax访问服务器的时候，有两个选择可以将请求信息传送到服务器上。这两个选择分别是GET和POST。</p>
+<p>GET和POST有很多东西可写，我这里就只具体说ajax里的两者运用,具体的下次再来写吧…</p>
+<p>GET的目的就如同其名字一样是用于获取信息的。它旨在显示出页面上你要阅读的信息。浏览器会缓冲GET请求的执行结果，如果同样的GET请求再次发出，浏览器就会显示缓冲的结果而不是重新运行整个请求。这一流程不同于浏览器的处理过程，但是它是有意设计成这样以使GET调用更有效率。GET调用会检索要显示在页面中的数据，数据不会在服务器上被更改，因此重新请求相同数据的时候会得到相同的结果。</p>
+<p>POST方法应该用于你需要更新服务器信息的地方。如某调用要更改保存在服务器上的数据，而从两个同样的POST调用返回的结果或许会完全不同，因为第二个POST调用的值与第一个的值不相同，这是由于第一个调用已经更新了其中一些值。POST调用通常会从服务器上获取响应而不是保持前一个响应的缓冲。</p>
+<p>Get 与 Post 的区别</p>
+<p>Ajax中我们经常用到get和post请求.那么什么时候用get请求,什么时候用post方式请求呢? 在做回答前我们首先要了解get和post的区别。</p>
+<p>get是把参数数据队列加到提交表单的ACTION属性所指的URL中，值和表单内各个字段一一对应，在URL中可以看到。post是通过HTTP post机制，将表单内各个字段与其内容放置在HTML HEADER内一起传送到ACTION属性所指的URL地址。用户看不到这个过程。<br>对于get方式，服务器端用Request.QueryString获取变量的值，对于post方式，服务器端用Request.Form获取提交的数据。两种方式的参数都可以用Request来获得。<br>get传送的数据量较小，不能大于2KB。post传送的数据量较大，一般被默认为不受限制。但理论上，因服务器的不同而异。<br>get安全性非常低，post安全性较高。</p>
+<p><form method="”get”" action="”a.asp?b=b”">跟<form method="”get”" action="”a.asp”">是一样的，也就是说，method为get时action页面后边带的参数列表会被忽视；而<form method="”post”" action="”a.asp?b=b”">跟<form method="”post”" action="”a.asp”">是不一样的。<br>另外 Get请求有如下特性：它会将数据添加到URL中，通过这种方式传递到服务器，通常利用一个问号？代表URL地址的结尾与数据参数的开端，后面的参数每一个数据参数以“名称=值”的形式出现，参数与参数之间利用一个连接符&amp;来区分。 Post请求有如下特性：数据是放在HTTP主体中的，其组织方式不只一种，有&amp;连接方式，也有分割符方式，可隐藏参数，传递大批数据，比较方便。</form></form></form></form></p>
+<p>通过以上的说明，现在我们大致了解了什么时候用get什么时候用post方式了吧，对!当我们在提交表单的时候我们通常用post方式，当我们要传送一个较大的数据文件时，需要用post。当传递的值只需用参数方式(这个值不大于2KB)的时候，用get方式即可。</p>
+<p>6.跨域</p>
+<p>ajax本身实际上是通过XMLHttpRequest对象来进行数据的交互，而浏览器出于安全考虑，不允许js代码进行跨域操作，所以就诞生了很多跨域的解决方案。当本域和子域间进行访问时最简单的就是设置document.domain，当不同域的访问，大概有下列方法：</p>
+<p>1.web端代理的方式，即用户访问A网站时所产生的对B网站的跨域访问请求均提交到A网站的指定页面，由该页面代替用户页面完成交互，从而返回合适的结果。</p>
+<p>2.iframe，解决方案就是用window.location对象的hash属性，利用JS改变hash值网页不会刷新，可以这样实现通过JS访问hash值来做到通信，大体就是AB网站各嵌入一个对方网站的iframe，然后通过连续不断的监听hash值的变化来进行通信。比如A网站通过改变B网站iframe的hash后，B网站监听到hash的变化后就进行处理，这种方式需要开发者可以控制两个网站的代码。</p>
+<p>3.通过script标签来请求，原理就是在本域内的A内生成一个JS标签，它的SRC指向请求的另外一个域的某个页面B，这个src里面通常会加一个A页面定义好的回调函数，B返回数据即可，可以直接返回调用这个回调函数，这种跨域的通信方式被称为JSONP，此方案存在的缺陷是， script的src属性完成该调用时采取的方式时get方式，如果请求时传递的字符串过大时，可能会无法正常运行。</p>
+<p>4.window.name，window.name是一种解决跨域数据传输的新技术，通过在iframe中加载一个跨域的HTML文件，并且在HTML文件中设置window.name的值为需要传给接受者的数据，接收者就可以取得到window.name的值并且返回，比较关键的是同源策略的影响对location的控制不受限制，所以需要加载一个代理的页面来让发送页面读取window.name.</p>
+<p>5.使用flash，原理是JavaScript将数据提交给本域下的 Flash，通过 Flash 中转去访问其他域的接口，只需要其他域的根目录下有一个crossdomain.xml文件，文件中设置允许所有域名或允许本域访问即可。</p>
+<p>具体情况例子我会再开一篇文章详细介绍跨域问题。</p>
+<p>7.安全</p>
+<p>由于 Ajax 被用于开发很多可在 Web 上看到的应用程序，因此它的流行使其成为攻击者在 JavaScript 代码中寻找漏洞的目标。</p>
+<p>Ajax 存在的核心是可以用它来创建数据驱动网站。真正吸引攻击者的不是可以将 Ajax 用作 Web 应用程序开发工具，而是数据，不管是金融数据、个人数据还是机密数据，都是珍贵的在线商品，Ajax 再次发现自己成为了网络犯罪的焦点。</p>
+<p>a:</p>
+<p>基于浏览器的攻击</p>
+<p>JavaScript 是 Ajax 的基础，恶意代码经常使用它。要让一个基于浏览器的攻击生效，恶意代码必须能够利用 Web 技术（在此是 JavaScript），使浏览器自己运行攻击者希望运行的代码。</p>
+<p>举一个简单的例子，在发生一个基于浏览器的攻击时，受害者会发现其主页被篡改，或者当受害者在其浏览器地址栏中输入一个 URL 时，会被重定向到另一个网站。尽管这令人讨厌且很麻烦，但这些都不是最坏的情形。</p>
+<p>许多基于浏览器的攻击被设计用来阻止受感染电脑发送通知或减少其他攻击。通常，对受害者浏览器进行的攻击会阻止他们访问恶意软件清除程序或使用 Web 订阅文件更新。其他威胁还包括浏览器代理和击键记录。</p>
+<p>预防措施</p>
+<p>保护自己不受基于浏览器的攻击比较容易，只需禁用 Java™ 技术、JavaScript 和 Microsoft® ActiveX® 控件即可。不过，这样做通常会阻止运行许多 Web 应用程序。相反，您应该确保 操作系统、浏览器软件和防病毒软件的及时更新。另外，还可以使用一个信誉良好的防火墙程序，并在下载文件和访问网站时小心谨慎。</p>
+<p>b:</p>
+<p>SQL 注入</p>
+<p>SQL 注入如何成为了 Ajax 安全的一个威胁？毕竟 Ajax 中没有 “S”。很简单，SQL 注入之所以构成威胁是因为 Ajax 在客户端运行。Web 应用程序服务器端仍然需要 SQL 数据库。</p>
+<p>当攻击者在网站开发不完善的区域（比如一个表单）输入恶意代码时，就会发生 SQL 注入。如果受攻击网站比较脆弱，那么该数据库的所有内容都可能会曝光。密码数据库曝光或者从在线支付系统盗取信用卡数据使用的就是这种攻击方法。最近，入侵者利用这种方法从明星网站窃取粉丝邮箱地址。尽管没有盗窃财物，但是垃圾邮件发送者利用了这些邮箱地址，借用明星产品为幌子来传播恶意软件。</p>
+<p>与其他 Web 技术一样,应减轻使用 Ajax 开发的应用程序中的 SQL 注入。不过，仅使用基于 JavaScript 的 sanitation 技术尚不足以防止这类利用。JavaScript 是在客户端运行而不是在服务器端运行，这才是发生 SQL 注入的主要原因。</p>
+<p>预防措施</p>
+<p>在使用 Ajax 时，要保护您的数据库，则必须验证用户输入，而且该验证是在服务器 端进行的。参数化语句或者预处理语句，这些都是为了阻止 SQL 注入，因为不能将值直接输入数据库或者 SQL 语句中。相反，在使用占位符（也称为绑定变量）时，占位符的值是通过一个单独的 API 调用提供的。</p>
+<p>c:</p>
+<p>跨站点脚本</p>
+<p>XSS 是注入攻击的另一个示例，恶意代码被注入到应用程序。易受 XSS 攻击的 Web 应用程序包括基于浏览器的脚本，就像那些常见的 Ajax 攻击一样。通常，攻击者利用这类弱点将恶意脚本传递给对该网站毫无戒心的访问者。这些脚本负责盗用身份，窃取 Cookie，暗中监视访客的 Web 使用，访问机密信息，甚至阻止服务攻击。</p>
+<p>2010 年成为新闻焦点的著名的 XSS 攻击涉及到社会信息网络。这次攻击是从一个名为 @Matsta 的用户开始的，造成当浏览者鼠标滑过恶意消息时，出现 JavaScript 弹出窗口。其他 XSS 对该网站的攻击导致用户被重定向到一个调查网站或者内容不健康的网站。</p>
+<p>预防措施</p>
+<p>在使用 Ajax 进行开发时，可以采用以下步骤防止出现 XSS 漏洞</p>
+<p>确保 JavaScript 变量被引用。<br>使用 JavaScript 十六进制编码。<br>使用 JavaScript Unicode 编码。<br>避免反斜杠编码（\”、\’ 或 \）。<br>使用 JSON.parse 或 json2.js 库来分析 JSON。<br>避免使用 eval() 方法分析 JSON，它执行任何包含 JSON 的脚本。<br>d:</p>
+<p>Ajax 桥接</p>
+<p>Ajax 应用程序被构建用来连接托管它们的网站。作为一项安全措施，来自站点 A 的应用程序不能连接到站点 B。然而，许多站点依靠第三方网站和数据源来创建混搭网站。人们创建了 Ajax 桥接服务，通过一个主机提供 Web 服务，该服务将充当代理，用来在该浏览器上运行的 JavaScript 和第三方站点之间转发数据。使用 Ajax 桥接，现在站点 A 可以向来自站点 B 的访客提供数据或内容。</p>
+<p>正如 Ajax 不是一项特定技术而是一个技术集合，桥接也不是一个特定漏洞。Ajax 桥接为恶意黑客提供了额外攻击途径，增加了威胁。诸如 XSS 和 SQL 注入等攻击可以通过 Ajax 桥接服务传递。尽管站点 B 可能用尽一切办法保护其 Web 应用程序免受访客带来的相应威胁，但是站点 A 可以使用 Ajax 桥接攻击站点 B，这常常被忽视。</p>
+<p>预防措施</p>
+<p>要避免桥接漏洞，则需要在使用桥接来访问时与第三方的站点之间建立信任。您也应该审核第三方站点以何种方式访问您的站点，并扫描可能被桥接利用的任何漏洞。</p>
+<p> 好吧，以上基本是我觉得ajax有关的技术和一些东西，内容不全，每个点都值得我们去深入学习..</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#JavaScript" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/当我们谈论Ajax的时候我们在谈论什么.html"
+           data-title="当我们谈论Ajax的时候我们在谈论什么" data-url="http://blog.yongyuan.com/post/当我们谈论Ajax的时候我们在谈论什么.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

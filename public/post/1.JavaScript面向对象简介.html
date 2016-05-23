@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="JavaScript," />
+
+
+<meta name="description" content="这一系列有9篇文章，不是犀牛书的笔记，而是国外一些大牛的文章，在 JsTheRightWay 里推荐的，我尽可能的翻译过来，当然有的可能已经有翻译好了的，比如这篇就是在 火狐开发者社区上面有人翻译了。JavaScript 的核心是支持面向对象的，同时它也提供了强大灵活的 OOP 语言能力。本文从对面向对象编程的介绍开始，带您探索 JavaScript 的对象模型，最后描述 JavaScript 当">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1.JavaScript面向对象简介">
+<meta property="og:url" content="http://blog.yongyuan.com/post/1.JavaScript面向对象简介.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="这一系列有9篇文章，不是犀牛书的笔记，而是国外一些大牛的文章，在 JsTheRightWay 里推荐的，我尽可能的翻译过来，当然有的可能已经有翻译好了的，比如这篇就是在 火狐开发者社区上面有人翻译了。JavaScript 的核心是支持面向对象的，同时它也提供了强大灵活的 OOP 语言能力。本文从对面向对象编程的介绍开始，带您探索 JavaScript 的对象模型，最后描述 JavaScript 当">
+<meta property="og:updated_time" content="2015-09-05T08:12:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1.JavaScript面向对象简介">
+<meta name="twitter:description" content="这一系列有9篇文章，不是犀牛书的笔记，而是国外一些大牛的文章，在 JsTheRightWay 里推荐的，我尽可能的翻译过来，当然有的可能已经有翻译好了的，比如这篇就是在 火狐开发者社区上面有人翻译了。JavaScript 的核心是支持面向对象的，同时它也提供了强大灵活的 OOP 语言能力。本文从对面向对象编程的介绍开始，带您探索 JavaScript 的对象模型，最后描述 JavaScript 当">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 1.JavaScript面向对象简介 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 1.JavaScript面向对象简介 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-11-29T11:08:04+08:00" content="2014-11-29">
+              2014-11-29
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/1.JavaScript面向对象简介.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/1.JavaScript面向对象简介.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>这一系列有9篇文章，不是犀牛书的笔记，而是国外一些大牛的文章，在 JsTheRightWay 里推荐的，我尽可能的翻译过来，当然有的可能已经有翻译好了的，比如这篇就是在 火狐开发者社区上面有人翻译了。<br>JavaScript 的核心是支持面向对象的，同时它也提供了强大灵活的 OOP 语言能力。本文从对面向对象编程的介绍开始，带您探索 JavaScript 的对象模型，最后描述 JavaScript 当中面向对象编程的一些概念。</p>
+<p>###复习JavaScript<br>如果您对 JavaScript 的概念（如变量、类型、方法和作用域等）缺乏自信，您可以在重新介绍 JavaScript 这篇文章里学习这些概念。您也可以查阅这篇 <a href="https://developer.mozilla.org/en/JavaScript/Guide" target="_blank" rel="external">JavaScript 1.5 核心指南</a>。</p>
+<p>###面向对象编程<br>面向对象编程是用抽象方式创建基于现实世界模型的一种编程模式。它使用先前建立的范例，包括模块化，多态和封装几种技术。今天，许多流行的编程语言（如Java，JavaScript，C＃，C+ +，Python，PHP，Ruby和Objective-C）都支持面向对象编程（OOP）。</p>
+<p>面向对象编程可以看作是使用一系列对象相互协作的软件设计，相对于传统观念，一个程序只是一些函数的集合，或简单的计算机指令列表。 在OOP中，每个对象能够接收邮件，处理数据和发送消息给其他对象。每个对象都可以被看作是一个独立的小机器有不同的作用和责任。</p>
+<p>面向对象程序设计的目的是促进更好的编程灵活性和可维护性，并在大型软件工程中广为流行。凭借其十分注重的模块化，面向对象的代码开发更简单，往后维护更容易理解，使其自身能更直接的分析，编码，理解复杂的情况和过程，比非模块化编程方法省事。1</p>
+<p>###术语</p>
+<p>####Namespace 命名空间<br>允许开发人员在一个专用的名称下捆绑所有功能代码的容器。</p>
+<p>####Class 类<br>定义对象的特征。</p>
+<p>####Object 对象<br>类的一个实例。</p>
+<p>####Property 属性<br>对象的特征，比如颜色。</p>
+<p>####Method 方法<br>对象的能力，比如行走。</p>
+<p>####Constructor 构造函数<br>实例化时调用的函数。</p>
+<p>####Inheritance 继承<br>一个类可以继承另一个类的特征。</p>
+<p>####Encapsulation 封装<br>类定义了对象的特征，方法只定义了方法如何执行。</p>
+<p>####Abstraction 抽象<br>结合复杂的继承，方法，属性，一个对象能够模拟现实的模型。</p>
+<p>####Polymorphism 多态<br>多意为‘许多’，态意为‘形态’。不同类可以定义相同的方法或属性。<br>更多关于面向对象编程的描述，请参照维基百科的 面向对象编程 。</p>
+<p>###原型编程<br>基于原型的编程不是面向对象编程中体现的风格，且行为重用（在基于类的语言中也称为继承）是通过装饰它作为原型的现有对象的过程实现的。这种模式也被称为弱类化，原型化，或基于实例的编程。</p>
+<p>原始的（也是最典型的）基于原型语言的例子是由大卫·安格尔和兰德尔·史密斯开发的。然而，弱类化的编程风格近来变得越来越流行，并已被诸如JavaScript，Cecil，NewtonScript，IO，MOO，REBOL，Kevo，Squeak（使用框架操纵Morphic组件），和其他几种编程语言采用。1</p>
+<p>###JavaScript面向对象编程</p>
+<p>####命名空间</p>
+<p>命名空间是一个容器，它允许开发人员在一个独特的，特定于应用程序的名称下捆绑所有的功能。 在JavaScript中，命名空间只是另一个包含方法，属性，对象的对象。</p>
+<blockquote>
+<p>需要认识到非常重要的一点，与其他面向对象编程语言中的普通对象和命名空间相比，它们在语言层面上没有区别。</p>
+</blockquote>
+<p>创造的JavaScript命名空间背后的想法很简单：一个全局对象被创建，所有的变量，方法和功能成为该对象的属性。使用命名空间也最大程度地减少应用程序的名称冲突的可能性。</p>
+<p>我们来创建一个全局变量叫做 MYAPP</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 全局命名空间</span></span><br><span class="line">var MYAPP = MYAPP <span class="string">|| &#123;&#125;;</span></span><br></pre></td></tr></table></figure>
+<p>在上面的代码示例中，我们首先检查MYAPP是否已经被定义（是否在同一文件中或在另一文件）。如果是的话，那么使用现有的MYAPP全局对象，否则，创建一个名为MYAPP的空对象用来封装方法，函数，变量和对象。</p>
+<p>我们也可以创建子命名空间：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子命名空间</span></span><br><span class="line">MYAPP.<span class="keyword">event</span> = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>下面是用于创建命名空间和添加变量，函数和方法的代码写法：</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 给普通方法和属性创建一个叫做MYAPP.commonMethod的容器</span></span><br><span class="line">MYAPP.commonMethod = &#123;</span><br><span class="line">  regExForName: <span class="string">""</span>, <span class="comment">// 定义名字的正则验证</span></span><br><span class="line">  regExForPhone: <span class="string">""</span>, <span class="comment">// 定义电话的正则验证</span></span><br><span class="line">  validateName: <span class="function"><span class="keyword">function</span><span class="params">(name)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 对名字name做些操作，你可以通过使用“this.regExForname”</span></span><br><span class="line">    <span class="comment">// 访问regExForName变量</span></span><br><span class="line">  &#125;,</span><br><span class="line"> </span><br><span class="line">  validatePhoneNo: <span class="function"><span class="keyword">function</span><span class="params">(phoneNo)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 对电话号码做操作</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象和方法一起申明</span></span><br><span class="line">MYAPP.event = &#123;</span><br><span class="line">    addListener: <span class="function"><span class="keyword">function</span><span class="params">(el, type, fn)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  代码</span></span><br><span class="line">    &#125;,</span><br><span class="line">   removeListener: <span class="function"><span class="keyword">function</span><span class="params">(el, type, fn)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">   &#125;,</span><br><span class="line">   getEvent: <span class="function"><span class="keyword">function</span><span class="params">(e)</span> </span>&#123;</span><br><span class="line">   <span class="comment">// 代码</span></span><br><span class="line">   &#125;</span><br><span class="line">  </span><br><span class="line">   <span class="comment">// 还可以添加其他的属性和方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用addListner方法的写法:</span></span><br><span class="line">MYAPP.event.addListener(<span class="string">"yourel"</span>, <span class="string">"type"</span>, <span class="keyword">callback</span>);</span><br></pre></td></tr></table></figure>
+<p>####标准内置对象</p>
+<p>JavaScript有包括在其核心的几个对象，例如，Math，Object，Array和String对象。下面的例子演示了如何使用Math对象使用其随机（）方法来获得一个随机数。</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="built_in">log</span>(Math.<span class="built_in">random</span>())<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>注意：T这里和接下来的例子都假设名为 console.log 的方法全局有定义。console.log 实际上不是 JavaScript 自带的。<br>查看 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects" target="_blank" rel="external">JavaScript 参考：全局对象</a> 了解 JavaScript 内置对象的列表。</p>
+<p>JavaScript 中的每个对象都是 Object 对象的实例且继承它所有的属性和方法。</p>
+<p>####自定义对象</p>
+<p><strong>类</strong></p>
+<p>JavaScript是一种基于原型的语言，它没类的声明语句，比如C+ +或Java中用的。这有时会对习惯使用有类申明语句语言的程序员产生困扰。相反，JavaScript可用方法作类。定义一个类跟定义一个函数一样简单。在下面的例子中，我们定义了一个新类Person。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">()</span> </span>&#123; &#125; </span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>对象（类的实例）</strong></p>
+<p>我们使用 new obj 创建对象 obj 的新实例, 将结果（obj 类型）赋值给一个变量方便稍后调用。</p>
+<p>在下面的示例中，我们定义了一个名为Person的类，然后我们创建了两个Person的实例(person1 and person2).</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>有两种为对象创建实例，请参考 Object.create 。</p>
+</blockquote>
+<p><strong>构造器</strong></p>
+<p>在实例化时构造器被调用 (也就是对象实例被创建时)。构造器是对象中的一个方法。 在JavaScript,中函数就可以作为构造器使用,因此不需要特别地定义一个构造器方法. 每个声明的函数都可以在实例化后被调用执行</p>
+<p>构造器常用于给对象的属性赋值或者为调用函数做准备。 在本文的后面描述了类中方法既可以在定义时添加，也可以在使用前添加。</p>
+<p>在下面的示例中, Person类实例化时构造器调用一个 alert函数。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  alert(<span class="string">'Person instantiated'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person();</span><br></pre></td></tr></table></figure>
+<p><strong>属性 (对象属性)</strong></p>
+<p>属性就是 类中包含的变量;每一个对象实例有若干个属性. 为了正确的继承，属性应该被定义在类的原型属性 (函数)中。</p>
+<p>可以使用 关键字 this调用类中的属性, this是对当前对象的引用。 从外部存取(读/写)其属性的语法是: InstanceName.Property; 这与C++，Java或者许多其他语言中的语法是一样的 (在类中语法 this.Property 常用于set和get属性值)</p>
+<p>在下面的示例中，我们为定义Person类定义了一个属性 firstName 并在实例化时赋初值。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(firstName)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.firstName = firstName;</span><br><span class="line">  alert(<span class="string">'Person instantiated'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">'Alice'</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">'Bob'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Show the firstName properties of the objects</span></span><br><span class="line">alert(<span class="string">'person1 is '</span> + person1.firstName); <span class="comment">// alerts "person1 is Alice"</span></span><br><span class="line">alert(<span class="string">'person2 is '</span> + person2.firstName); <span class="comment">// alerts "person2 is Bob"</span></span><br></pre></td></tr></table></figure>
+<p><strong>方法</strong></p>
+<p>方法与属性很相似， 不同的是：一个是函数，另一个可以被定义为函数。 调用方法很像存取一个属性,  不同的是add () 在方法名后面很可能带着参数. 为定义一个方法, 需要将一个函数赋值给类的 prototype 属性; 这个赋值给函数的名称就是用来给对象在外部调用它使用的。</p>
+<p>在下面的示例中，我们给Person类定义了方法 sayHello()，并调用了它.</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(firstName)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.firstName = firstName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.sayHello = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  alert(<span class="string">"Hello, I'm "</span> + <span class="keyword">this</span>.firstName);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"Alice"</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Bob"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// call the Person sayHello method.</span></span><br><span class="line">person1.sayHello(); <span class="comment">// alerts "Hello, I'm Alice"</span></span><br><span class="line">person2.sayHello(); <span class="comment">// alerts "Hello, I'm Bob"</span></span><br></pre></td></tr></table></figure>
+<p>在JavaScript中方法通常是一个绑定到对象中的函数, 这意味着方法可以在context之外被调用。 思考下面示例中的代码:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(firstName)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.firstName = firstName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.sayHello = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  alert(<span class="string">"Hello, I'm "</span> + <span class="keyword">this</span>.firstName);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"Alice"</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Bob"</span>);</span><br><span class="line"><span class="keyword">var</span> helloFunction = person1.sayHello;</span><br><span class="line"></span><br><span class="line">person1.sayHello();                                 <span class="comment">// alerts "Hello, I'm Alice"</span></span><br><span class="line">person2.sayHello();                                 <span class="comment">// alerts "Hello, I'm Bob"</span></span><br><span class="line">helloFunction();                                    <span class="comment">// alerts "Hello, I'm undefined" (or fails</span></span><br><span class="line">                                                    <span class="comment">// with a TypeError in strict mode)</span></span><br><span class="line">alert(helloFunction === person1.sayHello);          <span class="comment">// alerts true</span></span><br><span class="line">alert(helloFunction === Person.prototype.sayHello); <span class="comment">// alerts true</span></span><br><span class="line">helloFunction.call(person1);                        <span class="comment">// alerts "Hello, I'm Alice"</span></span><br></pre></td></tr></table></figure>
+<p>就像那个例子展示的, 我们对<code>sayHello</code>函数所引用的  —  <code>person1</code>, <code>Person.prototype</code>, <code>helloFunction</code> 变量等.参考<code>same function</code>。这个函数调用时的值取决于我们怎么调用它。<br>当我们把它叫做一个表达式，我们从一个对象属性得到了这个函数 - <code>person1.sayHello()</code> - 这是我们从（PERSON1）获取的函数设置的对象，这也就是为什么person1.sayHello（）使用的名称为“Alice”和person2.sayHello（）使用的名称为“Bob”。但是，如果我们用其他方式调用，这就是不同的设置：从一个变量调用它 - helloFunction（） - 此设置为全局对象（窗口，在浏览器）。由于该对象（可能）不具有FirstName属性，我们以<code>Hello, I&#39;m undefined</code>结束。 （这是在松散模式的代码;它会在严格模式不同[错误]，但为了避免混淆，我们不打算在这里详细）或者，我们可以把这个明确的使用Function＃call（或Function#apply）.</p>
+<blockquote>
+<p>See more about this on <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="external">Function#call</a> and <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="external">Function#apply</a></p>
+</blockquote>
+<p><strong>继承</strong></p>
+<p>继承是创建一个类为一个或多个类专用版本（JavaScript的只支持单继承）的一种方法。专门的类通常被称为子，另一类通常称为父。在JavaScript中你可以通过分配父类的一个实例的子类做到这一点，然后专攻它。在现代浏览器中，你还可以使用Object.create来实现继承。</p>
+<blockquote>
+<p>JavaScript 没有检测到子类 <code>prototype.constructor</code>（参见Object.prototype的），所以我们必须手动指出。</p>
+</blockquote>
+<p>在下面的例子中，我们定义 Studenrt 类作为一个<code>Person</code> 的子类。然后我们重新定义sayHello（）方法，并添加sayGoodBye（）方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Define the Person constructor</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">firstName</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.firstName = firstName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add a couple of methods to Person.prototype</span></span><br><span class="line">Person.prototype.walk = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="string">"I am walking!"</span>);</span><br><span class="line">&#125;;</span><br><span class="line">Person.prototype.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="string">"Hello, I'm "</span> + <span class="keyword">this</span>.firstName);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Define the Student constructor</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">firstName, subject</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Call the parent constructor, making sure (using Function#call) that "this" is</span></span><br><span class="line">  <span class="comment">// set correctly during the call</span></span><br><span class="line">  Person.call(<span class="keyword">this</span>, firstName);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Initialize our Student-specific properties</span></span><br><span class="line">  <span class="keyword">this</span>.subject = subject;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create a Student.prototype object that inherits from Person.prototype.</span></span><br><span class="line"><span class="comment">// <span class="doctag">Note:</span> A common error here is to use "new Person()" to create the Student.prototype.</span></span><br><span class="line"><span class="comment">// That's incorrect for several reasons, not least that we don't have anything to</span></span><br><span class="line"><span class="comment">// give Person for the "firstName" argument. The correct place to call Person is</span></span><br><span class="line"><span class="comment">// above, where we call it from Student.</span></span><br><span class="line">Student.prototype = <span class="built_in">Object</span>.create(Person.prototype); <span class="comment">// See note below</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Set the "constructor" property to refer to Student</span></span><br><span class="line">Student.prototype.constructor = Student;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Replace the "sayHello" method</span></span><br><span class="line">Student.prototype.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="string">"Hello, I'm "</span> + <span class="keyword">this</span>.firstName + <span class="string">". I'm studying "</span> + <span class="keyword">this</span>.subject + <span class="string">"."</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add a "sayGoodBye" method</span></span><br><span class="line">Student.prototype.sayGoodBye = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="string">"Goodbye!"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Example usage:</span></span><br><span class="line"><span class="keyword">var</span> student1 = <span class="keyword">new</span> Student(<span class="string">"Janet"</span>, <span class="string">"Applied Physics"</span>);</span><br><span class="line">student1.sayHello();   <span class="comment">// "Hello, I'm Janet. I'm studying Applied Physics."</span></span><br><span class="line">student1.walk();       <span class="comment">// "I am walking!"</span></span><br><span class="line">student1.sayGoodBye(); <span class="comment">// "Goodbye!"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Check that instanceof works correctly</span></span><br><span class="line">alert(student1 <span class="keyword">instanceof</span> Person);  <span class="comment">// true </span></span><br><span class="line">alert(student1 <span class="keyword">instanceof</span> Student); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>关于<code>Student.prototype= Object.create（Person.prototype的）</code>; 注：对于没有Object.create旧的JavaScript引擎，可以使用一个 “polyfill”，或者可以使用函数，可实现相同的结果，如：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createObject</span><span class="params">(proto)</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">ctor</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line">    ctor.prototype = proto;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ctor();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Usage:</span></span><br><span class="line">Student.prototype = createObject(Person.prototype);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>See Object.create for more on what it does, and a shim for older engines.</p>
+</blockquote>
+<p><strong>封装</strong></p>
+<p>在上例中，<code>Student</code> 并不需要知道 Person 类的 walk（）方法是如何实现的，但还是可以使用方法;<code>Student</code>类并不需要明确定义方法，除非我们想改变它。这就是所谓的封装，其中每一个类继承其父的方法，只有需要定义东西时希望它变化。</p>
+<p><strong>抽象</strong></p>
+<p>抽象是当前工作问题部分的模型工厂(不知咋翻)。这可以通过继承或组合来实现。JavaScript通过专业的继承或组合实现让类的实例等于其他对象的属性的值</p>
+<p>JavaScript函数类从Object类继承（这说明模型的专业化），Function.prototype的属性是对象的一个实例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">alert( <span class="string">'foo is a Function: '</span> + (foo <span class="keyword">instanceof</span> <span class="built_in">Function</span>) );                  <span class="comment">// alerts "foo is a Function: true"</span></span><br><span class="line">alert( <span class="string">'foo.prototype is an Object: '</span> + (foo.prototype <span class="keyword">instanceof</span> <span class="built_in">Object</span>) ); <span class="comment">// alerts "foo.prototype is an Object: true"</span></span><br></pre></td></tr></table></figure>
+<p><strong>多态</strong></p>
+<p>就像所有的方法和属性的都是在原型属性内部定义的，不同的类可以定义具有相同名称的方法;方法是作用于他们定义的类。这是唯一真正当两个类不持有父子关系（当一个类不从其他继承 继承链）。</p>
+<p>###笔记<br>The techniques presented in this article to implement object-oriented programming are not the only ones that can be used in JavaScript, which is very flexible in terms of how object-oriented programming can be performed.</p>
+<p>Similarly, the techniques shown here do not use any language hacks, nor do they mimic other languages’ object theory implementations.</p>
+<p>There are other techniques that make even more advanced object-oriented programming in JavaScript, but those are beyond the scope of this introductory article.</p>
+<p>###参考<br>Wikipedia. “Object-oriented programming”, <a href="http://en.wikipedia.org/wiki/Object-...ed_programming" target="_blank" rel="external">http://en.wikipedia.org/wiki/Object-...ed_programming</a></p>
+<p>翻译：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#The_methods" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#The_methods</a></p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#JavaScript" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/1.JavaScript面向对象简介.html"
+           data-title="1.JavaScript面向对象简介" data-url="http://blog.yongyuan.com/post/1.JavaScript面向对象简介.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

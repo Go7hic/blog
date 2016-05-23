@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="^_^" />
+
+
+<meta name="description" content="###Elements
+chrome devtools 中 Elements panel 是审查 dom 元素和 css 的, 可以实时修改 dom/css.
+
+windows: ctrl + shift + i
+mac: cmd + opt + i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chrome开发者工具使用教程">
+<meta property="og:url" content="http://blog.yongyuan.com/post/2014-10-19-chrome-tools.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="###Elements
+chrome devtools 中 Elements panel 是审查 dom 元素和 css 的, 可以实时修改 dom/css.
+
+windows: ctrl + shift + i
+mac: cmd + opt + i">
+<meta property="og:image" content="http://gtms02.alicdn.com/tps/i2/TB1cHVlGFXXXXb.XXXXYkh.ZXXX-527-423.jpg">
+<meta property="og:image" content="http://img3.tbcdn.cn/L1/461/1/6568776c7a3cb0bdf17cf3760c5a0b23221f5653">
+<meta property="og:image" content="http://img4.tbcdn.cn/L1/461/1/e2aacb4eb0fedb9002aeb89439f08944fefd636a">
+<meta property="og:image" content="http://img2.tbcdn.cn/L1/461/1/47df15944c5aad071da619c02693f1f00e3efad2">
+<meta property="og:image" content="http://img3.tbcdn.cn/L1/461/1/a178787031ff59a3eeb9c4b33cc59338353a4b43">
+<meta property="og:image" content="http://img1.tbcdn.cn/L1/461/1/25f7737f9f88b5b921ecbb0a7eb0cdf9726ac880">
+<meta property="og:image" content="http://img2.tbcdn.cn/L1/461/1/14811e0e62a2ecb31c5875ac7186f4caa9e6ccfa">
+<meta property="og:image" content="http://img1.tbcdn.cn/L1/461/1/6fe5a3d32743e8402343062a5ceebdc408cbe511">
+<meta property="og:image" content="http://gtms01.alicdn.com/tps/i1/TB1l6KZFVXXXXc4aXXXYCer4FXX-1190-203.png">
+<meta property="og:image" content="http://gtms01.alicdn.com/tps/i1/TB1D2mQFVXXXXc_XFXX0zJfZVXX-394-121.png">
+<meta property="og:image" content="http://gtms02.alicdn.com/tps/i2/TB1iSq5FVXXXXXGaXXXJJvZJFXX-920-127.png">
+<meta property="og:updated_time" content="2015-07-24T16:11:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chrome开发者工具使用教程">
+<meta name="twitter:description" content="###Elements
+chrome devtools 中 Elements panel 是审查 dom 元素和 css 的, 可以实时修改 dom/css.
+
+windows: ctrl + shift + i
+mac: cmd + opt + i">
+<meta name="twitter:image" content="http://gtms02.alicdn.com/tps/i2/TB1cHVlGFXXXXb.XXXXYkh.ZXXX-527-423.jpg">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> Chrome开发者工具使用教程 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> Chrome开发者工具使用教程 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-10-19T00:00:00+08:00" content="2014-10-19">
+              2014-10-19
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/2014-10-19-chrome-tools.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/2014-10-19-chrome-tools.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>###Elements</p>
+<p>chrome devtools 中 Elements panel 是审查 dom 元素和 css 的, 可以实时修改 dom/css.</p>
+<ul>
+<li>windows: ctrl + shift + i</li>
+<li>mac: cmd + opt + i<a id="more"></a>
+###DOM</li>
+</ul>
+<p><strong>修改 html &amp; 属性</strong></p>
+<p>节点右键, 如下图, 可以: </p>
+<p><img src="http://gtms02.alicdn.com/tps/i2/TB1cHVlGFXXXXb.XXXXYkh.ZXXX-527-423.jpg" alt="修改元素"></p>
+<ul>
+<li>添加属性(enter)</li>
+<li>修改 html(F2)</li>
+<li>删除元素(delete)</li>
+</ul>
+<p>除了右键, 还可以:</p>
+<ul>
+<li><code>h</code> toggle 元素的 visibility 属性</li>
+<li>拖拽节点, 调整顺序</li>
+<li>拖拽节点到编辑器</li>
+</ul>
+<p><img src="http://img3.tbcdn.cn/L1/461/1/6568776c7a3cb0bdf17cf3760c5a0b23221f5653" alt="查看元素"></p>
+<ul>
+<li>ctrl + z` 撤销修改</li>
+</ul>
+<p><strong>查看元素上绑定了哪些事件</strong><br><img src="http://img4.tbcdn.cn/L1/461/1/e2aacb4eb0fedb9002aeb89439f08944fefd636a" alt="查看事件"></p>
+<ul>
+<li>默认会列出 All Nodes, 这些包括代理绑定在该节点的父/祖父节点上的事件, 因为在在冒泡或捕获阶段会经过该节点</li>
+<li>Selected Node Only 只会列出当前节点上绑定的事件</li>
+<li>每个事件会有对应的几个属性 <code>handler</code>, <code>isAtribute</code>, <code>lineNumber</code>, <code>listenerBody</code>, <code>sourceName</code>, <code>type</code>, <code>useCapture</code></li>
+</ul>
+<p><code>handle</code></p>
+<p>handler是处理函数, 右键可以看到这个函数定义的位置, 一般 js 库绑定事件会包一层, 所以这里很难找到对应handler</p>
+<p><code>isAtribute</code> 表明事件是否通过 html 属性(类似onClick)形式绑定的</p>
+<p><code>useCapture</code> 是 addEventListener 的第三个参数, 说明事件是以 冒泡 还是 捕获 顺序执行</p>
+<p><strong>Styles</strong></p>
+<p>修改样式</p>
+<ul>
+<li>添加规则<br><img src="http://img2.tbcdn.cn/L1/461/1/47df15944c5aad071da619c02693f1f00e3efad2" alt=""></li>
+<li>添加、修改属性 同样可以通过 ctrl + z 取消</li>
+</ul>
+<p>###断点</p>
+<p><strong>代码断点</strong></p>
+<ul>
+<li><p>设置断点</p>
+<ul>
+<li>在 Sources 面板 js 文件行号处设置断点, 这里除了常规断点外, 还有个条件断点(右键 conditional breakpoint), 在设置的条件为 true 时才会断电, 在循环中需要断点时比较有用.</li>
+<li>断点后可以查看 堆栈, 变量 信息:</li>
+<li><img src="http://img3.tbcdn.cn/L1/461/1/a178787031ff59a3eeb9c4b33cc59338353a4b43" alt=""></li>
+</ul>
+</li>
+<li><p>在调用堆栈这里可以切换到堆栈中的任何地方重新执行(右键restart frame), 如果想查看断点前的信息时比较有用.</p>
+</li>
+<li><p>断点后的变量保存到全局</p>
+<ul>
+<li>选中变量, 右键 Evalute in console</li>
+<li>在 console 中选中输出的内容, 右键 store as global variable</li>
+</ul>
+</li>
+</ul>
+<p><strong>事件断点</strong></p>
+<p><strong>元素上事件断点</strong></p>
+<p><code>devtools</code> 可以查看某一个元素上绑定了哪些事件: <code>Elements</code> &gt; <code>Event Listeners</code><br><img src="http://img1.tbcdn.cn/L1/461/1/25f7737f9f88b5b921ecbb0a7eb0cdf9726ac880" alt=""></p>
+<p><strong>dom mutation 断点(推荐)</strong></p>
+<p><code>dom mutation event</code> 是 DOM3 添加的新的事件, 一般是 dom 结构改变时触发. <code>devtools</code> 可以对 <code>DOMSubtreeModified</code> <code>DOMAttrModified</code> 和 <code>DOMNodeRemoved</code> 时断点. 对上面 元素上事件断点(<code>mouseover</code>) 后不容易找到业务代码, 使用 mutation 断点, 断点后配合 <code>call stack</code> 就可以找到业务代码了, 如下图</p>
+<p><img src="http://img2.tbcdn.cn/L1/461/1/14811e0e62a2ecb31c5875ac7186f4caa9e6ccfa" alt=""></p>
+<p> 这种情况使用全局搜索(ctrl + shift + f) 代码中 css classname 也能找到业务代码, 然后直接断点也可以.</p>
+<p><strong>全局事件断点</strong></p>
+<p>devtools 还可以对事件发生时断点, 比如 click 发生时断点, 这个跟 元素上事件断点 不同, 不会限定在元素上, 只要是事件发生, 并且有 handler 就断点; 还可以对 resize, ajax, setTimeout/setInterval 断点.</p>
+<p>下面这个图是 resize 时中断, 因为库都代理了, 还需要在断点处一步一步跟下去才能走到业务代码中.<br><img src="http://img1.tbcdn.cn/L1/461/1/6fe5a3d32743e8402343062a5ceebdc408cbe511" alt=""></p>
+<p><strong>几个常用的断点快捷键:</strong></p>
+<ul>
+<li>F8: 继续执行</li>
+<li>F10: step over, 单步执行, 不进入函数</li>
+<li>F11: step into, 单步执行, 进入函数</li>
+<li>shift + F11: step out, 跳出函数</li>
+<li>ctrl + o: 打开文件</li>
+<li>ctrl + shit + o: 跳到函数定义位置</li>
+<li>ctrl + shift + f: 所有脚本中搜索</li>
+</ul>
+<p>###Console</p>
+<p><strong>元素选择</strong></p>
+<p><strong>$(selector)</strong></p>
+<p>即使当前页面没有加载jQuery，你也依然可以使用$和$$函数来选取元素，实际上，这两个函数只是对document.querySelector()和document.querySelectorAll()的简单封装，$用于选取单个元素，$$则用于选取多个：<br><img src="http://gtms01.alicdn.com/tps/i1/TB1l6KZFVXXXXc4aXXXYCer4FXX-1190-203.png" alt=""></p>
+<p><strong>$_</strong></p>
+<p>使用 <code>$_</code> 来引用最近的一个表达式<br><img src="http://gtms01.alicdn.com/tps/i1/TB1D2mQFVXXXXc_XFXX0zJfZVXX-394-121.png" alt=""></p>
+<p><strong>$0 - $4</strong></p>
+<p>除了<code>$_</code>，你还可以使用<code>$0</code>,<code>$1</code>,<code>$2</code>,<code>$3</code>,<code>$4</code>这5个变量来引用最近选取过的5个DOM元素。 $0 为Elements HTML 面板中选中的元素。 $1 为上一次在 HTML 面板中选中的元素。 $2、$3、$4 同样的。不过只能到$4</p>
+<p><strong>copy</strong></p>
+<p>复制到剪切板，copy之后，直接ctrl+v<br><img src="http://gtms02.alicdn.com/tps/i2/TB1iSq5FVXXXXXGaXXXJJvZJFXX-920-127.png" alt=""></p>
+<p><strong>信息输出</strong></p>
+<p>在js代码中打点<code>`console.log()</code> 类似debugger</p>
+<p>转自网络</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/2014-10-19-chrome-tools.html"
+           data-title="Chrome开发者工具使用教程" data-url="http://blog.yongyuan.com/post/2014-10-19-chrome-tools.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

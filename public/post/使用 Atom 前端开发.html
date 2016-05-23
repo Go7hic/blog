@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="JavaScript," />
+
+
+<meta name="description" content="编辑器之战是程序员之间永不停歇的战争，如果说 vi 和 Emacs 是所有程序员之间的战争，那么 sublimeText 和 Atom 则可能是 web 开发届的编辑器之战。你要做个调查做前端开发的用什么编辑器最多，我相信现在还是 sublimeText 最多，但是 Atom 作为 Github 出品的编辑器也收买了大量的前端人员的心，越来越多的前端开始从 sublimeText 转向 Atom。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 Atom 前端开发">
+<meta property="og:url" content="http://blog.yongyuan.com/post/使用 Atom 前端开发.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="编辑器之战是程序员之间永不停歇的战争，如果说 vi 和 Emacs 是所有程序员之间的战争，那么 sublimeText 和 Atom 则可能是 web 开发届的编辑器之战。你要做个调查做前端开发的用什么编辑器最多，我相信现在还是 sublimeText 最多，但是 Atom 作为 Github 出品的编辑器也收买了大量的前端人员的心，越来越多的前端开始从 sublimeText 转向 Atom。">
+<meta property="og:updated_time" content="2015-11-03T16:51:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用 Atom 前端开发">
+<meta name="twitter:description" content="编辑器之战是程序员之间永不停歇的战争，如果说 vi 和 Emacs 是所有程序员之间的战争，那么 sublimeText 和 Atom 则可能是 web 开发届的编辑器之战。你要做个调查做前端开发的用什么编辑器最多，我相信现在还是 sublimeText 最多，但是 Atom 作为 Github 出品的编辑器也收买了大量的前端人员的心，越来越多的前端开始从 sublimeText 转向 Atom。">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 使用 Atom 前端开发 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 使用 Atom 前端开发 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-10-09T11:21:04+08:00" content="2015-10-09">
+              2015-10-09
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/使用 Atom 前端开发.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/使用 Atom 前端开发.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>编辑器之战是程序员之间永不停歇的战争，如果说 vi 和 Emacs 是所有程序员之间的战争，那么 sublimeText 和 Atom 则可能是 web 开发届的编辑器之战。<br>你要做个调查做前端开发的用什么编辑器最多，我相信现在还是 sublimeText 最多，但是 Atom 作为 Github 出品的编辑器也收买了大量的前端人员的心，越来越多的前端<br>开始从 sublimeText 转向 Atom。论优雅 Atom 有过之而无不及，论插件扩展， Atom 则更加灵活了，而且还是用前端语言来写的，厉害一点的前端完全可以自己写自己需要的 Atom 插件，但是 sublimeText 的扩展是 python 写的，而且安装扩展的源好像被封了（不知道现在好了咩），要改 Host 才能安装，且不论自带的 markdown 功能完全可以当 markdown 编辑器使用，自带补全也比 sublimeText强的多，当然这是说自带，插件实现的话两者都很强。<br>当然 Atom 一直被诟病的一点就是启动慢，但是我相信程序员的电脑配置不会太差吧，这点速度差别还是可以接收的，而且我用了一段时间的 Atom 完全不觉得这有啥影响，完全可以忽略这启动速度的差别。<br>这里再提一下 webstrom 这个 IDE，虽然是个 IDE ,但是在前端圈也有人喜欢用，因为提示什么的都很智能，但是我想说 Atom 自带 jshint 效果，完全可以智能检查提示你的代码<br>，所以这个完全可以放弃 webstrom。</p>
+<p>好了，不扯那么多了，作为一名前端，从最开始的 vim，到后面一直用 sublimeText2/3，到现在使用 Atom。我觉得好马配好鞍，程序员肯定就的用自己最喜欢的最好用的编辑器来写代码，而且 sublimeText 和 Atom 的很多快捷键基本相同，所以根本没啥学习成本。</p>
+<p>安装使用很简单，我也不写教程了，这里记录一下我现在用到的一些 Atom 插件吧，直接在终端 <code>apm list</code> 即可看到。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">├── angularjs<span class="variable">@0</span>.<span class="number">3.3</span></span><br><span class="line">├── atom-beautify<span class="variable">@0</span>.<span class="number">28.16</span></span><br><span class="line">├── atom-jade<span class="variable">@0</span>.<span class="number">3.0</span></span><br><span class="line">├── atom-jshint<span class="variable">@2</span>.<span class="number">0.0</span></span><br><span class="line">├── atom-material-ui<span class="variable">@0</span>.<span class="number">6.4</span></span><br><span class="line">├── css-snippets<span class="variable">@0</span>.<span class="number">9.0</span></span><br><span class="line">├── docblockr<span class="variable">@0</span>.<span class="number">7.3</span></span><br><span class="line">├── emmet<span class="variable">@2</span>.<span class="number">3.13</span></span><br><span class="line">├── file-icons<span class="variable">@1</span>.<span class="number">6.11</span></span><br><span class="line">├── git-plus<span class="variable">@5</span>.<span class="number">4.7</span></span><br><span class="line">├── html-to-string<span class="variable">@0</span>.<span class="number">2.3</span></span><br><span class="line">├── jshint<span class="variable">@1</span>.<span class="number">8.1</span></span><br><span class="line">├── minimap<span class="variable">@4</span>.<span class="number">16.0</span></span><br><span class="line">├── open-in-browser<span class="variable">@0</span>.<span class="number">4.6</span></span><br><span class="line">├── react<span class="variable">@0</span>.<span class="number">12.10</span></span><br><span class="line">├── set-syntax<span class="variable">@0</span>.<span class="number">3.0</span></span><br><span class="line">└── toggle-quotes<span class="variable">@0</span>.<span class="number">11.3</span></span><br></pre></td></tr></table></figure>
+<p>还有一些快捷键记录：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">ctrl + alt + <span class="selector-tag">b</span></span><br><span class="line"></span><br><span class="line">格式化代码 (来自git beautify)</span><br><span class="line"></span><br><span class="line">ctrl + d</span><br><span class="line"></span><br><span class="line">在有选中的状态下，快速选中下一个。</span><br><span class="line"></span><br><span class="line">ctrl + k</span><br><span class="line"></span><br><span class="line">在有选中的状态下，跳过当前选中。</span><br><span class="line"></span><br><span class="line">alt + g up/down</span><br><span class="line"></span><br><span class="line">到上一个/下一个修改处 (来自git diff)</span><br><span class="line"></span><br><span class="line">ctrl + up/down</span><br><span class="line"></span><br><span class="line">选中行上移、下移。</span><br><span class="line"></span><br><span class="line">ctrl + shift + <span class="selector-tag">a</span> + <span class="selector-tag">a</span></span><br><span class="line"></span><br><span class="line">添加所有已变更的文件到git并commit (来自git puls)</span><br><span class="line"></span><br><span class="line">ctrl + ,</span><br><span class="line"></span><br><span class="line">打开设置面板</span><br><span class="line"></span><br><span class="line">ctrl + g</span><br><span class="line"></span><br><span class="line">进入行号跳转面板。</span><br><span class="line"></span><br><span class="line">ctrl + t</span><br><span class="line"></span><br><span class="line">进入文件跳转面板。</span><br><span class="line"></span><br><span class="line">ctrl + r</span><br><span class="line"></span><br><span class="line">进入变量、函数跳转面板。</span><br><span class="line"></span><br><span class="line">ctrl + shift + up/down</span><br><span class="line"></span><br><span class="line">向上或者向下复制光标。</span><br><span class="line"></span><br><span class="line">ctrl + shift + <span class="selector-tag">b</span></span><br><span class="line"></span><br><span class="line">运行编辑区域的代码（来自script）。</span><br><span class="line"></span><br><span class="line">ctrl + alt + t</span><br><span class="line"></span><br><span class="line">打开一个新的终端窗口，起始目录为项目根目录。（来自atom-terminal）</span><br></pre></td></tr></table></figure>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#JavaScript" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/使用 Atom 前端开发.html"
+           data-title="使用 Atom 前端开发" data-url="http://blog.yongyuan.com/post/使用 Atom 前端开发.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

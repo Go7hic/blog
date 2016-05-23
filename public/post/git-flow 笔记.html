@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="Git," />
+
+
+<meta name="description" content="git-flow 是一个 git 扩展集，按照 Vincent Driessen 的分支模型提供高层次的库操作，git-flow 提供了出色的命令帮忙以及输出提示。gt-flow 是一个基于归并的解决方案，他并没有提供重置特性分支的能力。
+像我想在在 Mac 上用的 Sourcetree 是一个不错的 git 客户端，已经集成了 git-flow 的功能，向大家推荐这个客户端，看 diff 还是不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git-flow 笔记">
+<meta property="og:url" content="http://blog.yongyuan.com/post/git-flow 笔记.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="git-flow 是一个 git 扩展集，按照 Vincent Driessen 的分支模型提供高层次的库操作，git-flow 提供了出色的命令帮忙以及输出提示。gt-flow 是一个基于归并的解决方案，他并没有提供重置特性分支的能力。
+像我想在在 Mac 上用的 Sourcetree 是一个不错的 git 客户端，已经集成了 git-flow 的功能，向大家推荐这个客户端，看 diff 还是不">
+<meta property="og:image" content="http://dyy.im/wp-content/uploads/2014/12/git-flow-commands.png">
+<meta property="og:updated_time" content="2015-09-04T17:03:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git-flow 笔记">
+<meta name="twitter:description" content="git-flow 是一个 git 扩展集，按照 Vincent Driessen 的分支模型提供高层次的库操作，git-flow 提供了出色的命令帮忙以及输出提示。gt-flow 是一个基于归并的解决方案，他并没有提供重置特性分支的能力。
+像我想在在 Mac 上用的 Sourcetree 是一个不错的 git 客户端，已经集成了 git-flow 的功能，向大家推荐这个客户端，看 diff 还是不">
+<meta name="twitter:image" content="http://dyy.im/wp-content/uploads/2014/12/git-flow-commands.png">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> git-flow 笔记 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> git-flow 笔记 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-12-04T11:21:04+08:00" content="2014-12-04">
+              2014-12-04
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/git-flow 笔记.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/git-flow 笔记.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>git-flow 是一个 git 扩展集，按照 Vincent Driessen 的分支模型提供高层次的库操作，git-flow 提供了出色的命令帮忙以及输出提示。gt-flow 是一个基于归并的解决方案，他并没有提供重置特性分支的能力。</p>
+<p>像我想在在 Mac 上用的 Sourcetree 是一个不错的 git 客户端，已经集成了 git-flow 的功能，向大家推荐这个客户端，看 diff 还是不错的。</p>
+<p>##安装</p>
+<p>前提是你已经安装好了 git 。</p>
+<ul>
+<li><p>OSX 安装：$ brew install git-flow</p>
+</li>
+<li><p>Linux安装：$ apt-get install git-flow</p>
+</li>
+<li><p>windows(cygwin)：$ wget -q -0 - –no-check-certificate <a href="https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-install.sh" target="_blank" rel="external">https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-install.sh</a> | bash</p>
+</li>
+</ul>
+<p>##安装完了就开始吧</p>
+<p>###初始化<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">flow</span> init</span><br></pre></td></tr></table></figure></p>
+<p>期间要写一些命名什么的，全部用默认值吧</p>
+<p>###开发新特性</p>
+<p>一般为我们在 develop 库的分支里开发新功能特性，也就是说新特性的开发基于 develop 分支的，通过下面的命令开始开发新特性</p>
+<p><code>git flow feature start MYFEATURE</code> 这个操作创建了一个基于 ‘develop’的特性分支，并且换到这个分支下。</p>
+<p>###完成新特性<br>完成新特性包含的工作有：</p>
+<ul>
+<li>合并 MYFEATURE 分支到 ‘develop’</li>
+<li>删除这个新特性分支</li>
+<li>切换回 ‘develop’ 分支</li>
+</ul>
+<p>###发布新特性<br>有时候你也许是和别人一起合作开发这个新特性，发布新特性分支到远程服务器，其他的成员也可以使用这个分支。可以使用下面的命令行</p>
+<p>git flow feature publish MYFEATURE</p>
+<p>###拉取一个已经发布的特性分支<br>如果你要拉取一个其他队友发布的新特性分支，并签出远程的变更，可以使用下面的命令行</p>
+<p>git flow feature pull MYFEATURE</p>
+<p>##开发一个 release 版本<br>这个版本应该支持一个新的用于生产环境的发布版本，允许修正小问题，病危发布版本准备元数据</p>
+<p>###开始准备 release 版本<br>开始准备 release 版本，使用 git flow release 命令，它从‘develop’分支开始创建一个 release分支</p>
+<p>git flow release start RELEASE [BASE]</p>
+<p>你可以选择提供一个 [BASE] 参数，即提交记录的 sha-1 hash 值，来启动 release 分支。这个 提交记录的sha-1 hash 值必须是 develop 分支下的</p>
+<p>创建 release 分支后立即发布允许其他用户向这个 release 分支提交内容是个明智的做法。<br>  <code>git flow release publish RELEASE</code>命令发布新特性，<code>git flow release track RELEASE</code>命令签出 release 版本的远程变更</p>
+<p>###完成 release 版本</p>
+<p>完成 release 版本是一个 git 分支操作，他执行下面几个动作</p>
+<ul>
+<li>归并 release 分支到 master 分支</li>
+<li>用 release 分支名做 Tag</li>
+<li>归并 release 分支到 develop </li>
+<li>移除 release 分支</li>
+</ul>
+<p>通过命令行 <code>git flow release finish RELEASE</code> 执行</p>
+<p>###开始 gitflow 热点修复</p>
+<p>像其他 git flow 命令一样，热点修复分支开始自：</p>
+<p><code>git flow hotfix start VERSION [BASENAME]</code></p>
+<p>VERSION 参数标记着修正版本。<br>你可以从 [BASENAME] 开始，<code>[BASENAME]</code>为 finish release 时填写的版本号</p>
+<p>###完成热点修复</p>
+<p>当完成热点分支，代码归并回 develop 和 master 分支。相应的 master 分支打上修正版本的 TAG.</p>
+<p><code>git flow hotfix finsh VERSION</code></p>
+<p>整体的命令结构流程如下图：<br><img src="http://dyy.im/wp-content/uploads/2014/12/git-flow-commands.png" alt=""></p>
+<p>以上也只是 git flow 比较重要的命令，其他你常用的 git 命令也可照用。</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#Git" rel="tag">#Git</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/git-flow 笔记.html"
+           data-title="git-flow 笔记" data-url="http://blog.yongyuan.com/post/git-flow 笔记.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

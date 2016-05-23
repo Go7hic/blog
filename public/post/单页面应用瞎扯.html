@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="Node," />
+
+
+<meta name="description" content="单页面应用发展到现在已经是个相对成熟的技术方案了，这份工作之前一直做的单页面的 web 应用，大大小小的项目也独立做过几个，有用公司自己基于业务开发的单页面框架，也有 angular，vue 这种双向数据绑定的框架，很遗憾没有在真正的项目里面用过 react，主是当时技术选型的时候对 react 不是很熟悉不是很有把握在短时间内快速把项目上线。不过我今天并不是想说这几个框架，而是谈谈对单页面应用的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单页面应用瞎扯">
+<meta property="og:url" content="http://blog.yongyuan.com/post/单页面应用瞎扯.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="单页面应用发展到现在已经是个相对成熟的技术方案了，这份工作之前一直做的单页面的 web 应用，大大小小的项目也独立做过几个，有用公司自己基于业务开发的单页面框架，也有 angular，vue 这种双向数据绑定的框架，很遗憾没有在真正的项目里面用过 react，主是当时技术选型的时候对 react 不是很熟悉不是很有把握在短时间内快速把项目上线。不过我今天并不是想说这几个框架，而是谈谈对单页面应用的">
+<meta property="og:updated_time" content="2016-04-01T15:49:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="单页面应用瞎扯">
+<meta name="twitter:description" content="单页面应用发展到现在已经是个相对成熟的技术方案了，这份工作之前一直做的单页面的 web 应用，大大小小的项目也独立做过几个，有用公司自己基于业务开发的单页面框架，也有 angular，vue 这种双向数据绑定的框架，很遗憾没有在真正的项目里面用过 react，主是当时技术选型的时候对 react 不是很熟悉不是很有把握在短时间内快速把项目上线。不过我今天并不是想说这几个框架，而是谈谈对单页面应用的">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 单页面应用瞎扯 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 单页面应用瞎扯 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2016-04-01T11:21:04+08:00" content="2016-04-01">
+              2016-04-01
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/单页面应用瞎扯.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/单页面应用瞎扯.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>单页面应用发展到现在已经是个相对成熟的技术方案了，这份工作之前一直做的单页面的 web 应用，大大小小的项目也独立做过几个，有用公司自己基于业务开发的单页面框架，也有 angular，vue 这种双向数据绑定的框架，很遗憾没有在真正的项目里面用过 react，主是当时技术选型的时候对 react 不是很熟悉不是很有把握在短时间内快速把项目上线。不过我今天并不是想说这几个框架，而是谈谈对单页面应用的一些看法。</p>
+<p>单页面应用顾名思义离不开单页面（Single page）和应用（Application）这两个词。Application 这个词是应用程序（application program）的较短形式。应用程序是为客户设计的直接执行特定功能的程序，在某些情况中，是为其它应用程序设计的。现在随着互联网的发展，网速，硬件的发达，web 端的页面功能越来越复杂，交互越来越丰富。现在常说的单页面应用一般是指在浏览器（web 容器）中运行的应用，它们在使用期间不会重新加载页面。像所有的应用一样，它旨在帮助用户完成任务，比如“编写文档”或者“管理Web服务器”。可以认为单页应用是一种从 Web 服务器加载的富客户端。所以又有一种说法叫做 webApp</p>
+<p>上面说了这么多，主要是为了表达，当我们说单页面应用的时候首先他得是一个应用，这个应用可简单可复杂。当然如果你只是需要在 web 上展示几个纯静态页面的内容就没必要做成应用了。那为什是单页面应用呢？我们都知道一般的应用程序都是通过一个入口进入，然后在里面随意操作。单页面应用毫无疑问也是这样的通过一个页面入口进入，然后在里面各种操作交互，让你感觉一直在这个页面里面，没有离开过这个应用，这种体验是不是很棒，当然，他比传统的那种网站还有更多的好处：</p>
+<ul>
+<li>1.它提供了更加吸引人的用户体验，毫无疑问单页面应用的交互体验会比那种传统的网站体验好很多</li>
+<li>2.减小服务器压力，因为单页面应用切换功能模块的时候只是需要渲染当前需要加载数据的部分，不需要像传统网站那样切换页面然后加载渲染整个页面，有时候网速或服务器一慢可能就整个屏幕白屏了。这里单页面不仅体验好而且相对服务器压力也更小。</li>
+<li>3.更好的前后端分离，前后端职责更明确。现在单页面应用一般都是前端渲染模板，后端只需要提供 RESTful api 就可以 ，再也不用让前端套模板，再也不想让后端写 js 了</li>
+<li>4.后端代码通用。之前公司有个「五合一」的策略，就是五个 单页面应用项目共用一套 RESTful api，不过后面只有四合一，因为一个项目独立出去了。</li>
+<li>5.让前端夺回话语权。很早之前前端只是个切图的，但是现在呢？尤其是单页面应用的流行，让前端和后端同等重要，让前端在开发团队的地位越来越高。</li>
+<li>6.可移植性。单页面应用很容易的就可以移植到手机端和桌面端</li>
+</ul>
+<p>虽然优点非常多，但是缺点也不是没有，比如很多人关心的 seo 问题并没有很成熟的方案，有的单页应用首页请求过多数据过大可能导致首次加载有点慢，保存书签有点不方便。这些都有对应的解决办法的，比如 seo 的问题网上现在方案很多，而且谷歌现在可以抓取js 写的页面了，优化首屏加载时间的方案也非常多，相信真正有需要的人都解决了这些问题，只有那些并不是非常需要的人在那里抱怨又懒得去做这些事。至于其他的一些性能问题，和单页面没多大关系，只和你写的的代码和你用的框架有关。比如在很多单页面框架里面基本都有个事件管理模块，要是你每次页面事件注册完后不去注销掉，最后肯定会导致浏览器卡死啊。</p>
+<p>既然单页面应用这么好？为啥人家 facebook ，淘宝不用？再说这个之前，我们得承认人家 Gmail,Github,YouTube，印象笔记，网易云音乐等等很多高流量富交互的网站都是采用单页面应用技术，而且体验都还不错不是吗。所以我觉得非常大的一个问题就是重构带来的成本，他们那时候还得考虑 ie6 呢，而且单页面交互和传统的页面交互不同，从网站设计交互就得重头改起，想想就觉得可怕，更不要说涉及到前后端代码的重新设计，不过据说淘宝已经有些功能模块已经改成单页面，而且也不直接兼容 ie6 这种浏览器了。如果要重新建个淘宝和 facebook 这样的网站我觉得用单页面技术完全能吼住的,只不过对前端技术的要求高一点而已。</p>
+<p>不过现在又开始出现一种同构 js 应用，你只需要写一次代码，就可以在服务端渲染静态页面，还可以在客户端完成复杂的交互。理论是是解决了单页面应用的那些缺点，但是最后发展结果怎样，我也不知道，因为现在看到用这个技术的应用并不多，国内好像没听过有哪家公司这么搞！下次再讲那些适用于单页面的框架吧…</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#Node" rel="tag">#Node</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/单页面应用瞎扯.html"
+           data-title="单页面应用瞎扯" data-url="http://blog.yongyuan.com/post/单页面应用瞎扯.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

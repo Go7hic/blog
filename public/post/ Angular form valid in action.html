@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="^_^" />
+
+
+<meta name="description" content="Angular 提供了有关表单的属性来帮助我们验证表单. 他们给我们提供了各种有关一个表单及其输入的信息，并且应用到了表单和输入.
+
+属性类          描述$valid        ng-valid    Boolean 告诉我们这一项当前基于你设定的规则是否验证通过$invalid    ng-invalid    Boolean 告诉我们这一项当前基于你设定的规则是否验证未通过$pr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular form valid in action">
+<meta property="og:url" content="http://blog.yongyuan.com/post/ Angular form valid in action.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="Angular 提供了有关表单的属性来帮助我们验证表单. 他们给我们提供了各种有关一个表单及其输入的信息，并且应用到了表单和输入.
+
+属性类          描述$valid        ng-valid    Boolean 告诉我们这一项当前基于你设定的规则是否验证通过$invalid    ng-invalid    Boolean 告诉我们这一项当前基于你设定的规则是否验证未通过$pr">
+<meta property="og:updated_time" content="2015-12-12T16:07:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular form valid in action">
+<meta name="twitter:description" content="Angular 提供了有关表单的属性来帮助我们验证表单. 他们给我们提供了各种有关一个表单及其输入的信息，并且应用到了表单和输入.
+
+属性类          描述$valid        ng-valid    Boolean 告诉我们这一项当前基于你设定的规则是否验证通过$invalid    ng-invalid    Boolean 告诉我们这一项当前基于你设定的规则是否验证未通过$pr">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> Angular form valid in action </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> Angular form valid in action </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-12-13T00:00:00+08:00" content="2015-12-13">
+              2015-12-13
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/ Angular form valid in action.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/ Angular form valid in action.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>Angular 提供了有关表单的属性来帮助我们验证表单. 他们给我们提供了各种有关一个表单及其输入的信息，并且应用到了表单和输入.</p>
+<blockquote>
+<p>属性类          描述<br>$valid        ng-valid    Boolean 告诉我们这一项当前基于你设定的规则是否验证通过<br>$invalid    ng-invalid    Boolean 告诉我们这一项当前基于你设定的规则是否验证未通过<br>$pristine    ng-pristine    Boolean 如果表单或者输入框没有使用则为True<br>$dirty        ng-dirty    Boolean 如果表单或者输入框有使用到则为True</p>
+</blockquote>
+<p>Angular 也提供了有关表单及其输入框的类，以便你能够依据每一个状态设置其样式.下面是一个我用的表单验证,表单名为 userForm, 提交表单的方法有多种，我这里采用 ngSubmit 的方法，方法为 saveUserInfo()。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">form(name=&quot;userForm&quot;,ng-submit=&quot;saveUserInfo(userForm.$valid)&quot;,novalidate)</span><br><span class="line">    label(for=&quot;&quot;,ng-class=&quot;&#123; &apos;has-error&apos; : userForm.telephone.$invalid &amp;&amp; !userForm.telephone.$pristine &#125;&quot;)</span><br><span class="line">        | 职位</span><br><span class="line">        span(ng-show=&quot;userForm.jobTitle.$invalid &amp;&amp; !userForm.jobTitle.$pristine&quot;) 填写正确的手机号码</span><br><span class="line">        input.form-control(type=&quot;text&quot;,name=&quot;jobTitle&quot;,ng-model=&quot;user.jobTitle&quot;,required)</span><br><span class="line">    label(for=&quot;&quot;,ng-class=&quot;&#123; &apos;has-error&apos; : userForm.nick.$invalid &amp;&amp; !userForm.nick.$pristine &#125;&quot;)</span><br><span class="line">        | 用户昵称</span><br><span class="line">        span(ng-show=&quot;userForm.nick.$invalid &amp;&amp; !userForm.nick.$pristine&quot;) 填写正确的手机号码</span><br><span class="line">        input.form-control(type=&quot;text&quot;,name=&quot;nick&quot;,ng-model=&quot;user.nick&quot;,required)</span><br><span class="line">    label(for=&quot;&quot;,ng-class=&quot;&#123; &apos;has-error&apos; : userForm.email.$invalid &amp;&amp; !userForm.telephone.$pristine &#125;&quot;)</span><br><span class="line">        | 邮箱</span><br><span class="line">        span(ng-show=&quot;userForm.email.$invalid &amp;&amp; !userForm.email.$pristine&quot;) 填写正确的手机号码</span><br><span class="line">        input.form-control(type=&quot;text&quot;,name=&quot;email&quot;,ng-model=&quot;user.email&quot;,required)</span><br><span class="line">    label(for=&quot;&quot;,ng-class=&quot;&#123; &apos;has-error&apos; : userForm.telephone.$invalid &amp;&amp; !userForm.telephone.$pristine &#125;&quot;)</span><br><span class="line">        | 联系电话</span><br><span class="line">        span(ng-show=&quot;userForm.telephone.$invalid &amp;&amp; !userForm.telephone.$pristine&quot;) 填写正确的手机号码</span><br><span class="line">        input.form-control(type=&quot;text&quot;,name=&quot;telephone&quot;,ng-model=&quot;user.telephone&quot;,ng-pattern=&quot;/1[3|5|7|8|][0-9]&#123;9&#125;/&quot;,required)</span><br><span class="line">    button.btn.btn-primary(type=&quot;submit&quot;,ng-disabled=&quot;userForm.$invalid&quot;) 确认</span><br><span class="line">    button.btn.btn-default(ng-click=&quot;cancel()&quot;) 取消</span><br></pre></td></tr></table></figure>
+<p>有几点可以分析一下，首先一定要每个 input 要有 name 属性，给每个 input 输入框准备一个错误提醒的消息，就是上面的 span 标签。这里我们只想使用 angular 自带的验证，需要关闭浏览器对 html5 表单的原生验证，所以给表单加上 novalidate 属性.</p>
+<p>如果需要每个表单都必填，那么给 input 添加 required 属性，顺便给提交按钮添加  disabled 属性，当有一个表单的校验没通过，这个按钮都是灰色不可用的。</p>
+<p>还有表单一个常用的 radio 类型没有提到，这里也顺便一起说了，有时候我们需要做一些单项选择，而且可以二次修改，所以如果之前这个 radio 已经选好了某个选项，那么下次修改他的时候，它默认也应该是选中的状态。这个利用双向绑定很容易实现的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">label(for=&quot;&quot;)</span><br><span class="line">    | 性别：</span><br><span class="line">    label.radio-inline.c-radio</span><br><span class="line">        input(type=&apos;radio&apos;,ng-trim=&quot;&quot;,name=&quot;sex&quot;,ng-click=&quot;user.sex=1&quot;,value=&quot;1&quot;,ng-model=&quot;user.sex&quot;)</span><br><span class="line">        span.iconfont.icon-check</span><br><span class="line">        |  男</span><br><span class="line">    label.radio-inline.c-radio</span><br><span class="line">        input(type=&apos;radio&apos;,ng-trim=&quot;&quot;,name=&quot;sex&quot;,ng-click=&quot;user.sex=2&quot;,value=&quot;2&quot;,ng-model=&quot;user.sex&quot;)</span><br><span class="line">        span.iconfont.icon-check</span><br><span class="line">        |  女</span><br></pre></td></tr></table></figure></p>
+<p>只要给对应的选项添加对应选中的 value 值，绑定 ngModel 即可。<br>上面这些都是一些基本的 angualr 表单的使用。没啥技巧，都是一些死东西，第一次明白后面基本照用就是。</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/ Angular form valid in action.html"
+           data-title="Angular form valid in action" data-url="http://blog.yongyuan.com/post/ Angular form valid in action.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

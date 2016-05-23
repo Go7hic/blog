@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="^_^" />
+
+
+<meta name="description" content="###初探sea.js(一)
+早就对国内玉伯的sea.js有所耳闻了，但是一直没有去学习接触，之前用过类似的require.js，现在觉定来熟悉一下sea.js，希望它越来越好，走向国际化，(^__^) 嘻嘻…….">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初探sea.js(一)">
+<meta property="og:url" content="http://blog.yongyuan.com/post/2014-05-01-seajs-1.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="###初探sea.js(一)
+早就对国内玉伯的sea.js有所耳闻了，但是一直没有去学习接触，之前用过类似的require.js，现在觉定来熟悉一下sea.js，希望它越来越好，走向国际化，(^__^) 嘻嘻…….">
+<meta property="og:image" content="https://github.com/dyygtfx/dyygtfx.github.com/blob/master/_posts/blog/img/2014-04-30_235853.png?raw=true">
+<meta property="og:image" content="https://github.com/dyygtfx/dyygtfx.github.com/blob/master/_posts/blog/img/2014-05-01_003855.png?raw=true">
+<meta property="og:updated_time" content="2015-07-24T16:08:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初探sea.js(一)">
+<meta name="twitter:description" content="###初探sea.js(一)
+早就对国内玉伯的sea.js有所耳闻了，但是一直没有去学习接触，之前用过类似的require.js，现在觉定来熟悉一下sea.js，希望它越来越好，走向国际化，(^__^) 嘻嘻…….">
+<meta name="twitter:image" content="https://github.com/dyygtfx/dyygtfx.github.com/blob/master/_posts/blog/img/2014-04-30_235853.png?raw=true">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 初探sea.js(一) </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 初探sea.js(一) </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-05-01T00:00:00+08:00" content="2014-05-01">
+              2014-05-01
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/2014-05-01-seajs-1.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/2014-05-01-seajs-1.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>###初探sea.js(一)</p>
+<p>早就对国内玉伯的sea.js有所耳闻了，但是一直没有去学习接触，之前用过类似的require.js，现在觉定来熟悉一下sea.js，希望它越来越好，走向国际化，(<em>^__^</em>) 嘻嘻…….</p>
+<a id="more"></a>
+<p><strong>0x0 介绍</strong></p>
+<p>在前几年，前端界最火的莫过于jQuery，那是个插件纷飞的年代。而现在，CommonJS草案的提出，Node.js让JavaScript在服务端大展拳脚，前端界已经不是那个手持jQuery的小孩了。</p>
+<p>在这个新的浪潮中，JavaScript模块化开发开始流行起来。CommonJS标准制定后，Node.js兴起，RequireJS使得JavaScript模块化在客户端齐头并进，ES6模块标准呼之欲出，涌现出了很多模块化的方案，兼容ES6也好，不兼容也罢；国内外相关的项目如雨后春笋边涌现出来，谁都有可能引领标准。这系列文章将记录我对sea.js的学习。</p>
+<p><strong>0x1 为什么用sea.js？</strong></p>
+<p>Sea.js 追求简单、自然的代码书写和组织方式，具有以下核心特性：</p>
+<p>简单友好的模块定义规范：Sea.js 遵循 CMD 规范，可以像 Node.js 一般书写模块代码。<br>自然直观的代码组织方式：依赖的自动加载、配置的简洁清晰，可以让我们更多地享受编码的乐趣。<br>Sea.js 还提供常用插件，非常有助于开发调试和性能优化，并具有丰富的可扩展接口。</p>
+<p><strong>0x2 开始吧</strong></p>
+<p>首先去sea.js官网下载最新的文件<a href="http://seajs.org/docs/" target="_blank" rel="external">http://seajs.org/docs/</a> 。  或者          <a href="https://github.com/seajs/seajs。" target="_blank" rel="external">https://github.com/seajs/seajs。</a><br>下载之后看到目录结构：<br>dist      – sea.js 等压缩好的文件，直接可用<br>docs      – 使用文档<br>lib       – 给 Node.js 用的版本<br>src       – 源码<br>tests     – 测试集<br>tools     – 压缩等工具，可查看 build.xml 得到源码合并顺序<br>Makefile  – 可执行构建、测试等命令</p>
+<p>然后我们开始创建自己的工作文件目录，这个看各自的命名喜好啦，以下是我的目录截图</p>
+<p><img src="https://github.com/dyygtfx/dyygtfx.github.com/blob/master/_posts/blog/img/2014-04-30_235853.png?raw=true" alt="目录结构"></p>
+<p>然后呢把之前下载的seajs文件里的seajs/dist中的文件都放在scripts/seajs主要就是sea.js.jquery.js以及应用的Js</p>
+<p>接下来我们开始代码了，想想是不是都好激动呢</p>
+<p>第一步当然是引入sea.js啦</p>
+<figure class="highlight plain"><figcaption><span>src="Assets/scripts/seajs/sea.js" id="seajsnode">``` </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">关于id=&quot;seajsnode&quot;的两个解释：</span><br><span class="line">a. SeaJS加载自身的script标签的其他属性（如data-config、data-main）等来实现不同的功能</span><br><span class="line">b. SeaJS内部通过document.getElementById(&quot;seajsnode&quot;)来获取这个script标签（其实SeaJS内部还有一种方式，不过另一种方式的效率比较低，所以不推荐，如果有兴趣，可以看一下源码   https://github.com/seajs/seajs/blob/master/src/util-path.js）</span><br><span class="line"></span><br><span class="line">第二步开始写自己应用的Js代码啦</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">define(function(require,exports,module)&#123;</span><br><span class="line">     var util = &#123;&#125;;</span><br><span class="line">     var colorRange = [&apos;0&apos;,&apos;1&apos;,&apos;2&apos;,&apos;3&apos;,&apos;4&apos;,&apos;5&apos;,&apos;6&apos;,&apos;7&apos;,&apos;8&apos;,&apos;9&apos;,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;,&apos;D&apos;,&apos;E&apos;,&apos;F&apos;];</span><br><span class="line">     util.randomColor = function()&#123;</span><br><span class="line">          return &apos;#&apos; +</span><br><span class="line">               colorRange[Math.floor(Math.random() * 16)] +</span><br><span class="line">               colorRange[Math.floor(Math.random() * 16)] +</span><br><span class="line">               colorRange[Math.floor(Math.random() * 16)] +</span><br><span class="line">               colorRange[Math.floor(Math.random() * 16)] +</span><br><span class="line">               colorRange[Math.floor(Math.random() * 16)] +</span><br><span class="line">               colorRange[Math.floor(Math.random() * 16)];</span><br><span class="line">     &#125;;</span><br><span class="line">    </span><br><span class="line">     var helloSeaJS = document.getElementById(&apos;hello-seajs&apos;);</span><br><span class="line">     helloSeaJS.style.color = util.randomColor();</span><br><span class="line">     window.setInterval(function()&#123;</span><br><span class="line">          helloSeaJS.style.color = util.randomColor();</span><br><span class="line">     &#125;,1500);</span><br><span class="line">&#125;); </span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">sea.js里所有的代码都放在define(function(require,exports,module)&#123;&#125;);函数体里面，define是SeaJS定义的一个全局函数，用来定义一个模块。</span><br><span class="line">上面我们发现就是一个js文件，在seajs里一个文件表示一个模块，两个文件就是要分开来写变成两个模块了。接下看看我们怎么把这个一个文件模块变成两个文件模块</span><br><span class="line">第一部分  独立出util.js</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">define(function(require,exports,module)&#123;</span><br><span class="line">     var util = &#123;&#125;;</span><br><span class="line">    </span><br><span class="line">     var colorRange = [&apos;0&apos;,&apos;1&apos;,&apos;2&apos;,&apos;3&apos;,&apos;4&apos;,&apos;5&apos;,&apos;6&apos;,&apos;7&apos;,&apos;8&apos;,&apos;9&apos;,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;,&apos;D&apos;,&apos;E&apos;,&apos;F&apos;];</span><br><span class="line">    </span><br><span class="line">     util.randomColor = function()&#123;</span><br><span class="line">          return &apos;#&apos; +</span><br><span class="line">               colorRange[Math.floor(Math.random() * 16)] +</span><br><span class="line">               colorRange[Math.floor(Math.random() * 16)] +</span><br><span class="line">               colorRange[Math.floor(Math.random() * 16)] +</span><br><span class="line">               colorRange[Math.floor(Math.random() * 16)] +</span><br><span class="line">               colorRange[Math.floor(Math.random() * 16)] +</span><br><span class="line">               colorRange[Math.floor(Math.random() * 16)];</span><br><span class="line">     &#125;;</span><br><span class="line">    </span><br><span class="line">     module.exports = util;</span><br><span class="line">&#125;);</span><br><span class="line">``` </span><br><span class="line">我们发现这个模块除define之外，我们看到module.exports = util;这一句比较特殊。这句是在说，我util模块向外暴露的接口就这些，其他所有的东西都是我内部用的，你们就别想用啦。</span><br><span class="line">再看看另一个模块application.js:</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">define(function(require,exports,module)&#123;</span><br><span class="line">    </span><br><span class="line">     var util = require(&apos;./util&apos;);</span><br><span class="line">    </span><br><span class="line">     var helloSeaJS = document.getElementById(&apos;hello-seajs&apos;);</span><br><span class="line">     helloSeaJS.style.color = util.randomColor();</span><br><span class="line">     window.setInterval(function()&#123;</span><br><span class="line">          helloSeaJS.style.color = util.randomColor();</span><br><span class="line">     &#125;,1500);</span><br><span class="line">&#125;);</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">这个模块里，我们看到var util = require(&apos;./util&apos;);这句比较特殊。这句就是在说，我application模块由于业务需要，想请util模块来帮忙，所以把util给require进来。现在基本上把上面那个一个模块分为两个模块了，记住，一个文件就是一个模块。</span><br><span class="line"></span><br><span class="line">最后开始引入代码</span><br><span class="line">这里要用到sea.js的模块加载启动，具体看这里https://github.com/seajs/seajs/issues/260  。很简单使用seajs.use即可，比如这里我们可以在  </span><br><span class="line"></span><br><span class="line">``` &lt;script src=&quot;assets/scripts/seajs/sea.js&quot; id=&quot;seajsnode&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>后面加上：</p>
+<p><code>&lt;script&gt; seajs.use(&quot;application/application&quot;); &lt;/script&gt;</code> </p>
+<p>嗯，到这里我们差不多就结束了可以看到我们可爱的hello world效果了，至于那些打包压缩的事下次再来学习吧。<br>具体的首页代码就是下面的了，自己再加上上面的Js代码去看看效果吧，(<em>^__^</em>) 嘻嘻……<br><img src="https://github.com/dyygtfx/dyygtfx.github.com/blob/master/_posts/blog/img/2014-05-01_003855.png?raw=true" alt="效果图"></p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;hello world&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        html,body,h1{padding:0px;margin:0px;font-size:18px;}
+
+        #hello-seajs{
+            -webkit-transition:color 1.5s ease;
+            -o-transition:color 1.5s ease;
+            -moz-transition:color 1.5s ease;
+            transition:color 1.5s ease;
+            font-size:10em;
+            text-align:center;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 id=&quot;hello-seajs&quot;&gt;
+        Hello world
+    &lt;/h1&gt;
+    &lt;script src=&quot;scripts/seajs/sea.js&quot; id=&quot;seajsnode&quot;&gt;&lt;/script&gt;
+    &lt;script&gt; seajs.use(&quot;application/application&quot;); &lt;/script&gt;
+    &lt;script src=&quot;scripts/application/util.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;scripts/application/application.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/2014-05-01-seajs-1.html"
+           data-title="初探sea.js(一)" data-url="http://blog.yongyuan.com/post/2014-05-01-seajs-1.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

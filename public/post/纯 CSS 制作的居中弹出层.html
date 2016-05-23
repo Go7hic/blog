@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="css," />
+
+
+<meta name="description" content="刚刚翻了下大漠的那本书看到那个 CSS3 的 target 属性我也是醉了，用的活这个可以用到很多地方。你想了解更多 CSS3 的技巧还是去看看大漠的那本书吧，才 9.9人民币。真想不到那些写书的大神怎么想的，辛辛苦几年写的书，几块钱就答应卖出去，想想就醉了…
+主要用到的知识点: CSS3里的 target 选择器。其余的自行发挥…
+ps:刚刚网上搜了一圈，那些所谓的纯 css 制作的 light">
+<meta property="og:type" content="article">
+<meta property="og:title" content="纯 CSS 制作的居中弹出层">
+<meta property="og:url" content="http://blog.yongyuan.com/post/纯 CSS 制作的居中弹出层.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="刚刚翻了下大漠的那本书看到那个 CSS3 的 target 属性我也是醉了，用的活这个可以用到很多地方。你想了解更多 CSS3 的技巧还是去看看大漠的那本书吧，才 9.9人民币。真想不到那些写书的大神怎么想的，辛辛苦几年写的书，几块钱就答应卖出去，想想就醉了…
+主要用到的知识点: CSS3里的 target 选择器。其余的自行发挥…
+ps:刚刚网上搜了一圈，那些所谓的纯 css 制作的 light">
+<meta property="og:updated_time" content="2015-09-12T04:39:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="纯 CSS 制作的居中弹出层">
+<meta name="twitter:description" content="刚刚翻了下大漠的那本书看到那个 CSS3 的 target 属性我也是醉了，用的活这个可以用到很多地方。你想了解更多 CSS3 的技巧还是去看看大漠的那本书吧，才 9.9人民币。真想不到那些写书的大神怎么想的，辛辛苦几年写的书，几块钱就答应卖出去，想想就醉了…
+主要用到的知识点: CSS3里的 target 选择器。其余的自行发挥…
+ps:刚刚网上搜了一圈，那些所谓的纯 css 制作的 light">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 纯 CSS 制作的居中弹出层 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 纯 CSS 制作的居中弹出层 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-09-13T11:21:04+08:00" content="2014-09-13">
+              2014-09-13
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/纯 CSS 制作的居中弹出层.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/纯 CSS 制作的居中弹出层.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>刚刚翻了下大漠的那本书看到那个 CSS3 的 target 属性我也是醉了，用的活这个可以用到很多地方。你想了解更多 CSS3 的技巧还是去看看大漠的那本书吧，才 9.9人民币。真想不到那些写书的大神怎么想的，辛辛苦几年写的书，几块钱就答应卖出去，想想就醉了…</p>
+<p>主要用到的知识点: CSS3里的 target 选择器。其余的自行发挥…</p>
+<p>ps:刚刚网上搜了一圈，那些所谓的纯 css 制作的 lightbox 效果都是假的，都用到了或多或少的 js 事件。</p>
+<p>直接上代码结构了:</p>
+<pre><code>HTML:
+    &lt;section&gt;
+     &lt;a href=&quot;#alert&quot; class=&quot;button&quot;&gt;
+&lt;img src=&quot;http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/b6/doge_org.gif&quot;  /&gt;&lt;/a&gt;
+    &lt;/section&gt;
+    &lt;div class=&quot;box-target&quot; id=&quot;alert&quot;&gt;
+      &lt;img src=&quot;http://tp3.sinaimg.cn/2175915602/180/5705233498/1&quot;&gt;
+      &lt;a class=&quot;box-close&quot; href=&quot;#&quot;&gt;&lt;/a&gt;
+    &lt;/div&gt;
+</code></pre><p>SCSS:</p>
+<pre><code>/**
+By Go7hic
+jsfiddle 上面的 sass 不带 Compass 也是醉了，所以几个css3属性的混合宏不能直接调用，还是直接用css写出来吧。
+**/
+body {
+  background: #333;
+  font-size: 1em;
+  color: #f0f0f0;
+  line-height: 1.1em;
+}
+a {
+  text-decoration: none;
+  color: #313131;
+  &amp;:hover {
+    color: #000;
+  }
+}
+section {
+  width: 500px;
+  margin: 0 auto;
+  background: #555;
+  padding: 1em;
+}
+
+a.button {
+    display: inline-block;
+    background: #999;
+    color: #f2f2f2;
+    border-radius: 50%; /* 直接写啦,后面的也是 */
+    padding: 10px 1em;
+    box-shadow: 0 3px 0 #777; 
+    font-size: 1.3em;
+    text-decoration: none;
+}
+
+.box-target {
+    position: fixed;
+    top: -100%;
+    width: 100%;
+    background: rgba(0,0,0,.7);
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+    overflow: hidden;
+     img {
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        max-height: 0%;
+        max-width: 0%;
+        border: 3px solid #fff;
+        box-shadow: 0 0 8px rgba(0,0,0,.3);
+        box-sizing: border-box;
+        transition: .5s ease-in-out;
+     }
+    &amp;:target {
+        opacity: 1;
+        top: 0;
+        bottom: 0;
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+        .box-close {
+            top: 5%;
+        }
+    }
+}
+
+.box-close {
+    display: block;
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    background: #139dd7;
+    color: #fff;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    transition: .5s ease-in-out;
+    &amp;:before, &amp;:after {
+        content: &quot; &quot;;
+        display: block;
+        height: 30px;
+        width: 1px;
+        background: #fff;
+        position: absolute;
+        left: 26px;
+        top: 10px;
+        transform: rotate(45deg);
+    }
+    &amp;:after {
+        transform: rotate(-45deg);
+    }
+}
+</code></pre><p><a href="http://jsfiddle.net/gothic/8wbo4jf5/19/embedded/result/" target="_blank" rel="external">DEMO</a><br>这个应用场景应该有很多地方，如果你的团队无视 IE 浏览器，推行 HTML5 和 CSS3，那么可以试试这个方法。</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#css" rel="tag">#css</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/纯 CSS 制作的居中弹出层.html"
+           data-title="纯 CSS 制作的居中弹出层" data-url="http://blog.yongyuan.com/post/纯 CSS 制作的居中弹出层.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="JavaScript," />
+
+
+<meta name="description" content="http://javascript-puzzlers.herokuapp.com/  题目地址。感觉很难，很多错了，边做边参考了一些资料。顺便参考网上答案自己整理一份答案在此。
+第一题
+What is the result of this expression? (or multiple ones)
+1[&quot;1&quot;, &quot;2&quot;, &quot;3&quot;].map(parseInt)
+A：[“1”, “2”, “3”]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Puzzlers! 选择题答案解析">
+<meta property="og:url" content="http://blog.yongyuan.com/post/JavaScript Puzzlers! 选择题答案解析.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="http://javascript-puzzlers.herokuapp.com/  题目地址。感觉很难，很多错了，边做边参考了一些资料。顺便参考网上答案自己整理一份答案在此。
+第一题
+What is the result of this expression? (or multiple ones)
+1[&quot;1&quot;, &quot;2&quot;, &quot;3&quot;].map(parseInt)
+A：[“1”, “2”, “3”]">
+<meta property="og:updated_time" content="2015-09-05T04:33:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript Puzzlers! 选择题答案解析">
+<meta name="twitter:description" content="http://javascript-puzzlers.herokuapp.com/  题目地址。感觉很难，很多错了，边做边参考了一些资料。顺便参考网上答案自己整理一份答案在此。
+第一题
+What is the result of this expression? (or multiple ones)
+1[&quot;1&quot;, &quot;2&quot;, &quot;3&quot;].map(parseInt)
+A：[“1”, “2”, “3”]">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> JavaScript Puzzlers! 选择题答案解析 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> JavaScript Puzzlers! 选择题答案解析 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-08-12T11:21:04+08:00" content="2014-08-12">
+              2014-08-12
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/JavaScript Puzzlers! 选择题答案解析.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/JavaScript Puzzlers! 选择题答案解析.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p><a href="http://javascript-puzzlers.herokuapp.com/" target="_blank" rel="external">http://javascript-puzzlers.herokuapp.com/</a>  题目地址。感觉很难，很多错了，边做边参考了一些资料。顺便参考网上答案自己整理一份答案在此。</p>
+<p>第一题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>].<span class="built_in">map</span>(<span class="built_in">parseInt</span>)</span><br></pre></td></tr></table></figure>
+<p>A：[“1”, “2”, “3”]</p>
+<p>B：[1, 2, 3]</p>
+<p>C：[0, 1, 2]</p>
+<p>D：other</p>
+<p>解答：这里考的是map、parseInt的用法。map会传递三个参数给其作为参数的函数，为(element, index, array)，分别为当前的元素、当前元素在数组中的位置、整个数组：</p>
+<blockquote>
+<p>[“1”, “2”, “3”].map(function(){console.log(arguments)})<br>[“1”, 0, Array[3]]<br>[“2”, 1, Array[3]]<br>[“3”, 2, Array[3]]<br>而parseInt只接收两个参数，为(element, radix)，element代表需要被转换为int的字符串，radix代表当前字符串里数字的进制数</p>
+</blockquote>
+<p>所以相当于说，结果数组的元素实际分别为为：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">"1"</span>, <span class="number">0</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">"2"</span>, <span class="number">1</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">"3"</span>, <span class="number">2</span>)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>parseInt(“1”, 0)的值为1，MDN上可以看到parseInt函数的radix为0时的行为<br>&gt;<br>If radix is undefined or 0 (or absent), JavaScript assumes the following:<br>If the input string begins with “0x” or “0X”, radix is 16 (hexadecimal) and the remainder of the string is parsed.<br>If the input string begins with “0”, radix is eight (octal) or 10 (decimal). Exactly which radix is chosen is implementation-dependent. ECMAScript 5 specifies that 10 (decimal) is used, but not all browsers support this yet. For this reason always specify a radix when using parseInt.<br>If the input string begins with any other value, the radix is 10 (decimal).</p>
+<p>所以这里radix值实际为10，所以结果为1</p>
+<p>而parseInt(“2”, 1)和parseInt(“3”, 2)则确实无法解析，会生成NaN</p>
+<p>所以答案为[1,NaN,NaN]，为D</p>
+<p>第二题和第五题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">typeof</span> <span class="literal">null</span>, <span class="literal">null</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>]</span><br></pre></td></tr></table></figure>
+<p>A: [“object”, false]</p>
+<p>B: [null, false]</p>
+<p>C: [“object”, true]</p>
+<p>D: other</p>
+<p>考察typeof运算符和instanceof运算符，上MDN上看一下typeof运算符，一些基础类型的结果为：<br>Undefined “undefined” </p>
+<p>Null “object”  </p>
+<p>Boolean “boolean” </p>
+<p>Number “number”</p>
+<p>String “string”</p>
+<p>Any other object “object”</p>
+<p>Array “object”</p>
+<p>自从javascript创造出来，typeof null的值就是object了(这是个历史问题)</p>
+<p>而null instanceof 任何类型 都是false</p>
+<p>所以答案为[“object”, false], 选A</p>
+<p>第三题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[ [3,2,1]</span><span class="selector-class">.reduce</span>(<span class="selector-tag">Math</span><span class="selector-class">.pow</span>), <span class="selector-attr">[]</span><span class="selector-class">.reduce</span>(<span class="selector-tag">Math</span><span class="selector-class">.pow</span>)] ]</span><br></pre></td></tr></table></figure>
+<p>A: an error</p>
+<p>B: [9, 0]</p>
+<p>C: [9, NaN]</p>
+<p>D: [9, undefined]</p>
+<p>这题考的Math.pow和Array.prototype.reduce</p>
+<p>Math.pow(base, exponent)接受两个参数：基数、需要计算的次方</p>
+<p>reduce传递给其作为参数的函数几个值：</p>
+<p>previousValue：上一次计算的结果</p>
+<p>currentValue：当前元素的值</p>
+<p>index： 当前元素在数组中的位置</p>
+<p>rray：整个数组</p>
+<p>reduce本身接受两个参数，callback和initialValue，分别是reduce的回调函数和计算初始值–也就是第一次reduce的callback被调用时的previousValue的值，默认为0</p>
+<p>reduce在数组为空且没有定义initialValue时，会抛出错误，如chrome下：TypeError: Reduce of empty array with no initial value</p>
+<p>所以选A</p>
+<p>第四题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">val</span> = <span class="string">'smtg'</span>;</span><br><span class="line">console.log(<span class="string">'Value is '</span> + (<span class="keyword">val</span> === <span class="string">'smtg'</span>) ?<span class="string">'Something'</span> : <span class="string">'Nothing'</span>);</span><br></pre></td></tr></table></figure>
+<p>A: Value is Something</p>
+<p>B: Value is Nothing</p>
+<p>C: NaN</p>
+<p>D: other</p>
+<p>这题考的javascript中的运算符优先级，MDN传送门，这里’+’运算符的优先级要高于’?’所以运算符，实际上是 ‘Value is true’?’Something’ : ‘Nothing’，当字符串不为空时，转换为bool为true，所以结果为’Something’，选D</p>
+<p>第六题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'World!'</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> name === <span class="string">'undefined'</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> name = <span class="string">'Jack'</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Goodbye '</span> + name);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Hello '</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>A: Goodbye Jack</p>
+<p>B: Hello Jack</p>
+<p>C: Hello undefined</p>
+<p>D: Hello World</p>
+<p>这题考的是javascript作用域中的变量提升，javascript的作用于中使用var定义的变量都会被提升到所有代码的最前面，于是乎这段代码就成了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'World!'</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name;<span class="comment">//现在还是undefined</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> name === <span class="string">'undefined'</span>) &#123;</span><br><span class="line">        name = <span class="string">'Jack'</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Goodbye '</span> + name);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Hello '</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>这样就很好理解了，typeof name === ‘undefined’的结果为true，所以最后会输出’Goodbye Jack’，选A</p>
+<p>第七题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var END = Math.pow(<span class="number">2</span>, <span class="number">53</span>)<span class="comment">;</span></span><br><span class="line">var START = END - <span class="number">100</span><span class="comment">;</span></span><br><span class="line">var <span class="built_in">count</span> = <span class="number">0</span><span class="comment">;</span></span><br><span class="line">for (var i = START<span class="comment">; i &lt;= END; i++) &#123;</span></span><br><span class="line">    <span class="built_in">count</span>++<span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">console.log(<span class="built_in">count</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>A: 0</p>
+<p>B: 100</p>
+<p>C: 101</p>
+<p>D: other</p>
+<p>这题考查javascript中的数字的概念：首先明确一点，javascript和其他语言不同，仅有一种数字，IEEE 754标准的64位浮点数，能够表示的整数范围是-2^53~2^53（包含边界值），所以Math.pow(2, 53)即为javascript中所能表示的最大整数，在最大整数在继续增大就会出现精度丢失的情况，END + 1 的值其实是等于END的，这也就造成了死循环，所以选D</p>
+<p>第八题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ary = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>];</span><br><span class="line">ary[<span class="number">10</span>] = <span class="number">10</span>;</span><br><span class="line">ary.filter(<span class="function"><span class="keyword">function</span><span class="params">(x)</span> </span>&#123; <span class="keyword">return</span> x === <span class="literal">undefined</span>;&#125;);</span><br></pre></td></tr></table></figure>
+<p>A: [undefined × 7]</p>
+<p>B: [0, 1, 2, 10]</p>
+<p>C: []</p>
+<p>D: [undefined]</p>
+<p>考查Array.prototype.filter方法的使用，MDN上有这么一句it is not invoked for indexes which have been deleted or which have never been assigned values，所以结果为空数组，选C</p>
+<p>第九题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">two</span>   = 0.2</span><br><span class="line"><span class="keyword">var</span> <span class="keyword">one</span>   = 0.1</span><br><span class="line"><span class="keyword">var</span> eight = 0.8</span><br><span class="line"><span class="keyword">var</span> six   = 0.6</span><br><span class="line">[<span class="keyword">two</span> - <span class="keyword">one</span> == <span class="keyword">one</span>, eight - six == <span class="keyword">two</span>]</span><br></pre></td></tr></table></figure>
+<p>A: [true, true]</p>
+<p>B: [false, false]</p>
+<p>C: [true, false]</p>
+<p>D: other</p>
+<p>浮点数计算时的精度丢失问题，其他语言也会出现…至于结果，反正我是蒙的…chrome中计算出来的结果：[0.1, 0.20000000000000007]，也就是[true, false]，选C</p>
+<p>第十题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showCase</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(value) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'A'</span>:</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Case A'</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'B'</span>:</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Case B'</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="literal">undefined</span>:</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'undefined'</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Do not know!'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">showCase(<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'A'</span>));</span><br></pre></td></tr></table></figure>
+<p>A: Case A</p>
+<p>B: Case B</p>
+<p>C: Do not know!</p>
+<p>D: undefined</p>
+<p>这题考的是使用new方法创建基础类型，使用new方法创建的基础类型，首先来看个栗子(chrome):</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"skyinlayer"</span>);</span><br><span class="line"><span class="string">"object"</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">"skyinlayer"</span>;</span><br><span class="line"><span class="string">"string"</span></span><br></pre></td></tr></table></figure>
+<p>这样基本上就能看到结果了，但是为什么呢？MDN上的解释是，字符串字面量和直接调用String()方法（不使用new调用构造函数）的结果是原始字符串。JS自动回转化原始字符串到String对象。所以可以在原始字符串上使用用String对象的方法。而在上下文中，在原始字符串的方法被调用或者从其中获取属性时，JS会自动包裹原始字符串然后调用方法或者获取属性。</p>
+<p>所以呢，JS本身有原始字符串和字符串对象之分，只不过在调用方法和获取属性时的时候会自动转换，但typeof运算符运算时是不会转换的。Number和Boolean同样适用</p>
+<p>所以这里结果为Do not know!，选C</p>
+<p>第十一题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showCase2</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(value) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'A'</span>:</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Case A'</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'B'</span>:</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Case B'</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="literal">undefined</span>:</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'undefined'</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Do not know!'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">showCase(<span class="built_in">String</span>(<span class="string">'A'</span>));</span><br></pre></td></tr></table></figure>
+<p>A: Case A</p>
+<p>B: Case B</p>
+<p>C: Do not know!</p>
+<p>D: undefined</p>
+<p>和上题原理一样，不过这里没有使用new来生成字符串，所以生成的结果就是原始字符串，相当于showCase(‘A’)，所以结果就是A了</p>
+<p>第十二题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title">isOdd</span>(num) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">num</span> % <span class="number">2</span> == <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title">isEven</span>(num) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">num</span> % <span class="number">2</span> == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title">isSane</span>(num) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">isEven(num)</span> || isOdd(num);</span><br><span class="line">&#125;</span><br><span class="line">var values = [<span class="number">7</span>, <span class="number">4</span>, '<span class="number">13</span>', -<span class="number">9</span>, Infinity];</span><br><span class="line">values.map(isSane);</span><br></pre></td></tr></table></figure>
+<p>A: [true, true, true, true, true]</p>
+<p>B: [true, true, true, true, false]</p>
+<p>C: [true, true, true, false, false]</p>
+<p>D: [true, true, false, false, false]</p>
+<p>还是JS的数字相关，不过这次考察的是取模，这题我也是瞎蒙的（果断跪了）。</p>
+<p>前两个基本上没什么疑问，必然是true</p>
+<p>‘13’在进行计算前则会进行隐式类型转换（JS最恶心的部分之一），详细参见$雨$的文章《Javascript类型转换的规则》，这里的规则就是将字符串通过Number()方法转换为数字，所以结果为13 % 2 ，也就是true</p>
+<p>而JS中负数取模的结果是负数，这里-9%2的结果实际上是-1，所以为false</p>
+<p>而Infinity对任意数取模都是NaN，所以是false</p>
+<p>综上，结果为[true, true, true, false, false]，也就是C</p>
+<p>第十三题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="number">3</span>, <span class="number">8</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="number">3</span>, <span class="number">2</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="number">3</span>, <span class="number">0</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>A: 3, 3, 3</p>
+<p>B: 3, 3, NaN</p>
+<p>C: 3, NaN, NaN</p>
+<p>D: other</p>
+<p>还是parseInt的题，考的和第一题类似，第一个值为3没什么好说的。如果出现的数字不符合后面输入的进制，则为NaN，所以第二个值为NaN。而radix为0时的情况第一题下面有介绍，这里也是一样为默认10，所以结果为3，所以答案为3, NaN, 3，选D</p>
+<p>第十四题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.<span class="built_in">isArray</span>( <span class="built_in">Array</span>.prototype )</span><br></pre></td></tr></table></figure>
+<p>A: true</p>
+<p>B: false</p>
+<p>C: error</p>
+<p>D: other</p>
+<p>死知识，MDN传送门，这是MDN官方给的例子…</p>
+<p>第十五题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">0</span>];</span><br><span class="line"><span class="keyword">if</span> ([<span class="number">0</span>]) &#123; </span><br><span class="line">  <span class="built_in">console</span>.log(a == <span class="literal">true</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"wut"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>A: true</p>
+<p>B: false</p>
+<p>C: “wut”</p>
+<p>D: other</p>
+<p>同样是一道隐式类型转换的题，不过这次考虑的是’==’运算符，a本身是一个长度为1的数组，而当数组不为空时，其转换成bool值为true。</p>
+<p>而==左右的转换，会使用如果一个操作值为布尔值，则在比较之前先将其转换为数值的规则来转换，Number([0])，也就是0，于是变成了0 == true，结果自然是false，所以最终结果为B</p>
+<p>第十六题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">[]</span> == <span class="string">[]</span></span><br></pre></td></tr></table></figure>
+<p>A: true</p>
+<p>B: false</p>
+<p>C: error</p>
+<p>D: other</p>
+<p>这题考的是数组字面量创建数组的原理和==运算符，首先JS中数组的真实类型是Object这点很明显typeof []的值为”object”，而==运算符当左右都是对象时，则会比较其是否指向同一个对象。而每次调用字面量创建，都会创造新的对象，也就是会开辟新的内存区域。所以指针的值自然不一样，结果为 false，选B</p>
+<p>第十七题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'5'</span> + <span class="number">3</span>  </span><br><span class="line"><span class="string">'5'</span> - <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>A: 53, 2</p>
+<p>B: 8, 2</p>
+<p>C: error</p>
+<p>D: other</p>
+<p>又是一道隐式类型转换的题</p>
+<p>加法： 加法运算中，如果有一个操作值为字符串类型，则将另一个操作值转换为字符串，最后连接起来</p>
+<p>减法： 如果操作值之一不是数值，则被隐式调用Number()函数进行转换</p>
+<p>所以第一行结果为字符串运算，为’53’。第二行结果为2，选A</p>
+<p>第十八题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">1 </span>+ - + + + - + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>A: 2</p>
+<p>B: 1</p>
+<p>C: error</p>
+<p>D: other</p>
+<p>C语言中的经典…对于这种问题，原理什么的不懂，蒙吧，结果是2</p>
+<p>第十九题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ary = <span class="built_in">Array</span>(<span class="number">3</span>);</span><br><span class="line">ary[<span class="number">0</span>]=<span class="number">2</span></span><br><span class="line">ary.map(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>) </span>&#123; <span class="keyword">return</span> <span class="string">'1'</span>; &#125;);</span><br></pre></td></tr></table></figure>
+<p>A: [2, 1, 1]</p>
+<p>B: [“1”, “1”, “1”]</p>
+<p>C: [2, “1”, “1”]</p>
+<p>D: other</p>
+<p>又是考的Array.prototype.map的用法，map在使用的时候，只有数组中被初始化过元素才会被触发，其他都是undefined，所以结果为[“1”, undefined × 2]，选D</p>
+<p>第二十题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sidEffecting</span>(<span class="params">ary</span>) </span>&#123; </span><br><span class="line">  ary[<span class="number">0</span>] = ary[<span class="number">2</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">a,b,c</span>) </span>&#123; </span><br><span class="line">  c = <span class="number">10</span></span><br><span class="line">  sidEffecting(<span class="built_in">arguments</span>);</span><br><span class="line">  <span class="keyword">return</span> a + b + c;</span><br><span class="line">&#125;</span><br><span class="line">bar(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>A: 3</p>
+<p>B: 12</p>
+<p>C: error</p>
+<p>D: other</p>
+<p>这题考的是JS的函数arguments的概念：</p>
+<p>在调用函数时，函数内部的arguments维护着传递到这个函数的参数列表。它看起来是一个数组，但实际上它只是一个有length属性的Object，不从Array.prototype继承。所以无法使用一些Array.prototype的方法。</p>
+<p>arguments对象其内部属性以及函数形参创建getter和setter方法，因此改变形参的值会影响到arguments对象的值，反过来也是一样.</p>
+<p>第二十一题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = <span class="number">111111111111111110000</span>,</span><br><span class="line">    <span class="keyword">b </span>= <span class="number">1111</span><span class="comment">;</span></span><br><span class="line">a + <span class="keyword">b;</span></span><br></pre></td></tr></table></figure>
+<p>A: 111111111111111111111</p>
+<p>B: 111111111111111110000</p>
+<p>C: NaN</p>
+<p>D: Infinity</p>
+<p>又是一道考查JavaScript数字的题，与第七题考察点相似。由于JavaScript实际上只有一种数字形式IEEE 754标准的64位双精度浮点数，其所能表示的整数范围为-2^53~2^53(包括边界值)。这里的111111111111111110000已经超过了2^53次方，所以会发生精度丢失的情况。综上选B</p>
+<p>第二十二题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">x</span> = [].reverse<span class="comment">;</span></span><br><span class="line"><span class="keyword">x</span>()<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>A: []</p>
+<p>B: undefined</p>
+<p>C: error</p>
+<p>D: window</p>
+<p>这题考查的是函数调用时的this和Array.prototype.reverse方法。</p>
+<p>首先看Array.prototype.reverse方法，首先举几个栗子：</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="built_in">log</span>(<span class="built_in">Array</span>.prototype.<span class="built_in">reverse</span>.<span class="built_in">call</span>(<span class="string">"skyinlayer"</span>));</span><br><span class="line"><span class="comment">//skyinlayer</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">Array</span>.prototype.<span class="built_in">reverse</span>.<span class="built_in">call</span>(&#123;&#125;));</span><br><span class="line"><span class="comment">//Object &#123;&#125;</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">Array</span>.prototype.<span class="built_in">reverse</span>.<span class="built_in">call</span>(<span class="number">123</span>));</span><br><span class="line"><span class="comment">//123</span></span><br></pre></td></tr></table></figure>
+<p>这几个栗子可以得出一个结论，Array.prototype.reverse方法的返回值，就是this</p>
+<p>Javascript中this有如下几种情况：</p>
+<p>全局下this，指向window对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line"><span class="comment">//输出结果：</span></span><br><span class="line"><span class="comment">//Window &#123;top: Window, window: Window, location: Location, external: Object, chrome: Object…&#125;</span></span><br><span class="line">函数调用，<span class="keyword">this</span>指向全局<span class="built_in">window</span>对象：</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">somefun</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line">somefun();</span><br><span class="line"><span class="comment">//输出结果：</span></span><br><span class="line"><span class="comment">//Window &#123;top: Window, window: Window, location: Location, external: Object, chrome: Object…&#125;</span></span><br><span class="line">方法调用，<span class="keyword">this</span>指向拥有该方法的对象：</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> someobj = &#123;&#125;;</span><br><span class="line">someobj.fun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(someobj.fun());</span><br><span class="line"><span class="comment">//输出结果：</span></span><br><span class="line"><span class="comment">//Object &#123;fun: function&#125;</span></span><br><span class="line"></span><br><span class="line">调用构造函数，构造函数内部的<span class="keyword">this</span>指向新创建对象：</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Con</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line">Con.prototype.somefun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> Con());</span><br><span class="line"><span class="comment">//输出结果：</span></span><br><span class="line"><span class="comment">//Con &#123;somefun: function&#125;</span></span><br><span class="line">显示确定<span class="keyword">this</span>：</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">somefun</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">&#125;;</span><br><span class="line">somefun.apply(<span class="string">"skyinlayer"</span>);</span><br><span class="line">somefun.call(<span class="string">"skyinlayer"</span>);</span><br><span class="line"><span class="comment">//输出结果：</span></span><br><span class="line"><span class="comment">//String &#123;0: "s", 1: "k", 2: "y", 3: "i", 4: "n", 5: "l", 6: "a", 7: "y", 8: "e", 9: "r", length: 10&#125;</span></span><br><span class="line"><span class="comment">//String &#123;0: "s", 1: "k", 2: "y", 3: "i", 4: "n", 5: "l", 6: "a", 7: "y", 8: "e", 9: "r", length: 10&#125;</span></span><br></pre></td></tr></table></figure>
+<p>这里可以看到，使用的是函数调用方式，this指向的是全局对象window，所以选D</p>
+<p>第二十三题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number<span class="selector-class">.MIN_VALUE</span> &gt; <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>A: false</p>
+<p>B: true</p>
+<p>C: error</p>
+<p>D: other</p>
+<p>考查的Number.MIN_VALUE的概念，MDN传送门，关键的几句话</p>
+<ul>
+<li>The Number.MIN_VALUE property represents the smallest positive numeric value representable in JavaScript.<br>翻译：Number.MIN_VALUE表示的是JavaScript中最小的正数</li>
+</ul>
+<p>The MIN_VALUE property is the number closest to 0, not the most negative number, that JavaScript can represent.<br>翻译：MIN_VALUE是接近0的数，而不是最小的数</p>
+<p>MIN_VALUE has a value of approximately 5e-324. Values smaller than MIN_VALUE (“underflow values”) are converted to 0.<br>翻译：MIN_VALUE值约等于5e-324，比起更小的值（大于0），将被转换为0</p>
+<p>所以，这里是true，选B</p>
+<p>顺带把Number的几个常量拉出来：</p>
+<ul>
+<li>Number.MAX_VALUE：最大的正数</li>
+<li>Number.MIN_VALUE：最小的正数</li>
+<li>Number.NaN：特殊值，用来表示这不是一个数</li>
+<li>Number.NEGATIVE_INFINITY：负无穷大</li>
+<li>Number.POSITIVE_INFINITY：正无穷大</li>
+</ul>
+<p>如果要表示最小的负数和最大的负数，可以使用-Number.MAX_VALUE和-Number.MIN_VALUE</p>
+<p>第二十四题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span> &lt; <span class="number">2</span> &lt; <span class="number">3</span>, <span class="number">3</span> &lt; <span class="number">2</span> &lt; <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<p>A: [true, true]</p>
+<p>B: [true, false]</p>
+<p>C: error</p>
+<p>D: other</p>
+<p>运算符的运算顺序和隐式类型转换的题，从MDN上运算符优先级，’&lt;’运算符顺序是从左到右，所以变成了[true &lt; 3, false &lt; 1]</p>
+<p>接着进行隐式类型转换，’&lt;’操作符的转换规则（来自$雨$的文章《Javascript类型转换的规则》）:</p>
+<p>如果两个操作值都是数值，则进行数值比较<br>如果两个操作值都是字符串，则比较字符串对应的字符编码值<br>如果只有一个操作值是数值，则将另一个操作值转换为数值，进行数值比较<br>如果一个操作数是对象，则调用valueOf()方法（如果对象没有valueOf()方法则调用toString()方法），得到的结果按照前面的规则执行比较<br>如果一个操作值是布尔值，则将其转换为数值，再进行比较<br>所以，这里首先通过Number()转换为数字然后进行比较，true会转换成1，而false转换成0，就变成了[1 &lt; 3, 0 &lt; 1]</p>
+<p>所以结果为A</p>
+<p>第二十五题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// the most classic wtf</span><br><span class="line"><span class="number">2</span> == <span class="string">[[[2]]</span>]</span><br></pre></td></tr></table></figure>
+<p>A: true</p>
+<p>B: false</p>
+<p>C: undefined</p>
+<p>D: other</p>
+<p>又是隐式类型转换的题（汗）</p>
+<p>题目作者的解释是：<br>both objects get converted to strings and in both cases the resulting string is “2”</p>
+<p>也就是说左右两边都被转换成了字符串，而字符串都是”2”</p>
+<p>这里首先需要对==右边的数组进行类型转换，根据以下规则（来自justjavac的文章《「译」JavaScript 的怪癖 1：隐式类型转换》）：</p>
+<ol>
+<li><p>调用 valueOf()。如果结果是原始值（不是一个对象），则将其转换为一个数字。</p>
+</li>
+<li><p>否则，调用 toString() 方法。如果结果是原始值，则将其转换为一个数字。</p>
+</li>
+<li><p>否则，抛出一个类型错误。</p>
+</li>
+</ol>
+<p>所以右侧被使用toString()方法转换为”2”，然后又通过Number(“2”)转换为数字2进行比较，结果就是true了，选A</p>
+<p>第二十六题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3<span class="selector-class">.toString</span>()</span><br><span class="line">3.<span class="selector-class">.toString</span>()</span><br><span class="line">3..<span class="selector-class">.toString</span>()</span><br></pre></td></tr></table></figure>
+<p>A: “3”, error, error</p>
+<p>B: “3”, “3.0”, error</p>
+<p>C: error, “3”, error</p>
+<p>D: other</p>
+<p>说实话这题有点常见了，很多人都踩过3.toString()的坑（包括我）…虽然JavaScript会在调用方法时对原始值进行包装，但是这个点是小数点呢、还是方法调用的点呢，于是乎第一个就是error了，因为JavaScript解释器会将其认为是小数点。</p>
+<p>而第二个则很好说通了，第一个点解释为小数点，变成了(3.0).toString()，结果就是”3”了</p>
+<p>第三个也是，第一个点为小数点，第二个是方法调用的点，但是后面接的不是一个合法的方法名，于是乎就error了</p>
+<p>综上，选C</p>
+<p>第二十七题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> x = y = <span class="number">1</span>;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(y);</span><br><span class="line"><span class="built_in">console</span>.log(x);</span><br></pre></td></tr></table></figure>
+<p>A: 1, 1</p>
+<p>B: error, error</p>
+<p>C: 1, error</p>
+<p>D: other</p>
+<p>变量提升和隐式定义全局变量的题，也是一个JavaScript经典的坑…</p>
+<p>还是那句话，在作用域内，变量定义和函数定义会先行提升，所以里面就变成了:</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">function</span>()&#123;</span><br><span class="line">    var x;</span><br><span class="line">    y = <span class="number">1</span><span class="comment">;</span></span><br><span class="line">    x = <span class="number">1</span><span class="comment">;</span></span><br><span class="line">&#125;)()<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>这点会问了，为什么不是var x, y;，这就是坑的地方…这里只会定义第一个变量x，而y则会通过不使用var的方式直接使用，于是乎就隐式定义了一个全局变量y</p>
+<p>所以，y是全局作用域下，而x则是在函数内部，结果就为1, error，选C</p>
+<p>第二十八题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var <span class="attr">a</span> = /<span class="number">123</span>/,</span><br><span class="line">    <span class="attr">b</span> = /<span class="number">123</span>/;</span><br><span class="line"><span class="attr">a</span> == b</span><br><span class="line"><span class="attr">a</span> === b</span><br></pre></td></tr></table></figure>
+<p>A: true, true</p>
+<p>B: true, false</p>
+<p>C: false, false</p>
+<p>D: other</p>
+<p>首先需要明确JavaScript的正则表达式是什么。JavaScript中的正则表达式依旧是对象，使用typeof运算符就能得出结果：</p>
+<p>console.log(typeof /123/);<br>//输出结果：<br>//“object”<br>==运算符左右两边都是对象时，会比较他们是否指向同一个对象，可以理解为C语言中两个指针的值是否一样（指向同一片内存），所以两个结果自然都是false</p>
+<p>第二十九题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">a</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">    b = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">    c = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line"><span class="keyword">a</span> == b</span><br><span class="line"><span class="keyword">a</span> === b</span><br><span class="line"><span class="keyword">a</span> &gt; c</span><br><span class="line"><span class="keyword">a</span> &lt; c</span><br></pre></td></tr></table></figure>
+<p>A: false, false, false, true</p>
+<p>B: false, false, false, false</p>
+<p>C: true, true, false, true</p>
+<p>D: other</p>
+<p>和上题类似，JavaScript中Array的本质也是对象，所以前两个的结果都是false，</p>
+<p>而JavaScript中Array的’&gt;’运算符和’&lt;’运算符的比较方式类似于字符串比较字典序，会从第一个元素开始进行比较，如果一样比较第二个，还一样就比较第三个，如此类推，所以第三个结果为false，第四个为true。</p>
+<p>综上所述，结果为false, false, false, true，选A</p>
+<p>第三十题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">var</span> a = &#123;&#125;, b = <span class="type">Object</span>.proto<span class="keyword">type</span>;</span><br><span class="line">[a.proto<span class="keyword">type</span> === b, <span class="type">Object</span>.getPrototypeOf(a) === b]</span><br></pre></td></tr></table></figure>
+<p>A: [false, true]</p>
+<p>B: [true, true]</p>
+<p>C: [false, false]</p>
+<p>D: other</p>
+<p>原型链的题（总会有的），考查的<strong>proto</strong>和prototype的区别。首先要明确对象和构造函数的关系，对象在创建的时候，其<strong>proto</strong>会指向其构造函数的prototype属性</p>
+<p>Object实际上是一个构造函数（typeof Object的结果为”function”）,使用字面量创建对象和new Object创建对象是一样的，所以a.<strong>proto</strong>也就是Object.prototype，而Object.getPrototypeOf(a)与a.<strong>proto</strong>是一样的，所以第二个结果为true</p>
+<p>而实例对象是没有prototype属性的，只有函数才有，所以a.prototype其实是undefined，第一个结果为false</p>
+<p>综上，选A</p>
+<p>第三十一题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> a = f.prototype, b = <span class="built_in">Object</span>.getPrototypeOf(f);</span><br><span class="line">a === b</span><br></pre></td></tr></table></figure>
+<p>A: true</p>
+<p>B: false</p>
+<p>C: null</p>
+<p>D: other</p>
+<p>还是<strong>proto</strong>和prototype的区别，两者不是一个东西，所以选B</p>
+<p>第三十二题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line"><span class="keyword">var</span> oldName = foo.name;</span><br><span class="line">foo.name = <span class="string">"bar"</span>;</span><br><span class="line">[oldName, foo.name]</span><br></pre></td></tr></table></figure>
+<p>A: error</p>
+<p>B: [“”, “”]</p>
+<p>C: [“foo”, “foo”]</p>
+<p>D: [“foo”, “bar”]</p>
+<p>考察了函数的name属性，使用函数定义方式时，会给function对象本身添加一个name属性，保存了函数的名称，很好理解oldName为”foo”。name属性时只读的，不允许修改，所以foo.name = “bar”;之后，foo.name还是”foo”，所以结果为[“foo”, “foo”]，选C</p>
+<p>PS：name属性不是一个标准属性，不要去使用，除非你想要坑别人</p>
+<p>第三十三题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"1 2 3"</span>.replace(<span class="regexp">/\d/g</span>, <span class="built_in">parseInt</span>)</span><br></pre></td></tr></table></figure>
+<p>A: “1 2 3”</p>
+<p>B: “0 1 2”</p>
+<p>C: “NaN 2 3”</p>
+<p>D: “1 NaN 3”</p>
+<p>String.prototype.replace、正则表达式的全局匹配和parseInt（又是parseInt…），可以根据题意看出来题目上漏了一个’\’</p>
+<p>首先需要确定replace会传给parseInt哪些参数。举个栗子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"1 2 3"</span>.replace(<span class="regexp">/\d/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//输出结果：</span></span><br><span class="line"><span class="comment">//["1", 0, "1 2 3"]</span></span><br><span class="line"><span class="comment">//["2", 2, "1 2 3"]</span></span><br><span class="line"><span class="comment">//["3", 4, "1 2 3"]</span></span><br></pre></td></tr></table></figure>
+<p>一共三个：</p>
+<ol>
+<li><p>match：正则表达式被匹配到的子字符串</p>
+</li>
+<li><p>offset：被匹配到的子字符串在原字符串中的位置</p>
+</li>
+<li><p>string：原字符串</p>
+</li>
+</ol>
+<p>这样就很好理解了，又回到之前parseInt的问题了，结果就是parseInt(“1”, 10), parseInt(“2”, 2), parseInt(“3”, 4)所以结果为”1, NaN, 3”，选D</p>
+<p>第三十四题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">var</span> <span class="built_in">parent</span> = <span class="built_in">Object</span>.getPrototypeOf(f);</span><br><span class="line">f.name <span class="comment">// ?</span></span><br><span class="line"><span class="built_in">parent</span>.name <span class="comment">// ?</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">eval</span>(f.name) <span class="comment">// ?</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">eval</span>(<span class="built_in">parent</span>.name) <span class="comment">//  ?</span></span><br></pre></td></tr></table></figure>
+<p>A: “f”, “Empty”, “function”, “function”</p>
+<p>B: “f”, undefined, “function”, error</p>
+<p>C: “f”, “Empty”, “function”, error</p>
+<p>D: other</p>
+<p>又是Function.name属性的题，和三十二题一样样，f.name值为”f”，而eval(“f”)则会输出f函数，所以结果为”function”</p>
+<p>接着看parent，parent实际上就是f.<strong>proto</strong>，需要明确的是JavaScript中的函数也是对象，其也有自己的构造函数Function，所以f.<strong>proto</strong> === Function.prototype结果是true，而Function.prototype就是一个名为Empty的function</p>
+<p>console.log(Function.prototype);<br>console.log(Function.prototype.name);<br>//输出结果：<br>//function Empty() {}<br>//Empty<br>所以parent.name的值为Empty</p>
+<p>如果想直接在全局作用域下调用Empty，显示未定义…因为Empty并不在全局作用域下</p>
+<p>综上所述，结果为C</p>
+<p>第三十五题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lowerCaseOnly =  <span class="regexp">/^[a-z]+$/</span>;</span><br><span class="line">[lowerCaseOnly.test(<span class="literal">null</span>), lowerCaseOnly.test()]</span><br></pre></td></tr></table></figure>
+<p>A: [true, false]</p>
+<p>B: error</p>
+<p>C: [true, true]</p>
+<p>D: [false, true]</p>
+<p>正则表达式的test方法会自动将参数转换为字符串，原式就变成了<code>[lowerCaseOnly.test(&quot;null&quot;),lowerCaseOnly.test(&quot;undefined&quot;)]</code>，结果都是真，所以选C</p>
+<p>第三十六题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[,,,]</span><span class="selector-class">.join</span>(<span class="string">", "</span>)</span><br></pre></td></tr></table></figure>
+<p>A: “, , , “</p>
+<p>B: “undefined, undefined, undefined, undefined”</p>
+<p>C: “, , “</p>
+<p>D: “”</p>
+<p>JavaScript中使用字面量创建数组时，如果最末尾有一个逗号’,’，会背省略，所以实际上这个数组只有三个元素（都是undefined）：</p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="built_in">log</span>([,,,].<span class="built_in">length</span>);</span><br><span class="line"><span class="comment">//输出结果：</span></span><br><span class="line"><span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+<p>而三个元素，使用join方法，只需要添加两次，所以结果为”, , “，选C</p>
+<p>第三十七题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="class"><span class="keyword">class</span>: <span class="type">"Animal"</span>, <span class="type">name: 'Fido'&#125;;</span></span></span><br><span class="line">a.<span class="keyword">class</span></span><br></pre></td></tr></table></figure>
+<p>A: “Animal”</p>
+<p>B: Object</p>
+<p>C: an error</p>
+<p>D: other</p>
+<p>经典坑中的一个，class是关键字。根据浏览器的不同，结果不同：</p>
+<p>chrome的结果： “Animal”</p>
+<p>Firefox的结果：”Animal”</p>
+<p>Opera的结果：”Animal”</p>
+<p>IE 8以上也是： “Animal”</p>
+<p>IE 8 及以下： 报错</p>
+<p>第三十八题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">a</span> = new Date(<span class="string">"epoch"</span>)</span><br></pre></td></tr></table></figure>
+<p>A:Thu Jan 01 1970 01:00:00 GMT+0100 (CET)</p>
+<p>B:current time</p>
+<p>C:error</p>
+<p>D:other</p>
+<p>选 D ，正确答案为 Invalid Date 。Date虽然是一个对象，但是并不能返回正确的时间，因为时间是以数字字符串的形式存在的，所以要进行字符串转换后才会反水具体的时间。</p>
+<p>第三十九题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = <span class="function"><span class="keyword">Function</span>.<span class="title">length</span></span>,</span><br><span class="line">    b = new <span class="function"><span class="keyword">Function</span><span class="params">()</span></span>.length</span><br><span class="line">a === b</span><br></pre></td></tr></table></figure>
+<p>A: true</p>
+<p>B: false</p>
+<p>C: error</p>
+<p>D: other     </p>
+<p>这个答案选 B 。因为 Function的长度是从 1 开始算的，而 new Function 的 长度是从 0 开始算的。</p>
+<p>第四十题 </p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">Date</span>(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">[a === b, b === c, a === c]</span><br></pre></td></tr></table></figure>
+<p>A: [true, true, true, true]</p>
+<p>B: [false, false, false] </p>
+<p>C: [false, true, false]</p>
+<p>D: [true, false, false]</p>
+<p>答案选 B 。</p>
+<p>第四十一题 </p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> <span class="keyword">min</span> = Math.<span class="keyword">min</span>(), <span class="keyword">max</span> = Math.<span class="keyword">max</span>()</span><br><span class="line"><span class="keyword">min</span> &lt; <span class="keyword">max</span></span><br></pre></td></tr></table></figure>
+<p>A: true </p>
+<p>B: false</p>
+<p>C:error </p>
+<p>D: other </p>
+<p>答案选 B false. 因为 Math.min 为空的时候返回的是正无穷，而Math.max为空的时候返回的是负无穷。</p>
+<p>第四十二题</p>
+<p>What is the result of this expression? (or multiple ones)</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function captureOne(re, str) &#123;</span><br><span class="line">  var <span class="attr">match</span> = re.exec(str);</span><br><span class="line">  return match &amp;&amp; match[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line">var <span class="attr">numRe</span>  = /<span class="attr">num=(\d+)/ig,</span></span><br><span class="line">    <span class="attr">wordRe</span> = /<span class="attr">word=(\w+)/i,</span></span><br><span class="line">    <span class="attr">a1</span> = captureOne(numRe,  <span class="string">"num=1"</span>),</span><br><span class="line">    <span class="attr">a2</span> = captureOne(wordRe, <span class="string">"word=1"</span>),</span><br><span class="line">    <span class="attr">a3</span> = captureOne(numRe,  <span class="string">"NUM=2"</span>),</span><br><span class="line">    <span class="attr">a4</span> = captureOne(wordRe,  <span class="string">"WORD=2"</span>);</span><br><span class="line">[<span class="attr">a1</span> === a2, <span class="attr">a3</span> === a4]</span><br></pre></td></tr></table></figure>
+<p>A: [true, true]</p>
+<p>B: [false, false]</p>
+<p>C: [true, false]</p>
+<p>D: [false, true]</p>
+<p>答案选 C </p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#JavaScript" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/JavaScript Puzzlers! 选择题答案解析.html"
+           data-title="JavaScript Puzzlers! 选择题答案解析" data-url="http://blog.yongyuan.com/post/JavaScript Puzzlers! 选择题答案解析.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

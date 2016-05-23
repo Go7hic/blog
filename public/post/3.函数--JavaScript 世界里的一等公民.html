@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="JavaScript," />
+
+
+<meta name="description" content="在 Javascript 里函数是一等公民，这意味着函数是一个特殊的对象类型，可以做对象能做的所有事情。
+###真的就像其他任何变量一样
+下面是一些函数能做的重要的对象特性
+####函数 instanceof 返回 Object 类型
+1234function feedCat()&amp;#123;    alert(&quot;Kibble, tinned food and water&quot;);&amp;#125;alert">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3. 函数--JavaScript 世界里的一等公民">
+<meta property="og:url" content="http://blog.yongyuan.com/post/3.函数--JavaScript 世界里的一等公民.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="在 Javascript 里函数是一等公民，这意味着函数是一个特殊的对象类型，可以做对象能做的所有事情。
+###真的就像其他任何变量一样
+下面是一些函数能做的重要的对象特性
+####函数 instanceof 返回 Object 类型
+1234function feedCat()&amp;#123;    alert(&quot;Kibble, tinned food and water&quot;);&amp;#125;alert">
+<meta property="og:updated_time" content="2015-09-05T08:21:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="3. 函数--JavaScript 世界里的一等公民">
+<meta name="twitter:description" content="在 Javascript 里函数是一等公民，这意味着函数是一个特殊的对象类型，可以做对象能做的所有事情。
+###真的就像其他任何变量一样
+下面是一些函数能做的重要的对象特性
+####函数 instanceof 返回 Object 类型
+1234function feedCat()&amp;#123;    alert(&quot;Kibble, tinned food and water&quot;);&amp;#125;alert">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 3. 函数--JavaScript 世界里的一等公民 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 3. 函数--JavaScript 世界里的一等公民 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-11-29T11:21:04+08:00" content="2014-11-29">
+              2014-11-29
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/3.函数--JavaScript 世界里的一等公民.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/3.函数--JavaScript 世界里的一等公民.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>在 Javascript 里函数是一等公民，这意味着函数是一个特殊的对象类型，可以做对象能做的所有事情。</p>
+<p>###真的就像其他任何变量一样</p>
+<p>下面是一些函数能做的重要的对象特性</p>
+<p>####函数 instanceof 返回 Object 类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">feedCat</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"Kibble, tinned food and water"</span>);</span><br><span class="line">&#125;</span><br><span class="line">alert(feedCat <span class="keyword">instanceof</span> <span class="built_in">Object</span>);</span><br></pre></td></tr></table></figure>
+<p>####函数有原型属性和链接他的构造方法</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">feedCat.food = <span class="string">"kibble"</span><span class="comment">;</span></span><br><span class="line">alert(feedCat.food)<span class="comment">;</span></span><br><span class="line">alert(feedCat.constructor)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>####你可以把函数存在一个变量里</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">feedCat</span><span class="params">()</span></span>&#123;</span><br><span class="line">    alert(<span class="string">"Kibble, tinned food and water"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> eveningChore = feedCat;eveningChore();</span><br></pre></td></tr></table></figure>
+<p>####你可以把函数当做一个参数传递给另一个函数</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doEveningChores</span><span class="params">(chores)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> x=<span class="number">0</span>; x&lt;chores .length; x++)</span><br><span class="line">        chores[x]();</span><br><span class="line">&#125;</span><br><span class="line">doEveningChores([feedCat]);</span><br></pre></td></tr></table></figure>
+<p>####你可以从函数里返回一个函数</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tonightChores</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> feedCat;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> tonight = tonightChores();</span><br><span class="line">tonight();</span><br></pre></td></tr></table></figure>
+<p>###能够减少重复的代码</p>
+<p>能够通过逻辑绕过一个函数表单的应用意味着它可能有会移动更多重复的代码进入函数库里。它可以更容易地从常用逻辑里分离独特逻辑。</p>
+<p>举个例子，假设你有一堆巧克力棒，你想找出所有 Mars(火星) 牌子的巧克力因为你喜欢 M&amp;MS 同时你也想找出其他你能够享受的巧克力（我一直在节食7个月了….）。</p>
+<p>你可以写一个循环遍历完整的巧克力列表，对应的排序选择逻辑是这样的：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> chocolateBars = [</span><br><span class="line">    &#123;name: <span class="string">"Galaxy"</span>, manufacturer: <span class="string">"Mars"</span>&#125;,</span><br><span class="line">    …];</span><br><span class="line"><span class="built_in">var</span> marsChocolate = [];</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">var</span> x=<span class="number">0</span>; x&lt;chocolatebars .<span class="built_in">length</span>; x++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(chocolateBars[x].manufacturer == <span class="string">"Mars"</span>)</span><br><span class="line">        marsChocolate.<span class="built_in">push</span>(chocolateBars[x]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>真棒！问题就解决了。在你这个程序应用里只有在圣诞节的时候，你要对你这堆巧克力进行从  naughtyList 到 niceList 排序。在每年的这个时候你总是那么忙！加上你在学校学的程序 ,你没必要把同样的东西写两次。</p>
+<p>这听起来像是一个函数库的工作，让我们分开来看吧：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array_helper = &#123;</span><br><span class="line">    filter: <span class="function"><span class="keyword">function</span><span class="params">(list, filter)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> matches = [];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> x=<span class="number">0</span>; x&lt;<span class="keyword">list</span> .length; x++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(filter(<span class="keyword">list</span>[x]))</span><br><span class="line">                matches.push(<span class="keyword">list</span>[x]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> matches;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> marsChocolate = array_helper.filter(chocolateBars,</span><br><span class="line">     <span class="function"><span class="keyword">function</span><span class="params">(item)</span> </span>&#123; <span class="keyword">return</span> item.manufacturer == <span class="string">"Mars"</span></span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> naughtyList = array_helper.filter(childrenOfTheWorld,</span><br><span class="line">    <span class="function"><span class="keyword">function</span><span class="params">(item)</span> </span>&#123; <span class="keyword">return</span> item.naughtiness &amp;gt; <span class="number">50</span>;</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> niceList = array_helper.filter(childrenOfTheWorld,</span><br><span class="line">    <span class="function"><span class="keyword">function</span><span class="params">(item)</span> </span>&#123; <span class="keyword">return</span> item.naughtiness &amp;lt;= <span class="number">50</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>现在，实际上需要为每个需要过滤(filtering)列表编写的代码是非常简单的。如果在这个逻辑有问题它会死的很容易被发现。与函数库逻辑的任何问题都可以在代码里的某个地方修复。再加上你可以随时得到你想要的美味蛋糕随以及世界的好孩子都会在圣诞节的时候得到他们的礼物(这句话啥意思？)。</p>
+<p>这个 filter function 是如此的有用以至于它也和JavaScript 库像jQuery和Dojo 一样流行。它也将被包含在浏览器的Javascript1.6的标准部分。但同样的想法可以在很多不同的地方被应用，以减少重复的代码，这不是真正让它变得重型。</p>
+<p>###方法的本质是包含函数</p>
+<p>JavaScript里对象的方法没有什么特别的。它们只是碰巧包含一个函数，而不是像一个字符串或数值属性：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sabby = &#123;</span><br><span class="line">     name : <span class="string">"Sabby"</span>,</span><br><span class="line">     species: <span class="string">"cat"</span>,</span><br><span class="line">     hello : <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123; alert(<span class="string">"hissss"</span>); &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这是相当聪明的 JavaScript 语言设计师，因为这意味着他们并不需要做什么特别的支持对象的方法。这就是为什么JavaScript可以有对象，而无需类的部分原因。</p>
+<p>###让 JavaScript 更灵活动态</p>
+<p>很多 JavaScript 的灵活性来自于把函数作为第一等公民。几乎每一篇讲 JavaScript 对象的文章都会把函数当做一个普通的对象。</p>
+<p>大部分 JavaScript 中使用对象的基本技术都依赖于这样一件事，简单对象，构造函数和原型都涉及分配方法的对象的属性。</p>
+<p>它还可以让 JavaScript 更灵活轻便。从其他语言，如命名空间，自定义事件，静态方法和扩展方法有用的想法都可以被模拟，因为它可以创建一个函数，并把它放在你需要的地方。</p>
+<p>###延伸阅读</p>
+<p>最好的参考，我可以找到，这是有关功能的JavaScript的文章。它解释了函数式语言的功能，JavaScript有一个堆。<br>这是我能找到有关 <a href="http://www.hunlock.com/blogs/Functional_Javascript" target="_blank" rel="external">JavaScript function</a> 最好的参考文章。它解释了一大堆 javascript拥有的函数语言的功能。</p>
+<p>Raganwald 有一些关于为什么像这样的技术是非常有用的信息的一篇<a href="http://weblog.raganwald.com/2007/01/closures-and-higher-order-functions.html" target="_blank" rel="external">有趣的文章</a>。它比较的是 Ruby 和Java，但逻辑仍然适用于JavaScript。</p>
+<p>原文：<a href="http://helephant.com/2008/08/19/functions-are-first-class-objects-in-javascript/" target="_blank" rel="external">http://helephant.com/2008/08/19/functions-are-first-class-objects-in-javascript/</a></p>
+<p>这篇文章感觉翻译成中文好别扭，还是自己的英语渣，毕竟蓝翔主要学习挖掘机，这里推荐另一篇相同主题的文章 <a href="https://software.intel.com/zh-cn/articles/javascript-first-class-citizen-function" target="_blank" rel="external">https://software.intel.com/zh-cn/articles/javascript-first-class-citizen-function</a></p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#JavaScript" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/3.函数--JavaScript 世界里的一等公民.html"
+           data-title="3. 函数--JavaScript 世界里的一等公民" data-url="http://blog.yongyuan.com/post/3.函数--JavaScript 世界里的一等公民.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>
