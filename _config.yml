@@ -72,7 +72,3 @@ deploy:
   repository: git@github.com:dyygtfx/blog.git
   branch: gh-pages
   
-plugins:
-- hexo-generator-sitemap
-- hexo-generator-archive
-- hexo-generator-tag
