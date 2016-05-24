@@ -2,7 +2,7 @@
 layout: post
 title:  Angular add custom style and input auto focus
 date: 2015-11-19 11:21:04
-tags: JavaScript
+tags: angular
 ---
 首先我本人並不是很喜歡 angular 1.X 的，但是項目既然用了，還是要用心去做的。所以從零基礎到直接獨自上手開發肯定會遇到很多坑的，在這裏只是記錄一些遇到的坑，相信很多新人會遇到的。
 一：ui.bootstrap 的模態框 modal 組件添加自定義樣式
@@ -95,3 +95,5 @@ angular.module('sampleapp').directive('focus',
 	}
 );
 ```
+
+

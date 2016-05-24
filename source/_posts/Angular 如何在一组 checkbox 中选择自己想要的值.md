@@ -2,7 +2,7 @@
 layout: post
 title: Angular 如何在一组 checkbox 中选择自己想要的值
 date: 2015-12-20
-tags: JavaScript
+tags: angular
 description: null
 ---
 
@@ -38,3 +38,5 @@ console.log($scope.selection)
 };
 ```
 这样就可以选中一组自己想要的 value 值了
+
+

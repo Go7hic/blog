@@ -1186,7 +1186,8 @@ body {
   margin: 0;
   color: #fff;
   font-weight: normal;
-  font-size: 1.6rem;
+  font-size: 2.6rem;
+  letter-spacing: 0.5rem;
 }
 .header .header-cont .text-area .description {
   width: 100%;

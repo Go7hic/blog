@@ -47,8 +47,8 @@
         </div>
         {% endif %}
       {% else %}
-        <h1 class="title"> <img src="images/title.png"  alt="go7hic"/> </h1>
-        <h3 class="description"> <img src="images/subtitle.png"  alt="go7hic"/></h3>
+        <h1 class="title"> <img src="http://7sbs9y.com1.z0.glb.clouddn.com/title.png"  alt="go7hic"/> </h1>
+        <h3 class="description"> <img src="http://7sbs9y.com1.z0.glb.clouddn.com/subtitle.png"  alt="go7hic"/></h3>
       {% endif %}
     </div>
     <!-- Navigation -->

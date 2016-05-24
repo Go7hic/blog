@@ -3,6 +3,7 @@ layout:     post
 title:      Angular form valid in action
 date: 2015-12-13
 description:
+tags: angular
 ---
 
 Angular 提供了有关表单的属性来帮助我们验证表单. 他们给我们提供了各种有关一个表单及其输入的信息，并且应用到了表单和输入.
@@ -54,3 +55,5 @@ label(for="")
 ```
 只要给对应的选项添加对应选中的 value 值，绑定 ngModel 即可。
 上面这些都是一些基本的 angualr 表单的使用。没啥技巧，都是一些死东西，第一次明白后面基本照用就是。
+
+
