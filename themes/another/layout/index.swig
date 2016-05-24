@@ -7,7 +7,7 @@
 {% block content %}
 
 <div class="index-content">
-
+  
   <div class="posts-list">
     <div>
       {% for post in page.posts %}

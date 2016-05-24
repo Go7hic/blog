@@ -4,6 +4,7 @@
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
   {% include '_scripts/analytics.swig' %}
+  <script src="//cdn.bootcss.com/jquery/2.2.0/jquery.js"></script>
 </head>
 <body lang="{{ config.language }}">
 
