@@ -2,7 +2,7 @@
 layout: post
 title: 几个少数人知道的 css 知识
 date: 2015-07-18 11:21:04
-tags: css
+tags: CSS
 ---
 ### 1.border-radius 属性能用两组值
 像这样：

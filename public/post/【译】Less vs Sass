@@ -144,17 +144,17 @@ Sass和Less的争论可以结束了.在本文我将解释为什么Sass真的比�
       
         
         <a class="nav-link" href="/" rel="section">
-          首页
+          HOME
         </a>
       
         
         <a class="nav-link" href="/tags" rel="section">
-          标签
+          Tags
         </a>
       
         
         <a class="nav-link" href="/about" rel="section">
-          关于
+          About
         </a>
       
     </nav>

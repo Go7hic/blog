@@ -9,7 +9,7 @@ $(function () {
   var $header = document.querySelector('#header');
   $('#header').css({height: $('body').height()})
   var headerHeight = getHeight($header);
-  var number = Math.floor(Math.random() * 100)
+  var number = Math.floor(Math.random() * 1000)
   // 获取 500px 的图片
   $.get('https://api.500px.com/v1/photos/' + number + '?image_size=5&consumer_key=u29OsPHPw9M5YhnbrwFnOIKzyzi9vyqRvie23du4', function (data) {
     if (data.photo) {

@@ -1,17 +1,17 @@
 title:
-  archive: 归档
-  category: 分类
-  tag: 标签
+  archive: Archive
+  category: Category
+  tag: Tag
 
 menu:
-  home: 首页
-  archives: 归档
-  categories: 分类
-  tags: 标签
-  about: 关于
-  search: 搜索
+  home: HOME
+  archives: Archives
+  categories: Categories
+  tags:  Tags
+  about: About
+  search: Search
   commonweal: 公益404
-  resume: 简历
+  resume: Resume
 
 sidebar:
   overview: 站点概览
