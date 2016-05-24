@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="^_^" />
+
+
+<meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Go7hic">
+<meta property="og:url" content="http://blog.yongyuan.com/archives/2014/page/4/index.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Go7hic">
+<meta name="twitter:description">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> Go7hic </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> Go7hic </h1>
+        <h3 class="description"></h3>
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+<div class="index-content">
+
+  <div class="posts-list">
+    <div>
+      
+        
+
+
+<div class="post-item without-bgimage">
+
+
+  <div class="title-wrap" style="background: url() center / cover">
+    <h2 class="title"><a href="/post/Webkit技术笔记(2)-详解 webkit 网页渲染过程.html">Webkit技术笔记(2):详解 webkit 网页渲染过程</a></h2>
+  </div>
+
+  <div class="post-cont">
+    <span class="post-time">
+      Posted on
+      <time datetime="2014-09-16T11:21:04+08:00" content="2014-09-16">
+        2014-09-16
+      </time>
+    </span>
+    <div class="text">
+      
+      这篇主要讲的是 Webkit 的网页渲染过程,所以和网上那个比较流行的面试题(输入url到页面展示有哪些过程)有点不同啦。
+这里说的网页渲染过程其实包含两个过程一个是网页加载过程，从url到构建 DOM 树，第二个就是网页渲染过程，从 DOM 树到生成可视化图像，因为两个过程有交叉，所以直接叫做 网页渲染过程了。
+上一篇大致讲了页面的基本渲染流程，这里再详细记录一下 webkit 的网页渲染过程。
+      ...
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+
+    
+
+    
+  </div>
+</div>
+
+      
+        
+
+
+<div class="post-item without-bgimage">
+
+
+  <div class="title-wrap" style="background: url() center / cover">
+    <h2 class="title"><a href="/post/Bypass xss过滤的测试方法.html">Bypass xss过滤的测试方法</a></h2>
+  </div>
+
+  <div class="post-cont">
+    <span class="post-time">
+      Posted on
+      <time datetime="2014-09-15T11:21:04+08:00" content="2014-09-15">
+        2014-09-15
+      </time>
+    </span>
+    <div class="text">
+      
+      0x00 背景
+本文来自于《Modern Web Application Firewalls Fingerprinting and Bypassing XSS Filters》其中的bypass xss过滤的部分，前面有根据WAF特征确定是哪个WAF的测试方法给略过了，重点来看一下后面绕xss的一些基本的测试流程，虽说是绕WAF的，但这里还是根据WAF中的正则缺陷来绕过测试方法，并不是协议上问题，
+      ...
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+
+    
+
+    
+  </div>
+</div>
+
+      
+        
+
+
+<div class="post-item without-bgimage">
+
+
+  <div class="title-wrap" style="background: url() center / cover">
+    <h2 class="title"><a href="/post/2014-09-15-Bypass xss 过滤的测试方法.html">Bypass xss 过滤的测试方法</a></h2>
+  </div>
+
+  <div class="post-cont">
+    <span class="post-time">
+      Posted on
+      <time datetime="2014-09-15T00:00:00+08:00" content="2014-09-15">
+        2014-09-15
+      </time>
+    </span>
+    <div class="text">
+      
+      0x00 背景本文来自于《Modern Web Application Firewalls Fingerprinting and Bypassing XSS Filters》其中的bypass xss过滤的部分，前面有根据WAF特征确定是哪个WAF的测试方法给略过了，重点来看一下后面绕xss的一些基本的测试流程，虽说是绕WAF的，但这里还是根据WAF中的正则缺陷来绕过测试方法，并不是协议上问题，所
+      ...
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+
+    
+
+    
+  </div>
+</div>
+
+      
+        
+
+
+<div class="post-item without-bgimage">
+
+
+  <div class="title-wrap" style="background: url() center / cover">
+    <h2 class="title"><a href="/post/纯 CSS 制作的居中弹出层.html">纯 CSS 制作的居中弹出层</a></h2>
+  </div>
+
+  <div class="post-cont">
+    <span class="post-time">
+      Posted on
+      <time datetime="2014-09-13T11:21:04+08:00" content="2014-09-13">
+        2014-09-13
+      </time>
+    </span>
+    <div class="text">
+      
+      刚刚翻了下大漠的那本书看到那个 CSS3 的 target 属性我也是醉了，用的活这个可以用到很多地方。你想了解更多 CSS3 的技巧还是去看看大漠的那本书吧，才 9.9人民币。真想不到那些写书的大神怎么想的，辛辛苦几年写的书，几块钱就答应卖出去，想想就醉了…
+主要用到的知识点: CSS3里的 target 选择器。其余的自行发挥…
+ps:刚刚网上搜了一圈，那些所谓的纯 css 制作的 light
+      ...
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+
+    
+
+    
+  </div>
+</div>
+
+      
+        
+
+
+<div class="post-item without-bgimage">
+
+
+  <div class="title-wrap" style="background: url() center / cover">
+    <h2 class="title"><a href="/post/2014-09-03-weituo.html">理解JavaScript事件委托的技术原理</a></h2>
+  </div>
+
+  <div class="post-cont">
+    <span class="post-time">
+      Posted on
+      <time datetime="2014-09-03T00:00:00+08:00" content="2014-09-03">
+        2014-09-03
+      </time>
+    </span>
+    <div class="text">
+      
+      我们知道函数都是对象，都会占用内存，内存中的对象越多，性能越差。而且，添加到页面上的事件处理程序数量会直接关系到页面的整体性能。那么有没有什么方法能够解决一点相关的问题呢？有，事件委托就是“事件处理程序数量过多”导致的问题的解决方法。
+使用事件委托技术能让你避免对特定的每个节点添加事件监听器；相反，事件监听器是被添加到它们的父元素上。事件监听器会分析从子元素冒泡上来的事件，找到是哪个子元素的事件。
+      ...
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+
+    
+
+    
+  </div>
+</div>
+
+      
+        
+
+
+<div class="post-item without-bgimage">
+
+
+  <div class="title-wrap" style="background: url() center / cover">
+    <h2 class="title"><a href="/post/2014-08-26-Closure.html">结合代码例子再谈谈闭包</a></h2>
+  </div>
+
+  <div class="post-cont">
+    <span class="post-time">
+      Posted on
+      <time datetime="2014-08-26T00:00:00+08:00" content="2014-08-26">
+        2014-08-26
+      </time>
+    </span>
+    <div class="text">
+      
+      本文涉及到的知识点：
+
+什么是闭包
+垃圾回收机制
+闭包与垃圾回收机制
+闭包测试
+闭包的优点
+函数表达式与代码模块化模型
+运用闭包在循环内找到当前索引值
+闭包引发的内存泄露问题及解决方案
+1:闭包特点：函数嵌套函数，内部函数可以应用外部函数的参数和质量。
+
+函数嵌套
+function aaa() {
+    function bbb() {
+
+    }
+}
+内部函数可以应用外部函数的参数和变量
+f
+      ...
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+
+    
+
+    
+  </div>
+</div>
+
+      
+        
+
+
+<div class="post-item without-bgimage">
+
+
+  <div class="title-wrap" style="background: url() center / cover">
+    <h2 class="title"><a href="/post/ 无障碍访问指导标准.html">无障碍访问指导标准</a></h2>
+  </div>
+
+  <div class="post-cont">
+    <span class="post-time">
+      Posted on
+      <time datetime="2014-08-22T11:21:04+08:00" content="2014-08-22">
+        2014-08-22
+      </time>
+    </span>
+    <div class="text">
+      
+      ####基本规则
+1.网站必须满足 WCAG 的所有一级优先检查点.2.网站应该满足 WCAG 的2,3级优先检查点.3.禁止使用 !important .4.给每个页面的 body 元素上设置一个统一的 class ,以便为用户样式表提供一个钩子.5.应该避免使用任何闪烁的内容.
+
+应该使用屏幕阅读器对网站进行测试.7.禁止依赖 hover 状态或动画传达信息开发人员可以提供备用样式表,但必须在
+      ...
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+
+    
+
+    
+  </div>
+</div>
+
+      
+        
+
+
+<div class="post-item without-bgimage">
+
+
+  <div class="title-wrap" style="background: url() center / cover">
+    <h2 class="title"><a href="/post/You Know Nothing About Code 【译】.html">You Know Nothing About Code 【译】</a></h2>
+  </div>
+
+  <div class="post-cont">
+    <span class="post-time">
+      Posted on
+      <time datetime="2014-08-14T11:21:04+08:00" content="2014-08-14">
+        2014-08-14
+      </time>
+    </span>
+    <div class="text">
+      
+      你知道吗？你的那些年收入 15 万刀的码农们，也不是每天都在写代码。
+
+The more you know, the more you realize how much you don’t know — the less you know, the more you think you know. 
+
+David T. Freeman
+
+懂得越多，就会发现其实自己知道的事物宛如沧海一栗；懂得越少，
+      ...
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+
+    
+
+    
+  </div>
+</div>
+
+      
+    </div>
+    
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/archives/2014/page/3/">&laquo;</a><a class="page-number" href="/archives/2014/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2014/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/2014/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2014/page/8/">8</a><a class="extend next" rel="next" href="/archives/2014/page/5/">&raquo;</a>
+  </nav>
+
+
+  </div>
+
+</div>
+
+
+
+      
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

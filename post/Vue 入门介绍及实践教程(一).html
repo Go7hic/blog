@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="Vue," />
+
+
+<meta name="description" content="Vue.js 是国人 @尤小右 开发的一个轻量的 MVVM 库，在 Github 上有着 7k+ 的 start，其火热程度可见一斑，而且听说在岛国同行里很受欢迎。
+在官网里，作者介绍说 Vue 专注 MVVM 模型的 ViewModel 层，通过双向数据绑定把 view 层和 Model 层连接起来。
+
+在 Vue 里，ViewModel 是指 一个同步 Model 和 View 的对象，每个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue 入门介绍及实践教程 (一)">
+<meta property="og:url" content="http://blog.yongyuan.com/post/Vue 入门介绍及实践教程(一).html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="Vue.js 是国人 @尤小右 开发的一个轻量的 MVVM 库，在 Github 上有着 7k+ 的 start，其火热程度可见一斑，而且听说在岛国同行里很受欢迎。
+在官网里，作者介绍说 Vue 专注 MVVM 模型的 ViewModel 层，通过双向数据绑定把 view 层和 Model 层连接起来。
+
+在 Vue 里，ViewModel 是指 一个同步 Model 和 View 的对象，每个">
+<meta property="og:image" content="http://cn.vuejs.org/images/mvvm.png">
+<meta property="og:image" content="http://cn.vuejs.org/images/data.png">
+<meta property="og:updated_time" content="2015-09-26T17:29:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue 入门介绍及实践教程 (一)">
+<meta name="twitter:description" content="Vue.js 是国人 @尤小右 开发的一个轻量的 MVVM 库，在 Github 上有着 7k+ 的 start，其火热程度可见一斑，而且听说在岛国同行里很受欢迎。
+在官网里，作者介绍说 Vue 专注 MVVM 模型的 ViewModel 层，通过双向数据绑定把 view 层和 Model 层连接起来。
+
+在 Vue 里，ViewModel 是指 一个同步 Model 和 View 的对象，每个">
+<meta name="twitter:image" content="http://cn.vuejs.org/images/mvvm.png">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> Vue 入门介绍及实践教程 (一) </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> Vue 入门介绍及实践教程 (一) </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-09-25T21:00:04+08:00" content="2015-09-25">
+              2015-09-25
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/Vue 入门介绍及实践教程(一).html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/Vue 入门介绍及实践教程(一).html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>Vue.js 是国人 @尤小右 开发的一个轻量的 MVVM 库，在 Github 上有着 7k+ 的 start，其火热程度可见一斑，而且听说在岛国同行里很受欢迎。</p>
+<p>在官网里，作者介绍说 Vue 专注 MVVM 模型的 ViewModel 层，通过双向数据绑定把 view 层和 Model 层连接起来。</p>
+<p><img src="http://cn.vuejs.org/images/mvvm.png" alt=""></p>
+<p>在 Vue 里，ViewModel 是指 一个同步 Model 和 View 的对象，每个 Vue 实例都是一个 ViewModel。它们是通过构造函数 Vue 或其子类被创建出来的。比如：var vm = new Vue({})。</p>
+<h4 id="View"><a href="#View" class="headerlink" title="View"></a>View</h4><p>View 则是指被 Vue 实例管理的 Dom 节点，vm.$el。每个 Vue 实例都关联着一个相应的 DOM 元素。当一个 Vue 实例被创建时，它会递归遍历根元素的所有子结点，同时完成必要的数据绑定。当这个视图被编译之后，它就会自动响应数据的变化。</p>
+<h4 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h4><p>Model 则是指一个轻微改动过的原生 JavaScript 对象，也可以称之为数据对象。一旦某对象被作为 Vue 实例中的数据，它就成为一个 “响应式” 的对象了。你可以操作它们的属性，同时正在观察它的 Vue 实例也会收到提示。<br>一旦数据被观察，Vue.js 就不会再侦测到新加入或删除的属性了。作为弥补，Vue 为被观察的对象增加 $add , $set和 $delete 方法。</p>
+<p>下面是对 Vue.js 数据观测机制实现的高层概览：</p>
+<p><img src="http://cn.vuejs.org/images/data.png" alt=""></p>
+<h4 id="Directives-指令"><a href="#Directives-指令" class="headerlink" title="Directives 指令"></a>Directives 指令</h4><p>在 Vue 里，指令表示带特殊前缀的 HTML 特性，可以让 Vue.js 对一个 DOM 元素做各种处理。比如：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> v-<span class="built_in">text</span>=“message”&gt;&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>这里的 div 元素有一个 v-text 指令，其值为 message。Vue.js 会让该 div 的文本内容与 Vue 实例中的 message 属性值保持一致。<br>Directives 可以封装任何 DOM 操作。比如 v-attr 会操作一个元素的特性；v-repeat 会基于数组来复制一个元素；v-on 会绑定事件等。</p>
+<p>Mustache 风格绑定，除了可以用指令来绑定外，还可以用mustache 风格的绑定，不管在文本中还是在属性中。它们在底层会被转换成v-text 和 v-attr 的指令。但是使用这个有两点需要注意的地方。</p>
+<ul>
+<li>一个 <code>&lt;image&gt;</code> 的 src 属性在赋值时会产生一个 HTTP 请求，所以当模板在第一次被解析时会产生一个 404 请求。这种情况下更适合用 v-attr。</li>
+<li>Internet Explorer 在解析 HTML 时会移除非法的内联 style 属性，所以如果你想支持 IE，请在绑定内联 CSS 的时候始终使用 v-style。</li>
+</ul>
+<h4 id="Filters-过滤器"><a href="#Filters-过滤器" class="headerlink" title="Filters 过滤器"></a>Filters 过滤器</h4><p>过滤器是用于在更新视图之前处理原始值的函数。它们通过一个“管道”在指令或绑定中进行处理：</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><span class="template-variable">&#123;&#123;message | capitalize&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>这样在 div 的文本内容被更新之前，message 的值会先传给 capitalizie 函数处理</p>
+<h4 id="Components-组件"><a href="#Components-组件" class="headerlink" title="Components 组件"></a>Components 组件</h4><p>在 Vue.js，每个组件都是一个简单的 Vue 实例。一个树形嵌套的各种组件就代表了你的应用程序的各种接口。通过 Vue.extend 返回的自定义构造函数可以把这些组件实例化，不过更推荐的声明式的用法是通过 Vue.component(id, constructor) 注册这些组件。一旦组件被注册，它们就可以在 Vue 实例的模板中以自定义元素形式使用了。</p>
+<h4 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h4><p>了解了 Vue 的基本概念后，我们先来做个简单的例子：</p>
+<ol>
+<li><code>npm init</code> 初始化 package.json</li>
+<li><code>npm install vue vue-resources bootstrap --save -d</code> 安装需要的模块，vue 和 vue 插件以及 bootstrap 来写样式</li>
+<li><p>touch index.html app.js 创建主页和 js 文件<br>4.index.html 代码：</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="meta">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Vue Demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"node_modules/bootstrap/dist/css/bootstrap.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"navbar navbar-default"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"navbar-brand"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-bullhorn"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> Vue Events Bulletin Board<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span> <span class="attr">id</span>=<span class="string">"events"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 添加内容 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-6"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel panel-default"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-heading"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Add an Event<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-body"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">    				<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">placeholder</span>=<span class="string">"title"</span> <span class="attr">v-model</span>=<span class="string">"event.name"</span>&gt;</span></span><br><span class="line">	 	 		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		  		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">	    			<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">placeholder</span>=<span class="string">"内容"</span> <span class="attr">v-model</span>=<span class="string">"event.description"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">			  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">			  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">	    			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"date"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">placeholder</span>=<span class="string">"日期"</span> <span class="attr">v-model</span>=<span class="string">"event.date"</span>&gt;</span></span><br><span class="line">			  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">			  <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">v-on</span>=<span class="string">"click: addEvent"</span>&gt;</span>添加<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 显示添加的内容 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-6"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"list-group"</span>&gt;</span></span><br><span class="line">      	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"list-group-item"</span> <span class="attr">v-repeat</span>=<span class="string">"event in events"</span>&gt;</span></span><br><span class="line">    			<span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">"list-group-item-heading"</span>&gt;</span></span><br><span class="line">	      		<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-bullhorn"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> </span><br><span class="line">      			</span><span class="template-variable">&#123;&#123; ev	ent.name &#125;&#125;</span><span class="xml"></span><br><span class="line">    			<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    		<span class="tag">&lt;<span class="name">h5</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-calendar"</span> <span class="attr">v-if</span>=<span class="string">"event.date"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> </span><span class="template-variable">&#123;&#123; event.date &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    		<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"list-group-item-text"</span> <span class="attr">v-if</span>=<span class="string">"event.description"</span>&gt;</span></span><span class="template-variable">&#123;&#123; event.description &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    		<span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-xs btn-danger"</span> <span class="attr">v-on</span>=<span class="string">"click: deleteEvent($index)"</span>&gt;</span>Delete<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- JS --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/vue/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/vue-resource/dist/vue-resource.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"app.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>app.js 代码</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;</span><br><span class="line">    el: '#events',// 管理的 DOM 节点</span><br><span class="line">    data: &#123;</span><br><span class="line">        event: &#123; name: '', description: '', date: '' &#125;,</span><br><span class="line">        events: []</span><br><span class="line">    &#125;,</span><br><span class="line">    // 页面加载时会调用这个函数，执行里面的方法</span><br><span class="line">    ready: function() &#123;</span><br><span class="line">        this.fetchEvents()<span class="comment">;</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    // 这里写你想要注册的方法</span><br><span class="line">    methods: &#123;</span><br><span class="line">        fetchEvents: function() &#123;</span><br><span class="line">            var events = []<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">            // model 里的 $set 方法，</span><br><span class="line">            this.$set('events', events)<span class="comment">;</span></span><br><span class="line">            // 如果你想从后台接口 get 获取 json 数据，可以这么写</span><br><span class="line">            // this.$http.get('api/events').success(<span class="name">function</span>(<span class="name">events</span>) &#123;</span><br><span class="line">            //   this.$set('events', events)<span class="comment">;</span></span><br><span class="line">            // &#125;).error(<span class="name">function</span>(<span class="name">error</span>) &#123;</span><br><span class="line">            //   console.log(<span class="name">error</span>)<span class="comment">;</span></span><br><span class="line">            // &#125;)<span class="comment">;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        // 添加最后的保存事件</span><br><span class="line">        addEvent: function() &#123;</span><br><span class="line">            if(<span class="name">this</span>.event.name) &#123;</span><br><span class="line">                this.events.push(<span class="name">this</span>.event)<span class="comment">;</span></span><br><span class="line">                this.event = &#123; name: '', description: '', date: '' &#125;<span class="comment">;</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            // 如果你想 Post 提交到后台，你可以这么写</span><br><span class="line">            // this.$http.post('api/events', this.event).success(<span class="name">function</span>(<span class="name">response</span>) &#123;</span><br><span class="line">            //   this.events.push(<span class="name">this</span>.event)<span class="comment">;</span></span><br><span class="line">            //   console.log(<span class="string">"Event added!"</span>)<span class="comment">;</span></span><br><span class="line">            // &#125;).error(<span class="name">function</span>(<span class="name">error</span>) &#123;</span><br><span class="line">            //   console.log(<span class="name">error</span>)<span class="comment">;</span></span><br><span class="line">            // &#125;)<span class="comment">;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        // 删除已经添加的列表</span><br><span class="line">        deleteEvent: function(<span class="name">index</span>) &#123;</span><br><span class="line">            if(<span class="name">confirm</span>(<span class="string">"确定要删除嘛？"</span>)) &#123;</span><br><span class="line">                // model 里的 $remove 方法,为啥不用 $delete ? 思考</span><br><span class="line">                this.events.$remove(<span class="name">index</span>)<span class="comment">;</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            // 如果你想从数据库里删除，可以这么写</span><br><span class="line">            // this.$http.delete('api/events', index).success(<span class="name">function</span>(<span class="name">response</span>) &#123;</span><br><span class="line">            //   this.events.$remove(<span class="name">index</span>)<span class="comment">;</span></span><br><span class="line">            // &#125;).error(<span class="name">function</span>(<span class="name">error</span>) &#123;</span><br><span class="line">            //   console.log(<span class="name">error</span>)<span class="comment">;</span></span><br><span class="line">            // &#125;)<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>上面我们接触了这几个 api: 属于数据类型的data,methods，属于 DOM 类型的 el,属于生命周期的 ready,events(注册事件回调),以及实列方法里的 $set，$remove。这几个只是众多 api 里的一点点，还有很多 api 需要花时间去了解下。</p>
+<p>这个代码在 Github 上：<a href="https://github.com/dyygtfx/Learn-Vue，直接" target="_blank" rel="external">https://github.com/dyygtfx/Learn-Vue，直接</a> Down 下拉在浏览器打开就可以看见效果了。</p>
+<p>最后，感觉 Vue 的 api 好简洁，概念也不像 React.js 那样难理解，如果你讨厌 React.js 可以试试 Vue，如果你初学 react，可以看看我之前学习时的一些小小 <a href="https://github.com/dyygtfx/Learn-React" target="_blank" rel="external">DEMO</a></p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#View"><span class="nav-text">View</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Model"><span class="nav-text">Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Directives-指令"><span class="nav-text">Directives 指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filters-过滤器"><span class="nav-text">Filters 过滤器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Components-组件"><span class="nav-text">Components 组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实践"><span class="nav-text">实践</span></a></li></ol></div>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#Vue" rel="tag">#Vue</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/Vue 入门介绍及实践教程(一).html"
+           data-title="Vue 入门介绍及实践教程 (一)" data-url="http://blog.yongyuan.com/post/Vue 入门介绍及实践教程(一).html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="JavaScript," />
+
+
+<meta name="description" content="终端不同于设备，一个设备可以有多个 web 终端，比如你在手机页面打开一个页面，你可以在浏览器里打开，也可以在微信里面打开等，拥有独立运行时的 web 解析容器都是一个终端，既可以是一台独立硬件设备，也可能是设备上的某个运行环境。跨终端就是让一个页面在设备的不同终端上都能完美的显示。
+跨终端是最终的目的，不是一个方法，具体怎么跨，有很多方法，比如：
+响应式，多站点，多模板，多平台。
+就 web 页">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跨终端 web 开发">
+<meta property="og:url" content="http://blog.yongyuan.com/post/跨终端 web 开发.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="终端不同于设备，一个设备可以有多个 web 终端，比如你在手机页面打开一个页面，你可以在浏览器里打开，也可以在微信里面打开等，拥有独立运行时的 web 解析容器都是一个终端，既可以是一台独立硬件设备，也可能是设备上的某个运行环境。跨终端就是让一个页面在设备的不同终端上都能完美的显示。
+跨终端是最终的目的，不是一个方法，具体怎么跨，有很多方法，比如：
+响应式，多站点，多模板，多平台。
+就 web 页">
+<meta property="og:updated_time" content="2015-09-04T17:34:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="跨终端 web 开发">
+<meta name="twitter:description" content="终端不同于设备，一个设备可以有多个 web 终端，比如你在手机页面打开一个页面，你可以在浏览器里打开，也可以在微信里面打开等，拥有独立运行时的 web 解析容器都是一个终端，既可以是一台独立硬件设备，也可能是设备上的某个运行环境。跨终端就是让一个页面在设备的不同终端上都能完美的显示。
+跨终端是最终的目的，不是一个方法，具体怎么跨，有很多方法，比如：
+响应式，多站点，多模板，多平台。
+就 web 页">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 跨终端 web 开发 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 跨终端 web 开发 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-12-09T11:21:04+08:00" content="2014-12-09">
+              2014-12-09
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/跨终端 web 开发.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/跨终端 web 开发.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>终端不同于设备，一个设备可以有多个 web 终端，比如你在手机页面打开一个页面，你可以在浏览器里打开，也可以在微信里面打开等，拥有独立运行时的 web 解析容器都是一个终端，既可以是一台独立硬件设备，也可能是设备上的某个运行环境。<br>跨终端就是让一个页面在设备的不同终端上都能完美的显示。</p>
+<p>跨终端是最终的目的，不是一个方法，具体怎么跨，有很多方法，比如：</p>
+<p>响应式，多站点，多模板，多平台。</p>
+<p>就 web 页面来讲，目前 响应式是比较多的，但是多站点也一直在用，就是单独给手机一个子域名访问。</p>
+<p>响应式争对简单的页面操作少的页面还是不错的，但是对于一些操作复杂，页面结构复杂的就很难了，毕竟响应式本质就是 改下 css, 但是很多时候我们需要在终端上修改一些操作方式，毕竟手机操作和电脑操作还是有点不一样的。这时候 css 就无能为力了。所以需要多站点等其他方法。</p>
+<p>开发流程</p>
+<p>1.基准</p>
+<p>参考各个移动设备的数据，操作系统，操作平台，分辨率，确定开发基准</p>
+<p>2.检测</p>
+<p>通过后端或前端识别终端特性，然后自动跳转到合适的版本，一般通过 UA 来检测比较常见。</p>
+<p>3.接口</p>
+<p>接口在开发里是一个很重的东西，连接着前后端，对于小团队来说接口啥的都可以口头约定，但是对于一些大型团队，大型项目来说，可能就要制定接口规范了，接口文档这些肯定也要。</p>
+<p>4.定位</p>
+<p>一个页面在不同终端上的 URL 一致，但是 pc 和mobile 页面视图数量上的不匹配就需要用到定位的技术，现在比较常用的就是 Hash 和 HistoryAPI</p>
+<p>5.预览</p>
+<p>没啥，就是在预览效果的，记得之前写了一个响应式测试的工具，应该可以用。</p>
+<p>跨终端还涉及很多东西，比如你可以直接做个 web app 出来，这样也方便，体验也比移动网页好，移动端的存储也是个比较大的问题，总之还有很多东西需要去了解的</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#JavaScript" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/跨终端 web 开发.html"
+           data-title="跨终端 web 开发" data-url="http://blog.yongyuan.com/post/跨终端 web 开发.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

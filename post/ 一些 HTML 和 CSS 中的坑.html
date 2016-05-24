@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="^_^" />
+
+
+<meta name="description" content="&amp;lt;!DOCTYPE&amp;gt; 声明&amp;lt;!DOCTYPE&amp;gt; 会声明一个文档类型给浏览器识别，例如我们经常使用的 HTML5 的文档类型声明是这样的：
+&amp;lt;!DOCTYPE html&amp;gt;如果你没有为页面声明文档类型，浏览器将会使用 Quirks 模式（兼容模式）去渲染页面上非标准的表格，input 控件和其它元素，这样可能会引发一些问题。
+盒模型计算当元素设置了 padding">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一些 HTML 和 CSS 中的坑">
+<meta property="og:url" content="http://blog.yongyuan.com/post/ 一些 HTML 和 CSS 中的坑.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="&amp;lt;!DOCTYPE&amp;gt; 声明&amp;lt;!DOCTYPE&amp;gt; 会声明一个文档类型给浏览器识别，例如我们经常使用的 HTML5 的文档类型声明是这样的：
+&amp;lt;!DOCTYPE html&amp;gt;如果你没有为页面声明文档类型，浏览器将会使用 Quirks 模式（兼容模式）去渲染页面上非标准的表格，input 控件和其它元素，这样可能会引发一些问题。
+盒模型计算当元素设置了 padding">
+<meta property="og:updated_time" content="2016-03-06T16:10:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一些 HTML 和 CSS 中的坑">
+<meta name="twitter:description" content="&amp;lt;!DOCTYPE&amp;gt; 声明&amp;lt;!DOCTYPE&amp;gt; 会声明一个文档类型给浏览器识别，例如我们经常使用的 HTML5 的文档类型声明是这样的：
+&amp;lt;!DOCTYPE html&amp;gt;如果你没有为页面声明文档类型，浏览器将会使用 Quirks 模式（兼容模式）去渲染页面上非标准的表格，input 控件和其它元素，这样可能会引发一些问题。
+盒模型计算当元素设置了 padding">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 一些 HTML 和 CSS 中的坑 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 一些 HTML 和 CSS 中的坑 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2016-03-06T00:00:00+08:00" content="2016-03-06">
+              2016-03-06
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/ 一些 HTML 和 CSS 中的坑.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/ 一些 HTML 和 CSS 中的坑.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><h4 id="lt-DOCTYPE-gt-声明"><a href="#lt-DOCTYPE-gt-声明" class="headerlink" title="&lt;!DOCTYPE&gt; 声明"></a>&lt;!DOCTYPE&gt; 声明</h4><p>&lt;!DOCTYPE&gt; 会声明一个文档类型给浏览器识别，例如我们经常使用的 HTML5 的文档类型声明是这样的：</p>
+<p><code>&lt;!DOCTYPE html&gt;</code><br>如果你没有为页面声明文档类型，浏览器将会使用 Quirks 模式（兼容模式）去渲染页面上非标准的表格，input 控件和其它元素，这样可能会引发一些问题。</p>
+<h4 id="盒模型计算"><a href="#盒模型计算" class="headerlink" title="盒模型计算"></a>盒模型计算</h4><p>当元素设置了 padding 或者 border-width 的时候，实际上元素的实际宽度是要比设置的 width 要 宽 的。为了避免这个尴尬的问题，我们可以统一使用 <code>box-sizing: border-box;</code> 来重新设置元素盒模型宽度的计算范围。</p>
+<h4 id="rem-单位和-Safari-Mobile-的爱恨情仇"><a href="#rem-单位和-Safari-Mobile-的爱恨情仇" class="headerlink" title="rem 单位和 Safari Mobile 的爱恨情仇"></a>rem 单位和 Safari Mobile 的爱恨情仇</h4><p>虽然 Safari Mobible 已经支持识别属性值的 rem 单位了，但是当你在媒体查询条件中使用rem的时候，会导致页面的文字在不同尺寸下来回跳闪，亮瞎你的双眼。</p>
+<p>解决办法是在媒体查询条件中使用em代替rem。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Causes flashing bug in Mobile Safari */</span></span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">40rem</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Works great in Mobile Safari */</span></span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">40em</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>紧急求助！ 如果你有向 Apple 或者 Webkit 报告这个 BUG，请告诉我，我会把链接附上。因为这个 BUG 只出现在手机端的 Safari 上，桌面版并没有，所以我也不是很确定应该向哪里提 BUG。</p>
+<h4 id="高贵的浮动元素"><a href="#高贵的浮动元素" class="headerlink" title="高贵的浮动元素"></a>高贵的浮动元素</h4><p>浮动元素最好放置在文档流的开头。因为浮动元素需要内容环绕，否则除了浮动显示内容，它还容易出现一些意想不到的负面效果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"parent"</span>&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"float"</span>&gt;</span>Float<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"content"</span>&gt;</span><br><span class="line">    <span class="xml"><span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h4><p>当你使用完float之后，你可能需要清除它。当某元素使用了float之后，附近元素的内容都会环绕着它，只有清除了浮动这个影响才会去除。你可以使用下面的方法清除浮动。</p>
+<p>根据 <code>clearfix</code> 大法 定义一个样式类，使用它来清除浮动：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: table;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或者你也可以使用overflow，在父元素上设置<code>overflow:auto</code>;或者<code>overflow:hidden</code>;也可以达到目的。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: auto; <span class="comment">/* clearfix */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.other-parent</span> &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden; <span class="comment">/* clearfix */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然你要小心使用overflow，因为它会给其他元素带来一些不可预料的影响。</p>
+<p>重大提示！ 由于样式类可以被覆盖或者增加其他内容，所以你最好在样式类上加上 <code>/ clearfix /</code> 注释用以提示你的同伴。</p>
+<h4 id="浮动元素计算高度"><a href="#浮动元素计算高度" class="headerlink" title="浮动元素计算高度"></a>浮动元素计算高度</h4><p>当父元素仅包含一个浮动元素的时候，此时父元素最终高度是 0。通过在父元素上使用 clearfix 清除浮动之后可以强制浏览器计算父元素的高度为浮动元素高度。</p>
+<h4 id="浮动元素就是块级元素"><a href="#浮动元素就是块级元素" class="headerlink" title="浮动元素就是块级元素"></a>浮动元素就是块级元素</h4><p>当一个元素被设置了 float 属性，那么它会自动设置 <code>display: block</code>。所以不要同时设置这两个属性，因为 float 会覆盖你的 display 设置。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.element</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">display</span>: block; <span class="comment">/* Not necessary */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>趣闻： 许多年前，我们不得不给浮动元素设置<code>display: inline;</code>属性避免元素在 IE6 上触发 margin 加倍的 bug。好在现在我们已经不用管这些了。</p>
+<h4 id="垂直方向相邻-margin-合并"><a href="#垂直方向相邻-margin-合并" class="headerlink" title="垂直方向相邻 margin 合并"></a>垂直方向相邻 margin 合并</h4><p>相邻元素的 margin-bottom 和 margin-top （两个margin是挨着的）一般情况会发生合并，但是对 float 元素和 <code>position: absolute;</code> 的元素是无效的。阅读这篇 MDN 文档，或者这篇 CSS2 规范中的 margin 合并 了解更多。</p>
+<p>注意！水平方向相邻的 margin 是永远不会合并的！</p>
+<h4 id="给表格的定义样式"><a href="#给表格的定义样式" class="headerlink" title="给表格的定义样式"></a>给表格的<tr>定义样式</tr></h4><p>除非你给父元素<code>&lt;table&gt;</code> 设置了 <code>border-cllapse: collapse;</code> 属性，否则你的 <tr> 是无法直接设置 border 属性的。当然你还需要知道的是，如果你的<code>&lt;tr&gt;</code>中的子元素 <code>&lt;td&gt;</code>或者<code>&lt;th&gt;</code> 设置了一个和父元素一样大小的 border-width，那么父元素 </tr><tr> 中的设置将不会生效。无例子无真相，点击这里查看例子。</tr></p>
+<h4 id="Firefox-和-lt-input-gt-按钮的悲欢离合"><a href="#Firefox-和-lt-input-gt-按钮的悲欢离合" class="headerlink" title="Firefox 和 &lt;input&gt;按钮的悲欢离合"></a>Firefox 和 <code>&lt;input&gt;</code>按钮的悲欢离合</h4><p>不知道为什么，Firefox 会自动给<code>&lt;input&gt;</code>类按钮增加 line-height 属性，并且你不能自定义样式覆盖它！针对这个问题你有两个选择：</p>
+<h4 id="坚持使用-lt-button-gt-元素"><a href="#坚持使用-lt-button-gt-元素" class="headerlink" title="坚持使用 &lt;button&gt; 元素"></a>坚持使用 <code>&lt;button&gt;</code> 元素</h4><p>在你的按钮上不要使用 line-height<br>如果你选择了第一个（我也推荐这个因为怎么看使用 <code>&lt;button&gt;</code>也是更好的选择），下面这个是你需要知道的：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Not so good --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Save changes"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"Cancel"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Super good everywhere --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Save changes<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span>&gt;</span>Cancel<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果你选择了第二个，其实你只要不给元素设置 line-height 转而只使用padding 去达到垂直居中按钮文字也还好啦。大家可以在 Firefox 中浏览示例查看问题表现和解决方法。</p>
+<p>捷报！ 这个问题似乎在 Firefox 30 中已经修复了。但是老版本肯定还是会存在的，所以使用上依旧要小心。</p>
+<h4 id="Firefox-默认给按钮增加外边框"><a href="#Firefox-默认给按钮增加外边框" class="headerlink" title="Firefox 默认给按钮增加外边框"></a>Firefox 默认给按钮增加外边框</h4><p>当按钮获得焦点即 :focus 的时候，Firefox 默认给按钮（包括<code>&lt;input&gt;</code>和 <code>&lt;button&gt;</code>）增加了外边框。这个设置如果你觉得很奇怪的话可以使用下面的 CSS 覆盖它：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">input:</span><span class="symbol">:-moz-focus-inner</span>,</span><br><span class="line"><span class="symbol">button:</span><span class="symbol">:-moz-focus-inner</span> &#123;</span><br><span class="line">  <span class="symbol">padding:</span> <span class="number">0</span>;</span><br><span class="line">  <span class="symbol">border:</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你可以在之前的例子中看到修复后的实际效果。</p>
+<p>重大提示！ 确保为你的按钮，链接和 input 空间增加了获得焦点的状态。为这个状态提供可视化对于一些使用Tab键切换焦点和示例不好的人来说是极为重要的用户体验。</p>
+<h4 id="总是给-lt-button-gt-元素设置-type-属性"><a href="#总是给-lt-button-gt-元素设置-type-属性" class="headerlink" title="总是给&lt;button&gt;元素设置 type 属性"></a>总是给<code>&lt;button&gt;</code>元素设置 type 属性</h4><p><code>&lt;button&gt;</code>默认的 type 属性值是 submit，这个意味着如果按钮在表单中点击可以提交表单。使用 type=”button” 可以让按钮在表单中回归本来，而不会触发提交事件。当然如果你想要设置提交事件，设置 type=”submit” 即可。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Save changes<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span>&gt;</span>Cancel<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当你不在表单中需要使用 <code>&lt;button&gt;</code>元素时，最好也设置一下 <code>type=&quot;button&quot;</code>。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button <span class="class"><span class="keyword">class</span></span>=<span class="string">"dismiss"</span> <span class="class"><span class="keyword">type</span></span>=<span class="string">"button"</span>&gt;x&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p> 趣闻： IE7 是不支持读取 <code>&lt;button&gt;</code> 元素的 value 属性值的。当它读取 value 属性的值的时候，它会去查找元素的 innerHTML 的值并复制给它。然而我为什么没有把这个坑给列出来呢？主要是因为 IE7 的份额在日渐下滑，已经很少人在用它了，另外一个原因也是因为几乎很少人会同时设置 <code>&lt;button&gt;</code>元素的 value 属性和它的 innerHTML。</p>
+<h4 id="IE-选择器限制"><a href="#IE-选择器限制" class="headerlink" title="IE 选择器限制"></a>IE 选择器限制</h4><p>IE9- 允许一个样式表中最多只有 4096 个选择器。对于页面内样式表<code>&lt;style&gt;&lt;/style&gt;</code> 也有每页最大 31 个选择器的限制。当然其他浏览器是没有这个问题的。你要么选择分割你的 CSS 样式表，要么对你的代码进行重构。我个人建议选择后者。</p>
+<p>下面给一段代码告诉下大家浏览器是如何计算选择器个数的：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* One selector */</span></span><br><span class="line"><span class="selector-class">.element</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Two more selectors */</span></span><br><span class="line"><span class="selector-class">.element</span>,</span><br><span class="line"><span class="selector-class">.other-element</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Three more selectors */</span></span><br><span class="line"><span class="selector-tag">input</span>[type=<span class="string">"text"</span>],</span><br><span class="line"><span class="selector-class">.form-control</span>,</span><br><span class="line"><span class="selector-class">.form-group</span> &gt; <span class="selector-tag">input</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Position-属性值讲解"><a href="#Position-属性值讲解" class="headerlink" title="Position 属性值讲解"></a>Position 属性值讲解</h4><p>元素设置<code>position: fixed;</code> 属性之后，位置是相对于浏览器的视口来设置的。元素设置 <code>position: absolute;</code>属性之后，位置是相对于最近的一个 position 值为非 static （例如 relative, absolute 或 fixed）的父元素而设置的。</p>
+<h4 id="Position-和-Width-不得不说的故事"><a href="#Position-和-Width-不得不说的故事" class="headerlink" title="Position 和 Width 不得不说的故事"></a>Position 和 Width 不得不说的故事</h4><p>不要对一个设置了 position: [absolute|fixed];, left 和 right 的元素设置 width: 100%;。这里 width:100% 和设置了 left: 0;及right: 0; 的效果是一样的。两者择其一，没必要都用。 Don’t set width: 100%; on an element that has position: [absolute|fixed];, left, and right. The use of width: 100%; is the same as the combined use of left: 0; and right: 0;. Use one or the other, but not both.</p>
+<h4 id="position-fixed-和transform-的恩怨是非"><a href="#position-fixed-和transform-的恩怨是非" class="headerlink" title="position: fixed;和transform 的恩怨是非"></a>position: fixed;和transform 的恩怨是非</h4><p>当一个 position: fixed; 元素的父元素设置了 transform 属性之后，浏览器会破坏 position: fixed 的解析。使用 transform 属性元素脱离文档流，相当于创建了一个新的内容块，强制父元素的表现和 position: relative; 一样，强制 position: fixed; 的元素的行为表现和 position: absolute; 一样。</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-DOCTYPE-gt-声明"><span class="nav-text"><!DOCTYPE> 声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#盒模型计算"><span class="nav-text">盒模型计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rem-单位和-Safari-Mobile-的爱恨情仇"><span class="nav-text">rem 单位和 Safari Mobile 的爱恨情仇</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高贵的浮动元素"><span class="nav-text">高贵的浮动元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清除浮动"><span class="nav-text">清除浮动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动元素计算高度"><span class="nav-text">浮动元素计算高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动元素就是块级元素"><span class="nav-text">浮动元素就是块级元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垂直方向相邻-margin-合并"><span class="nav-text">垂直方向相邻 margin 合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给表格的定义样式"><span class="nav-text">给表格的定义样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Firefox-和-lt-input-gt-按钮的悲欢离合"><span class="nav-text">Firefox 和 <input>按钮的悲欢离合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#坚持使用-lt-button-gt-元素"><span class="nav-text">坚持使用 <button> 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Firefox-默认给按钮增加外边框"><span class="nav-text">Firefox 默认给按钮增加外边框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总是给-lt-button-gt-元素设置-type-属性"><span class="nav-text">总是给<button>元素设置 type 属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IE-选择器限制"><span class="nav-text">IE 选择器限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Position-属性值讲解"><span class="nav-text">Position 属性值讲解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Position-和-Width-不得不说的故事"><span class="nav-text">Position 和 Width 不得不说的故事</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#position-fixed-和transform-的恩怨是非"><span class="nav-text">position: fixed;和transform 的恩怨是非</span></a></li></ol></div>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/ 一些 HTML 和 CSS 中的坑.html"
+           data-title="一些 HTML 和 CSS 中的坑" data-url="http://blog.yongyuan.com/post/ 一些 HTML 和 CSS 中的坑.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

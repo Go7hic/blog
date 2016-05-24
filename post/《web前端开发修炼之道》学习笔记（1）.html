@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="前端," />
+
+
+<meta name="description" content="早就听说这本书了，而且整体评价好像还不错，所以一直想买来看下，但是苦逼学生党，很多书都想买可是口袋钱不够啊。所以只能等以后有机会读读了，这不刚在图书馆发现了这本书，果断借了回来。一口气读了一大半，感觉学到了很多，但是还差实践啊，所谓好记性不如烂笔头，我就把我读过的一些笔记写在这里吧…这本书的全名叫做《编写高质量代码-web前端开发修炼之道》。所谓的高质量代码，在web标准的思想指导下，在实现结构、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《web前端开发修炼之道》学习笔记（1）">
+<meta property="og:url" content="http://blog.yongyuan.com/post/《web前端开发修炼之道》学习笔记（1）.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="早就听说这本书了，而且整体评价好像还不错，所以一直想买来看下，但是苦逼学生党，很多书都想买可是口袋钱不够啊。所以只能等以后有机会读读了，这不刚在图书馆发现了这本书，果断借了回来。一口气读了一大半，感觉学到了很多，但是还差实践啊，所谓好记性不如烂笔头，我就把我读过的一些笔记写在这里吧…这本书的全名叫做《编写高质量代码-web前端开发修炼之道》。所谓的高质量代码，在web标准的思想指导下，在实现结构、">
+<meta property="og:updated_time" content="2015-09-02T20:08:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《web前端开发修炼之道》学习笔记（1）">
+<meta name="twitter:description" content="早就听说这本书了，而且整体评价好像还不错，所以一直想买来看下，但是苦逼学生党，很多书都想买可是口袋钱不够啊。所以只能等以后有机会读读了，这不刚在图书馆发现了这本书，果断借了回来。一口气读了一大半，感觉学到了很多，但是还差实践啊，所谓好记性不如烂笔头，我就把我读过的一些笔记写在这里吧…这本书的全名叫做《编写高质量代码-web前端开发修炼之道》。所谓的高质量代码，在web标准的思想指导下，在实现结构、">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 《web前端开发修炼之道》学习笔记（1） </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 《web前端开发修炼之道》学习笔记（1） </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2013-11-24T11:21:04+08:00" content="2013-11-24">
+              2013-11-24
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/《web前端开发修炼之道》学习笔记（1）.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/《web前端开发修炼之道》学习笔记（1）.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>早就听说这本书了，而且整体评价好像<br>还不错，所以一直想买来看下，但是苦逼学生党，很多书都想买可是口袋钱不够啊。所以只能等以后有机会读读了，这不刚在图书馆发现了这本书，果断借了回来。<br>一口气读了一大半，感觉学到了很多，但是还差实践啊，所谓好记性不如烂笔头，我就把我读过的一些笔记写在这里吧…<br>这本书的全名叫做《编写高质量代码-web前端开发修炼之道》。所谓的高质量代码，在web标准的思想指导下，在实现结构、样式和行为分离的基础上，还要做到三点：精简，重用，有序。</p>
+<p>1：欲精一行，必先通十行<br>网上有一张很流行的前端学习知识的框架图，涉及到很多方面的知识，前端相对后端来说要掌握的东西要广一点，深度也许没后端那么深。前端要精通一行很难，比如css或者js。实际上只要精通css就能在有的公司找个好工作。但是在前端领域不先通十行是无法精通一行的。所以前端专门精通一行很难，也不建议只专研一行，这样你的就业范围缩小了。，建议我们可以擅长一行同时掌握其他方面的知识，毕竟这个行业的界限不太明显，有的公司前端还会让你设计切图，有的可能还让你写下后端，有的可能只让你写css。先通十行，再专一行，一专多能是最好的。<br>2：前期构思很重要，拿到一个任务后不要马上就开始写代码，要先根据用户需求进行分析，考虑好框架，这样会让整个开发过程更有规划，更顺畅。团队合作最大的问题还是来自团队成员之间的交流，而不是技术。<br>3：写html要注意语义化标签。html是整个网站的核心内容，内容没写好，css和js写得再好也不行，所以我们写网站要先确定html,确定语义的标签，再来选合适的css。如何确定语义是否良好，最简单的方法就是：去掉样式，看网页结构是否组织良好有序，是否仍然有很好的可读性。<br>最后一些注意的地仿：<br>a:尽可能的少用语义的标签div和span<br>b:在语义不明显时，既可以用p也可以用div的地方，尽量用p。应为p默认有上下间距，去掉样式后的可读性更好，对兼容特殊终端有利<br>c:不要使用纯样式标签，例如b,font,u等，改用css设置。<br>第一篇先写这么多吧，还有css和js部分下次再写…</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#前端" rel="tag">#前端</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/《web前端开发修炼之道》学习笔记（1）.html"
+           data-title="《web前端开发修炼之道》学习笔记（1）" data-url="http://blog.yongyuan.com/post/《web前端开发修炼之道》学习笔记（1）.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

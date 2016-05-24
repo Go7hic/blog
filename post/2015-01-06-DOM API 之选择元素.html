@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="^_^" />
+
+
+<meta name="description" content="###DOM API 之选择元素jQuery的选择符模块无比优雅，以至于我见过很多Web框架和应用中引用了庞大的jQuery，只是因为它提供了方便的DOM元素选择函数。我已经数不清自己写过多少次 $(#myElement) 或者 $(‘.myElement’) 了，以至于在没有jQuery时经常束手无策。事实上使用DOM API选择元素并没有那么难，它或许没有jQuery的那么简短，不过用起来也足">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2.DOM API 之选择元素">
+<meta property="og:url" content="http://blog.yongyuan.com/post/2015-01-06-DOM API 之选择元素.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="###DOM API 之选择元素jQuery的选择符模块无比优雅，以至于我见过很多Web框架和应用中引用了庞大的jQuery，只是因为它提供了方便的DOM元素选择函数。我已经数不清自己写过多少次 $(#myElement) 或者 $(‘.myElement’) 了，以至于在没有jQuery时经常束手无策。事实上使用DOM API选择元素并没有那么难，它或许没有jQuery的那么简短，不过用起来也足">
+<meta property="og:updated_time" content="2015-07-24T16:09:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2.DOM API 之选择元素">
+<meta name="twitter:description" content="###DOM API 之选择元素jQuery的选择符模块无比优雅，以至于我见过很多Web框架和应用中引用了庞大的jQuery，只是因为它提供了方便的DOM元素选择函数。我已经数不清自己写过多少次 $(#myElement) 或者 $(‘.myElement’) 了，以至于在没有jQuery时经常束手无策。事实上使用DOM API选择元素并没有那么难，它或许没有jQuery的那么简短，不过用起来也足">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 2.DOM API 之选择元素 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 2.DOM API 之选择元素 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-01-06T00:00:00+08:00" content="2015-01-06">
+              2015-01-06
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/2015-01-06-DOM API 之选择元素.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/2015-01-06-DOM API 之选择元素.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>###DOM API 之选择元素<br>jQuery的选择符模块无比优雅，以至于我见过很多Web框架和应用中引用了庞大的jQuery，只是因为它提供了方便的DOM元素选择函数。我已经数不清自己写过多少次 $(#myElement) 或者 $(‘.myElement’) 了，以至于在没有jQuery时经常束手无策。事实上使用DOM API选择元素并没有那么难，它或许没有jQuery的那么简短，不过用起来也足够简单了。<br><a id="more"></a></p>
+<ul>
+<li>ID</li>
+<li>CSS Classes</li>
+<li>HTML标签名</li>
+<li>HTML属性</li>
+<li>伪类</li>
+<li>子元素</li>
+<li>后代元素</li>
+<li>排除元素</li>
+<li>多重选择</li>
+<li>仿造jQuery的“$”</li>
+<li>专用的选择符模块</li>
+</ul>
+<p>####ID<br>jQuery</p>
+<pre><code>// 返回一个jQuery对象
+$(&apos;#myElement&apos;);
+</code></pre><p>DOM API，我们最常见到的是这样：</p>
+<pre><code>// IE 5.5+
+document.getElementById(&apos;myElement&apos;);
+</code></pre><p>IE 8及以上版本的浏览器中可以使用querySelector函数：</p>
+<pre><code>// IE 8+
+document.querySelector(&apos;#myElement&apos;);
+</code></pre><p>这两种DOM API函数都直接返回一个元素，有测试表明getElementById函数比querySelector函数效率更高一些。</p>
+<p>随着浏览器升级，对querySelector函数的支持越来越好，jQuery的选择函数还有什么决定性的优势么？</p>
+<p>####CSS Classes</p>
+<p>jQuery</p>
+<pre><code>// 返回所有匹配元素的jQuery对象
+$(&apos;.myElement&apos;);
+</code></pre><p>DOM API，IE 9及以上版本的浏览器中有专用的getElementsByClassName函数：</p>
+<pre><code>// IE 9+
+document.getElementsByClassName(&apos;myElement&apos;);
+</code></pre><p>IE 8及以上版本的浏览器中可以使用querySelectorAll函数：</p>
+<pre><code>// IE 8+
+document.querySelectorAll(&apos;.myElement&apos;);
+</code></pre><p>两种DOM API中getElementsByClassName的效率最高，返回一个HTMLCollection集合。后一种（querySelectorAll）返回NodeList类型。</p>
+<p>jQuery能做到的，DOM API同样也做到了，不是么？</p>
+<p>####HTML 标签名<br>假设我们要选择所有的 div 元素：</p>
+<p>jQuery</p>
+<pre><code>$(&apos;div&apos;);
+</code></pre><p>DOM API，最常见的函数是这个：</p>
+<pre><code>// IE 5.5+
+document.getElementsByTagName(&apos;div&apos;);
+</code></pre><p>IE 8及以上版本的浏览器中依然可以使用querySelectorAll函数：</p>
+<pre><code>// IE 8+
+document.querySelectorAll(&apos;div&apos;);
+</code></pre><p>两种DOM API相比，getElementsByTagName的效率会稍微高一些。</p>
+<p>####HTML 属性<br>假设我们要选择 data-foo-bar 属性为 someval 的元素：</p>
+<p>jQuery</p>
+<pre><code>$(&apos;[data-foo-bar=&quot;someval&quot;]&apos;);
+</code></pre><p>DOM API，IE 8及以上版本的浏览器中可以继续使用万能的querySelectorAll函数：</p>
+<pre><code>// IE 8+
+document.querySelectorAll(&apos;[data-foo-bar=&quot;someval&quot;]&apos;);
+</code></pre><p>####伪类<br>假设我们要从 id=myForm 的 from 元素中选择具备 :invalid 伪类的元素：</p>
+<p>jQuery</p>
+<pre><code>$(&apos;#myForm :invalid&apos;);
+</code></pre><p>DOM API，IE 8及以上版本的浏览器中可以继续使用万能的querySelectorAll函数：</p>
+<pre><code>// IE 8+
+document.querySelectorAll(&apos;#myForm :invalid&apos;);
+</code></pre><p>####子元素<br>假设父元素 id=”myParent” ，如果我们只是想简单的选择所有子元素：</p>
+<p>jQuery</p>
+<pre><code>$(&apos;#myParent&apos;).children();
+</code></pre><p>DOM API，最熟悉的是这个：</p>
+<pre><code>// IE 5.5+
+// NOTE: This will include comment and text nodes as well.
+document.getElementById(&apos;myParent&apos;).childNodes;
+</code></pre><p>IE 9及以上版本的浏览器中可以直接使用children来获取：</p>
+<pre><code>// IE 9+
+// NOTE: This ignores comment &amp; text nodes.
+document.getElementById(&apos;myParent&apos;).children;
+</code></pre><p>如果只是想获取包含 ng-click 属性的直接子元素呢？</p>
+<p>jQuery</p>
+<pre><code>$(&apos;#myParent&apos;).children(&apos;[ng-click]&apos;);
+// 或者
+$(&apos;#myParent &gt; [ng-click]&apos;);
+</code></pre><p>DOM API，我是从这时开始发现querySelector比我想象的要强大…</p>
+<pre><code>// IE 8+
+document.querySelector(&apos;#myParent &gt; [ng-click]&apos;);
+</code></pre><p>####后代元素<br>假设祖先节点 id=”myParent”，我们希望获取其后代的所有超链接：</p>
+<p>jQuery</p>
+<pre><code>$(&apos;#myParent A&apos;);
+</code></pre><p>DOM API，IE 8及以上版本的浏览器里可以这样：</p>
+<pre><code>// IE 8+
+document.querySelectorAll(&apos;#myParent A&apos;);
+</code></pre><p>####排除元素<br>假设我们要从 div 元素中获取出不带“ignore” class的元素</p>
+<p>jQuery</p>
+<pre><code>$(&apos;DIV&apos;).not(&apos;.ignore&apos;);
+// 或者
+$(&apos;DIV:not(.ignore)&apos;);
+</code></pre><p>DOM API，IE 8及以上版本的浏览器中可以这样：</p>
+<pre><code>// IE 9+
+document.querySelectorAll(&apos;DIV:not(.ignore)&apos;);
+</code></pre><p>####多重选择<br>假设我们要选择所有的 div , a 和 script 元素：</p>
+<p>jQuery</p>
+<pre><code>$(&apos;DIV, A, SCRIPT&apos;);
+</code></pre><p>DOM API，IE 8及以上版本的浏览器里可以这样：</p>
+<pre><code>// IE 8+
+document.querySelectorAll(&apos;DIV, A, SCRIPT&apos;);
+</code></pre><p>####仿造 jQuery 的 “$”<br>发现什么规律了么？</p>
+<p>如果我们只考虑IE8及以上的浏览器，我们可以通过简单的代码“仿造”出类似jQuery中“$”选择符的效果：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">window.$ = function(selector) &#123;</span><br><span class="line">  var selectorType = 'querySelectorAll';</span><br><span class="line"></span><br><span class="line">  if (selector.indexOf('#') === 0) &#123;</span><br><span class="line"><span class="code">    selectorType = 'getElementById';</span></span><br><span class="line"><span class="code">    selector = selector.substr(1, selector.length);</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return document[<span class="string">selectorType</span>](<span class="link">selector</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这段代码之后，你就可以在脚本中使用$来进行大部分选择元素的操作了。</p>
+<p>####可以替代 jQuery 的专用选择符模块<br>对于大部分JavaScript项目来说，原生的浏览器API已经足够进行DOM元素的选择了，但是我们也注意到，这些函数在低版本的IE浏览器中不能很好的工作。为了兼容低版本的浏览器，我们需要引入一些第三方的模块来帮助我们完成选择元素的任务。</p>
+<p>当然直接引入jQuery是最直接的方法，但是我们如果我们只是为了享受选择元素的便利，那jQuery显然大材小用（浪费带宽）了。我们不妨试试Sizzle，这是一个很小的模块，专注于选择DOM元素，事实上jQuery正是使用了Sizzle作为它的一部分。Selectivizr是另一个选择，同样很小，专注于在较早版本的浏览器中支持CSS3选择符，他同样被包含在jQuery, prototype, mootools等框架中。</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/2015-01-06-DOM API 之选择元素.html"
+           data-title="2.DOM API 之选择元素" data-url="http://blog.yongyuan.com/post/2015-01-06-DOM API 之选择元素.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

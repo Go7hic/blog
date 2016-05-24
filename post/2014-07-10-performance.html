@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="^_^" />
+
+
+<meta name="description" content="###Navigation Timing测试页面加载速度
+Navigation Timing 是一个可以在web中精确测量性能的javascript API。这个API提供了一个简单的方法来获得页面导航、加载事件的精确而又详细的时间状态。目前在 IE9、Chrome、Firefox nightly builds 中可用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Navigation Timing测试页面加载速度">
+<meta property="og:url" content="http://blog.yongyuan.com/post/2014-07-10-performance.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="###Navigation Timing测试页面加载速度
+Navigation Timing 是一个可以在web中精确测量性能的javascript API。这个API提供了一个简单的方法来获得页面导航、加载事件的精确而又详细的时间状态。目前在 IE9、Chrome、Firefox nightly builds 中可用。">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/mrsunny/201209/201209041728583788.png">
+<meta property="og:image" content="http://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/timing-overview.png">
+<meta property="og:updated_time" content="2015-07-24T16:08:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Navigation Timing测试页面加载速度">
+<meta name="twitter:description" content="###Navigation Timing测试页面加载速度
+Navigation Timing 是一个可以在web中精确测量性能的javascript API。这个API提供了一个简单的方法来获得页面导航、加载事件的精确而又详细的时间状态。目前在 IE9、Chrome、Firefox nightly builds 中可用。">
+<meta name="twitter:image" content="http://images.cnblogs.com/cnblogs_com/mrsunny/201209/201209041728583788.png">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> Navigation Timing测试页面加载速度 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> Navigation Timing测试页面加载速度 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-07-10T00:00:00+08:00" content="2014-07-10">
+              2014-07-10
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/2014-07-10-performance.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/2014-07-10-performance.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>###Navigation Timing测试页面加载速度</p>
+<p>Navigation Timing 是一个可以在web中精确测量性能的javascript API。这个API提供了一个简单的方法来获得页面导航、加载事件的精确而又详细的时间状态。目前在 IE9、Chrome、Firefox nightly builds 中可用。<br><a id="more"></a><br>这篇文章描述了 Navigation API 并展示了如何使用API导出时间数据。</p>
+<p><strong>使用方法</strong></p>
+<p>在Chrome中打开控制台，在命令行中输入performance，点开并查看它的timing属性，你会看到如下代码：<br><img src="http://images.cnblogs.com/cnblogs_com/mrsunny/201209/201209041728583788.png" alt="perfoemance"><br>如果在IE中使用，需要使用<code>&lt;!doctype html&gt;</code>文档声明，浏览器需要在标准模式下。</p>
+<p><strong>各属性代表的意义</strong></p>
+<p>每一个performance.timing属性都表示一个页面事件（例如页面发送了请求）或者页面加载（例如当DOM开始加载），测量以毫秒的形式从1970年1月1日的午夜开始。结果为0表示该事件未发生（例如redirectEnd或者redirectStart等）。</p>
+<p>这些事件所代表的含义在Microsoft’s performance.timing documentation 和 更加正式的 W3C Editor’s Draft 中都有描述。IE9支持除了secureConnectionStart时间外在API草案中描述的所有属性，并且IE9额外提供了msFirstPaint事件，该事件在dcoument display开始，在loadEventEnd之后触发。</p>
+<p>这里有一张从 Navigation Timing draft 弄来的 performance.timing 事件的顺序图：<br><img src="http://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/timing-overview.png" alt="performace顺序图"><br><strong>navigationStart</strong></p>
+<p>当load/unload动作被触发时，也可能是提示关闭当前文档时（即回车键在url地址栏中按下，页面被再次刷新，submit按钮被点击）。如果当前窗口中没有前一个文档，那么navigationStart的值就是fetchStart。 </p>
+<p><strong>redirectStart</strong></p>
+<p>它可能是页面重定向时的开始时间（如果存在重定向的话）或者是0。</p>
+<p><strong>unloadEventStart</strong></p>
+<p>如果被请求的文档来自于前一个同源（同源策略）的文档，那么该属性存储的是浏览器开始卸载前一个文档的时刻。否则的话（前一个文档非同源或者没有前一个文档），为0。</p>
+<p><strong>unloadEventEnd</strong></p>
+<p>表示同源的前一个文档卸载完成的时刻。如果前一个文档不存在或者非同源，则为0。</p>
+<p><strong>redirectEnd</strong></p>
+<p>如果存在重定向的话，redirectEnd表示最后一次重定向后服务器端response的数据被接收完毕的时间。否则的话就是0。</p>
+<p><strong>fetchStart</strong></p>
+<p>fetchStart是指在浏览器发起任何请求之前的时间值。在fetchStart和domainLookupStart之间，浏览器会检查当前文档的缓存。</p>
+<p><strong>domainLookupStart</strong></p>
+<p>这个属性是指当浏览器开始检查当前域名的DNS之前的那一时刻。如果因为任何原因没有去检查DNS（即浏览器使用了缓存，持久连接，或者本地资源），那么它的值等同于fetchStart。</p>
+<p><strong>domainLookupEnd</strong></p>
+<p>指浏览器完成DNS检查时的时间。如果DNS没有被检查，那么它的值等同于fetchStart。</p>
+<p><strong>connectStart</strong></p>
+<p>当浏览器开始于服务器连接时的时间。如果资源取自缓存（或者服务器由于其他任何原因没有建立连接，例如持久连接），那么它的值等同于domainLookupEnd。</p>
+<p><strong>connectEnd</strong></p>
+<p>当浏览器端完成与服务器端建立连接的时刻。如果没有建立连接它的值等同于domainLookupEnd。</p>
+<p><strong>secureConnectionStart</strong></p>
+<p>可选。如果页面使用HTTPS，它的值是安全连接握手之前的时刻。如果该属性不可用，则返回undefined。如果该属性可用，但没有使用HTTPS，则返回0。</p>
+<p><strong>responseStart</strong></p>
+<p>指客户端收到从服务器端（或缓存、本地资源）响应回的第一个字节的数据的时刻。</p>
+<p><strong>responseEnd</strong></p>
+<p>指客户端收到从服务器端（或缓存、本地资源）响应回的最后一个字节的数据的时刻。</p>
+<p><strong>domLoading</strong></p>
+<p>指document对象创建完成的时刻。</p>
+<p><strong>domInteractive</strong></p>
+<p>指文档解析完成的时刻，包括在“传统模式”下被阻塞的通过script标签加载的内容（除了使用defer或者async属性异步加载的情况）。</p>
+<p><strong>domContentLoadedEventStart</strong></p>
+<p>当DOMContentLoaded事件触发之前，浏览器完成所有script（包括设置了defer属性但未设置async属性的script）的下载和解析之后的时刻。</p>
+<p><strong>domContentLoadedEventEnd</strong></p>
+<p>当DOMContentLoaded事件完成之后的时刻。它也是javascript类库中DOMready事件触发的时刻。</p>
+<p><strong>domComplete</strong></p>
+<p>如果已经没有任何延迟加载的事件（所有图片的加载）阻止load事件发生，那么该时刻将会将document.readyState属性设置为”complete”，此时刻就是domComplete。</p>
+<p><strong>loadEventStart</strong></p>
+<p>该属性返回的是load事件刚刚发生的时刻，如果load事件还没有发生，则返回0。</p>
+<p><strong>loadEventEnd</strong></p>
+<p>该属性返回load事件完成之后的时刻。如果load事件未发生，则返回0。</p>
+<p>检测用户通过哪种方式来到此页面：</p>
+<p>我们有几种方式来打开一个页面，例如，在地址栏输入url，刷新当前页面，通过history的前进后退。这时候 performance.navigation 就派上用场了。这个 API 有两个属性：</p>
+<p><strong>redirectCount</strong>页面请求被重定向的次数<br><strong>type</strong>页面被载入的方式。</p>
+<p>以下列举了 type 属性的三种取值情况：</p>
+<p>0：用户通过点击链接或者在浏览器地址栏输入URL的方式进入页面。</p>
+<p>1：页面重载。</p>
+<p>2：通过浏览器history的前进或后退进入页面。</p>
+<p>eg:你通过点击链接或者在地址栏输入URL的方式进入页面。</p>
+<p>实时页面性能测试：</p>
+<p>通过 Navigation Timing API ，我们可以精确实时的获取真实用户的在实际网络环境中的页面加载速度，而不是仅仅在开发环境、公司网络中测试页面加载速度。</p>
+<p>页面性能统计：</p>
+<p>我们甚至可以使用 XHR 将用户每次浏览网页时的 performance.timing 数据发送到服务器端。这种方式是实时的，不过效率比较低。或者，可以使用本地存储的方式将用户页面性能的数据存储在本地并周期性的打包发送到服务器端进行分析。通过这种方式，navigation timing API 实现了一种简单的提供页面性能历史数据的方法。</p>
+<p>参考资料:<br><a href="http://www.w3.org/TR/navigation-timing/" target="_blank" rel="external">http://www.w3.org/TR/navigation-timing/</a>  </p>
+<p><a href="http://www.html5rocks.com/en/tutorials/webperformance/basics/" target="_blank" rel="external">http://www.html5rocks.com/en/tutorials/webperformance/basics/</a></p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/2014-07-10-performance.html"
+           data-title="Navigation Timing测试页面加载速度" data-url="http://blog.yongyuan.com/post/2014-07-10-performance.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

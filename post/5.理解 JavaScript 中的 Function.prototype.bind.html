@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="JavaScript," />
+
+
+<meta name="description" content="函数绑定(Function binding)很有可能是你在开始使用JavaScript时最少关注的一点，但是当你意识到你需要一个解决方案来解决如何在另一个函数中保持this上下文的时候，你真正需要的其实就是 Function.prototype.bind()，只是你有可能仍然没有意识到这点。
+第一次遇到这个问题的时候，你可能倾向于将this设置到一个变量上，这样你可以在改变了上下文之后继续引用到它">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5.理解 JavaScript 中的 Function.prototype.bind">
+<meta property="og:url" content="http://blog.yongyuan.com/post/5.理解 JavaScript 中的 Function.prototype.bind.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="函数绑定(Function binding)很有可能是你在开始使用JavaScript时最少关注的一点，但是当你意识到你需要一个解决方案来解决如何在另一个函数中保持this上下文的时候，你真正需要的其实就是 Function.prototype.bind()，只是你有可能仍然没有意识到这点。
+第一次遇到这个问题的时候，你可能倾向于将this设置到一个变量上，这样你可以在改变了上下文之后继续引用到它">
+<meta property="og:updated_time" content="2015-09-05T08:12:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="5.理解 JavaScript 中的 Function.prototype.bind">
+<meta name="twitter:description" content="函数绑定(Function binding)很有可能是你在开始使用JavaScript时最少关注的一点，但是当你意识到你需要一个解决方案来解决如何在另一个函数中保持this上下文的时候，你真正需要的其实就是 Function.prototype.bind()，只是你有可能仍然没有意识到这点。
+第一次遇到这个问题的时候，你可能倾向于将this设置到一个变量上，这样你可以在改变了上下文之后继续引用到它">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 5.理解 JavaScript 中的 Function.prototype.bind </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 5.理解 JavaScript 中的 Function.prototype.bind </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-11-29T11:28:04+08:00" content="2014-11-29">
+              2014-11-29
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/5.理解 JavaScript 中的 Function.prototype.bind.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/5.理解 JavaScript 中的 Function.prototype.bind.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>函数绑定(Function binding)很有可能是你在开始使用JavaScript时最少关注的一点，但是当你意识到你需要一个解决方案来解决如何在另一个函数中保持this上下文的时候，你真正需要的其实就是 Function.prototype.bind()，只是你有可能仍然没有意识到这点。</p>
+<p>第一次遇到这个问题的时候，你可能倾向于将this设置到一个变量上，这样你可以在改变了上下文之后继续引用到它。很多人选择使用 self, _this 或者 context 作为变量名称(也有人使用 that)。这些方式都是有用的，当然也没有什么问题。但是其实有更好、更专用的方式。</p>
+<p>Jack Archibald 关于缓存 this 的微博(twitter)：</p>
+<blockquote>
+<p>Jake Archibald: “我会为了作用域做任何事情，但是我不会使用 that = this”</p>
+</blockquote>
+<p>我对这个问题更清晰的认识是在我看到Sindre Sorhus更清楚的描述之后：</p>
+<blockquote>
+<p>Sindre Sorhus：“在jQuery中使用$this，但是对于纯JS我不会，我会使用.bind()”</p>
+</blockquote>
+<p>而我在一开始的几个月里却忽略了这个明智的建议。</p>
+<p>###我们真正需要解决的问题是什么？</p>
+<p>在下面的例子代码中，我们可以名正言顺地将上下文缓存到一个变量中：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myObj = &#123;</span><br><span class="line">    specialFunction: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    &#125;,</span><br><span class="line"> </span><br><span class="line">    anotherSpecialFunction: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    &#125;,</span><br><span class="line">    getAsyncData: <span class="function"><span class="keyword">function</span> <span class="params">(cb)</span> </span>&#123;</span><br><span class="line">        cb();</span><br><span class="line">    &#125;,</span><br><span class="line"> </span><br><span class="line">    render: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">this</span>.getAsyncData(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">            that.specialFunction();</span><br><span class="line">            that.anotherSpecialFunction();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">myObj.render();</span><br></pre></td></tr></table></figure>
+<p>如果我们简单地使用 this.specialFunction() 来调用方法的话，会收到下面的错误：</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught TypeError: Object [object <span class="keyword">global</span>] <span class="keyword">has</span> no <span class="function"><span class="keyword">method</span> '<span class="title">specialFunction</span>'</span></span><br></pre></td></tr></table></figure>
+<p>我们需要为回调函数的执行保持对 myObj 对象上下文的引用。 调用 that.specialFunction()让我们能够维持作用域上下文并且正确执行我们的函数。 然而使用 Function.prototype.bind() 可以有更加简洁干净的方式：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">render: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">this</span>.getAsyncData(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">this</span>.specialFunction();</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">this</span>.anotherSpecialFunction();</span><br><span class="line"> </span><br><span class="line">    &#125;.bind(<span class="keyword">this</span>));</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>###我们刚才做了什么？</p>
+<p>.bind()创建了一个函数，当这个函数在被调用的时候，它的 this 关键词会被设置成被传入的值（这里指调用bind()时传入的参数）。因此，我们传入想要的上下文，this(其实就是 myObj)，到.bind()函数中。然后，当回调函数被执行的时候， this 便指向 myObj 对象。</p>
+<p>如果有兴趣想知道 Function.prototype.bind() 内部长什么样以及是如何工作的，这里有个非常简单的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params">scope</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fn = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> fn.apply(scope);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有一个非常简单的用例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">    x: <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">bar(); <span class="comment">// undefined</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> boundFunc = bar.bind(foo);</span><br><span class="line"> </span><br><span class="line">boundFunc(); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure></p>
+<p>我们创建了一个新的函数，当它被执行的时候，它的 this 会被设置成 foo —— 而不是像我们调用 bar() 时的全局作用域。</p>
+<p>###浏览器支持</p>
+<p>Browser            Versionsupport<br>Chrome                    7<br>Firefox (Gecko)        4.0 (2)<br>Internet Explorer        9<br>Opera                11.60<br>Safari                5.1.4</p>
+<p>正如你看到的，很不幸，Function.prototype.bind 在IE8及以下的版本中不被支持，所以如果你没有一个备用方案的话，可能在运行时会出现问题。</p>
+<p>幸运的是，Mozilla Developer Network（很棒的资源库），为没有自身实现 .bind() 方法的浏览器提供了一个绝对可靠的替代方案：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Function</span>.prototype.bind) &#123;</span><br><span class="line">  <span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params">oThis</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>) &#123;</span><br><span class="line">      <span class="comment">// closest thing possible to the ECMAScript 5 internal IsCallable function</span></span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"Function.prototype.bind - what is trying to be bound is not callable"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">var</span> aArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>), </span><br><span class="line">        fToBind = <span class="keyword">this</span>, </span><br><span class="line">        fNOP = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;,</span><br><span class="line">        fBound = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> fToBind.apply(<span class="keyword">this</span> <span class="keyword">instanceof</span> fNOP &amp;amp;&amp;amp; oThis</span><br><span class="line">                                 ? <span class="keyword">this</span></span><br><span class="line">                                 : oThis,</span><br><span class="line">                               aArgs.concat(<span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)));</span><br><span class="line">        &#125;;</span><br><span class="line"> </span><br><span class="line">    fNOP.prototype = <span class="keyword">this</span>.prototype;</span><br><span class="line">    fBound.prototype = <span class="keyword">new</span> fNOP();</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> fBound;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###适用的模式</p>
+<p>在学习技术点的时候，我发现有用的不仅仅在于彻底学习和理解概念，更在于看看在手头的工作中有没有适用它的地方，或者比较接近它的的东西。我希望，下面的某些例子能够适用于你的代码或者解决你正在面对的问题。</p>
+<p><strong>CLICK HANDLERS（点击处理函数）</strong><br>一个用途是记录点击事件（或者在点击之后执行一个操作），这可能需要我们在一个对象中存入一些信息，比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> logger = &#123;</span><br><span class="line">    x: <span class="number">0</span>,       </span><br><span class="line">    updateCount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.x++;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可能会以下面的方式来指定点击处理函数，随后调用 logger 对象中的 updateCount() 方法。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">document</span><span class="selector-class">.querySelector</span>(<span class="string">'button'</span>)<span class="selector-class">.addEventListener</span>(<span class="string">'click'</span>, function()&#123;</span><br><span class="line">    logger<span class="selector-class">.updateCount</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>但是我们必须要创建一个多余的匿名函数，来确保 updateCount()函数中的 this 关键字有正确的值。</p>
+<p>我们可以使用如下更干净的方式：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document<span class="selector-class">.querySelector</span>(<span class="string">'button'</span>)<span class="selector-class">.addEventListener</span>(<span class="string">'click'</span>, logger.updateCount.bind(logger));</span><br></pre></td></tr></table></figure>
+<p>我们巧妙地使用了方便的 .bind() 函数来创建一个新的函数，而将它的作用域绑定为 logger 对象。</p>
+<p><strong>SETTIMEOUT</strong></p>
+<p>如果你使用过模板引擎（比如Handlebars）或者尤其使用过某些MV*框架（从我的经验我只能谈论Backbone.js），那么你也许知道下面讨论的关于在渲染模板之后立即访问新的DOM节点时会遇到的问题。</p>
+<p>假设我们想要实例化一个jQuery插件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myView = &#123;</span><br><span class="line">    template: <span class="string">'/* 一个包含 &lt;select /&gt; 的模板字符串*/'</span>,</span><br><span class="line"> </span><br><span class="line">    $el: $(<span class="string">'#content'</span>),</span><br><span class="line"> </span><br><span class="line">    afterRender: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.$el.find(<span class="string">'select'</span>).myPlugin();</span><br><span class="line">    &#125;,</span><br><span class="line"> </span><br><span class="line">    render: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.$el.html(<span class="keyword">this</span>.template());</span><br><span class="line">        <span class="keyword">this</span>.afterRender();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">myView.render();</span><br></pre></td></tr></table></figure>
+<p>你或许发现它能正常工作——但并不是每次都行，因为里面存在着问题。这是一个竞争的问题：只有先到达的才能获胜。有时候是渲染先到，而有时候是插件的实例化先到。【译者注：如果渲染过程还没有完成（DOM Node还没有被添加到DOM树上），那么find(‘select’)将无法找到相应的节点来执行实例化。】</p>
+<p>现在，或许并不被很多人知晓，我们可以使用基于 setTimeout() 的 slight hack来解决问题。</p>
+<p>我们稍微改写一下我们的代码，就在DOM节点加载后再安全的实例化我们的jQuery插件：</p>
+<pre><code>afterRender: function () {
+    this.$el.find(&apos;select&apos;).myPlugin();
+},
+
+render: function () {
+    this.$el.html(this.template());
+    setTimeout(this.afterRender, 0);        
+}
+</code></pre><p>然而，我们获得的是 函数 .afterRender() 不能找到 的错误信息。</p>
+<p>我们接下来要做的，就是将.bind()使用到我们的代码中：</p>
+<pre><code>afterRender: function () {
+    this.$el.find(&apos;select&apos;).myPlugin();
+},
+
+render: function () {
+    this.$el.html(this.template());
+    setTimeout(this.afterRender.bind(this), 0);        
+}
+</code></pre><p>现在，我们的 afterRender() 函数就能够在正确的上下文环境中执行了。</p>
+<p>梳理基于 QUERYSELECTORALL的事件绑定<br>如今的DOM API引入了很多非常有用的方法，比如 querySelector, querySelectorAll 和 classList接口，这些方法给DOM API带来了非常显著的进步。</p>
+<p>然而，迄今为止并没有一个真正的原生的为 NodeList 添加事件的方法。于是我们最终从 Array.prototype中剽窃了 forEach 方法来完成遍历，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.forEach.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">'.klasses'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">el</span>)</span>&#123;</span><br><span class="line">    el.addEventListener(<span class="string">'click'</span>, someFunction);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>仍然，我们可以做的更好，通过使用我们的好朋友 .bind()。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> unboundForEach = <span class="keyword">Array</span>.prototype.<span class="keyword">forEach</span>,</span><br><span class="line">    <span class="keyword">forEach</span> = <span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span>.<span class="title">call</span>.<span class="title">bind</span><span class="params">(unboundForEach)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">forEach</span>(document.querySelectorAll(<span class="string">'.klasses'</span>), <span class="function"><span class="keyword">function</span> <span class="params">(el)</span> </span>&#123;</span><br><span class="line">    el.addEventListener(<span class="string">'click'</span>, someFunction);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>现在，我们拥有了一个简洁的遍历DOM节点的函数。</p>
+<p>###结论<br>正如你所看到的，.bind() 函数可以巧妙地运用于很多不同的用途，同时可以精简现有的代码。但愿这篇概述的内容，能够在你想在代码中使用.bind()（如果需要的话）时派上用场，并且帮助你更好地驾驭改变this值所带来的好处。</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#JavaScript" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/5.理解 JavaScript 中的 Function.prototype.bind.html"
+           data-title="5.理解 JavaScript 中的 Function.prototype.bind" data-url="http://blog.yongyuan.com/post/5.理解 JavaScript 中的 Function.prototype.bind.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="^_^" />
+
+
+<meta name="description" content="###简介
+本文档有所有package.json中必要的配置。它必须是真正的json，而不是js对象。
+本文档中描述的很多行为都受npm-config(7)的影响。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="npm package.json 介绍中文版">
+<meta property="og:url" content="http://blog.yongyuan.com/post/2014-11-6-npm-packge-json.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="###简介
+本文档有所有package.json中必要的配置。它必须是真正的json，而不是js对象。
+本文档中描述的很多行为都受npm-config(7)的影响。">
+<meta property="og:updated_time" content="2015-07-24T16:09:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="npm package.json 介绍中文版">
+<meta name="twitter:description" content="###简介
+本文档有所有package.json中必要的配置。它必须是真正的json，而不是js对象。
+本文档中描述的很多行为都受npm-config(7)的影响。">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> npm package.json 介绍中文版 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> npm package.json 介绍中文版 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-11-06T00:00:00+08:00" content="2014-11-06">
+              2014-11-06
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/2014-11-6-npm-packge-json.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/2014-11-6-npm-packge-json.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>###简介</p>
+<p>本文档有所有package.json中必要的配置。它必须是真正的json，而不是js对象。</p>
+<p>本文档中描述的很多行为都受npm-config(7)的影响。<br><a id="more"></a></p>
+<p>###默认值</p>
+<p>npm会根据包内容设置一些默认值。</p>
+<pre><code>&quot;scripts&quot;: {&quot;start&quot;: &quot;node server.js&quot;}
+</code></pre><p>如果包的根目录有server.js文件，npm会默认将start命令设置为node server.js。</p>
+<pre><code>&quot;scripts&quot;:{&quot;preinstall&quot;: &quot;node-waf clean || true; node-waf configure build&quot;}
+</code></pre><p>如果包的根目录有wscript文件，npm会默认将preinstall命令用node-waf进行编译。</p>
+<pre><code>&quot;scripts&quot;:{&quot;preinstall&quot;: &quot;node-gyp rebuild&quot;}
+</code></pre><p>如果包的根目录有binding.gyp文件，npm会默认将preinstall命令用node-gyp进行编译。</p>
+<pre><code>&quot;contributors&quot;: [...]
+</code></pre><p>如果包的根目录有AUTHORS文件，npm会默认逐行按Name <email> (url)格式处理，邮箱和url是可选的。#号和空格开头的行会被忽略。</email></p>
+<p>###name</p>
+<p>在package.json中最重要的就是name和version字段。他们都是必须的，如果没有就无法install。name和version一起组成的标识在假设中是唯一的。改变包应该同时改变version。</p>
+<p>name是这个东西的名字。注意：</p>
+<p>不要把node或者js放在名字中。因为你写了package.json它就被假定成为了js，不过你可以用”engine”字段指定一个引擎（见后文）。<br>这个名字会作为在URL的一部分、命令行的参数或者文件夹的名字。任何non-url-safe的字符都是不能用的。<br>这个名字可能会作为参数被传入require()，所以它应该比较短，但也要意义清晰。<br>在你爱上你的名字之前，你可能要去npm registry查看一下这个名字是否已经被使用了。<a href="http://registry.npmjs.org/" target="_blank" rel="external">http://registry.npmjs.org/</a></p>
+<p>###version</p>
+<p>在package.json中最重要的就是name和version字段。他们都是必须的，如果没有就无法install。name和version一起组成的标识在假设中是唯一的。改变包应该同时改变version。</p>
+<p>version必须能被node-semver解析，它被包在npm的依赖中。（要自己用可以执行npm install semver）</p>
+<p>可用的“数字”或者“范围”见semver(7).</p>
+<p>###description</p>
+<p>放简介，字符串。方便屌丝们在npm search中搜索。</p>
+<p>###keywords</p>
+<p>关键字，数组、字符串。还是方便屌丝们在npm search中搜索。</p>
+<p>###homepage</p>
+<p>项目官网的url。</p>
+<p>注意：这和“url”不一样。如果你放一个“url”字段，registry会以为是一个跳转到你发布在其他地方的地址，然后喊你滚粗。</p>
+<p>嗯，滚粗，没开玩笑。</p>
+<p>###bugs</p>
+<p>你项目的提交问题的url和（或）邮件地址。这对遇到问题的屌丝很有帮助。</p>
+<p>差不多长这样：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"url"</span> : <span class="string">"http://github.com/owner/project/issues"</span></span><br><span class="line">, <span class="attr">"email"</span> : <span class="string">"project@hostname.com"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你可以指定一个或者指定两个。如果你只想提供一个url，那就不用对象了，字符串就行。</p>
+<p>如果提供了url，它会被npm bugs命令使用。</p>
+<p>###license</p>
+<p>你应该要指定一个许可证，让人知道使用的权利和限制的。</p>
+<p>最简单的方法是，假如你用一个像BSD或者MIT这样通用的许可证，就只需要指定一个许可证的名字，像这样：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"license"</span> : <span class="string">"BSD"</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>如果你又更复杂的许可条件，或者想要提供给更多地细节，可以这样:</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"licenses"</span> : [</span><br><span class="line">  &#123; <span class="string">"type"</span> : "<span class="type">MyLicense</span><span class="string">"</span><br><span class="line">  , "</span>url<span class="string">" : "</span>http://github.com/owner/project/path/to/license<span class="string">"</span><br><span class="line">  &#125;</span><br><span class="line">]</span></span><br></pre></td></tr></table></figure>
+<p>在根目录中提供一个许可证文件也蛮好的。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">people <span class="string">fields:</span> author, contributors</span><br></pre></td></tr></table></figure></p>
+<p>author是一个人。contributors是一堆人的数组。person是一个有name字段，可选的有url、email字段的对象，像这样：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"name"</span> : <span class="string">"Barney Rubble"</span></span><br><span class="line">, <span class="attr">"email"</span> : <span class="string">"b@rubble.com"</span></span><br><span class="line">, <span class="attr">"url"</span> : <span class="string">"http://barnyrubble.tumblr.com/"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或者可以把所有的东西都放到一个字符串里，npm会给你解析：</p>
+<p>“Barney Rubble <a href="&#109;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x62;&#x40;&#x72;&#x75;&#x62;&#x62;&#x6c;&#x65;&#46;&#x63;&#111;&#x6d;">&#x62;&#x40;&#x72;&#x75;&#x62;&#x62;&#x6c;&#x65;&#46;&#x63;&#111;&#x6d;</a> (<a href="http://barnyrubble.tumblr.com/" target="_blank" rel="external">http://barnyrubble.tumblr.com/</a>)<br>email和url在两种形式中都是可选的。</p>
+<p>也可以在你的npm用户信息中设置一个顶级的maintainers字段。</p>
+<p>###files</p>
+<p>files是一个包含项目中的文件的数组。如果命名了一个文件夹，那也会包含文件夹中的文件。（除非被其他条件忽略了）</p>
+<p>你也可以提供一个.npmignore文件，让即使被包含在files字段中得文件被留下。其实就像.gitignore一样。</p>
+<p>###main</p>
+<p>main字段是一个模块ID，它是一个指向你程序的主要项目。就是说，如果你包的名字叫foo，然后用户安装它，然后require(“foo”)，然后你的main模块的exports对象会被返回。</p>
+<p>这应该是一个相对于根目录的模块ID。</p>
+<p>对于大多数模块，它是非常有意义的，其他的都没啥。</p>
+<p>###bin</p>
+<p>很多包都有一个或多个可执行的文件希望被放到PATH中。npm让妈妈再也不用担心了（实际上，就是这个功能让npm可执行的）。</p>
+<p>要用这个功能，给package.json中的bin字段一个命令名到文件位置的map。初始化的时候npm会将他链接到prefix/bin（全局初始化）或者./node_modules/.bin/（本地初始化）。</p>
+<p>比如，npm有：</p>
+<p><code>{ &quot;bin&quot; : { &quot;npm&quot; : &quot;./cli.js&quot; } }</code></p>
+<p>所以，当你初始化npm，它会创建一个符号链接到cli.js脚本到/usr/local/bin/npm。</p>
+<p>如果你只有一个可执行文件，并且名字和包名一样。那么你可以只用一个字符串，比如：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"name"</span>: <span class="string">"my-program"</span></span><br><span class="line">, <span class="attr">"version"</span>: <span class="string">"1.2.5"</span></span><br><span class="line">, <span class="attr">"bin"</span>: <span class="string">"./path/to/program"</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>结果和这个一样：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"name"</span>: <span class="string">"my-program"</span></span><br><span class="line">, <span class="attr">"version"</span>: <span class="string">"1.2.5"</span></span><br><span class="line">, <span class="attr">"bin"</span> : &#123; <span class="attr">"my-program"</span> : <span class="string">"./path/to/program"</span> &#125; &#125;</span><br></pre></td></tr></table></figure>
+<p>###man</p>
+<p>指定一个单一的文件或者一个文件数组供man程序使用。</p>
+<p>如果只提供一个单一的文件，那么它初始化后就是man <pkgname>的结果，而不管实际的文件名是神马，比如：</pkgname></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"name"</span> : <span class="string">"foo"</span></span><br><span class="line">, <span class="attr">"version"</span> : <span class="string">"1.2.3"</span></span><br><span class="line">, <span class="attr">"description"</span> : <span class="string">"A packaged foo fooer for fooing foos"</span></span><br><span class="line">, <span class="attr">"main"</span> : <span class="string">"foo.js"</span></span><br><span class="line">, <span class="attr">"man"</span> : <span class="string">"./man/doc.1"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样man foo就可以用到./man/doc.1文件了。</p>
+<p>如果文件名不是以包名开头，那么它会被冠以前缀，下面的：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"name"</span> : <span class="string">"foo"</span></span><br><span class="line">, <span class="attr">"version"</span> : <span class="string">"1.2.3"</span></span><br><span class="line">, <span class="attr">"description"</span> : <span class="string">"A packaged foo fooer for fooing foos"</span></span><br><span class="line">, <span class="attr">"main"</span> : <span class="string">"foo.js"</span></span><br><span class="line">, <span class="attr">"man"</span> : [ <span class="string">"./man/foo.1"</span>, <span class="string">"./man/bar.1"</span> ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>会为man foo和man foo-bar创建文件。</p>
+<p>man文件需要以数字结束，然后可选地压缩后以.gz为后缀。The number dictates which man section the file is installed into.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"name"</span> : <span class="string">"foo"</span></span><br><span class="line">, <span class="attr">"version"</span> : <span class="string">"1.2.3"</span></span><br><span class="line">, <span class="attr">"description"</span> : <span class="string">"A packaged foo fooer for fooing foos"</span></span><br><span class="line">, <span class="attr">"main"</span> : <span class="string">"foo.js"</span></span><br><span class="line">, <span class="attr">"man"</span> : [ <span class="string">"./man/foo.1"</span>, <span class="string">"./man/foo.2"</span> ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>会为man foo和man 2 foo创建。</p>
+<p>###directories</p>
+<p>CommonJS Packages规范说明了几种方式让你可以用directorieshash标示出包得结构。如果看一下npm’s package.json，你会看到有directories标示出doc, lib, and man。</p>
+<p>在未来，这个信息可能会被用到。</p>
+<p>###directories.lib</p>
+<p>告诉屌丝们你的库文件夹在哪里。目前没有什么特别的东西需要用到lib文件夹，但确实是重要的元信息。</p>
+<p>###directories.bin</p>
+<p>如果你指定一个“bin”目录，然后在那个文件夹中得所有文件都会被当做”bin”字段使用。</p>
+<p>如果你已经指定了“bin”字段，那这个就无效。</p>
+<p>###directories.man</p>
+<p>一个放满man页面的文件夹。贴心地创建一个“man”字段。<br>A folder that is full of man pages. Sugar to generate a “man” array by<br>walking the folder.</p>
+<p>###directories.doc</p>
+<p>将markdown文件放在这里。最后，这些会被很好地展示出来，也许，某一天。<br>Put markdown files in here. Eventually, these will be displayed nicely,<br>maybe, someday.</p>
+<p>###directories.example</p>
+<p>将事例脚本放在这里。某一天，它可能会以聪明的方式展示出来。</p>
+<p>###repository</p>
+<p>指定你的代码存放的地方。这个对希望贡献的人有帮助。如果git仓库在github上，那么npm docs命令能找到你。</p>
+<p>这样做：</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"repository"</span> :</span><br><span class="line">  &#123; <span class="string">"type"</span> : <span class="string">"git"</span></span><br><span class="line">  , <span class="string">"url"</span> : <span class="string">"http://github.com/isaacs/npm.git"</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"repository"</span> :</span><br><span class="line">  &#123; <span class="string">"type"</span> : <span class="string">"svn"</span></span><br><span class="line">  , <span class="string">"url"</span> : <span class="string">"http://v8.googlecode.com/svn/trunk/"</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>URL应该是公开的（即便是只读的）能直接被未经过修改的版本控制程序处理的url。不应该是一个html的项目页面。因为它是给计算机看的。</p>
+<p>scripts</p>
+<p>“scripts”是一个由脚本命令组成的hash对象，他们在包不同的生命周期中被执行。key是生命周期事件，value是要运行的命令。</p>
+<p>参见 npm-scripts(7)</p>
+<p>###config</p>
+<p>“config” hash可以用来配置用于包脚本中的跨版本参数。在实例中，如果一个包有下面的配置：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"name"</span> : <span class="string">"foo"</span></span><br><span class="line">, <span class="attr">"config"</span> : &#123; <span class="attr">"port"</span> : <span class="string">"8080"</span> &#125; &#125;</span><br></pre></td></tr></table></figure>
+<p>然后有一个“start”命令引用了npm_package_config_port环境变量，用户可以通过npm config set foo:port 8001来重写他。</p>
+<p>参见 npm-config(7) 和 npm-scripts(7)。</p>
+<p>###dependencies</p>
+<p>依赖是给一组包名指定版本范围的一个hash。这个版本范围是一个由一个或多个空格分隔的字符串。依赖还可以用tarball或者git URL。</p>
+<p>请不要将测试或过渡性的依赖放在dependencieshash中。见下文的devDependencies。</p>
+<p>详见semver(7).</p>
+<ul>
+<li><code>version</code> 必须完全和<code>version</code>一致</li>
+<li><code>&gt;version</code> 必须比version大</li>
+<li><code>&gt;=version</code> 同上</li>
+<li><code>&lt;version</code> 同上</li>
+<li><code>&lt;=version</code> 同上</li>
+<li><code>~version</code> 大约一样，见semver(7)</li>
+<li>1.2.x 1.2.0, 1.2.1, 等，但不包括1.3.0</li>
+<li>http://… 见下文’依赖URL’</li>
+<li><code>*</code> 所有</li>
+<li><code>&quot;&quot;</code> 空，同<code>*</code></li>
+<li>version1 - version2 同 &gt;=version1 &lt;=version2.</li>
+<li>range1 || range2 二选一。</li>
+<li>git… 见下文’依赖Git URL’</li>
+<li>user/repo 见下文’GitHub URLs’<br>比如下面都是合法的：</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"dependencies"</span> :</span><br><span class="line">  &#123; <span class="attr">"foo"</span> : <span class="string">"1.0.0 - 2.9999.9999"</span></span><br><span class="line">  , <span class="attr">"bar"</span> : <span class="string">"&gt;=1.0.2 &lt;2.1.2"</span></span><br><span class="line">  , <span class="attr">"baz"</span> : <span class="string">"&gt;1.0.2 &lt;=2.3.4"</span></span><br><span class="line">  , <span class="attr">"boo"</span> : <span class="string">"2.0.1"</span></span><br><span class="line">  , <span class="attr">"qux"</span> : <span class="string">"&lt;1.0.0 || &gt;=2.3.1 &lt;2.4.5 || &gt;=2.5.2 &lt;3.0.0"</span></span><br><span class="line">  , <span class="attr">"asd"</span> : <span class="string">"http://asdf.com/asdf.tar.gz"</span></span><br><span class="line">  , <span class="attr">"til"</span> : <span class="string">"~1.2"</span></span><br><span class="line">  , <span class="attr">"elf"</span> : <span class="string">"~1.2.3"</span></span><br><span class="line">  , <span class="attr">"two"</span> : <span class="string">"2.x"</span></span><br><span class="line">  , <span class="attr">"thr"</span> : <span class="string">"3.3.x"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###依赖URL</p>
+<p>可以指定一个tarball URL，这个tarball将在包被初始化的时候下载并初始化。</p>
+<p>###依赖Git URL</p>
+<p>Git urls 可以是下面几种形式：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git://github.com/user/<span class="keyword">project</span>.git<span class="comment">#commit-ish</span></span><br><span class="line">git+ssh://user@hostname:<span class="keyword">project</span>.git<span class="comment">#commit-ish</span></span><br><span class="line">git+ssh://user@hostname/<span class="keyword">project</span>.git<span class="comment">#commit-ish</span></span><br><span class="line">git+http://user@hostname/<span class="keyword">project</span>/blah.git<span class="comment">#commit-ish</span></span><br><span class="line">git+https://user@hostname/<span class="keyword">project</span>/blah.git<span class="comment">#commit-ish</span></span><br></pre></td></tr></table></figure>
+<p>commit-ish是可以被git checkout的任何tag、sha或者branch。默认为master。</p>
+<p>###GitHub URLs</p>
+<p>1.1.65版后，你可以仅仅用“user/foo-project”引用GitHub urls，比如：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"foo"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"express"</span>: <span class="string">"visionmedia/express"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###devDependencies</p>
+<p>如果有人计划在他们的程序中下载并使用你的模块，那么他们可能不想或者不需要去下载并构建你使用的外部测试或者文档框架。</p>
+<p>在这种情况下，它最好把这些附属的项目列示在devDependencies hash中。</p>
+<p>这些东西会在根目录执行npm link或者npm install的时候初始化，并可以像其他npm配置参数一样管理。详见npm-config(7)。</p>
+<p>对于非特定平台的构建步骤，比如编译CoffeeScript或者其他语言到Javascript，用prepublish脚本去实现并把他放在devDependency中。</p>
+<p>比如：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"name"</span>: <span class="string">"ethopia-waza"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"a delightfully fruity coffee varietal"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.2.3"</span>,</span><br><span class="line">  <span class="attr">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"coffee-script"</span>: <span class="string">"~1.6.3"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"prepublish"</span>: <span class="string">"coffee -o lib/ -c src/waza.coffee"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"main"</span>: <span class="string">"lib/waza.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>prepublish脚本会在publishing前运行，这样用户就不用自己去require来编译就能使用。并且在开发模式中（比如本地运行npm install）会运行这个脚本以便更好地测试。</p>
+<p>###peerDependencies</p>
+<p>在一些场景中，如在一个host中不必须进行require时候，你想表现你的package与一个host工具或者库的兼容关键。这一般用来引用插件。尤其是你的模块可能要暴露一个特定的接口，并由host文档来预期和指定。</p>
+<p>比如：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"tea-latte"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.3.5"</span></span><br><span class="line">  <span class="string">"peerDependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"tea"</span>: <span class="string">"2.x"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这能保证你的package可以只和tea的2.x版本一起初始化。npm install tea-latte可能会产生下面的依赖关系</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">â”œâ”€â”€ tea-latte<span class="variable">@1</span>.<span class="number">3.5</span></span><br><span class="line">â””â”€â”€ tea<span class="variable">@2</span>.<span class="number">2.0</span></span><br></pre></td></tr></table></figure>
+<p>试图初始化另一个有会冲突的依赖的插件将导致一个错误。因此，确保你的插件的需求约束越弱越好，而不要去把它锁定到一个特定的版本。</p>
+<p>假设这个host遵守semver规范，只改变这个package的主版本会打破你的插件。因此，如果你在package中用过每个1.x版本，就用”^1.0”或者”1.x”来表示。如果你依赖于功能介绍1.5.2，用”&gt;= 1.5.2 &lt; 2”。</p>
+<p>###bundledDependencies</p>
+<p>一组包名，他们会在发布的时候被打包进去。</p>
+<p>拼成”bundleDependencies”（缺d）也可以。</p>
+<p>###optionalDependencies</p>
+<p>如果一个依赖可用，但你希望在它安装错误的时候npm也能继续初始化，那么你可以把它放在optionalDependencies hash中。这是一个包名到版本或者url的map，就像dependencies hash一样。只是它运行错误。</p>
+<p>处理缺乏依赖也是你的程序的责任。比如像这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> foo = <span class="built_in">require</span>(<span class="string">'foo'</span>)</span><br><span class="line">  <span class="keyword">var</span> fooVersion = <span class="built_in">require</span>(<span class="string">'foo/package.json'</span>).version</span><br><span class="line">&#125; <span class="keyword">catch</span> (er) &#123;</span><br><span class="line">  foo = <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> ( notGoodFooVersion(fooVersion) ) &#123;</span><br><span class="line">  foo = <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// .. then later in your program ..</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (foo) &#123;</span><br><span class="line">  foo.doFooThings()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>optionalDependencies会覆盖dependencies中同名的项，所以通常比只放在一个地方好。</p>
+<p>###engines</p>
+<p>你可以指定工作的node的版本：</p>
+<pre><code>{ &quot;engines&quot; : { &quot;node&quot; : &quot;&gt;=0.10.3 &lt;0.12&quot; } }
+</code></pre><p>并且，像dependensies一样，如果你不指定版本或者指定“*”作为版本，那么所有版本的node都可以。</p>
+<p>如果指定一个“engines”字段，那么npm会需要node在里面，如果“engines”被省略，npm会假定它在node上工作。</p>
+<p>你也可以用“engines”字段来指定哪一个npm版本能更好地初始化你的程序，如：</p>
+<pre><code>{ &quot;engines&quot; : { &quot;npm&quot; : &quot;~1.0.20&quot; } }
+</code></pre><p>记住，除非用户设置engine-strict标记，这个字段只是建议值。</p>
+<p>###engineStrict</p>
+<p>如果你确定你的模块一定不会运行在你指定版本之外的node或者npm上，你可以在package.json文件中设置”engineStrict”:true。它会重写用户的engine-strict设置。</p>
+<p>除非你非常非常确定，否则不要这样做。如果你的engines hash过度地限制，很可能轻易让自己陷入窘境。慎重地考虑这个选择。如果大家滥用它，它会再以后的npm版本中被删除。</p>
+<p>###os</p>
+<p>你可以指定你的模块要运行在哪些操作系统中：</p>
+<pre><code>&quot;os&quot; : [ &quot;darwin&quot;, &quot;linux&quot; ]
+</code></pre><p>你也可以用黑名单代替白名单，在名字前面加上“!”就可以了：</p>
+<pre><code>&quot;os&quot; : [ &quot;!win32&quot; ]
+</code></pre><p>操作系统用process.platform来探测。</p>
+<p>虽然没有很好地理由，但它是同时支持黑名单和白名单的。</p>
+<p>###cpu</p>
+<p>如果你的代码只能运行在特定的cpu架构下，你可以指定一个：</p>
+<pre><code>&quot;cpu&quot; : [ &quot;x64&quot;, &quot;ia32&quot; ]
+</code></pre><p>就像os选项，你也可以黑一个架构：</p>
+<pre><code>&quot;cpu&quot; : [ &quot;!arm&quot;, &quot;!mips&quot; ]
+</code></pre><p>cpu架构用process.arch探测。</p>
+<p>###preferGlobal</p>
+<p>如果包主要是需要全局安装的命令行程序，就设置它为true来提供一个warning给只在局部安装的人。</p>
+<p>它不会真正的防止用户在局部安装，但如果它没有按预期工作它会帮助防止产生误会。</p>
+<p>###private</p>
+<p>如果你设置”private”: true，npm就不会发布它。</p>
+<p>这是一个防止意外发布私有库的方式。如果你要确定给定的包是只发布在特定registry（如内部registry）的，用publishConfighash的描述来重写registry的publish-time配置参数。</p>
+<p>###publishConfig</p>
+<p>这是一个在publish-time使用的配置集合。当你想设置tag或者registry的时候它非常有用，所以你可以确定一个给定的包没有打上“lastest”的tag或者被默认发布到全局的公开registry。</p>
+<p>任何配置都可以被重写，但当然可能只有“tag”和“registry”与发布的意图有关。</p>
+<p>参见npm-config(7)有可以被重写的列表。</p>
+<p>SEE ALSO</p>
+<ul>
+<li>semver(7)</li>
+<li>npm-init(1)</li>
+<li>npm-version(1)</li>
+<li>npm-config(1)</li>
+<li>npm-config(7)</li>
+<li>npm-help(1)</li>
+<li>npm-faq(7)</li>
+<li>npm-install(1)</li>
+<li>npm-publish(1)</li>
+<li>npm-rm(1)</li>
+</ul>
+<p>原文地址：<a href="https://github.com/ericdum/mujiang.info/issues/6" target="_blank" rel="external">https://github.com/ericdum/mujiang.info/issues/6</a></p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/2014-11-6-npm-packge-json.html"
+           data-title="npm package.json 介绍中文版" data-url="http://blog.yongyuan.com/post/2014-11-6-npm-packge-json.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

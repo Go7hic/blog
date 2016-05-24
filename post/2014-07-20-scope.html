@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="^_^" />
+
+
+<meta name="description" content="首先这是篇读书笔记，《Javascript启示录》这本书虽然薄但写得真好，翻译的也不错。本书个人觉得作者是围绕JavaScript一切皆为对象来展开写的，只有一两章没有过多的涉及到对象，其中就包括这个知识点，我就先从这章记起吧。
+首先我们要知道在js里作用域是用来执行代码的上下文，有三种类型分别为全局作用域、局部作用域、eVal作用域。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript启示录(一)笔记： 作用域和闭包">
+<meta property="og:url" content="http://blog.yongyuan.com/post/2014-07-20-scope.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="首先这是篇读书笔记，《Javascript启示录》这本书虽然薄但写得真好，翻译的也不错。本书个人觉得作者是围绕JavaScript一切皆为对象来展开写的，只有一两章没有过多的涉及到对象，其中就包括这个知识点，我就先从这章记起吧。
+首先我们要知道在js里作用域是用来执行代码的上下文，有三种类型分别为全局作用域、局部作用域、eVal作用域。">
+<meta property="og:updated_time" content="2015-07-24T16:08:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript启示录(一)笔记： 作用域和闭包">
+<meta name="twitter:description" content="首先这是篇读书笔记，《Javascript启示录》这本书虽然薄但写得真好，翻译的也不错。本书个人觉得作者是围绕JavaScript一切皆为对象来展开写的，只有一两章没有过多的涉及到对象，其中就包括这个知识点，我就先从这章记起吧。
+首先我们要知道在js里作用域是用来执行代码的上下文，有三种类型分别为全局作用域、局部作用域、eVal作用域。">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> JavaScript启示录(一)笔记： 作用域和闭包 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> JavaScript启示录(一)笔记： 作用域和闭包 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-07-20T00:00:00+08:00" content="2014-07-20">
+              2014-07-20
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/2014-07-20-scope.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/2014-07-20-scope.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>首先这是篇读书笔记，《Javascript启示录》这本书虽然薄但写得真好，翻译的也不错。本书个人觉得作者是围绕JavaScript一切皆为对象来展开写的，只有一两章没有过多的涉及到对象，其中就包括这个知识点，我就先从这章记起吧。</p>
+<p>首先我们要知道在js里作用域是用来执行代码的上下文，有三种类型分别为全局作用域、局部作用域、eVal作用域。<br><a id="more"></a><br>看一段代码展示各种作用域的用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="number">0</span>;<span class="comment">// 全局作用域</span></span><br><span class="line"><span class="built_in">console</span>.log(foo); <span class="comment">//输出0</span></span><br><span class="line"><span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> foo = <span class="number">1</span>; <span class="comment">//局部作用域</span></span><br><span class="line">	<span class="built_in">console</span>.log(foo); <span class="comment">// 输出1</span></span><br><span class="line">	<span class="keyword">var</span> myNestedFunction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> foo = <span class="number">2</span>; <span class="comment">//局部作用域</span></span><br><span class="line">		<span class="built_in">console</span>.log = <span class="number">2</span>; <span class="comment">// 输出2</span></span><br><span class="line"></span><br><span class="line">	&#125;()</span><br><span class="line">&#125;()</span><br><span class="line"><span class="built_in">eval</span>(<span class="string">'var foo = 3; console.log(foo);'</span>); <span class="comment">//eval()作用域</span></span><br></pre></td></tr></table></figure></p>
+<p>####JavaScript没有块作用域<br>因为逻辑语句(if)和循环语句(while)无法创建作用域，所以变量可以互相覆盖。看代码:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">	foo = <span class="number">2</span>; <span class="comment">//foo等于2</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">3</span>;i &lt;= <span class="number">5</span>;i++) &#123;</span><br><span class="line">	foo = i; <span class="comment">//foo 等于3,4,5</span></span><br><span class="line">	<span class="built_in">console</span>.log(foo); <span class="comment">//输出3,4,5</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到整个代码在运行时foo是变化的，因为JavaScript没有作用域。</p>
+<p>####避免作用域陷阱</p>
+<p>我们总说在声明变量的时候要是用var。因为不用var，变量将会在全局作用域中，那么本该在局部作用域中定义的变量跑到全局作用域里去了。看代码:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> boo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	bar = <span class="number">2</span>; <span class="comment">// 没有使用var 定义，所以bar是在全局作用域里</span></span><br><span class="line">	&#125;()</span><br><span class="line">&#125;()</span><br><span class="line"><span class="built_in">console</span>.log() <span class="comment">// 输出2，因为bar等同于在全局定义的一个变量，相当于window.bar</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> boo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> doo = <span class="number">2</span> <span class="comment">//在局部作用域定义的</span></span><br><span class="line">	&#125;();</span><br><span class="line">&#125;();</span><br><span class="line"><span class="built_in">console</span>.log(doo) <span class="comment">//输出undefined，因为doo只能在boo函数作用域才有用。</span></span><br></pre></td></tr></table></figure>
+<p>####作用域链</p>
+<p>我们知道当JavaScript查找变量时，会遵循一个基于作用域的层次结构形成的一个查找链。看代码:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'gothic'</span>;</span><br><span class="line"><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> func2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(name); <span class="comment">//虽然在func2作用域，但在全局作用域里查找到了name</span></span><br><span class="line">	&#125;();</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure></p>
+<p>在func2函数没找到name变量，就会继续在func2的父函数func1查找，如果func1也没找到就会继续往上全局作用域里查找，这种层次查找结构就形成了一条作用域链。如果都没找到就返回undefined。<br>再看一个例子:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> y = <span class="number">20</span>;</span><br><span class="line">	<span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> z = <span class="number">30</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(x+y+z);</span><br><span class="line">	&#125;()</span><br><span class="line">&#125;()</span><br><span class="line">foo(); <span class="comment">//输出60</span></span><br></pre></td></tr></table></figure></p>
+<p>你可能会发现上面作用域链上的三个变量是不同的，要是换成一样的还会往上循着作用域链查找变量吗。</p>
+<p>看看:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> x = <span class="literal">false</span>;</span><br><span class="line">	bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> x = <span class="literal">true</span>;</span><br><span class="line">		<span class="built_in">console</span>.log(x);</span><br><span class="line">	&#125;()</span><br><span class="line">&#125;()</span><br></pre></td></tr></table></figure></p>
+<p>你会发现在作用域链内最近的地方找到变量就会停止查找，不管作用域链顶部是不是还有相同的变量。</p>
+<p>So,我们可以看出其实是函数决定作用域的，作用链是根据函数定义时的位置确定的，而不是在调用的时候确定的。也就是说作用域链是在函数调用之前创建的，正因如此才会产生接下来介绍的闭包。</p>
+<p>####闭包是由作用域链引起的</p>
+<p>讨论Js似乎永远离不开闭包这个话题，而且似乎也很受面试老师的欢迎，我也不知道为什么有的面试官喜欢问这个问题，有的或许是真的出于技术面试，有的或许只是为了跟风，说不定他自己也不能解释好闭包这个问题。</p>
+<p>看下面代码:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pFunction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> foo = <span class="string">'foo'</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  <span class="comment">// 返回i一个匿名函数</span></span><br><span class="line">	<span class="built_in">console</span>.log(foo); <span class="comment">//输出'foo'</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> nextFunction = pFunction();</span><br><span class="line">nextFunction(); <span class="comment">//输出foo，因为返回的函数的可以通过作用域链访问foo;</span></span><br></pre></td></tr></table></figure></p>
+<p>停，这个还不是给你重点说闭包的，这个代码段主要是想说 作用域链是在定义时确定的，在函数内部传递代码不会改变作用域链。<br>下面再来看段闭包(当然上面那个也是闭包)的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> countUpFromZero = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> ++count; <span class="comment">//count在作用域内定义，父函数里</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;() <span class="comment">//立即调用，返回嵌套函数</span></span><br><span class="line"><span class="built_in">console</span>.log(countUpFromZero());<span class="comment">//输出1;</span></span><br><span class="line"><span class="built_in">console</span>.log(countUpFromZero());<span class="comment">//输出2;</span></span><br><span class="line"><span class="built_in">console</span>.log(countUpFromZero());<span class="comment">//输出3;</span></span><br></pre></td></tr></table></figure></p>
+<p>我们可以看到每次调用countUpFromZero函数时，包含在他里面的匿名函数仍可以访问父函数的作用域。这种就是闭包的一个示例。当然这里没有过得分析闭包，因为这里已经有了一篇这样的文章<a href="http://blog.yongyuan.us/js-scop" target="_blank" rel="external">http://blog.yongyuan.us/js-scop</a></p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/2014-07-20-scope.html"
+           data-title="JavaScript启示录(一)笔记： 作用域和闭包" data-url="http://blog.yongyuan.com/post/2014-07-20-scope.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

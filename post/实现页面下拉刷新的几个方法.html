@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="JavaScript," />
+
+
+<meta name="description" content="我们在手机上经常会看到这种效果，下拉屏幕，网页会刷新加载新的元素。今天就来分析下有几个方法实现这种效果。
+###一：原生 Js 实现
+html:
+123456789101112&amp;lt;h1&amp;gt;下拉刷新&amp;lt;/h1&amp;gt;    &amp;lt;div class=&quot;list&quot;&amp;gt;        &amp;lt;div id=&quot;touchloader&quot; style=&quot;text-align: center;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现页面下拉刷新的几个方法">
+<meta property="og:url" content="http://blog.yongyuan.com/post/实现页面下拉刷新的几个方法.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="我们在手机上经常会看到这种效果，下拉屏幕，网页会刷新加载新的元素。今天就来分析下有几个方法实现这种效果。
+###一：原生 Js 实现
+html:
+123456789101112&amp;lt;h1&amp;gt;下拉刷新&amp;lt;/h1&amp;gt;    &amp;lt;div class=&quot;list&quot;&amp;gt;        &amp;lt;div id=&quot;touchloader&quot; style=&quot;text-align: center;">
+<meta property="og:updated_time" content="2015-09-04T17:32:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实现页面下拉刷新的几个方法">
+<meta name="twitter:description" content="我们在手机上经常会看到这种效果，下拉屏幕，网页会刷新加载新的元素。今天就来分析下有几个方法实现这种效果。
+###一：原生 Js 实现
+html:
+123456789101112&amp;lt;h1&amp;gt;下拉刷新&amp;lt;/h1&amp;gt;    &amp;lt;div class=&quot;list&quot;&amp;gt;        &amp;lt;div id=&quot;touchloader&quot; style=&quot;text-align: center;">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 实现页面下拉刷新的几个方法 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 实现页面下拉刷新的几个方法 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-12-28T11:21:04+08:00" content="2014-12-28">
+              2014-12-28
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/实现页面下拉刷新的几个方法.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/实现页面下拉刷新的几个方法.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>我们在手机上经常会看到这种效果，下拉屏幕，网页会刷新加载新的元素。今天就来分析下有几个方法实现这种效果。</p>
+<p>###一：原生 Js 实现</p>
+<p>html:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>下拉刷新<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"touchloader"</span> <span class="attr">style</span>=<span class="string">"text-align: center;display: none;"</span>&gt;</span>Loading.....<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"touchlist"</span> <span class="attr">style</span>=<span class="string">"position: relative;top:0px;"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>111111111<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>222222222<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>333333333<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>44444444<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>555555555<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.list</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">      <span class="attribute">list-style-type</span>:none;</span><br><span class="line">      <span class="attribute">line-height</span>:<span class="number">50px</span>;</span><br><span class="line">      <span class="attribute">height</span>:<span class="number">50px</span>;</span><br><span class="line">      <span class="attribute">font-size</span>:<span class="number">1.5em</span>;</span><br><span class="line">      <span class="attribute">border-bottom</span>:<span class="number">1px</span> solid <span class="number">#6BA5E7</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.list</span> <span class="selector-tag">ul</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">     <span class="attribute">cursor</span>:pointer;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>Js:</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> <span class="built_in">list</span> = <span class="built_in">document</span>.getElementById(<span class="string">"touchlist"</span>),</span><br><span class="line"></span><br><span class="line">           loader = <span class="built_in">document</span>.getElementById(<span class="string">"touchloader"</span>),</span><br><span class="line"></span><br><span class="line">           isTouched = <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">           isMoved = <span class="literal">false</span>;</span><br><span class="line">       <span class="comment">// list列表距离body的距离</span></span><br><span class="line">       <span class="built_in">var</span> prevY = <span class="built_in">parseInt</span>(<span class="built_in">list</span>.offsetTop);</span><br><span class="line">       <span class="comment">// list绝对定位的高度</span></span><br><span class="line">       <span class="built_in">var</span> cssY = <span class="built_in">list</span>.style.top;</span><br><span class="line">       cssY = <span class="built_in">parseInt</span>(cssY.substring(<span class="number">0</span>, cssY.length - <span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">       <span class="comment">//添加手机触摸事件</span></span><br><span class="line">       <span class="built_in">list</span>.addEventListener(<span class="string">"touchstart"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">           isTouched = <span class="literal">true</span>;</span><br><span class="line">           <span class="comment">//初始化触摸的位置</span></span><br><span class="line">           prevY = e.changedTouches[<span class="number">0</span>].clientY;</span><br><span class="line">           <span class="comment">//添加 css3 效果</span></span><br><span class="line">           <span class="built_in">list</span>.style.transition = <span class="string">""</span>;</span><br><span class="line">           e.preventDefault();</span><br><span class="line">       &#125;, <span class="literal">false</span>);</span><br><span class="line">       <span class="built_in">list</span>.addEventListener(<span class="string">"touchend"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">           <span class="comment">// 取消向上划屏是的触摸事件</span></span><br><span class="line">           isTouched = <span class="literal">false</span>;</span><br><span class="line">           <span class="comment">// 如果列表向下拉了，向上放回去有个css3的过渡效果</span></span><br><span class="line">           <span class="built_in">list</span>.style.transition = <span class="string">"top 1s"</span>;</span><br><span class="line">           <span class="keyword">if</span> (isMoved) &#123;</span><br><span class="line">               <span class="comment">//显示加载的元素</span></span><br><span class="line">               loader.style.display = <span class="string">"block"</span>;</span><br><span class="line">               loadNewData();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="built_in">list</span>.style.top = cssY + <span class="string">'px'</span>;</span><br><span class="line">           isMoved = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">           e.preventDefault();</span><br><span class="line">       &#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">       <span class="built_in">list</span>.addEventListener(<span class="string">"touchmove"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (isTouched) &#123;</span><br><span class="line">               <span class="keyword">if</span> (e.changedTouches[<span class="number">0</span>].clientY &gt; prevY) &#123;</span><br><span class="line"></span><br><span class="line">                   <span class="built_in">var</span> change = e.changedTouches[<span class="number">0</span>].clientY - prevY;</span><br><span class="line">                   <span class="built_in">list</span>.style.top = cssY + change + <span class="string">'px'</span>;</span><br><span class="line">                   isMoved = <span class="literal">true</span>;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           e.preventDefault();</span><br><span class="line">       &#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">       <span class="comment">//绑定鼠标事件让在电脑浏览器里也能用</span></span><br><span class="line">       <span class="built_in">list</span>.addEventListener(<span class="string">"mousedown"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">           isTouched = <span class="literal">true</span>;</span><br><span class="line">           prevY = e.clientY;</span><br><span class="line">           <span class="built_in">list</span>.style.transition = <span class="string">""</span>;</span><br><span class="line">           e.preventDefault();</span><br><span class="line">       &#125;, <span class="literal">false</span>);</span><br><span class="line">       <span class="built_in">list</span>.addEventListener(<span class="string">"mouseup"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">           isTouched = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">           <span class="built_in">list</span>.style.transition = <span class="string">"top 1s"</span>;</span><br><span class="line">           <span class="keyword">if</span> (isMoved) &#123;</span><br><span class="line">               loader.style.display = <span class="string">"block"</span>;</span><br><span class="line">               loadNewData();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="built_in">list</span>.style.top = cssY + <span class="string">'px'</span>;</span><br><span class="line">           isMoved = <span class="literal">false</span>;</span><br><span class="line">           e.preventDefault();</span><br><span class="line">       &#125;, <span class="literal">false</span>);</span><br><span class="line">       <span class="built_in">list</span>.addEventListener(<span class="string">"mousemove"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (isTouched) &#123;</span><br><span class="line">               <span class="keyword">if</span> (e.clientY &gt; prevY) &#123;</span><br><span class="line">                   <span class="built_in">var</span> change = e.clientY - prevY;</span><br><span class="line">                   <span class="built_in">list</span>.style.top = cssY + change + <span class="string">'px'</span>;</span><br><span class="line">                   isMoved = <span class="literal">true</span>;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           e.preventDefault();</span><br><span class="line">       &#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">function</span> <span class="title">loadNewData</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">           setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">               <span class="built_in">list</span>.innerHTML = <span class="string">'&lt;li&gt;新加的元素&lt;/li&gt;&lt;li&gt;new user 2&lt;/li&gt;'</span> + <span class="built_in">list</span>.innerHTML;</span><br><span class="line">               loader.style.display = <span class="string">"none"</span>;</span><br><span class="line">           &#125;, <span class="number">1000</span>);</span><br><span class="line">           <span class="comment">/**</span><br><span class="line">           * do what ever to get data here</span><br><span class="line">           */</span></span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<p>###二：jQuery Mobile + iScroll<br><a href="http://iiunknown.gitbooks.io/iscroll-5-api-cn/content/" target="_blank" rel="external">http://iiunknown.gitbooks.io/iscroll-5-api-cn/content/</a> iScroll 中文Api</p>
+<p>因为在手机上，可以通过 jQuery mobile 这个移动端的框架再加上 iSroll 这个插件，可以实现这个效果</p>
+<p>这里就直接放个 demo 的链接：<br><a href="http://www.wglong.com/index/demos/pullDownRefresh/cubiq-iscroll/index.html" target="_blank" rel="external">http://www.wglong.com/index/demos/pullDownRefresh/cubiq-iscroll/index.html</a></p>
+<p>###三：jQuery + swiper</p>
+<p>swiper 是一个强大的用于手机端的插件 <a href="https://github.com/nolimits4web/Swiper" target="_blank" rel="external">https://github.com/nolimits4web/Swiper</a></p>
+<p>demo:</p>
+<p><a href="http://www.idangero.us/sliders/swiper/demos/main-demos/18-pull-to-refresh.html" target="_blank" rel="external">http://www.idangero.us/sliders/swiper/demos/main-demos/18-pull-to-refresh.html</a></p>
+<p>以上几个都是用于手机上的下拉刷新效果，当然在电脑上也同样有效，不过有个插件可以在 pc 网页上实现这种手机上的效果，那就是 hook.js <a href="http://usehook.com/" target="_blank" rel="external">http://usehook.com/</a><br><a href="https://github.com/jordansinger/hook.js/" target="_blank" rel="external">https://github.com/jordansinger/hook.js/</a></p>
+<p>使用很简单:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://code.jquery.com/jquery-latest.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"hook/hook.css"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"hook/hook.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>html:</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"hook"</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"loader"</span>&gt;</span><br><span class="line">        &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"spinner"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">    &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">    &lt;span <span class="built_in">id</span>=<span class="string">"hook-text"</span>&gt;Reloading...&lt;/span&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>js:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.loadheight = $(<span class="string">'#hook'</span>).height();</span><br><span class="line">    <span class="built_in">window</span>.hidden = $(<span class="string">"#hook"</span>).animate(<span class="string">"marginTop"</span>, <span class="string">"-"</span> + loadheight + <span class="string">"px"</span>);</span><br><span class="line">    <span class="built_in">window</span>.visible = $(<span class="string">"#hook"</span>).animate(<span class="string">"marginTop"</span>, <span class="string">"0px"</span>);</span><br><span class="line">    $(<span class="string">"#hook"</span>).css(<span class="string">"marginTop"</span>, <span class="string">"-"</span> + loadheight + <span class="string">"px"</span>)</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="function"><span class="keyword">function</span> <span class="title">hook</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> loadheight = $(<span class="string">'#hook'</span>).height();</span><br><span class="line">    $(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> st = $(<span class="built_in">window</span>).scrollTop();</span><br><span class="line">        <span class="keyword">if</span> (st &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            $(<span class="string">"#hook"</span>).animate(&#123;</span><br><span class="line">                <span class="string">"marginTop"</span>: <span class="string">"0px"</span></span><br><span class="line">            &#125;, <span class="number">200</span>);</span><br><span class="line">            $(<span class="string">"#hook"</span>).delay(<span class="number">500</span>).slideUp(<span class="number">200</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">window</span>.location.reload()</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> ($.browser.webkit) &#123;</span><br><span class="line">            <span class="keyword">if</span> (st == <span class="number">0</span>) &#123;</span><br><span class="line">                $(<span class="string">'body'</span>).css(<span class="string">'overflow'</span>, <span class="string">'hidden'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#JavaScript" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/实现页面下拉刷新的几个方法.html"
+           data-title="实现页面下拉刷新的几个方法" data-url="http://blog.yongyuan.com/post/实现页面下拉刷新的几个方法.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

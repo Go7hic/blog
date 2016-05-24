@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="angular," />
+
+
+<meta name="description" content="又是一个坑，今天有人反应我们刚上的项目在 360浏览器极速模式下面记住密码无效，看起来虽然浏览器记住了，里面也有值，但是提交登录的时候提示没有账户名和密码。可是在我的最新版 chrome 浏览器里是可以记住的，也是可以登录的。咋就在你这国产 chrome 里面就没效呢，在 360 浏览器下调试了一下，发现提价的时候果然账户密码的数据没有绑定上。WTF,这是啥坑，是 angular 还是 chrom">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular 在低版本 chrome 内核浏览器无法记住密码的坑">
+<meta property="og:url" content="http://blog.yongyuan.com/post/Angular 在低版本 chrome 内核浏览器无法记住密码的坑.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="又是一个坑，今天有人反应我们刚上的项目在 360浏览器极速模式下面记住密码无效，看起来虽然浏览器记住了，里面也有值，但是提交登录的时候提示没有账户名和密码。可是在我的最新版 chrome 浏览器里是可以记住的，也是可以登录的。咋就在你这国产 chrome 里面就没效呢，在 360 浏览器下调试了一下，发现提价的时候果然账户密码的数据没有绑定上。WTF,这是啥坑，是 angular 还是 chrom">
+<meta property="og:updated_time" content="2015-11-22T12:41:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular 在低版本 chrome 内核浏览器无法记住密码的坑">
+<meta name="twitter:description" content="又是一个坑，今天有人反应我们刚上的项目在 360浏览器极速模式下面记住密码无效，看起来虽然浏览器记住了，里面也有值，但是提交登录的时候提示没有账户名和密码。可是在我的最新版 chrome 浏览器里是可以记住的，也是可以登录的。咋就在你这国产 chrome 里面就没效呢，在 360 浏览器下调试了一下，发现提价的时候果然账户密码的数据没有绑定上。WTF,这是啥坑，是 angular 还是 chrom">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> Angular 在低版本 chrome 内核浏览器无法记住密码的坑 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> Angular 在低版本 chrome 内核浏览器无法记住密码的坑 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-10-25T11:21:04+08:00" content="2015-10-25">
+              2015-10-25
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/Angular 在低版本 chrome 内核浏览器无法记住密码的坑.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/Angular 在低版本 chrome 内核浏览器无法记住密码的坑.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>又是一个坑，今天有人反应我们刚上的项目在 360浏览器极速模式下面记住密码无效，看起来虽然浏览器记住了，里面也有值，但是提交登录的时候提示没有账户名和密码。可是在我的最新版 chrome 浏览器里是可以记住的，也是可以登录的。咋就在你这国产 chrome 里面就没效呢，在 360 浏览器下调试了一下，发现提价的时候果然账户密码的数据没有绑定上。WTF,这是啥坑，是 angular 还是 chrome  的呢，遇 bug 别急，先 google 和 栈爆找一下。</p>
+<p>找了一下，很少有这个问题的，但还是被窝找到了，看这 <a href="https://github.com/angular/angular.js/issues/1460" target="_blank" rel="external">https://github.com/angular/angular.js/issues/1460</a> 或者 <a href="https://github.com/fnakstad/angular-client-side-auth/issues/58#issuecomment-147861575" target="_blank" rel="external">https://github.com/fnakstad/angular-client-side-auth/issues/58#issuecomment-147861575</a> 。可以看到好像是旧版 chrome 的和 angular 的一个 bug。就是说你不用 angular 在低版本 chrome 是没有这个问题的，但是你在低版本的 chrome 里用 angular 是有这个问题的。好了，问题找到了，接下来就是修复了，我看到网上有修复这个 bug 的一个 angular 指令。但是在我调试的时候，发现这个登录框实际上是有记住的账户和密码值的，只是数据绑定没有给帮上，所以，这个地方，我们可以不用数据绑定呀，直接用 <code>angular.elemnt(&#39;.account-input&#39;).val()</code> 这样就可以获取里面的值呀，多方便是吧。</p>
+<p>一开始我们是这样写的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">form.form-validate(role=&quot;form&quot;, ng-submit=&quot;login()&quot;, name=&quot;loginForm&quot;, novalidate=&quot;&quot;).mb-lg</span><br><span class="line">    .form-group.has-feedback</span><br><span class="line">        input.form-control.login-name(type=&quot;text&quot;, ng-trim=&quot;&quot; name=&quot;account_username&quot; placeholder=&quot;请输入用户名&quot;, autocomplete=&quot;off&quot;, ng-model=&quot;account.username&quot;, required=&quot;&quot;)</span><br><span class="line">        span.fa.fa-user.form-control-feedback.text-muted</span><br><span class="line">        span.text-danger(ng-show=&quot;loginForm.account_username.$dirty &amp;&amp; loginForm.account_username.$error.required&quot;) 请输入用户名</span><br><span class="line">        span.text-danger(ng-show=&quot;loginForm.account_username.$dirty &amp;&amp; loginForm.account_username.$error.email&quot;) 用户名无效</span><br><span class="line">    .form-group.has-feedback</span><br><span class="line">        input.form-control.login-password(type=&quot;password&quot;, name=&quot;account_password&quot; placeholder=&quot;请输入密码&quot;, ng-model=&quot;account.password&quot;, required=&quot;&quot;)</span><br><span class="line">        span.fa.fa-lock.form-control-feedback.text-muted</span><br><span class="line">        span.text-danger(ng-show=&quot;loginForm.account_password.$dirty &amp;&amp; loginForm.account_password.$error.required&quot;) 请输入密码</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">$scope.account = &#123;</span><br><span class="line">    username: <span class="string">''</span>,</span><br><span class="line">    password: <span class="string">''</span></span><br><span class="line">&#125;;</span><br><span class="line">$scope.login = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ($scope.account.password !== <span class="string">''</span> &amp;&amp; $scope.account.username !== <span class="string">''</span> ) &#123;</span><br><span class="line">        AuthService.login(&#123;</span><br><span class="line">            username: $scope.account.username,</span><br><span class="line">            password: $scope.account.password</span><br><span class="line">        &#125;, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 登录成功后需要进一步获取管理员信息</span></span><br><span class="line">            AdminService.get(</span><br><span class="line">                &#123;&#125;,</span><br><span class="line">                <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">                &#125;, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">                &#125;</span><br><span class="line">            );</span><br><span class="line">            $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);</span><br><span class="line">        &#125;, <span class="function"><span class="keyword">function</span> <span class="params">(error)</span> </span>&#123;</span><br><span class="line">            $scope.authMsg = error.message;</span><br><span class="line">            $rootScope.$broadcast(AUTH_EVENTS.loginFailed, error.code);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        $scope.loginForm.account_username.$dirty = <span class="keyword">true</span>;</span><br><span class="line">        $scope.loginForm.account_password.$dirty = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>上面的代码在新的 chrome 历史没问题的，可以获取绑定的帐号密码，但是低版本有问题，我们可以直接通过获取 dom 的值来获取。修改后这样：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$scope.login = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">$scope.account = &#123;</span><br><span class="line">    username: angular.element(<span class="string">'.login-name'</span>).val(),</span><br><span class="line">    password: angular.element(<span class="string">'.login-password'</span>).val()</span><br><span class="line">&#125;;</span><br><span class="line">    <span class="keyword">if</span> ($scope.account.password !== <span class="string">''</span> &amp;&amp; $scope.account.username !== <span class="string">''</span> ) &#123;</span><br><span class="line">        AuthService.login(&#123;</span><br><span class="line">            username: $scope.account.username,</span><br><span class="line">            password: $scope.account.password</span><br><span class="line">        &#125;, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 登录成功后需要进一步获取管理员信息</span></span><br><span class="line">            AdminService.get(</span><br><span class="line">                &#123;&#125;,</span><br><span class="line">                <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">                &#125;, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">                &#125;</span><br><span class="line">            );</span><br><span class="line">            $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);</span><br><span class="line">        &#125;, <span class="function"><span class="keyword">function</span> <span class="params">(error)</span> </span>&#123;</span><br><span class="line">            $scope.authMsg = error.message;</span><br><span class="line">            $rootScope.$broadcast(AUTH_EVENTS.loginFailed, error.code);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        $scope.loginForm.account_username.$dirty = <span class="keyword">true</span>;</span><br><span class="line">        $scope.loginForm.account_password.$dirty = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>当然还有其他的方法，比如新建一个隐藏表单，还有封装一个指令，但那些太麻烦了，增加一些没意义的代码。</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#angular" rel="tag">#angular</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/Angular 在低版本 chrome 内核浏览器无法记住密码的坑.html"
+           data-title="Angular 在低版本 chrome 内核浏览器无法记住密码的坑" data-url="http://blog.yongyuan.com/post/Angular 在低版本 chrome 内核浏览器无法记住密码的坑.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

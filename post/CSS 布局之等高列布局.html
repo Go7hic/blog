@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="css," />
+
+
+<meta name="description" content="前面分别回顾了两栏三栏布局，今天继续回顾等高列布局，这个布局也很麻烦有两列三列多列，我就随便回顾一点了。
+####一：用背景图片做假等高列
+这种方法是我们实现等高列最早使用的一种方法，就是使用背景图片，在列的父元素上使用这个背景图进行Y轴的铺放，从而实现一种等高列的假像。优点：实现方法简单，兼容性强，不需要太多的css样式就可以轻松实现。
+缺点：使用这种方法不适合流体布局等高列的布局，另外如果你需">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css布局之等高列布局">
+<meta property="og:url" content="http://blog.yongyuan.com/post/CSS 布局之等高列布局.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="前面分别回顾了两栏三栏布局，今天继续回顾等高列布局，这个布局也很麻烦有两列三列多列，我就随便回顾一点了。
+####一：用背景图片做假等高列
+这种方法是我们实现等高列最早使用的一种方法，就是使用背景图片，在列的父元素上使用这个背景图进行Y轴的铺放，从而实现一种等高列的假像。优点：实现方法简单，兼容性强，不需要太多的css样式就可以轻松实现。
+缺点：使用这种方法不适合流体布局等高列的布局，另外如果你需">
+<meta property="og:updated_time" content="2015-09-12T04:37:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css布局之等高列布局">
+<meta name="twitter:description" content="前面分别回顾了两栏三栏布局，今天继续回顾等高列布局，这个布局也很麻烦有两列三列多列，我就随便回顾一点了。
+####一：用背景图片做假等高列
+这种方法是我们实现等高列最早使用的一种方法，就是使用背景图片，在列的父元素上使用这个背景图进行Y轴的铺放，从而实现一种等高列的假像。优点：实现方法简单，兼容性强，不需要太多的css样式就可以轻松实现。
+缺点：使用这种方法不适合流体布局等高列的布局，另外如果你需">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> css布局之等高列布局 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> css布局之等高列布局 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-02-16T11:21:04+08:00" content="2014-02-16">
+              2014-02-16
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/CSS 布局之等高列布局.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/CSS 布局之等高列布局.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>前面分别回顾了两栏三栏布局，今天继续回顾等高列布局，这个布局也很麻烦有两列三列多列，我就随便回顾一点了。</p>
+<p>####一：用背景图片做假等高列</p>
+<p>这种方法是我们实现等高列最早使用的一种方法，就是使用背景图片，在列的父元素上使用这个背景图进行Y轴的铺放，从而实现一种等高列的假像。<br>优点：<br>实现方法简单，兼容性强，不需要太多的css样式就可以轻松实现。</p>
+<p>缺点：<br>使用这种方法不适合流体布局等高列的布局，另外如果你需要更换背景色或实现其他列数的等高列时，都需要重新制作过背景图。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"container"</span>&gt;</span><br><span class="line">  &lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"left"</span>&gt;left&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">  &lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"main"</span>&gt;main&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">  &lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"right"</span>&gt;right&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">*&#123;<span class="attribute">margin</span>:<span class="number">0</span>;<span class="attribute">padding</span>:<span class="number">0</span>;&#125;</span><br><span class="line"><span class="selector-id">#container</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"http://sandbox.runjs.cn/uploads/rs/360/sodrxytj/articlefct.GIF"</span>) repeat-y;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">600px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#left</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">110px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#main</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">222px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#right</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>:left;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">168px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>####二：给容器div使用单独的背景色（固定布局），用三个中最高的容器撑开背景。<br>这个原理就是，将内容都放在最里面的div里，这样，3列内容中列高最高的那个就会吧最里面的div撑成那个高度，然后这个div又被嵌套近外面的div，整体是嵌套关系，所以里面的告诉会影响外面的高度，造成等高。这种方法，你有几列，就要嵌套几层，有点麻烦。 </p>
+<p>优点： 这种方法是不需要借助其他东西（javascript,背景图等）,而是纯CSS和HTML实现的等高列布局，并且能兼容所有浏览器（包括IE6），并且可以很容易创建任意列数。</p>
+<p>缺点： 这种方法不像其他方法一样简单明了，给你理解会带来一定难度，但是只要你理解清楚了，将能帮你创建任意列数的等高布局效果。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"container"</span>&gt;</span><br><span class="line">  &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"rightWrap"</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"contentWrap"</span>&gt;</span><br><span class="line">      &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"leftWrap"</span>&gt;</span><br><span class="line">        &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"aside column leftSidebar"</span> <span class="built_in">id</span>=<span class="string">"left"</span>&gt;&lt;br/&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">        &lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"content"</span> <span class="built_in">class</span>=<span class="string">"column section"</span>&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">        &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"aside rightSidebat column"</span> <span class="built_in">id</span>=<span class="string">"right"</span>&gt;&lt;br/&gt;&lt;br/&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">      &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">    &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">  &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">*&#123;<span class="attribute">margin</span>: <span class="number">0</span>;<span class="attribute">padding</span>:<span class="number">0</span>;&#125;</span><br><span class="line"> <span class="selector-class">.container</span> &#123;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">960px</span>;</span><br><span class="line">   <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-class">.rightWrap</span> &#123;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">   <span class="attribute">float</span>: left;</span><br><span class="line">   <span class="attribute">background</span>: green;</span><br><span class="line">   <span class="attribute">overflow</span>: hidden;</span><br><span class="line">   <span class="attribute">position</span>: relative;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-class">.contentWrap</span> &#123;</span><br><span class="line">   <span class="attribute">float</span>: left;</span><br><span class="line">   <span class="attribute">background</span>: orange;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">   <span class="attribute">position</span>: relative;</span><br><span class="line">   <span class="attribute">right</span>: <span class="number">320px</span>;<span class="comment">/*此值等于rightSidebar的宽度*/</span></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-class">.leftWrap</span>&#123;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">   <span class="attribute">background</span>: lime;</span><br><span class="line">   <span class="attribute">float</span>:left;</span><br><span class="line">   <span class="attribute">position</span>: relative;</span><br><span class="line">   <span class="attribute">right</span>: <span class="number">420px</span>;<span class="comment">/*此值等于Content的宽度*/</span></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-id">#left</span> &#123;</span><br><span class="line">   <span class="attribute">float</span>: left;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">220px</span>;</span><br><span class="line">   <span class="attribute">overflow</span>: hidden;</span><br><span class="line">   <span class="attribute">position</span>: relative;</span><br><span class="line">   <span class="attribute">left</span>: <span class="number">740px</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-id">#content</span> &#123;</span><br><span class="line">   <span class="attribute">float</span>: left;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">420px</span>;</span><br><span class="line">   <span class="attribute">overflow</span>: hidden;</span><br><span class="line">   <span class="attribute">position</span>:relative;</span><br><span class="line">   <span class="attribute">left</span>: <span class="number">740px</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-id">#right</span> &#123;</span><br><span class="line">   <span class="attribute">float</span>: left;</span><br><span class="line">   <span class="attribute">overflow</span>: hidden;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">320px</span>;</span><br><span class="line">   <span class="attribute">position</span>: <span class="number">#333</span>;</span><br><span class="line">   <span class="attribute">position</span>: relative;</span><br><span class="line">   <span class="attribute">left</span>: <span class="number">740px</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>####三、给容器div使用单独的背景色（流体布局）</p>
+<p>这种布局可以说是就是第二种布局方法，只是这里是一种多列的流体等高列的布局方法。前面也说过了，其实现原理就是给每一列添加相对应用的容器，并进行相互嵌套，并在每个容器中设置背景色。这里需要提醒大家你有多少列就需要多少个容器，比如说我们说的三列，那么你就需要使用三个容器。</p>
+<p>优点：<br>兼容各浏览器，可以制作流体等高列，交无列数限制。</p>
+<p>缺点：<br>标签使用较多，结构过于复杂，不易于理解，不过你掌握了其原理也就不难了，这也不算太大缺点。<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"container3"</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"container2"</span>&gt;</span><br><span class="line">        &lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"container1"</span>&gt;</span><br><span class="line">            &lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"col1"</span>&gt;Column <span class="number">1</span>&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">            &lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"col2"</span>&gt;Column <span class="number">2</span>&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">            &lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"col3"</span>&gt;Column <span class="number">3</span>&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">        &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">    &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container3</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>: green;<span class="comment">/**/</span></span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line">                                     </span><br><span class="line"><span class="selector-id">#container2</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>: yellow;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">30%</span>; <span class="comment">/*大小等于col3的宽度*/</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="selector-id">#container1</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>: orange;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">40%</span>;<span class="comment">/*大小等于col2的宽度*/</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="selector-id">#col1</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">26%</span>;<span class="comment">/*增加了2%的padding，所以宽度减少4%*/</span></span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">72%</span>;<span class="comment">/*距左边呀增加2%就成72%*/</span></span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#col2</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">36%</span>;<span class="comment">/*增加了2%的padding，所以宽度减少4%*/</span></span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">76%</span>;<span class="comment">/*距左边有三个padding为2%,所以距离变成76%*/</span></span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#col3</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">26%</span>;<span class="comment">/*增加了2%的padding，所以宽度减少4%*/</span></span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">80%</span>;<span class="comment">/*距左边5个padding为2%，所以距离变成80%*/</span></span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>####四、使用正padding和负margin对冲实现多列布局方法</p>
+<p>就是先把列的padding-bottom设置一个足够大的值，然后在加一个margin-bottom，值为与padding-bottom的值正负相抵消的值。父容器设置overflow:hidden;。<br>这样子父容器的高度就还是它里面的列没有设定padding-bottom时的高度，当它里面的任一列高度增加了，则父容器的高度被撑到它里面最高那列的高度，其他比这列矮的列则会用它们的padding-bottom来补偿这部分高度差。<br>因为背景是可以用在padding占用的空间里的，而且边框也是跟随padding变化的，就实现了等高的效果。<br>优点： 这种可能实现多列等高布局，并且也能实现列与列之间分隔线效果，结构简单，兼容所有浏览器<br>缺点： 这种方法存在一个很大的缺陷，那就是如果要实现每列四周有边框效果，那么每列的底部（或顶部）将无法有边框效果。 下面我们就针对这个缺陷来介绍两种解决办法，第一种是使用背景图来模仿底部（或顶部）边框；第二种方法是使用div来模仿列的边框，图片有局限，我们只介绍用div的。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"left"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"left-border"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main-border"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"right"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"right-border"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">*&#123;<span class="attribute">margin</span>:<span class="number">0</span>;<span class="attribute">padding</span>:<span class="number">0</span>;&#125;</span><br><span class="line"> <span class="selector-id">#wrapper</span>&#123;</span><br><span class="line">   <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">960px</span>;</span><br><span class="line">   <span class="attribute">overflow</span>: hidden;</span><br><span class="line">   <span class="attribute">position</span>: relative;</span><br><span class="line">   <span class="attribute">_zoom</span>: <span class="number">1</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-id">#left</span>&#123;</span><br><span class="line">   <span class="attribute">border</span>: <span class="number">1px</span> solid blue;</span><br><span class="line">   <span class="attribute">float</span>: left;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">238px</span>;</span><br><span class="line">   <span class="attribute">background-color</span>: yellow;</span><br><span class="line">   <span class="attribute">padding-bottom</span>: <span class="number">30000px</span>;</span><br><span class="line">   <span class="attribute">margin-bottom</span>: -<span class="number">30000px</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-id">#main</span>&#123;</span><br><span class="line">   <span class="attribute">border</span>: <span class="number">1px</span> solid blue;</span><br><span class="line">   <span class="attribute">float</span>: left;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">498px</span>;</span><br><span class="line">   <span class="attribute">padding-bottom</span>: <span class="number">30000px</span>;</span><br><span class="line">   <span class="attribute">margin-bottom</span>: -<span class="number">30000px</span>;</span><br><span class="line">   <span class="attribute">background-color</span>: green;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-id">#right</span>&#123;</span><br><span class="line">   <span class="attribute">border</span>: <span class="number">1px</span> solid blue;</span><br><span class="line">   <span class="attribute">float</span>: left;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">218px</span>;</span><br><span class="line">   <span class="attribute">padding-bottom</span>: <span class="number">30000px</span>;</span><br><span class="line">   <span class="attribute">margin-bottom</span>: -<span class="number">30000px</span>;</span><br><span class="line">   <span class="attribute">background-color</span>: red;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-id">#left-border</span>&#123;</span><br><span class="line">   <span class="attribute">position</span>: absolute;</span><br><span class="line">   <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">   <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">   <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">   <span class="attribute">background-color</span>: blue;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">240px</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-id">#main-border</span>&#123;</span><br><span class="line">   <span class="attribute">position</span>: absolute;</span><br><span class="line">   <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">   <span class="attribute">left</span>: <span class="number">240px</span>;</span><br><span class="line">   <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">   <span class="attribute">background-color</span>: blue;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-id">#right-border</span>&#123;</span><br><span class="line">   <span class="attribute">position</span>: absolute;</span><br><span class="line">   <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">   <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">   <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">   <span class="attribute">background-color</span>: blue;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">220px</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>####五、使用边框和定位模拟列等高</p>
+<p>这种方法是使用边框和绝对定位来实现一个假的高度相等列的效果。假设你需要实现一个两列等高布局，侧栏高度要和主内容高度相等。</p>
+<p>优点：<br>结构简单，兼容各浏览器，容易掌握。</p>
+<p>缺点：<br>这个方法就是无法单独给主内容列设置背景色，并且实现多列效果效果不佳</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"mainContent"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"sidebar"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#wrapper</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">960px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#mainContent</span> &#123;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">220px</span> solid <span class="number">#dfdfdf</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">740px</span>;</span><br><span class="line"><span class="attribute">background</span>:blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#sidebar</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#dfdfdf</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">740px</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">220px</span>;</span><br><span class="line"><span class="attribute">background</span>:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#css" rel="tag">#css</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/CSS 布局之等高列布局.html"
+           data-title="css布局之等高列布局" data-url="http://blog.yongyuan.com/post/CSS 布局之等高列布局.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="mongodb," />
+
+
+<meta name="description" content="我用的是 brew 安装的，简单记录一下安装过。
+1.brew update
+2.brew install mongodb
+3.安装好之后创建一个放数据库的地方  mkdir -p /data/db
+4.添加到环境变量里  subl ~/.bash_profile我是直接在终端通过命令来打开 sublimeText 来编辑这个文件打开之后把  export PATH=/usr/local/Cell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac 下安装 mongodb">
+<meta property="og:url" content="http://blog.yongyuan.com/post/Mac 下安装 mongodb.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="我用的是 brew 安装的，简单记录一下安装过。
+1.brew update
+2.brew install mongodb
+3.安装好之后创建一个放数据库的地方  mkdir -p /data/db
+4.添加到环境变量里  subl ~/.bash_profile我是直接在终端通过命令来打开 sublimeText 来编辑这个文件打开之后把  export PATH=/usr/local/Cell">
+<meta property="og:updated_time" content="2015-09-04T17:39:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac 下安装 mongodb">
+<meta name="twitter:description" content="我用的是 brew 安装的，简单记录一下安装过。
+1.brew update
+2.brew install mongodb
+3.安装好之后创建一个放数据库的地方  mkdir -p /data/db
+4.添加到环境变量里  subl ~/.bash_profile我是直接在终端通过命令来打开 sublimeText 来编辑这个文件打开之后把  export PATH=/usr/local/Cell">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> Mac 下安装 mongodb </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> Mac 下安装 mongodb </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-01-29T11:21:04+08:00" content="2015-01-29">
+              2015-01-29
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/Mac 下安装 mongodb.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/Mac 下安装 mongodb.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>我用的是 brew 安装的，简单记录一下安装过。</p>
+<p>1.<code>brew update</code></p>
+<p>2.<code>brew install mongodb</code></p>
+<p>3.安装好之后创建一个放数据库的地方<br>  <code>mkdir -p /data/db</code></p>
+<p>4.添加到环境变量里<br>  <code>subl ~/.bash_profile</code><br>我是直接在终端通过命令来打开 sublimeText 来编辑这个文件打开之后把<br>  <code>export PATH=/usr/local/Cellar/mongodb/2.4.9/bin:${PATH}</code><br>添加到里面去</p>
+<ol>
+<li>然后就是修改 mongo 的配置信息，在 /usr/local/etc 的 mongo.conf 里面，用你的编辑器打开之后，修改成下面这样：</li>
+</ol>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">systemLog:</span></span><br><span class="line"><span class="string">destination:</span> file</span><br><span class="line"><span class="string">path:</span> <span class="regexp">/usr/</span>local<span class="regexp">/var/</span>log<span class="regexp">/mongodb/</span>mongo.log</span><br><span class="line"><span class="string">logAppend:</span> <span class="literal">true</span></span><br><span class="line"><span class="string">storage:</span></span><br><span class="line"><span class="string">dbPath:</span> <span class="regexp">/data/</span>db</span><br><span class="line"><span class="string">net:</span></span><br><span class="line"><span class="string">bindIp:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
+<p>6.然后在命令行用 mongod 启动，发现最后一行提示退出了，那时你还没有权限，需要简单的修改一下权限</p>
+<p>7.<code> sudo chown <code>id -u</code> /data/db </code>通过这个命令修改权限，然后再试试 mongod ，启动成功</p>
+<p>8.你也可以用 <code>mongo</code> 打开你的 mongodb 客户端</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#mongodb" rel="tag">#mongodb</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/Mac 下安装 mongodb.html"
+           data-title="Mac 下安装 mongodb" data-url="http://blog.yongyuan.com/post/Mac 下安装 mongodb.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

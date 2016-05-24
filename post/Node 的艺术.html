@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="Node," />
+
+
+<meta name="description" content="Node.js入门本文档假定读者已经懂了以下的两样东西：
+
+懂得至少一种编程语言。例如：JavaScript，Ruby，Python，Perl或其他编程语言。如果你还不是程序员，你不懂编程语言，你可以阅读JavaScript for Cats。:cat2:
+git和github。这是一个开源的协作工具，Node社区的用户使用git共享模块。你需要懂得基本操作就能了。这里有三篇很好的入门教程：1,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node 的艺术">
+<meta property="og:url" content="http://blog.yongyuan.com/post/Node 的艺术.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="Node.js入门本文档假定读者已经懂了以下的两样东西：
+
+懂得至少一种编程语言。例如：JavaScript，Ruby，Python，Perl或其他编程语言。如果你还不是程序员，你不懂编程语言，你可以阅读JavaScript for Cats。:cat2:
+git和github。这是一个开源的协作工具，Node社区的用户使用git共享模块。你需要懂得基本操作就能了。这里有三篇很好的入门教程：1,">
+<meta property="og:image" content="https://github.com/maxogden/art-of-node/raw/master/server-diagram.png">
+<meta property="og:image" content="https://github.com/maxogden/art-of-node/raw/master/stream-handbook.png">
+<meta property="og:image" content="https://github.com/maxogden/art-of-node/raw/master/npm-search.png">
+<meta property="og:image" content="https://github.com/maxogden/art-of-node/raw/master/pdf-modules.png">
+<meta property="og:image" content="https://github.com/maxogden/art-of-node/raw/master/pdf-readmes.png">
+<meta property="og:image" content="https://github.com/maxogden/art-of-node/raw/master/pdf-code.png">
+<meta property="og:image" content="https://github.com/maxogden/art-of-node/raw/master/mod-diagram-01.png">
+<meta property="og:image" content="https://github.com/maxogden/art-of-node/raw/master/mod-diagram-02.png">
+<meta property="og:image" content="https://github.com/maxogden/art-of-node/raw/master/simple-module.png">
+<meta property="og:image" content="https://github.com/maxogden/art-of-node/raw/master/requirebin.png">
+<meta property="og:image" content="https://github.com/maxogden/art-of-node/raw/master/CCBY.png">
+<meta property="og:updated_time" content="2016-03-13T04:23:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node 的艺术">
+<meta name="twitter:description" content="Node.js入门本文档假定读者已经懂了以下的两样东西：
+
+懂得至少一种编程语言。例如：JavaScript，Ruby，Python，Perl或其他编程语言。如果你还不是程序员，你不懂编程语言，你可以阅读JavaScript for Cats。:cat2:
+git和github。这是一个开源的协作工具，Node社区的用户使用git共享模块。你需要懂得基本操作就能了。这里有三篇很好的入门教程：1,">
+<meta name="twitter:image" content="https://github.com/maxogden/art-of-node/raw/master/server-diagram.png">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> Node 的艺术 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> Node 的艺术 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2016-03-13T11:21:04+08:00" content="2016-03-13">
+              2016-03-13
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/Node 的艺术.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/Node 的艺术.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><h2 id="Node-js入门"><a href="#Node-js入门" class="headerlink" title="Node.js入门"></a>Node.js入门</h2><p>本文档假定读者已经懂了以下的两样东西：</p>
+<ul>
+<li>懂得至少一种编程语言。例如：JavaScript，Ruby，Python，Perl或其他编程语言。如果你还不是程序员，你不懂编程语言，你可以阅读<a href="http://jsforcats.com/" target="_blank" rel="external">JavaScript for Cats</a>。:cat2:</li>
+<li>git和github。这是一个开源的协作工具，Node社区的用户使用git共享模块。你需要懂得基本操作就能了。这里有三篇很好的入门教程：<a href="https://github.com/jlord/git-it-electron#readme" target="_blank" rel="external">1</a>, <a href="http://zachbruggeman.me/github-for-cats/" target="_blank" rel="external">2</a>, <a href="http://opensourcerer.diy.org/" target="_blank" rel="external">3</a></li>
+</ul>
+<p>This short book is a work in progress + I don’t have a job right now (if I did I wouldn’t have the time to write this). If you like it then please consider donating via <a href="https://www.gittip.com/maxogden/" target="_blank" rel="external">gittip</a> so that I can write more!</p>
+<blockquote>
+<p>译者: 上面这段我没有翻译，因为我希望保持原文。上面作者提到，目前他还没找到工作。如果你喜欢这个文档，希望你可以通过<a href="https://www.gittip.com/maxogden/" target="_blank" rel="external">gittip</a>乐捐给作者。这样作者才能够写更多。</p>
+</blockquote>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#了解Node">了解Node</a></li>
+<li><a href="#核心模块">核心模块</a></li>
+<li><a href="#回调函数">回调函数</a></li>
+<li><a href="#事件">事件</a></li>
+<li><a href="#流">流</a></li>
+<li><a href="#模块">模块</a> </li>
+<li><a href="#用npm在客户端开发">用npm在客户端开发</a></li>
+<li><a href="#析薪杝矣">析薪杝矣</a></li>
+</ul>
+<h2 id="了解Node"><a href="#了解Node" class="headerlink" title="了解Node"></a>了解Node</h2><p>Node.js是一个开源项目，目的是让你通过编写JavaScript的程序进行网络、文件系统或其他I/O源的沟通。就这些！它只是一个简单而稳定的I/O平台，你可以在这个平台上架构模块。</p>
+<p>有没有I/O出的例子？ 我这里有一张图，上面是我用Node.js制作的程序，你可以看到上面有很多I/O源：</p>
+<p><img src="https://github.com/maxogden/art-of-node/raw/master/server-diagram.png" alt="server diagram"></p>
+<p>如果你无法明白上图显示的所有东西，这是没问题的。重点是你看到一个Node的运作（在中间六边形那个），它就像经纪人，管理全部I/O的端口（橙色和紫色的线条代表I/O）。</p>
+<p>一般上我们编写的程序可以分为以下两类：</p>
+<ul>
+<li>很难编写，但是效率超高（就像用C从零开始编写一个Web服务器）</li>
+<li>很简单编写，但是不够效率/强大（就像有人上传5GB的文件去你服务器，但是服务器当机了）</li>
+</ul>
+<p>Node试图做到平衡在这两者之间：在大多数用列做到高效运行，而且容易明白和开发。</p>
+<p>Node不是以下两样东西：</p>
+<ul>
+<li>不是Web框架 （不像Rails或Django，尽管它可以被用来做这样的事情）</li>
+<li>不是编程语言（Node是使用JavaScript编程，它没有自己的编程语言）</li>
+</ul>
+<p>相反，Node是：</p>
+<ul>
+<li>设计上简单，而且容易明白和使用的平台</li>
+<li>适合那些需要快速和处理很多I/O链接的程序</li>
+</ul>
+<p>在基层，Node可以作为一种工具，并编写出以下两类程序：</p>
+<ul>
+<li>需要使用到Web协议（如：HTTP、TCP、UDP、DNS和SSL）的网络程序</li>
+<li>需要对文件系统或者本地进程/内存进行读入和读出操作的程序</li>
+</ul>
+<p>什么是“I/O程序”？ 这里有一些常见的I/O源：</p>
+<ul>
+<li>资料库 （如：MySQL、PostgreSQL、MongoDB、Redis、CouchDB）</li>
+<li>APIs（如：Twitter、Facebook、Apple Push Notifications）</li>
+<li>HTTP/WebSocket的链接（从用户的Web应用程序）</li>
+<li>文件档（图像尺寸伸缩软件、视频编辑软件、网络收音机）</li>
+</ul>
+<p>Node能够<a href="http://en.wikipedia.org/wiki/Asynchronous_I/O" target="_blank" rel="external">异步处理</a>多个不同种类的I/O源。比如说，假设你来到快餐店，你向店员要了一个芝士汉堡，他们会马上为你下单和准备汉堡。然后，他们会要求你在旁边等汉堡完成。在你等待这段时间，他们可以接受其他订单和帮其他人准备汉堡。试想下，如果你站在柜台前面，一直等到你的芝士汉堡完成，那么你就阻碍了后面的人下订单，厨师也不能帮其他人准备汉堡！我们称这个为<strong>阻塞I/O</strong>，因为一次只能处理一个I/O操作（厨师一次只能准备一个汉堡）。Node，不是这样的，它是<strong>非阻塞</strong>性质，就是说它能一次准备很多汉堡。</p>
+<p>多谢Node非阻塞的性质，让我们可以实现以下这么有趣事情：</p>
+<ul>
+<li>控制<a href="http://nodecopter.com" target="_blank" rel="external">Quadcopters飞行</a></li>
+<li>编写IRC谈天机器人</li>
+<li>制作一个<a href="http://www.youtube.com/watch?v=jf-cEB3U2UQ" target="_blank" rel="external">双脚走路的机器人</a></li>
+</ul>
+<h2 id="核心模块"><a href="#核心模块" class="headerlink" title="核心模块"></a>核心模块</h2><p>首先，你需要在电脑上安装Node。Node安装很简单，只需浏览<a href="http://nodejs.org" target="_blank" rel="external">nodejs.org</a>和点击<code>Install</code>.</p>
+<p>Node拥有一组核心模块（通常被称为<code>Node核心</code>）提供公共 API 让你编程时候调用。我们可以调用<code>fs</code>模块来操作文件系统。当我们要进行网络操作时候，我们会调用网络模块，例如：<code>net</code>（TCP），<code>http</code>，<code>dgram</code>（UDP）。</p>
+<p>除了<code>fs</code>和网络模块之外，Node核心还有很多其他的核心模块。如<code>dns</code>模块用来异步解析DNS查询。<code>os</code>模块可以用来收集操作系统的资讯，如tempdir的路径。<code>buffer</code>模块可以处理二进制数据。还有些模块可以处理URL和路径，如：<code>url</code>，<code>querystring</code>和<code>path</code>等等。大部分的核心模块都支持Node的主要使用目标：快速编写能够进行文件或网络操作的程序。</p>
+<p>Node通过回调，事件，数据流和模块来控制I/O。如果你学会了这四样东西如何工作，那么你就能够灵活使用任何核心模块，而且你还会懂得模块的基本接口。</p>
+<h2 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h2><p>如果想真的弄明白怎么使用Node，回调函数是你需要了解的东西中最重要的，没有之一。回调函数倒不是有了Node后才有的，只不过这功能是JavaScript中尤其好用的一个。</p>
+<p>回调函数是指非同步执行的，或者是在将来某个时间才会被执行的函数。同步代码运行的顺序是从上至下，而非同步的程序却是在不同的时间运行不同的函数，这些事件都基于某些某同步函数的顺序和运行速度，包括HTTP请求和从文件系统里读取内容等等。</p>
+<p>这种同步和非同步之间的差异可能会让人比较困惑，因为看一个函数是不是非同步，很大程度上取决于具体的情况。下面是一个很简单的同步函数的例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myNumber = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addOne</span>(<span class="params"></span>) </span>&#123; myNumber++ &#125; <span class="comment">// 定义函数</span></span><br><span class="line">addOne() <span class="comment">// run the function</span></span><br><span class="line"><span class="built_in">console</span>.log(myNumber) <span class="comment">// 结果显示2</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码定义了一个函数，然后调用了它，之间没有任何停留。当该函数被调用时，它立即把那个数字加上1，所以我们可以预见到，调用过该函数后，那个数字的值会变成2。</p>
+<p>现在假设我们把数字存在一个叫<code>number.text</code>的文件里：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>) <span class="comment">// require是Node提供的一个特别函数</span></span><br><span class="line"><span class="keyword">var</span> myNumber = <span class="literal">undefined</span> <span class="comment">// 数字被存在文件里，因此我们并不知道它的值</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addOne</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  fs.readFile(<span class="string">'./number.txt'</span>, <span class="function"><span class="keyword">function</span> <span class="title">doneReading</span>(<span class="params">err, fileContents</span>) </span>&#123;</span><br><span class="line">    myNumber = <span class="built_in">parseInt</span>(fileContents)</span><br><span class="line">    myNumber++</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addOne()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(myNumber) <span class="comment">// 结果显示undefined</span></span><br></pre></td></tr></table></figure>
+<p>为什么这些显示出来的值是<code>undefined</code>？因为在上面的代码中，我们用了<code>fs.readFile</code>这个方法，而它恰好是个非同步方法。一般来说，需要和硬盘沟通或是从通信网络获得数据的，都是非同步的。只是需要从内存里或CPU里读些东西的话，就是同步的。这是因为I/O（输入输出）是非常非常非常慢的。如果要大概形容一下，从硬盘里读取大概比从内存里读取慢了10万倍。</p>
+<p>当这个程序运行的时候，所有的函数都马上被定义，但它们不是马上都被执行的。这是非同步编程的一个基础概念。当<code>addOne</code>被调用的时候，Node执行<code>readFile</code>这个方法，但不等到<code>readFile</code>结束，它就继续进行下一个不需要等待就能执行的函数了。如果没有可以执行的东西了，Node要么会停下来，等待文件读取或是网络通讯结束，要么就结束运行，返回到命令行。</p>
+<p>当<code>readFile</code>终于把文件读完的时候（需要的时间从几毫秒到几秒到几分钟不等，要看硬盘有多快），Node会执行<code>doneReading</code>这个函数，并把报的错（如果读文件的时候有报错的话）和文件的内容传给它。</p>
+<p>在上面的程序中，之所以会显示<code>undefine</code>，是因为我们的代码并没有在任何地方注明了要在文件读取完成后再<code>console.log</code>出数字。</p>
+<p>如果你有一些想要反复执行的代码，你应该做的第一件事就是把这些代码放在一个函数里。然后，在你需要执行那些代码的时候，调用这个函数就好了。你给函数起的名字最好能让人一看就知道这个函数是做什么的。</p>
+<p>回调函数，不过是在将来某个时间被执行的函数。要理解回调函数，很关键的一点是它被使用的时机。你使用回调函数的前提是，你不知道<strong>什么时候</strong>某个非同步进程会结束，但知道这个进程会在<strong>哪里</strong>结束————就在那个非同步函数的最后一行！你在什么地方声明这些函数并不重要，重要的是这些函数之间的逻辑顺序。把代码分装进各个函数之后，如果一个函数的执行取决于另一个函数何时结束，就该使用回调函数了。</p>
+<p>上面代码中的<code>fs.readFile</code>方法是Node自带的，这个方法是非同步的，而且要花费很长时间。想想看它要做多少事情：它要进入操作系统，进入文件系统，文件系统可是在硬盘上的，硬盘可能转得飞快，也可能根本就不转。然后它要用激光读出数据，并把数据传回你的JavaScript程序。当你给了它一个回调函数后，它就可以在成功从文件系统中取得数据以后，调用那个回调函数。它会把数据放在一个变量里，交给你给的回调函数，我们给这个变量起的名字叫做<code>fileContents</code>，因为变量中包含的是读取到的文件内容。</p>
+<p>想想看这个教程刚开始时的那个餐厅的例子。在很多餐厅，在你点的菜上来之前，服务生会放一个数字牌在你桌上。这个和回调函数很类似。回调函数的作用就是告诉服务器在你的芝士汉堡好了后要做些什么。</p>
+<p>现在，让我们把<code>console.log</code>放进一个函数里作回调函数使用吧。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"><span class="keyword">var</span> myNumber = <span class="literal">undefined</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addOne</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">  fs.readFile(<span class="string">'./number.txt'</span>, <span class="function"><span class="keyword">function</span> <span class="title">doneReading</span>(<span class="params">err, fileContents</span>) </span>&#123;</span><br><span class="line">    myNumber = <span class="built_in">parseInt</span>(fileContents)</span><br><span class="line">    myNumber++</span><br><span class="line">    callback()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logMyNumber</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(myNumber)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addOne(logMyNumber)</span><br></pre></td></tr></table></figure>
+<p>现在<code>logMyNumber</code>这个函数可以被传给<code>addOne</code>作为回调函数了。在<code>readFile</code>完成后，<code>callback</code>这个变量会被执行（也就是<code>callback()</code>)。只有函数才能被执行，所以如果你提供一个不是函数的东西，程序会出错。</p>
+<p>在JavaScript里，当函数被调用，其包含的代码会立刻被执行。在这个例子里，<code>console.log</code>会被执行，因为<code>callback</code>其实就是<code>logMyNumber</code>。要记得，你<em>定义</em>了一个函数，不代表它会执行！你一定得<em>调用</em>它才行。</p>
+<p>如果要更细地分析一下这个例子，下面是按时间顺序排列的所有发生的事件：</p>
+<ul>
+<li>1: 代码被分析，这时，如果有任何语法错误，程序会停止并报错。</li>
+<li>2: <code>addOne</code>被调用，以<code>logMyName</code>作为它的回调函数，也就是我们想在<code>addOne</code>结束后执行的函数。接下来，非同步的<code>fs.readFile</code>马上开始运行。这个部分要花上点时间。</li>
+<li>3: Node暂时没事做的，于是它就闲下来等待着<code>readFile</code>结束。</li>
+<li>4: <code>readFile</code>结束了，<code>doneReading</code>这个函数被调用，它把数字加上1然后马上调用回调函数————也就是我们传给<code>addOne</code>的<code>logMyNumber</code>。</li>
+</ul>
+<p>也许关于回调函数最难理解的部分是，为什么函数可以被存在变量里被传来传去，而且还有着变来变去的名字。要让你的代码更容易被看懂，给你的函数起简单明了的名字是很重要的一部分。总的来说，在使用Node时，如果你看见一个变量叫做<code>callback</code>或是它的缩写<code>cb</code>，你差不多可以确定它就是一个函数。</p>
+<p>你可能听过一个术语叫“事件驱动式编程”，或者叫“事件循环”。<code>readFile</code>这类的函数就利用了“事件循环”。Node首先开始运行<code>readFile</code>，并等待着<code>readFile</code>发回一个事件。在Node等待的这段时间，它可以继续运行其他的东西。在Node里有一个列表，里面记下了所有开始运行却还没有发回结束信号的事，Node就一遍遍循环检查这个列表，看看有没有事情完成了。它们运行完之后，就会被Node处理掉，也就是说，需要运行的回调函数会被运行。</p>
+<p>下面是上面例子的伪代码写法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addOne</span>(<span class="params">thenRunThisFunction</span>) </span>&#123;</span><br><span class="line">  waitAMinuteAsync(<span class="function"><span class="keyword">function</span> <span class="title">waitedAMinute</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    thenRunThisFunction()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addOne(<span class="function"><span class="keyword">function</span> <span class="title">thisGetsRunAfterAddOneFinishes</span>(<span class="params"></span>) </span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<p>假设你有三个非同步函数：<code>a</code>、<code>b</code>，和<code>c</code>。它们要花上一分钟来运行，运行完了之后会调用一个回调函数（函数以第一个参数的形式被传进函数）。如果你想让Node先运行a，a运行完后运行b，b运行完后再运行c，那么程序是下面这样的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  b(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    c()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>当这段代码被运行时，<code>a</code>马上就会被运行，一分钟后<code>a</code>结束运行，<code>b</code>开始执行，再一分钟后，<code>b</code>结束运行，<code>c</code>开始运行。最后，也就是三分钟后，Node会停止运行，因为所有事都运行完了。上面的代码可能看起来没那么漂亮，但重点是，如果有些代码需要在某些非同步的事情运行完了之后再运行，你需要做的是把那些代码放进一个函数，当作回调函数传给非同步函数，以表示回调函数中的代码要依赖非同步的部分运行结束才能运行。</p>
+<p>Node要求你用非线性的思维思考。看看下面这两件事：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">read</span> <span class="keyword">a</span> <span class="built_in">file</span></span><br><span class="line"><span class="built_in">process</span> that <span class="built_in">file</span></span><br></pre></td></tr></table></figure>
+<p>如果你只是不假思索地把这两件事改成伪代码，你会这么写：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> file = readFile()</span><br><span class="line"><span class="function"><span class="title">processFile</span><span class="params">(file)</span></span></span><br></pre></td></tr></table></figure>
+<p>这种线性的代码不是Node的风格。（线性是指一步接一步、按照顺序地）。如果上面的代码被运行了。那么<code>readFile</code>和<code>processFile</code>会同时被调用。这根本说不通，因为<code>reafFile</code>要花上一阵子时间才能运行结束。正确的做法是，表达清楚<code>processFile</code>是要依赖<code>readFile</code>结束才能运行的。这就是回调函数的作用了！因为JavaScript的特点，有好几种方法可以表达这种依赖性：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line">fs.readFile(<span class="string">'movie.mp4'</span>, finishedReading)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">finishedReading</span>(<span class="params">error, movieData</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (error) <span class="keyword">return</span> <span class="built_in">console</span>.error(error)</span><br><span class="line">  <span class="comment">// do something with the movieData</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不过你这样写也可以，照样会成功运行：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">finishedReading</span>(<span class="params">error, movieData</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (error) <span class="keyword">return</span> <span class="built_in">console</span>.error(error)</span><br><span class="line">  <span class="comment">// do something with the movieData</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fs.readFile(<span class="string">'movie.mp4'</span>, finishedReading)</span><br></pre></td></tr></table></figure>
+<p>甚至像下面这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"></span><br><span class="line">fs.readFile(<span class="string">'movie.mp4'</span>, <span class="function"><span class="keyword">function</span> <span class="title">finishedReading</span>(<span class="params">error, movieData</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (error) <span class="keyword">return</span> <span class="built_in">console</span>.error(error)</span><br><span class="line">  <span class="comment">// do something with the movieData</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>在Node中如果你加载了<a href="http://nodejs.org/api/events.html" target="_blank" rel="external">events</a>模块， 就可以用被称作<code>event emitter</code>（事件分发器）的功能。 Node在它的API中使用这一功能分发事件。</p>
+<p>在编程中运用<code>事件</code>是一种常见的方法。它还有一个我们更为熟知的名字<a href="https://zh.wikipedia.org/wiki/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">观察者模式</a>，或者<code>发布／监听</code>模式。在回调函数的模式中，调用回调函数的命令与等待回调函数的命令间的关系是一一对应的，而在事件模式中这两种命令的关系可以是多对多的。</p>
+<p>理解事件最简单的方式，就是把它当成一个你监听的东西。如果说在回调函数里面我们的逻辑是<code>先做X，再做Y</code>，那么在事件中我们的逻辑是<code>当X发生时，做Y</code>。</p>
+<p>以下是一些常见的用事件取代回调函数的例子：</p>
+<ul>
+<li>需要向所有听众广播的聊天室</li>
+<li>需要及时了解玩家上线、下线、运动、设计、跳跃等动作的游戏服务器</li>
+<li>需要能让开发者执行<code>.on(&#39;jump&#39;, function() {})</code>这种命令的游戏引擎</li>
+<li>能够执行<code>.on(&#39;incomingRequest&#39;)</code> 或 <code>.on(&#39;serverError&#39;)</code>这一API的低端web服务器。</li>
+</ul>
+<p>如果我们想只用回调函数写一个连接聊天服务器的模块的话，代码会长这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> chatClient = <span class="built_in">require</span>(<span class="string">'my-chat-client'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onConnect</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// have the UI show we are connected</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onConnectionError</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// show error to the user</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onDisconnect</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="comment">// tell user that they have been disconnected</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onMessage</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line"> <span class="comment">// show the chat room message in the UI</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chatClient.connect(</span><br><span class="line">  <span class="string">'http://mychatserver.com'</span>,</span><br><span class="line">  onConnect,</span><br><span class="line">  onConnectionError,</span><br><span class="line">  onDisconnect,</span><br><span class="line">  onMessage</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>正如你所见，用回调函数写会变得十分笨拙。你需要把所有的功能函数按特定的顺序传给<code>.connect</code>来执行。但是将上面所写的功能用事件来实现，就会变成这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> chatClient = <span class="built_in">require</span>(<span class="string">'my-chat-client'</span>).connect()</span><br><span class="line"></span><br><span class="line">chatClient.on(<span class="string">'connect'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// have the UI show we are connected</span></span><br><span class="line">&#125;) </span><br><span class="line"></span><br><span class="line">chatClient.on(<span class="string">'connectionError'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// show error to the user</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">chatClient.on(<span class="string">'disconnect'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// tell user that they have been disconnected</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">chatClient.on(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// show the chat room message in the UI</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这种写法和回调函数很像，但是运用了高大上的<code>.on</code>功能，它会让一个回调函数‘监听’一个事件。 这意味着你可以在<code>chatClient</code>中选择任意一个想要监听的事件。 你甚至可以为多个回调函数监听同一个事件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> chatClient = <span class="built_in">require</span>(<span class="string">'my-chat-client'</span>).connect()</span><br><span class="line">chatClient.on(<span class="string">'message'</span>, logMessage)</span><br><span class="line">chatClient.on(<span class="string">'message'</span>, storeMessage)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logMessage</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(message)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">storeMessage</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">  myDatabase.save(message)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="流"><a href="#流" class="headerlink" title="流"></a>流</h2><p>在早期的node项目中，文件系统和网络API有各自处理I/O流的方式。比如，在文件系统中，文件有一个‘文件描述器’的东西，因此<code>fs</code>模块需要调用额外的逻辑来跟踪这个东西。然而在网络模块中根本没有’xx描述器‘这样的概念。尽管在语义上有像这样较小的区别，在最底层这两种模块（文件系统、网络模块）在重复着同样的数据读写操作。Node的维护们很快意识到这样的重复很容易迷惑开发者，于是他们造了这么个叫<code>流</code>（Stream）的东西，使网络与文件系统的代码可以同样工作。</p>
+<p>Node的理念就是以更简单的方式来处理文件系统和网络，所有理所应当的应该有一个通用的模式，可以在不同的场景中运用。好消息是，类似的大多数模式（尽管数量很少）现在已经被认为node在未来不会去更改。</p>
+<p>已经有两个很棒的资源可以用来学习node的流对象。一个叫‘stream-adventure’（参考‘<a href="#了解Node">了解Node</a>’部分),另一个叫‘Stream Handbook’。</p>
+<h3 id="Stream-Handbook"><a href="#Stream-Handbook" class="headerlink" title="Stream Handbook"></a>Stream Handbook</h3><p><a href="https://github.com/substack/stream-handbook#introduction" target="_blank" rel="external">stream-handbook</a> 是一个与本项目相似的，包含所有你需要、想要了解的有关流对象的内容的教程。</p>
+<p><a href="https://github.com/substack/stream-handbook" target="_blank" rel="external"><img src="https://github.com/maxogden/art-of-node/raw/master/stream-handbook.png" alt="stream-handbook"></a></p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>Node的核心是由许多模块（modules）组成，像底层的<a href="#事件">事件</a>和<a href="#流">流</a>，高一些层次的<code>http</code>和<code>crypto</code>。</p>
+<p>Node有意被设计成这样，使它的核心模块轻量化，并注重于提供跨平台的处理普通I/O协议和类型的最基本工具。</p>
+<p>除此之外，你可以在<a href="https://npmjs.org/" target="_blank" rel="external">npm</a>上找到其它需要了解的东西。任何人都可以创建一个新的模块，添加一些功能，并发布到<code>npm</code>上。到目前为止，npm上已经有196,950个模块可供下载。</p>
+<h3 id="如何找到心怡的模块"><a href="#如何找到心怡的模块" class="headerlink" title="如何找到心怡的模块"></a>如何找到心怡的模块</h3><p>想象一下你在试图把一个PDF文件转换成一个TXT文本。最好的方式就是执行这样一个搜索命令<code>npm search pdf</code>：</p>
+<p><img src="https://github.com/maxogden/art-of-node/raw/master/npm-search.png" alt="pdfsearch"></p>
+<p>这里有数以千计的结果！ npm十分热门，所以通常你都可以找到许多可能的解决方案。 如果你把以上的搜索结果浓缩一下（比如过滤掉PDF生成模块），你会得到这样的一些结果：</p>
+<ul>
+<li><a href="https://github.com/galkahana/HummusJS/wiki/Features" target="_blank" rel="external">hummus</a> - c++ pdf manipulator</li>
+<li><a href="https://github.com/steelThread/mimeograph" target="_blank" rel="external">mimeograph</a> - api on a conglomeration of tools (poppler, tesseract, imagemagick etc)</li>
+<li><a href="https://npmjs.org/package/pdftotextjs" target="_blank" rel="external">pdftotextjs</a> - wrapper around <a href="https://en.wikipedia.org/wiki/Pdftotext" target="_blank" rel="external">pdftotext</a></li>
+<li><a href="https://npmjs.org/package/pdf-text-extract" target="_blank" rel="external">pdf-text-extract</a> - another wrapper around pdftotext</li>
+<li><a href="https://npmjs.org/package/pdf-extract" target="_blank" rel="external">pdf-extract</a> - wrapper around pdftotext, pdftk, tesseract, ghostscript</li>
+<li><a href="https://npmjs.org/package/pdfutils" target="_blank" rel="external">pdfutils</a> - poppler wrapper</li>
+<li><a href="https://npmjs.org/package/scissors" target="_blank" rel="external">scissors</a> - pdftk, ghostscript wrapper w/ high level api</li>
+<li><a href="https://npmjs.org/package/textract" target="_blank" rel="external">textract</a> - pdftotext wrapper</li>
+<li><a href="https://github.com/fagbokforlaget/pdfiijs" target="_blank" rel="external">pdfiijs</a> - pdf to inverted index using textiijs and poppler</li>
+<li><a href="https://github.com/modesty/pdf2json/blob/master/readme.md" target="_blank" rel="external">pdf2json</a> - pure js pdf to json</li>
+</ul>
+<p>在这之中许多模块都有重复的功能，并且使用了不同的API。很多模块可能会依赖外部的库，你需要先安装这些库（比如 <code>apt-get install poppler</code>）才能使用这些模块。</p>
+<p>以下是对上述这些模块的一些说明：</p>
+<ul>
+<li><code>pdf2json</code>是唯一一个用纯JavaScript写的模块，所以他没有依赖并且很容易安装。特别是在一些低功耗的设备上，像树莓派，或者像Windoes这样没有跨平台库支持的操作系统。</li>
+<li><code>mimeograph</code>, <code>hummus</code> 和<code>pdf-extract</code> ，这几个模块集合了许多底层的模块，并抽象出高层的API</li>
+<li>许多模块实际上都是在unix命令后工具<code>pdftotext</code>/<code>poppler</code>上搭建的</li>
+</ul>
+<p>让我们来比较一下<code>pdftotextjs</code> 和 <code>pdf-text-extract</code>这两个工具，他们都是在<code>pdftotext</code>的基础上打包而成的。</p>
+<p><img src="https://github.com/maxogden/art-of-node/raw/master/pdf-modules.png" alt="pdf-modules"></p>
+<p>这两个模块:</p>
+<ul>
+<li>最近都有更新</li>
+<li>有github的项目链接（这一点很重要！）</li>
+<li>有说明文档</li>
+<li>每周都有一定的新安装用户</li>
+<li>非常宽松的使用许可（所有人都可以使用）</li>
+</ul>
+<p>仅依靠<code>package.json</code>文件和模块的统计数据很难说哪一个最正确的选择。所以我们来对比一下说明文档吧：</p>
+<p><img src="https://github.com/maxogden/art-of-node/raw/master/pdf-readmes.png" alt="pdf-readmes"></p>
+<p>两个文档都有简单的介绍，CI编译通过的标志，安装命令，清晰的例子和一些测试命令。赞！但是我们要选哪一个呢？我们来对比一下代码吧：</p>
+<p><img src="https://github.com/maxogden/art-of-node/raw/master/pdf-code.png" alt="pdf-code"></p>
+<p><code>pdftotextjs</code> 有110行代码，而<code>pdf-text-extract</code>则只有40行。其实这两个模块最核心的操作可以归结为这一行代码：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> child = shell.exec(<span class="string">'pdftotext '</span> + <span class="built_in">self</span>.options.additional.<span class="keyword">join</span>(<span class="string">' '</span>));</span><br></pre></td></tr></table></figure>
+<p>通过这一点能判断出哪一个更好吗？很难说诶！所以<em>读</em>代码再下结论是很重要的。如果你找到了想要的模块，执行<code>npm star modulename</code>来给你喜欢的模块一个正面的反馈信息吧。</p>
+<h3 id="模块开发流程"><a href="#模块开发流程" class="headerlink" title="模块开发流程"></a>模块开发流程</h3><p>npm和大多数的包管理软件不同，它会将模块安装在另一个已有模块的目录中。这句话可能很难以理解，但知道这是npm成功的关键就好。</p>
+<p>许多包管理软件会全局安装。比如你在Debian系统上执行<code>apt-get install couchdb</code>，apt-get会试图安装最新的CouchDB。如果你再试图安装一个依赖旧版本CouchDB的软件，你就得卸载掉新的版本，再安装旧版本的CouchDB。你无法同时保留新旧两个版本的CouchDB，因为Debian(apt-get)只知道将软件安到同一个位置。</p>
+<p>当然这不是Debian一个系统的错，绝大多数语言的包管理软件都这样。 为了解决这种全局依赖的问题，已经有了许多虚拟环境的项目被创建出来。比如针对Python的 <a href="http://python-guide.readthedocs.org/en/latest/dev/virtualenvs/" target="_blank" rel="external">virtualenv</a>，或者针对Ruby的<a href="http://bundler.io/" target="_blank" rel="external">bundler</a>。然而这些只是把你的环境配置划分成不同的虚拟环境，每个工程对应一个，但实际上每个环境配置依旧是全局安装的。而且虚拟环境不总是能解决问题，有时候只是增加了多一层的复杂度。</p>
+<p>用npm来安装全局模块是反人类的。就像你不应该在你的JavaScript代码中使用全局变量一样。（除非你需要一个可执行的二进制文件集成进<code>PATH</code>中，但你不总需要这样做－－在后面我们会解释这一点）。</p>
+<h4 id="require命令是如何工作的"><a href="#require命令是如何工作的" class="headerlink" title="require命令是如何工作的"></a><code>require</code>命令是如何工作的</h4><p>当我们加载一个模块的时候，我们调用<code>require(&#39;some_module&#39;)</code>，以下是在node中会发生的事情：</p>
+<ol>
+<li>如果<code>some_module.js</code>文件在当前目录下，node会加载它，否则</li>
+<li>node会在当前目录下寻找 <code>node_modules</code> 文件夹，然后在其中找<code>some_module</code></li>
+<li>如果还没找到，node会跳到上一层文件夹，然后重复步骤2</li>
+</ol>
+<p>这一操作会不断循环直到node找到根目录是还没有找的这个模块，在那之后node回去找全局安装时的文件夹（比如Mac OS系统上的 <code>/usr/local/node_modules</code>），如果还没有找到这个<code>some_module</code>，node会报错。</p>
+<p>这里有一个上述操作的可视化说明：</p>
+<p><img src="https://github.com/maxogden/art-of-node/raw/master/mod-diagram-01.png" alt="mod-diagram-01"></p>
+<p>当前的工作目录为<code>subsubfolder</code>，并且<code>require(&#39;foo&#39;)</code>被执行时，node会查找 <code>subsubsubfolder/node_modules</code>这个子目录。在这个例子中，由于这个子目录被错误地命名为<code>my_modules</code>了，因而node找不到它，只好跳到<code>subsubfolder</code>的上一级目录<code>subfolder_B</code>寻找<code>subfolder_B/node_modules</code>，然而这个文件夹不存在；于是node再往上一级目录寻找，在<code>subfolder_B</code>的上一级目录<code>folder</code>中找到了<code>folder/node_modules</code>，<em>并且</em><code>foo</code>文件夹在其中。至此搜索便结束了，但如果<code>foo</code>并不在那个目录里，node会继续往上一层目录搜索。</p>
+<p>注意这点，我们在<code>subfolder_B</code>中没找到<code>foo</code>模块并向上一级目录寻找的时候，并不会向同一级的 <code>subfolder_A/node_modules</code>中寻找。在它的搜索树中只有 <code>folder/node_modules</code>。</p>
+<p>使用npm的一个好处就是，模块可以安装自己依赖的特定版本模块。 在这个例子中，<code>foo</code>模块特别流行，以至于我们将三个版本安装在不同位置。这样做的原因是调用它们的模块依赖特定版本的<code>foo</code>，比如<code>folder</code>依赖<code>foo@0.0.1</code>, <code>subfolder_A</code> 依赖 <code>foo@0.2.1</code> 等等.</p>
+<p>如果我们把刚才的那个错误的文件夹名称改过来，从<code>my_modules</code>改成<code>node_modules</code>，那么搜索过程就会变成这样:</p>
+<p><img src="https://github.com/maxogden/art-of-node/raw/master/mod-diagram-02.png" alt="mod-diagram-02"></p>
+<p>为了测试node到底加载了哪个模块，可以执行<code>require.resolve(&#39;some_module&#39;)</code> 命令，这会告诉你哪个文件路径下的模块被node找到并调用了。<code>require.resolve</code> 非常有用，尤其是在确认你<em>认为</em>被夹在的模块是<em>实际上</em>被加载的模块的时候－－有时候一个不同版本的模块可能被存在了被更先查找的位置，导致你的代码调用了错误版本的模块。</p>
+<h3 id="如何写一个模块"><a href="#如何写一个模块" class="headerlink" title="如何写一个模块"></a>如何写一个模块</h3><p>现在你已经知道了如何找一个模块了，在这之后你就可以开始开发自己的模块了！</p>
+<h4 id="The-simplest-possible-module"><a href="#The-simplest-possible-module" class="headerlink" title="The simplest possible module"></a>The simplest possible module</h4><p>Node的模块十分的轻量化。这里有一个最简单的node模块：</p>
+<p><code>package.json</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"number-one"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>index.js</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>默认情况下，当你调用<code>require(&#39;module&#39;)</code>时node会试图加载<code>module/index.js</code>，除非你在<code>package.json</code>中设定了<code>main</code>一项内容指向你的代码，不然用的名称的文件无法被node识别。</p>
+<p>把这两个文件放到<code>number-one</code>目录下（<code>package.json</code>中的<code>id</code>一项必须和目录的名称相同），然后你就可以加载他们了。</p>
+<p>调用<code>require(&#39;number-one&#39;)</code> 这一命令会返回你在模块中<code>module.exports</code>输出的内容：</p>
+<p><img src="https://github.com/maxogden/art-of-node/raw/master/simple-module.png" alt="simple-module"></p>
+<p>一个更快捷的创建模块的方法是，执行以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir my_module</span><br><span class="line"><span class="built_in">cd</span> my_module</span><br><span class="line">git init</span><br><span class="line">git remote add git@github.com:yourusername/my_module.git</span><br><span class="line">npm init</span><br></pre></td></tr></table></figure>
+<p>执行<code>npm init</code>会生成一个<code>package.json</code>，如果你是在一个<code>git</code>项目里执行，它还会在<code>package.json</code>中自动帮你把<code>repositories</code>设成你的git repo地址！</p>
+<h4 id="添加依赖项"><a href="#添加依赖项" class="headerlink" title="添加依赖项"></a>添加依赖项</h4><p>一个模块可以添加其它在npm上或是在Github上的模块到他的配置文件<code>package.json</code>中的<code>dependencies</code>项。如果你想安装一个新的依赖项，并把它自动添加到<code>package.json</code>中，在你的模块的根目录中执行这个命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save request</span><br></pre></td></tr></table></figure>
+<p>这个命令会安装<code>request</code>模块到最近的<code>node_modules</code>文件夹中，并会把<code>package.json</code>改成这样：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"id"</span>: <span class="string">"number-one"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"request"</span>: <span class="string">"~2.22.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>默认情况下 <code>npm install</code>会安装模块的最新版本。</p>
+<h2 id="用npm在客户端开发"><a href="#用npm在客户端开发" class="headerlink" title="用npm在客户端开发"></a>用npm在客户端开发</h2><p>人们对npm有一个常见的错误观念，认为npm的名字中有一个Node，所以只能用于服务器端的JS模块。一派胡言！npm的全称是Node Packaged Modules，是由node为你打包过的模块。而模块本身可以是任何东西－－本质上只是一个被打包成.tar.gz的文件夹，和一个声明了模块版本和模块依赖项的配置文件<code>package.json</code> （也包括依赖项的版本，这样对应版本的依赖项会被自动安装）。这是无穷无尽的－－模块可以有依赖，模块的依赖项也可以有依赖，依赖项的依赖项也可以有依赖。。。</p>
+<p><a href="http://browserify.org/" target="_blank" rel="external">browserify</a> 是一个用Node写的实用工具，可以讲任何node模块转换成可以在浏览器上运行的代码。当然，并不是所有模块都能工作（比如浏览器无法搭一个HTTP服务器），但是很多NPM上的模块<em>可以</em>。</p>
+<p>你可以用<a href="http://requirebin.com/" target="_blank" rel="external">RequireBin</a>来尝试在浏览器上使用npm的模块，这是一个<a href="https://github.com/maxogden" target="_blank" rel="external">原作者</a>写的应用，它在<a href="https://github.com/jesusabdullah/browserify-cdn" target="_blank" rel="external">Browserify-CDN</a>的基础上完成。原作在RequireBin中使用了browserify，并通过HTTP返回输出结果（而不是通过命令后－－browserify通常都是用来干这个）</p>
+<p>试着将下面的代码粘贴到<a href="http://requirebin.com/" target="_blank" rel="external">RequireBin</a>并点<code>preview</code>按钮：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reverse = <span class="built_in">require</span>(<span class="string">'ascii-art-reverse'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// makes a visible HTML console</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'console-log'</span>).show(<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> coolbear =</span><br><span class="line">  <span class="string">"    ('-^-/')  \n"</span> +</span><br><span class="line">  <span class="string">"    `o__o' ]  \n"</span> +</span><br><span class="line">  <span class="string">"    (_Y_) _/  \n"</span> +</span><br><span class="line">  <span class="string">"  _..`--'-.`, \n"</span> +</span><br><span class="line">  <span class="string">" (__)_,--(__) \n"</span> +</span><br><span class="line">  <span class="string">"     7:   ; 1 \n"</span> +</span><br><span class="line">  <span class="string">"   _/,`-.-' : \n"</span> +</span><br><span class="line">  <span class="string">"  (_,)-~~(_,) \n"</span></span><br><span class="line"></span><br><span class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(coolbear) &#125;, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(reverse(coolbear)) &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;, <span class="number">500</span>)</span><br></pre></td></tr></table></figure>
+<p>或者看这个<a href="http://requirebin.com/?gist=6031068" target="_blank" rel="external">更复杂的例子</a>（可以随意改变它的颜色）：</p>
+<p><a href="http://requirebin.com/embed?gist=6031068" target="_blank" rel="external"><img src="https://github.com/maxogden/art-of-node/raw/master/requirebin.png" alt="requirebin"></a></p>
+<h2 id="析薪杝矣"><a href="#析薪杝矣" class="headerlink" title="析薪杝矣"></a>析薪杝矣</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">原文的标题是Going <span class="keyword">with</span> <span class="keyword">the</span> Grain，大意是顺应着木材的纹理(刨木)，不违背它</span><br><span class="line">此处的<span class="string">'析薪杝矣'</span>出自詩·小雅：</span><br><span class="line">	伐木掎矣，析薪杝矣</span><br><span class="line">大意为，砍伐树木时,要撑住使大树不致突然倒下;劈木材,要依循木材的纹理,才比较容易</span><br></pre></td></tr></table></figure>
+<p>像任意一个顺手的工具一样，node非常强大，但也只适用于特定的应用场景。比如，Rails这个网络架构，非常适合做一些复杂的<a href="(http://en.wikipedia.org/wiki/Business_logic">框架</a>)，比如用代码来构建生活中的业务对象：帐户、借贷、流程图、存货清单等等。虽然从技术上讲，用node可以完成同样的工作，但这并不是node的强项，node更适合去做一些处理I/O问题的工作。希望这个教程能够帮你获得对node适用方案的直觉。</p>
+<h3 id="node外的世界"><a href="#node外的世界" class="headerlink" title="node外的世界"></a>node外的世界</h3><p>node只是一个处理文件系统和网络I/O的工具，它把更多有趣的功能留给第三方模块来处理。以下是node核心模块之外奇妙世界的一些介绍：</p>
+<h4 id="网络框架"><a href="#网络框架" class="headerlink" title="网络框架"></a>网络框架</h4><p>有许多搭建在node之上的网络框架（框架是一种解决特定高层应用问题的功能集合），但是node自身并不是一个网络框架。一些搭建在node之上的网络框架有自己的特性、抽象和权衡，这些和node自身的理念与开发优先级不一定相同。</p>
+<h4 id="编程语法"><a href="#编程语法" class="headerlink" title="编程语法"></a>编程语法</h4><p>Node适用Javascript的语法并且没有加以修饰。 Felix Geisendörfer针对node的风格有一篇很棒的<a href="https://github.com/felixge/node-style-guide" target="_blank" rel="external">介绍</a>。</p>
+<h4 id="语言的抽象"><a href="#语言的抽象" class="headerlink" title="语言的抽象"></a>语言的抽象</h4><p>node用最简单的方式来完成任务。在Javascirpt中，你想把它做的越有趣，就会带来更大的复杂度。编程是有难度的，尤其是在写js的时候更有这种体会，因为你应对的每一个问题都可能有1000种解决方案。正是因为如此，node试图用最简单、通用的方式来解决问题。如果你在处理一个很复杂的问题，并且你并不满意node应用的‘vanilla JS’解决方案，你大可不用它，并且自己写一个模块，用你自己喜欢的方法来解决它。</p>
+<p>一个很棒的例子就是node中的回调函数。 早期node的一些实验中，有一个特性叫做‘promises’。它被用来使异步运行的代码看上去更线性。但是出于以下原因，这个特性后来被移除了：</p>
+<ul>
+<li>它比回调函数更复杂</li>
+<li>它可以让用户来选择应用（在npm上以第三方模块的形式发布）</li>
+</ul>
+<p>试着考虑node处理的最基本最通用的事情：读取一个文件，当你读一个文件的时候，你希望在诸如硬盘错误这种事件发生的时候能及时知道。如果node用了上述的’promises‘特性，那么每个人的代码就会变成这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile(<span class="string">'movie.mp4'</span>)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// do stuff with data</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .error(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// handle error</span></span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<p>这添加了复杂度，而且并不是所有人都想要这个特性。 node会用一个简单的回调函数来完成这两个独立的功能。其它的诸如此的规则还有：</p>
+<ul>
+<li>当没有错误的时候，对第一个参数返回null</li>
+<li>当有错误的时候，对第一个参数返回错误代码</li>
+<li>其它的变量可以用来做任何事情（node多数情况下在读写东西，所以这些变量通常被用来传数据或响应）</li>
+</ul>
+<p>基于上述规则写出来的回调函数则应是这样的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile(<span class="string">'movie.mp4'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// handle error, do stuff with data</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="线程-纤程-非事件的并发处理"><a href="#线程-纤程-非事件的并发处理" class="headerlink" title="线程/纤程/非事件的并发处理"></a>线程/纤程/非事件的并发处理</h4><p>注意：如果你并不知道这些词的含义，你可能会学Node学的更轻松一些。</p>
+<p>Node内部使用线程来加速操作，但是这些部分并不会暴露给用户。如果你是专业人员，并且对node的设计理念十分好奇的话，推荐你阅读这篇<a href="http://nikhilm.github.com/uvbook/" target="_blank" rel="external">the design of libuv</a>，这个是node使用的C++ I/O层。</p>
+<h2 id="使用许可"><a href="#使用许可" class="headerlink" title="使用许可"></a>使用许可</h2><p><img src="https://github.com/maxogden/art-of-node/raw/master/CCBY.png" alt="CCBY"></p>
+<p>原文适用知识共享许可协议<br><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank" rel="external">http://creativecommons.org/licenses/by/2.0/</a></p>
+<p>捐款图标来源于 <a href="http://thenounproject.com/term/donate/285/" target="_blank" rel="external">Noun Project</a></p>
+<p>转自： <a href="https://github.com/maxogden/art-of-node" target="_blank" rel="external">https://github.com/maxogden/art-of-node</a></p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js入门"><span class="nav-text">Node.js入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解Node"><span class="nav-text">了解Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心模块"><span class="nav-text">核心模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回调函数"><span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件"><span class="nav-text">事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流"><span class="nav-text">流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stream-Handbook"><span class="nav-text">Stream Handbook</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块"><span class="nav-text">模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何找到心怡的模块"><span class="nav-text">如何找到心怡的模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块开发流程"><span class="nav-text">模块开发流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#require命令是如何工作的"><span class="nav-text">require命令是如何工作的</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何写一个模块"><span class="nav-text">如何写一个模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-simplest-possible-module"><span class="nav-text">The simplest possible module</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加依赖项"><span class="nav-text">添加依赖项</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用npm在客户端开发"><span class="nav-text">用npm在客户端开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#析薪杝矣"><span class="nav-text">析薪杝矣</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#node外的世界"><span class="nav-text">node外的世界</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络框架"><span class="nav-text">网络框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编程语法"><span class="nav-text">编程语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语言的抽象"><span class="nav-text">语言的抽象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程-纤程-非事件的并发处理"><span class="nav-text">线程/纤程/非事件的并发处理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用许可"><span class="nav-text">使用许可</span></a></li></ol></div>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#Node" rel="tag">#Node</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/Node 的艺术.html"
+           data-title="Node 的艺术" data-url="http://blog.yongyuan.com/post/Node 的艺术.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

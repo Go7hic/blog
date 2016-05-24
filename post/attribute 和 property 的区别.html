@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="JavaScript," />
+
+
+<meta name="description" content="之前很早用 jQuery 的时候就遇到这个问题，想写篇文章来研究一下这两个的区别。但是只在印象笔记里开了个头就没继续了。刚好前段时间看到 winter 在微博上写了篇短文，我就直接参考啦。
+一、概述
+attribute和property是常常被弄混的两个概念。
+简单来说，property则是JS代码里访问的：
+document.getElementByTagName(&amp;apos;my-elemen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="attribute 和 property 的区别">
+<meta property="og:url" content="http://blog.yongyuan.com/post/attribute 和 property 的区别.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="之前很早用 jQuery 的时候就遇到这个问题，想写篇文章来研究一下这两个的区别。但是只在印象笔记里开了个头就没继续了。刚好前段时间看到 winter 在微博上写了篇短文，我就直接参考啦。
+一、概述
+attribute和property是常常被弄混的两个概念。
+简单来说，property则是JS代码里访问的：
+document.getElementByTagName(&amp;apos;my-elemen">
+<meta property="og:updated_time" content="2015-09-04T17:31:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="attribute 和 property 的区别">
+<meta name="twitter:description" content="之前很早用 jQuery 的时候就遇到这个问题，想写篇文章来研究一下这两个的区别。但是只在印象笔记里开了个头就没继续了。刚好前段时间看到 winter 在微博上写了篇短文，我就直接参考啦。
+一、概述
+attribute和property是常常被弄混的两个概念。
+简单来说，property则是JS代码里访问的：
+document.getElementByTagName(&amp;apos;my-elemen">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> attribute 和 property 的区别 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> attribute 和 property 的区别 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-07-05T11:21:04+08:00" content="2015-07-05">
+              2015-07-05
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/attribute 和 property 的区别.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/attribute 和 property 的区别.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>之前很早用 jQuery 的时候就遇到这个问题，想写篇文章来研究一下这两个的区别。但是只在印象笔记里开了个头就没继续了。刚好前段时间看到 winter 在微博上写了篇短文，我就直接参考啦。</p>
+<p>一、概述</p>
+<p>attribute和property是常常被弄混的两个概念。</p>
+<p>简单来说，property则是JS代码里访问的：</p>
+<pre><code>document.getElementByTagName(&apos;my-element&apos;).prop1 = &apos;hello&apos;;
+</code></pre><p>attribute类似这种：</p>
+<pre><code>&lt;my-element attr1=&quot;cool&quot; /&gt;
+</code></pre><p>JS代码里访问attribute的方式是getAttribute和setAttribute：</p>
+<pre><code>document.getElementByTagName(&apos;my-element&apos;).setAttribute(&apos;attr1&apos;,&apos;Hello&apos;);
+document.getElementByTagName(&apos;my-element&apos;).getAttribute(&apos;attr1&apos;,&apos;Hello&apos;);
+</code></pre><p>二、区别</p>
+<p>多数情况下，两者是等效的。在web标准中，常常会规定某attribute“反射”了同名的property。但是例外的情况还是不少的。</p>
+<ol>
+<li>名字不一致</li>
+</ol>
+<p>最典型的是className，为了回避JavaScript保留字，JS中跟class attribute对应的property是className。</p>
+<pre><code>&lt;div class=&quot;cls1 cls2&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+    var div = document.getElementByTagName(&apos;div&apos;);
+    div.className //cls1 cls2
+&lt;/scrpit&gt;
+</code></pre><ol>
+<li>类型不一致</li>
+</ol>
+<p>最典型的是style，不接受字符串型赋值。</p>
+<pre><code>&lt;div class=&quot;cls1 cls2&quot; style=&quot;color:blue&quot; &gt;&lt;/div&gt;
+&lt;script&gt;
+    var div = document.getElementByTagName(&apos;div&apos;);
+    div.style // 对象
+&lt;/scrpit&gt;
+</code></pre><ol>
+<li>语义不一致</li>
+</ol>
+<p>如a元素的href属性。</p>
+<pre><code>&lt;a href=&quot;//m.taobao.com&quot; &gt;&lt;/div&gt;
+&lt;script&gt;
+    var a = document.getElementByTagName(&apos;a&apos;);
+    a.href // “http://m.taobao.com”，这个url是resolve过的结果
+    a.getAttribute(&apos;href&apos;) //  “//m.taobao.com”，跟HTML代码中完全一致
+&lt;/scrpit&gt;
+</code></pre><ol>
+<li>单向同步关系</li>
+</ol>
+<p>value是一个极为特殊的attribute/property。</p>
+<pre><code>&lt;input value = &quot;cute&quot; /&gt;
+&lt;script&gt;
+    var input = document.getElementByTagName(&apos;input&apos;);
+    //若property没有设置，则结果是attribute
+    input.value //cute
+    input.getAttribute(&apos;value&apos;); //cute
+
+    input.value = &apos;hello&apos;;
+    //若value属性已经设置，则attribute不变，property变化，元素上实际的效果是property优先
+    input.value //hello
+    input.getAttribute(&apos;value&apos;); //cute
+&lt;/scrpit&gt;
+</code></pre><p>除此之外，checkbox的显示状态由checked和indeterminate两个property决定，而只有一个名为checked的property，这种情况下property是更完善的访问模型。</p>
+<p>三、特殊场景</p>
+<p>1.mutation</p>
+<p>使用mutation observer，只能监测到attribute变化。</p>
+<p>  var observer = new MutationObserver(function(mutations){<br>      for(var i = 0; i &lt; mutations.length; i++) {<br>          var mutation = mutations[i];<br>          console.log(mutation.attributeName);<br>      }<br>  });<br>  observer.observe(element,{attributes:true});<br>  element.prop1 = ‘aa’ // 不会触发<br>  element.setAttribute(‘attr1’, ‘aa’) //会触发<br>2.custom element</p>
+<p>在使用WebComponents时，可以定义attribute和property，两者可以互相反射，也可以全无关联。</p>
+<pre><code>var MyElementProto = Object.create(HTMLElement.prototype, {
+    createdCallback : { 
+        value : function() {  }
+    }
+});
+
+//定义property
+Object.defineProperty(MyElementProto,&apos;prop1&apos;, {
+    get:function(){
+        return //
+    },
+    set:function(){
+        console.log(&apos;property change&apos;);//do something
+    }
+});
+
+//定义attribute
+MyElementProto.attributeChangedCallback = function(attr, oldVal, newVal) {
+    if(attr === &apos;attr1&apos;) {
+        console.log(&apos;attribute change&apos;);//do something
+    }
+};
+
+window.MyElement = document.registerElement(&apos;my-element&apos;, {
+    prototype: MyElementProto
+});
+</code></pre></div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#JavaScript" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/attribute 和 property 的区别.html"
+           data-title="attribute 和 property 的区别" data-url="http://blog.yongyuan.com/post/attribute 和 property 的区别.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

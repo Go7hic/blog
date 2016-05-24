@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="css," />
+
+
+<meta name="description" content="这里我回顾两种情况，分别是中间栏自适应宽度，两边固定宽度和中间栏固定宽度，两边栏自适应宽度。
+###第一种情况：中间栏自适应宽度，两边固定宽度常用的方法还是那三种绝对定位，浮动定位，负边距方法
+1.绝对定位:左右两栏采用绝对定位，分别固定于页面的左右两侧，中间的主体栏用左右margin值撑开距离123&amp;lt;div id=”left”&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div id=”main">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css布局之三栏布局">
+<meta property="og:url" content="http://blog.yongyuan.com/post/CSS 布局之三栏布局.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="这里我回顾两种情况，分别是中间栏自适应宽度，两边固定宽度和中间栏固定宽度，两边栏自适应宽度。
+###第一种情况：中间栏自适应宽度，两边固定宽度常用的方法还是那三种绝对定位，浮动定位，负边距方法
+1.绝对定位:左右两栏采用绝对定位，分别固定于页面的左右两侧，中间的主体栏用左右margin值撑开距离123&amp;lt;div id=”left”&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div id=”main">
+<meta property="og:updated_time" content="2015-09-11T16:45:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css布局之三栏布局">
+<meta name="twitter:description" content="这里我回顾两种情况，分别是中间栏自适应宽度，两边固定宽度和中间栏固定宽度，两边栏自适应宽度。
+###第一种情况：中间栏自适应宽度，两边固定宽度常用的方法还是那三种绝对定位，浮动定位，负边距方法
+1.绝对定位:左右两栏采用绝对定位，分别固定于页面的左右两侧，中间的主体栏用左右margin值撑开距离123&amp;lt;div id=”left”&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div id=”main">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> css布局之三栏布局 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> css布局之三栏布局 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-02-13T11:21:04+08:00" content="2014-02-13">
+              2014-02-13
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/CSS 布局之三栏布局.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/CSS 布局之三栏布局.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>这里我回顾两种情况，分别是中间栏自适应宽度，两边固定宽度和中间栏固定宽度，两边栏自适应宽度。</p>
+<p>###第一种情况：中间栏自适应宽度，两边固定宽度<br>常用的方法还是那三种绝对定位，浮动定位，负边距方法</p>
+<p>1.绝对定位:左右两栏采用绝对定位，分别固定于页面的左右两侧，中间的主体栏用左右margin值撑开距离<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=”left”&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=”main”&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=”right”&gt;&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span>; <span class="attribute">height</span>:<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-id">#left</span>,<span class="selector-id">#right</span>&#123;<span class="attribute">position</span>:absolute; <span class="attribute">top</span>:<span class="number">0</span>; <span class="attribute">width</span>:<span class="number">200px</span>; <span class="attribute">height</span>:<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-id">#left</span>&#123;<span class="attribute">left</span>:<span class="number">0</span>; <span class="attribute">background</span>:<span class="number">#a0b3d6</span>;&#125;</span><br><span class="line"><span class="selector-id">#right</span>&#123;<span class="attribute">right</span>:<span class="number">0</span>; <span class="attribute">background</span>:<span class="number">#a0b3d6</span>;&#125;</span><br><span class="line"><span class="selector-id">#main</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span> <span class="number">210px</span>; <span class="attribute">background</span>:<span class="number">#ffe6b8</span>; <span class="attribute">height</span>:<span class="number">100%</span>;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>ps:这里的左中右三个div的顺序是可以任意调整的.此方法的优点是，理解容易，上手简单，受内部元素影响而破坏布局的概率低，就是比较经得起折腾。<br>缺点在于：如果中间栏含有最小宽度限制，或是含有宽度的内部元素，当浏览器宽度小到一定程度，会发生层重叠的情况。</p>
+<p>2.浮动方法：左栏左浮动，右栏右浮动，主体直接放后面，就实现了自适应。<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=”left”&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=”right”&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=”main”&gt;&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span>; <span class="attribute">height</span>:<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-id">#main</span>&#123;<span class="attribute">height</span>:<span class="number">100%</span>; <span class="attribute">margin</span>:<span class="number">0</span> <span class="number">210px</span>; <span class="attribute">background</span>:<span class="number">#ffe6b8</span>;&#125;</span><br><span class="line"><span class="selector-id">#left</span>,<span class="selector-id">#right</span>&#123;<span class="attribute">width</span>:<span class="number">200px</span>; <span class="attribute">height</span>:<span class="number">100%</span>; <span class="attribute">background</span>:<span class="number">#a0b3d6</span>;&#125;</span><br><span class="line"><span class="selector-id">#left</span>&#123;<span class="attribute">float</span>:left;&#125;</span><br><span class="line"><span class="selector-id">#right</span>&#123;<span class="attribute">float</span>:right;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>ps:这里三个div标签的顺序的关键是要把主体div放在最后，左右两栏div顺序任意。<br>此方法的优点是：代码足够简洁与高效<br>不足在于：中间主体存在克星，clear:both属性。如果要使用此方法，需避免明显的clear样式</p>
+<p>3:负边距方法：这个方法有点复杂，但是用的估计是最多的。方法很难用一句话概括。首先，中间的主体要使用双层标签。外层div宽度100%显示，并且浮动（本例左浮动，下面所述依次为基础），内层div为真正的主体内容，含有左右210像素的margin值。左栏与右栏都是采用margin负值定位的，左栏左浮动，margin-left为-100%，由于前面的div宽度100%与浏览器，所以这里的-100%margin值正好使左栏div定位到了页面的左侧；右侧栏也是左浮动，其margin-left也是负值，大小为其本身的宽度即200像素。<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=”main”&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=”content”&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=”left”&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=”right”&gt;&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span>; <span class="attribute">height</span>:<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-id">#main</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>; <span class="attribute">height</span>:<span class="number">100%</span>; <span class="attribute">float</span>:left;&#125;</span><br><span class="line"><span class="selector-id">#main</span> <span class="selector-id">#body</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span> <span class="number">210px</span>; <span class="attribute">background</span>:<span class="number">#ffe6b8</span>; <span class="attribute">height</span>:<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-id">#left</span>,<span class="selector-id">#right</span>&#123;<span class="attribute">width</span>:<span class="number">200px</span>; <span class="attribute">height</span>:<span class="number">100%</span>; <span class="attribute">float</span>:left; <span class="attribute">background</span>:<span class="number">#a0b3d6</span>;&#125;</span><br><span class="line"><span class="selector-id">#left</span>&#123;<span class="attribute">margin-left</span>:-<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-id">#right</span>&#123;<span class="attribute">margin-left</span>:-<span class="number">200px</span>;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>ps:您需要注意几个div的顺序，无论是左浮动还是右浮动，先是主体部分div，这是肯定的，至于左右两栏谁先谁后，都无所谓.此方法的优点：三栏相互关联，可谓真正意义上的自适应，有一定的抗性——布局不易受内部影响。<br>缺点在于：相对比较难理解些，上手不容易，代码相对复杂。出现百分比宽度，过多的负值定位，如果出现布局的bug，排查不易。</p>
+<p>###二.中间固定宽度，两边自适应宽度<br>1.负边距方法<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=”left”&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=”inner”&gt;this <span class="keyword">is</span> left sidebar content&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=”main”&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=”inner”&gt;this <span class="keyword">is</span> main content&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=”right”&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=”inner”&gt;this <span class="keyword">is</span> right siderbar content&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css:<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#left</span>,</span><br><span class="line"><span class="selector-id">#right</span> &#123;</span><br><span class="line"><span class="attribute">float</span>: left;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> -<span class="number">271px</span>;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line">*<span class="attribute">width</span>: <span class="number">49.9%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#main</span> &#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">540px</span>;</span><br><span class="line"><span class="attribute">float</span>: left;</span><br><span class="line"><span class="attribute">background</span>: green;</span><br><span class="line">&#125; <span class="selector-class">.inner</span> &#123;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">&#125; <span class="selector-id">#left</span> <span class="selector-class">.inner</span>,</span><br><span class="line"><span class="selector-id">#right</span> <span class="selector-class">.inner</span> &#123;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">271px</span>;</span><br><span class="line"><span class="attribute">background</span>: orange;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这种方法也是借助于负的margin来实现的，首先我们在中间列定好固定值，因为此值是不会在改变的，接着对其进行左浮动；那么关键地主是在左右边栏设置地方，这种方法是将其都进行50%的宽度设置，并加上中负的左边距，此负的左边距最理想的值是中间栏宽度的一半加上1px，比如说此例中是”540px/2+1″也就是说他们都有一个”margin-left: -271px”,这样一来，左右边栏内容无法正常显示，那是因为对他们进行了负的左边距操作，现在只需要在左右边栏的内层div.inner将其拉回来，就ＯＫ了</p>
+<p>2.CSS3 Flexbox<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=”grid”&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=”col fluid”&gt;</span><br><span class="line">…</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=”col fixed”&gt;</span><br><span class="line">…</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=”col fluid”&gt;</span><br><span class="line">…</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>CSS代码<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.grid</span> &#123;</span><br><span class="line"><span class="attribute">display</span>: -webkit-flex;</span><br><span class="line"><span class="attribute">display</span>: -moz-flex;</span><br><span class="line"><span class="attribute">display</span>: -o-flex;</span><br><span class="line"><span class="attribute">display</span>: -ms-flex;</span><br><span class="line"><span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col</span> &#123;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fluid</span> &#123;</span><br><span class="line"><span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line"><span class="attribute">background</span>:blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fixed</span> &#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line"><span class="attribute">background</span>:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>over.</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#css" rel="tag">#css</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/CSS 布局之三栏布局.html"
+           data-title="css布局之三栏布局" data-url="http://blog.yongyuan.com/post/CSS 布局之三栏布局.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

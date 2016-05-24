@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="Web," />
+
+
+<meta name="description" content="from https://gist.github.com/willurd/5720255
+
+Python 2.x1$ python -m SimpleHTTPServer 8000
+Python 3.x1$ python -m http.server 8000">
+<meta property="og:type" content="article">
+<meta property="og:title" content="各种语言快速启动 webServe 的方法">
+<meta property="og:url" content="http://blog.yongyuan.com/post/各种语言快速启动 webServe 的方法.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="from https://gist.github.com/willurd/5720255
+
+Python 2.x1$ python -m SimpleHTTPServer 8000
+Python 3.x1$ python -m http.server 8000">
+<meta property="og:updated_time" content="2015-09-02T12:55:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="各种语言快速启动 webServe 的方法">
+<meta name="twitter:description" content="from https://gist.github.com/willurd/5720255
+
+Python 2.x1$ python -m SimpleHTTPServer 8000
+Python 3.x1$ python -m http.server 8000">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 各种语言快速启动 webServe 的方法 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 各种语言快速启动 webServe 的方法 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-08-01T00:00:00+08:00" content="2015-08-01">
+              2015-08-01
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/各种语言快速启动 webServe 的方法.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/各种语言快速启动 webServe 的方法.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><blockquote>
+<p>from <a href="https://gist.github.com/willurd/5720255" target="_blank" rel="external">https://gist.github.com/willurd/5720255</a></p>
+</blockquote>
+<h3 id="Python-2-x"><a href="#Python-2-x" class="headerlink" title="Python 2.x"></a>Python 2.x</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python -m SimpleHTTPServer 8000</span><br></pre></td></tr></table></figure>
+<h3 id="Python-3-x"><a href="#Python-3-x" class="headerlink" title="Python 3.x"></a>Python 3.x</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python -m http.server 8000</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="Twisted-Python"><a href="#Twisted-Python" class="headerlink" title="Twisted (Python)"></a>Twisted <sub><sup>(Python)</sup></sub></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ twistd -n web -p 8000 --path .</span><br></pre></td></tr></table></figure>
+<p>Or:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python -c &apos;from twisted.web.server import Site; from twisted.web.static import File; from twisted.internet import reactor; reactor.listenTCP(8000, Site(File(&quot;.&quot;))); reactor.run()&apos;</span><br></pre></td></tr></table></figure>
+<p>Depends on <a href="http://twistedmatrix.com/trac/wiki/Downloads" target="_blank" rel="external">Twisted</a>.</p>
+<h3 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ruby -rwebrick -e&apos;WEBrick::HTTPServer.new(:Port =&gt; 8000, :DocumentRoot =&gt; Dir.pwd).start&apos;</span><br></pre></td></tr></table></figure>
+<p>Credit: <a href="http://barkingiguana.com/2010/04/11/a-one-line-web-server-in-ruby/" target="_blank" rel="external">Barking Iguana</a></p>
+<h3 id="Ruby-1-9-2"><a href="#Ruby-1-9-2" class="headerlink" title="Ruby 1.9.2+"></a>Ruby 1.9.2+</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ruby -run -ehttpd . -p8000</span><br></pre></td></tr></table></figure>
+<p>Credit: <a href="https://gist.github.com/willurd/5720255#comment-855952" target="_blank" rel="external">nobu</a></p>
+<h3 id="adsf-Ruby"><a href="#adsf-Ruby" class="headerlink" title="adsf (Ruby)"></a>adsf <sub><sup>(Ruby)</sup></sub></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gem install adsf   # install dependency</span><br><span class="line">$ adsf -p 8000</span><br></pre></td></tr></table></figure>
+<p>Credit: <a href="https://gist.github.com/willurd/5720255/#comment-841393" target="_blank" rel="external">twome</a></p>
+<p><em>No directory listings.</em></p>
+<h3 id="Sinatra-Ruby"><a href="#Sinatra-Ruby" class="headerlink" title="Sinatra (Ruby)"></a>Sinatra <sub><sup>(Ruby)</sup></sub></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gem install sinatra   # install dependency</span><br><span class="line">$ ruby -rsinatra -e&apos;set :public_folder, &quot;.&quot;; set :port, 8000&apos;</span><br></pre></td></tr></table></figure>
+<p><em>No directory listings.</em></p>
+<h3 id="Perl"><a href="#Perl" class="headerlink" title="Perl"></a>Perl</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cpan HTTP::Server::Brick   # install dependency</span><br><span class="line">$ perl -MHTTP::Server::Brick -e &apos;$s=HTTP::Server::Brick-&gt;new(port=&gt;8000); $s-&gt;mount(&quot;/&quot;=&gt;&#123;path=&gt;&quot;.&quot;&#125;); $s-&gt;start&apos;</span><br></pre></td></tr></table></figure>
+<p>Credit: <a href="http://www.perlmonks.org/?node_id=865239" target="_blank" rel="external">Anonymous Monk</a></p>
+<h3 id="Plack-Perl"><a href="#Plack-Perl" class="headerlink" title="Plack (Perl)"></a>Plack <sub><sup>(Perl)</sup></sub></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cpan Plack   # install dependency</span><br><span class="line">$ plackup -MPlack::App::Directory -e &apos;Plack::App::Directory-&gt;new(root=&gt;&quot;.&quot;);&apos; -p 8000</span><br></pre></td></tr></table></figure>
+<p>Credit: <a href="http://advent.plackperl.org/2009/12/day-5-run-a-static-file-web-server-with-plack.html" target="_blank" rel="external">miyagawa</a></p>
+<h3 id="Mojolicious-Perl"><a href="#Mojolicious-Perl" class="headerlink" title="Mojolicious (Perl)"></a>Mojolicious <sub><sup>(Perl)</sup></sub></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cpan Mojolicious::Lite   # install dependency</span><br><span class="line">$ perl -MMojolicious::Lite -MCwd -e &apos;app-&gt;static-&gt;paths-&gt;[0]=getcwd; app-&gt;start&apos; daemon -l http://*:8000</span><br></pre></td></tr></table></figure>
+<p><em>No directory listings.</em></p>
+<h3 id="http-server-Node-js"><a href="#http-server-Node-js" class="headerlink" title="http-server (Node.js)"></a>http-server <sub><sup>(Node.js)</sup></sub></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g http-server   # install dependency</span><br><span class="line">$ http-server -p 8000</span><br></pre></td></tr></table></figure>
+<p><em>Note: This server does funky things with relative paths. For example, if you have a file <code>/tests/index.html</code>, it will load <code>index.html</code> if you go to <code>/test</code>, but will treat relative paths as if they were coming from <code>/</code>.</em></p>
+<h3 id="node-static-Node-js"><a href="#node-static-Node-js" class="headerlink" title="node-static (Node.js)"></a>node-static <sub><sup>(Node.js)</sup></sub></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g node-static   # install dependency</span><br><span class="line">$ static -p 8000</span><br></pre></td></tr></table></figure>
+<p><em>No directory listings.</em></p>
+<h3 id="PHP-gt-5-4"><a href="#PHP-gt-5-4" class="headerlink" title="PHP (&gt;= 5.4)"></a>PHP <sub><sup>(&gt;= 5.4)</sup></sub></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ php -S 127.0.0.1:8000</span><br></pre></td></tr></table></figure>
+<p>Credit: <a href="http://www.reddit.com/r/webdev/comments/1fs45z/list_of_ad_hoc_http_server_oneliners/cad9ew3" target="_blank" rel="external">/u/prawnsalad</a> and <a href="https://gist.github.com/willurd/5720255#comment-841131" target="_blank" rel="external">MattLicense</a></p>
+<p><em>No directory listings.</em></p>
+<h3 id="Erlang"><a href="#Erlang" class="headerlink" title="Erlang"></a>Erlang</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ erl -s inets -eval &apos;inets:start(httpd,[&#123;server_name,&quot;NAME&quot;&#125;,&#123;document_root, &quot;.&quot;&#125;,&#123;server_root, &quot;.&quot;&#125;,&#123;port, 8000&#125;,&#123;mime_types,[&#123;&quot;html&quot;,&quot;text/html&quot;&#125;,&#123;&quot;htm&quot;,&quot;text/html&quot;&#125;,&#123;&quot;js&quot;,&quot;text/javascript&quot;&#125;,&#123;&quot;css&quot;,&quot;text/css&quot;&#125;,&#123;&quot;gif&quot;,&quot;image/gif&quot;&#125;,&#123;&quot;jpg&quot;,&quot;image/jpeg&quot;&#125;,&#123;&quot;jpeg&quot;,&quot;image/jpeg&quot;&#125;,&#123;&quot;png&quot;,&quot;image/png&quot;&#125;]&#125;]).&apos;</span><br></pre></td></tr></table></figure>
+<p>Credit: <a href="https://gist.github.com/willurd/5720255/#comment-841166" target="_blank" rel="external">nivertech</a> (with the addition of some basic mime types)</p>
+<p><em>No directory listings.</em></p>
+<h3 id="busybox-httpd"><a href="#busybox-httpd" class="headerlink" title="busybox httpd"></a>busybox httpd</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ busybox httpd -f -p 8000</span><br></pre></td></tr></table></figure>
+<p>Credit: <a href="https://gist.github.com/willurd/5720255#comment-841915" target="_blank" rel="external">lvm</a></p>
+<h3 id="webfs"><a href="#webfs" class="headerlink" title="webfs"></a>webfs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ webfsd -F -p 8000</span><br></pre></td></tr></table></figure>
+<p>Depends on <a href="http://linux.bytesex.org/misc/webfs.html" target="_blank" rel="external">webfs</a>.</p>
+<h3 id="IIS-Express"><a href="#IIS-Express" class="headerlink" title="IIS Express"></a>IIS Express</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt; &quot;C:\Program Files (x86)\IIS Express\iisexpress.exe&quot; /path:C:\MyWeb /port:8000</span><br></pre></td></tr></table></figure>
+<p>Depends on <a href="http://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview" target="_blank" rel="external">IIS Express</a>.</p>
+<p>Credit: <a href="http://www.reddit.com/r/webdev/comments/1fs45z/list_of_ad_hoc_http_server_oneliners/cada8no" target="_blank" rel="external">/u/fjantomen</a></p>
+<p><em>No directory listings. <code>/path</code> must be an absolute path.</em></p>
+<h1 id="Meta"><a href="#Meta" class="headerlink" title="Meta"></a>Meta</h1><p>If you have any suggestions, drop them in the comments below or on the reddit discussion. To get on this list, a solution must:</p>
+<ol>
+<li>serve static files using your current directory (or a specified directory) as the server root,</li>
+<li>be able to be run with a single, one line command (dependencies are fine if they’re a one-time thing),</li>
+<li>serve basic file types (html, css, js, images) with proper mime types,</li>
+<li>require no configuration (from files or otherwise) beyond the command itself (no framework-specific servers, etc)</li>
+<li>must run, or have a mode where it can run, in the foreground (i.e. no daemons)</li>
+</ol>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-2-x"><span class="nav-text">Python 2.x</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-3-x"><span class="nav-text">Python 3.x</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Twisted-Python"><span class="nav-text">Twisted (Python)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ruby"><span class="nav-text">Ruby</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ruby-1-9-2"><span class="nav-text">Ruby 1.9.2+</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#adsf-Ruby"><span class="nav-text">adsf (Ruby)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sinatra-Ruby"><span class="nav-text">Sinatra (Ruby)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Perl"><span class="nav-text">Perl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Plack-Perl"><span class="nav-text">Plack (Perl)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mojolicious-Perl"><span class="nav-text">Mojolicious (Perl)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-server-Node-js"><span class="nav-text">http-server (Node.js)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node-static-Node-js"><span class="nav-text">node-static (Node.js)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP-gt-5-4"><span class="nav-text">PHP (>= 5.4)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Erlang"><span class="nav-text">Erlang</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#busybox-httpd"><span class="nav-text">busybox httpd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webfs"><span class="nav-text">webfs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IIS-Express"><span class="nav-text">IIS Express</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Meta"><span class="nav-text">Meta</span></a></div>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#Web" rel="tag">#Web</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/各种语言快速启动 webServe 的方法.html"
+           data-title="各种语言快速启动 webServe 的方法" data-url="http://blog.yongyuan.com/post/各种语言快速启动 webServe 的方法.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

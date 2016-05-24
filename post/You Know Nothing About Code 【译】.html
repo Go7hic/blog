@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="杂谈," />
+
+
+<meta name="description" content="你知道吗？你的那些年收入 15 万刀的码农们，也不是每天都在写代码。
+
+The more you know, the more you realize how much you don’t know — the less you know, the more you think you know. 
+
+David T. Freeman
+
+懂得越多，就会发现其实自己知道的事物宛如沧海一栗；懂得越少，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="You Know Nothing About Code 【译】">
+<meta property="og:url" content="http://blog.yongyuan.com/post/You Know Nothing About Code 【译】.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="你知道吗？你的那些年收入 15 万刀的码农们，也不是每天都在写代码。
+
+The more you know, the more you realize how much you don’t know — the less you know, the more you think you know. 
+
+David T. Freeman
+
+懂得越多，就会发现其实自己知道的事物宛如沧海一栗；懂得越少，">
+<meta property="og:image" content="http://alexparker.me/content/images/2014/Jul/IMG_0408.JPG">
+<meta property="og:updated_time" content="2015-09-05T04:31:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="You Know Nothing About Code 【译】">
+<meta name="twitter:description" content="你知道吗？你的那些年收入 15 万刀的码农们，也不是每天都在写代码。
+
+The more you know, the more you realize how much you don’t know — the less you know, the more you think you know. 
+
+David T. Freeman
+
+懂得越多，就会发现其实自己知道的事物宛如沧海一栗；懂得越少，">
+<meta name="twitter:image" content="http://alexparker.me/content/images/2014/Jul/IMG_0408.JPG">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> You Know Nothing About Code 【译】 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> You Know Nothing About Code 【译】 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-08-14T11:21:04+08:00" content="2014-08-14">
+              2014-08-14
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/You Know Nothing About Code 【译】.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/You Know Nothing About Code 【译】.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>你知道吗？你的那些年收入 15 万刀的码农们，也不是每天都在写代码。</p>
+<blockquote>
+<p>The more you know, the more you realize how much you don’t know — the less you know, the more you think you know. </p>
+<ul>
+<li>David T. Freeman</li>
+</ul>
+<p>懂得越多，就会发现其实自己知道的事物宛如沧海一栗；懂得越少，就会产生自己什么都懂的错觉。<br>-David T. Freeman</p>
+</blockquote>
+<p>几乎每一天，我都会发现某些我从来未知的事物。<br>今天，我坦白讲，我特么的压根不知道什么 rails plugins ，面对 Rails ，我根本像个三岁小孩。 </p>
+<p>####每个人都是从一无所知开始的。 </p>
+<p>如果插根线，就能自动灌输某些科目的知识到我们的脑子里,那真的是再好不过了。但是现实并非这样的啊骚年，我们要为此付出心血，勤勉努力才能牢牢掌握知识，而这些，我们却始终全然无知。 </p>
+<p>所以，习惯这些事吧，別想当天生神马都知道的上帝。 </p>
+<p>最初的定期自由职业对我很难熬，我的骄傲咽不下无知的感受，我的自尊又让我无法低头，打了一场场看似胜利的仗，我信奉了「装逼装久了就是你的」这句名言，即使不懂，还是要装懂。 </p>
+<p>但是有一天，我装逼装累了，我对自己的无知妥协了。从此之后，如果有人问我不懂的问题，我会努力压抑自尊，马上承认「我不懂」，一般接下来我还会说「但是我确定我可以试着解决」。</p>
+<p>####对自己诚实 </p>
+<p>对于我「其实知道的不多」这个事实，我开始采取了新的态度。后来，我发现自己的学习速度正在加速前进。 </p>
+<p>我不再去盲目追赶学习那些我本来应该要知道的东西，现在我才意识到我越经常说「我不是很清楚，但是我确定我可以试着解决」，我就越能真正明白本来不知道的事物。 </p>
+<p>####这远比你预期收获的要多 </p>
+<p>我的建站生涯开始于1998年，我从其他网站收集资源，尝试去理解 HTML，粘贴复制成一个看起来能运行的网站。</p>
+<p>不信？有图有真相 </p>
+<p><img src="http://alexparker.me/content/images/2014/Jul/IMG_0408.JPG" alt="图"></p>
+<p>看到没，那就是我14岁的时候，我正在搭建任天堂游戏Zelda 64的粉丝网站。我从各种网站拷贝过关秘籍，从 cooltext.com 复制酷炫屌咱天的字体（15 年了，上面的字一直没变）、黑色背景、闪烁的绿色文字，一堆乱七八糟的东西。 </p>
+<p>####如果我打算从今天开始写代码，我该从哪里开始 ?</p>
+<p>很多人问过我这个问题，有兴趣的可以订阅我的网站，以后我会提供更多的教程。</p>
+<p>我现在想分享的是，我刚开始学习写代码额岁月里，我所做出的正确与错误的事情。</p>
+<p>正确的：</p>
+<ul>
+<li>我从来不和那些比我强的人比较，或者强逼自己跟上他们。我专心在那些我已知道的知识上，我可以怎么运用我的知识，以及我想知道的新技能。</li>
+<li>我想办法在现在的项目里运用新的知识，或者用我的新的知识创建一个项目</li>
+<li>我总是尝试去解决问题，这些问题难度都是稍微超出我目前的能力，但是又处于可以掌控的范围之内。</li>
+<li>我享受学习的过程，学无止境</li>
+<li>我学着爱上学习的过程（注孤生啊）</li>
+</ul>
+<p>错误的:</p>
+<ul>
+<li>错误多的数不清。</li>
+<li>我没找到志同道合的朋友。</li>
+<li>我没找到可以一同学习的基友或基友团</li>
+<li>我没有为开源贡献一点点力量 </li>
+</ul>
+<p>###总结</p>
+<p>首先，你要承认并且意识到自己不是什么都知道，拥抱它们(无知)就像掌握机会一样，而不是错误。</p>
+<p>从简单有趣的事情开始，将他们培养成一种爱好，别想太多，别做不切实际的计划，学着喜欢并享受过程。</p>
+<p>设置项目目标时不要好高骛远，但是也要保持一定的难度。</p>
+<p>这个项目也许简单到用html输出hello world，也可能复杂到为一个网站建一个负载测试的系统。</p>
+<p>原文： <a href="http://alexparker.me/you-know-nothing-about-code/" target="_blank" rel="external">http://alexparker.me/you-know-nothing-about-code/</a></p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#杂谈" rel="tag">#杂谈</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/You Know Nothing About Code 【译】.html"
+           data-title="You Know Nothing About Code 【译】" data-url="http://blog.yongyuan.com/post/You Know Nothing About Code 【译】.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

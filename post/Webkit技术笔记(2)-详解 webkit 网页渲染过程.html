@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="webkit," />
+
+
+<meta name="description" content="这篇主要讲的是 Webkit 的网页渲染过程,所以和网上那个比较流行的面试题(输入url到页面展示有哪些过程)有点不同啦。
+这里说的网页渲染过程其实包含两个过程一个是网页加载过程，从url到构建 DOM 树，第二个就是网页渲染过程，从 DOM 树到生成可视化图像，因为两个过程有交叉，所以直接叫做 网页渲染过程了。
+上一篇大致讲了页面的基本渲染流程，这里再详细记录一下 webkit 的网页渲染过程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webkit技术笔记(2):详解 webkit 网页渲染过程">
+<meta property="og:url" content="http://blog.yongyuan.com/post/Webkit技术笔记(2)-详解 webkit 网页渲染过程.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="这篇主要讲的是 Webkit 的网页渲染过程,所以和网上那个比较流行的面试题(输入url到页面展示有哪些过程)有点不同啦。
+这里说的网页渲染过程其实包含两个过程一个是网页加载过程，从url到构建 DOM 树，第二个就是网页渲染过程，从 DOM 树到生成可视化图像，因为两个过程有交叉，所以直接叫做 网页渲染过程了。
+上一篇大致讲了页面的基本渲染流程，这里再详细记录一下 webkit 的网页渲染过程。">
+<meta property="og:image" content="http://dyy.im/wp-content/uploads/2014/09/QQ截图20140926220130.png">
+<meta property="og:image" content="http://dyy.im/wp-content/uploads/2014/09/QQ截图20140926221625.png">
+<meta property="og:image" content="http://dyy.im/wp-content/uploads/2014/09/QQ截图20140926222522.png">
+<meta property="og:image" content="http://dyy.im/wp-content/uploads/2014/09/QQ截图20140926010050.png">
+<meta property="og:image" content="http://dyy.im/wp-content/uploads/2014/09/QQ截图20140926005810.png">
+<meta property="og:updated_time" content="2015-09-05T07:36:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Webkit技术笔记(2):详解 webkit 网页渲染过程">
+<meta name="twitter:description" content="这篇主要讲的是 Webkit 的网页渲染过程,所以和网上那个比较流行的面试题(输入url到页面展示有哪些过程)有点不同啦。
+这里说的网页渲染过程其实包含两个过程一个是网页加载过程，从url到构建 DOM 树，第二个就是网页渲染过程，从 DOM 树到生成可视化图像，因为两个过程有交叉，所以直接叫做 网页渲染过程了。
+上一篇大致讲了页面的基本渲染流程，这里再详细记录一下 webkit 的网页渲染过程。">
+<meta name="twitter:image" content="http://dyy.im/wp-content/uploads/2014/09/QQ截图20140926220130.png">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> Webkit技术笔记(2):详解 webkit 网页渲染过程 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> Webkit技术笔记(2):详解 webkit 网页渲染过程 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-09-16T11:21:04+08:00" content="2014-09-16">
+              2014-09-16
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/Webkit技术笔记(2)-详解 webkit 网页渲染过程.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/Webkit技术笔记(2)-详解 webkit 网页渲染过程.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>这篇主要讲的是 Webkit 的网页渲染过程,所以和网上那个比较流行的面试题(输入url到页面展示有哪些过程)有点不同啦。</p>
+<p>这里说的网页渲染过程其实包含两个过程一个是网页加载过程，从url到构建 DOM 树，第二个就是网页渲染过程，从 DOM 树到生成可视化图像，因为两个过程有交叉，所以直接叫做 网页渲染过程了。</p>
+<p>上一篇大致讲了页面的基本渲染流程，这里再详细记录一下 webkit 的网页渲染过程。<br>主要大致分三个过程：第一阶段是从URL到构建完 DOM树，第二阶段是 DOM 树到构建完 webkit 的绘图上下文，第三个阶段是从绘图上下文到最终生成的图像。</p>
+<p>我们还是分别看图来理解三个阶段<br><img src="http://dyy.im/wp-content/uploads/2014/09/QQ截图20140926220130.png" alt=""></p>
+<p>这里分别解释一下1-8每步的作用：</p>
+<p>1.表示当用户输入 URL时，Webkit调用其资源加载器，加载该url对应的资源</p>
+<p>2.加载器依赖网络模块建立链接，发生请求，并接受答复。</p>
+<p>3.webkit接收到各种网页请求或者资源的数据，其中某些资源可能同步或异步。</p>
+<p>4.网页交给 HTML 解释器转变成一系列的词语(Token)</p>
+<p>5.解释器根据词语构建 DOM 节点，形成 DOM 树</p>
+<p>6 如果节点有 js 代码，调用 javaScript 引擎</p>
+<p>7.其中 js 有可能修改 DOM 树结构</p>
+<p>8.如果节点还需要加载其他资源(视频图片之类的)，就会调用加载器加载他们，但这个过程是异步的，不会阻碍当前 DOM 树的创建。</p>
+<p>上面就是第一阶段的过程了，下面再说第二阶段</p>
+<p>这个具体过程大概是：<br><img src="http://dyy.im/wp-content/uploads/2014/09/QQ截图20140926221625.png" alt=""></p>
+<p>1.css文件被 css解释器解释内部表示结构</p>
+<p>2.css解释器工作完成之后，在 DOM 树上附加解释后的样式信息，这就是 RenderObject(这个是 webkit渲染基础里的知识这里就不介绍了)。</p>
+<p>3.RenderObject 节点在创建的同时，ｗebkit 根据网页的层次结构创建 RenderLayer 树，同时构建一个虚拟的绘图上下文。</p>
+<p>上面图中的四个内部表示结构是一直存在的，除非网页被销毁。</p>
+<p>最后一个就是第三阶段，根据绘图上下文生成最后的图像。还是画个图来看：<br><img src="http://dyy.im/wp-content/uploads/2014/09/QQ截图20140926222522.png" alt=""></p>
+<p>以上三个阶段基本介绍完了一个完成的网页渲染过程。由于现在的网页有动态交互等，所以浏览器其实一直在不停的重复执行渲染过程。</p>
+<p>下面举个例子在浏览器里来看看实际的情况吧。</p>
+<p>我把的我demo在 chrome 浏览器里打开，(demo是个html文件只有一张图)。</p>
+<p>然后打开chrome 的开发者工具，在　network 里发现如下所示的结果<br><img src="http://dyy.im/wp-content/uploads/2014/09/QQ截图20140926010050.png" alt=""></p>
+<p>可以发现最终加载了两个资源，一个html页面，一个图片。我们还可以发现右边两条竖线，第一条表示 DOM 已经加载完成，第二条表示资源全部加载完成。你仔细观察会发现第二条线出现在图片加载完成之后(这不废话吗，呵呵)。<br>第二条线出现之后表明第一阶段完成了，下面再看看第二，三阶段。</p>
+<p>同样在 chrome 里的开发者工具里点击 TimeLine，然后点击那个红圆点，刷新页面，重新渲染网页。网页加载完之后再点击那个红圆点。应该会出现如下所示的情况:<br><img src="http://dyy.im/wp-content/uploads/2014/09/QQ截图20140926005810.png" alt=""></p>
+<p>这个 TimeLine 是根据时间来获取网页渲染的动作过程的。<br>从图中我们可以看出蓝色部分表示的是第一阶段加载 DOM资源的，紫色的虽然只显示了 Layout布局，但他表示的是第二阶段。绿色的表示的是第三阶段绘图阶段(paint绘制节点和composite Layers合成网页的层次)。</p>
+<p>好了，至此这个webkit网页渲染过程就介绍完了。期待下文…</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#webkit" rel="tag">#webkit</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/Webkit技术笔记(2)-详解 webkit 网页渲染过程.html"
+           data-title="Webkit技术笔记(2):详解 webkit 网页渲染过程" data-url="http://blog.yongyuan.com/post/Webkit技术笔记(2)-详解 webkit 网页渲染过程.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

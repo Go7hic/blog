@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="JavaScript," />
+
+
+<meta name="description" content="今天登录饿了么网页版（平常一般只用手机）发现一个现象，就是当我打开他们页面的时候，网页浏览器地址栏里的 title 显示的是 饿了么，但是当我切换另一个窗口页面的时候，发现饿了么那边的 title 变成了「记得回来吃饭哦！」。觉得有点好奇，就查了下这个怎么实现。其实很简单的，是 HTML5  里的一个新特性。
+HTML5 里在页面可见性接口提供给了程序员一个方法，让他们使用 visibilityc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过 HTML5 判断用户是否正在观看你的页面">
+<meta property="og:url" content="http://blog.yongyuan.com/post/通过 HTML5 判断用户是否正在观看你的页面.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="今天登录饿了么网页版（平常一般只用手机）发现一个现象，就是当我打开他们页面的时候，网页浏览器地址栏里的 title 显示的是 饿了么，但是当我切换另一个窗口页面的时候，发现饿了么那边的 title 变成了「记得回来吃饭哦！」。觉得有点好奇，就查了下这个怎么实现。其实很简单的，是 HTML5  里的一个新特性。
+HTML5 里在页面可见性接口提供给了程序员一个方法，让他们使用 visibilityc">
+<meta property="og:updated_time" content="2015-09-10T16:17:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="通过 HTML5 判断用户是否正在观看你的页面">
+<meta name="twitter:description" content="今天登录饿了么网页版（平常一般只用手机）发现一个现象，就是当我打开他们页面的时候，网页浏览器地址栏里的 title 显示的是 饿了么，但是当我切换另一个窗口页面的时候，发现饿了么那边的 title 变成了「记得回来吃饭哦！」。觉得有点好奇，就查了下这个怎么实现。其实很简单的，是 HTML5  里的一个新特性。
+HTML5 里在页面可见性接口提供给了程序员一个方法，让他们使用 visibilityc">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 通过 HTML5 判断用户是否正在观看你的页面 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 通过 HTML5 判断用户是否正在观看你的页面 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-09-11T11:21:04+08:00" content="2015-09-11">
+              2015-09-11
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/通过 HTML5 判断用户是否正在观看你的页面.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/通过 HTML5 判断用户是否正在观看你的页面.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>今天登录饿了么网页版（平常一般只用手机）发现一个现象，就是当我打开他们页面的时候，网页浏览器地址栏里的 title 显示的是 饿了么，但是当我切换另一个窗口页面的时候，发现饿了么那边的 title 变成了「记得回来吃饭哦！」。觉得有点好奇，就查了下这个怎么实现。其实很简单的，是 HTML5  里的一个新特性。</p>
+<p>HTML5 里在页面可见性接口提供给了程序员一个方法，让他们使用 visibilitychange 页面事件来判断当前页面可见性的状态，并针对性的执行某些任务。同时还有新的 document.hidden 属性可以使用。监听，当 document.hidden 为 true 时说明当前页面不可见，这时候你可以替换你的网页 title ，还可以操作一些其他的事情，比如当用户正在看视频的时候，切换到另一个页面的话，此时你监听的页面 document.hidden 为 true ，然后还可以让视频停止播放。</p>
+<p>而 document.visibilityState ，visibilityState 的值要么是 visible (表明页面为浏览器当前激活tab，而且窗口不是最小化状态)，要么是hidden (页面不是当前激活tab页面，或者窗口最小化了。)，或者prerender (页面在重新生成，对用户不可见。)。</p>
+<p>下面我们可以写一个事件来监听页面的变化：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 各种浏览器兼容</span></span><br><span class="line"><span class="keyword">var</span> hidden, state, visibilityChange; </span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">document</span>.hidden !== <span class="string">"undefined"</span>) &#123;</span><br><span class="line">	hidden = <span class="string">"hidden"</span>;</span><br><span class="line">	visibilityChange = <span class="string">"visibilitychange"</span>;</span><br><span class="line">	state = <span class="string">"visibilityState"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">document</span>.mozHidden !== <span class="string">"undefined"</span>) &#123;</span><br><span class="line">	hidden = <span class="string">"mozHidden"</span>;</span><br><span class="line">	visibilityChange = <span class="string">"mozvisibilitychange"</span>;</span><br><span class="line">	state = <span class="string">"mozVisibilityState"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">document</span>.msHidden !== <span class="string">"undefined"</span>) &#123;</span><br><span class="line">	hidden = <span class="string">"msHidden"</span>;</span><br><span class="line">	visibilityChange = <span class="string">"msvisibilitychange"</span>;</span><br><span class="line">	state = <span class="string">"msVisibilityState"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">document</span>.webkitHidden !== <span class="string">"undefined"</span>) &#123;</span><br><span class="line">	hidden = <span class="string">"webkitHidden"</span>;</span><br><span class="line">	visibilityChange = <span class="string">"webkitvisibilitychange"</span>;</span><br><span class="line">	state = <span class="string">"webkitVisibilityState"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加监听器，在title里显示状态变化</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(visibilityChange, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">document</span>[state] === <span class="string">'hidden'</span>) &#123;</span><br><span class="line">		<span class="built_in">document</span>.title = <span class="string">'记得回来吃饭'</span>; <span class="comment">// 页面不可见时 ，可换成你的 title</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">document</span>.title = <span class="string">'饿了么'</span>; <span class="comment">// 页面可见</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化</span></span><br><span class="line"><span class="built_in">document</span>.title = <span class="string">''</span>;</span><br></pre></td></tr></table></figure>
+<p>仔细想想这个功能还是有点用处的，具体的 效果可参见我的一个 DEMO: <a href="http://blog.yongyuan.us/shengchen" target="_blank" rel="external">http://blog.yongyuan.us/shengchen</a></p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#JavaScript" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/通过 HTML5 判断用户是否正在观看你的页面.html"
+           data-title="通过 HTML5 判断用户是否正在观看你的页面" data-url="http://blog.yongyuan.com/post/通过 HTML5 判断用户是否正在观看你的页面.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

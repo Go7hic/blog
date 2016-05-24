@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="css," />
+
+
+<meta name="description" content="各种方法各有利弊，大家自己权衡吧，至少在需要居中时多个思路。
+一：
+，不建议用了。1&amp;lt;center&amp;gt;水平居中&amp;lt;/center&amp;gt;
+二：text-align:center
+在父容器里水平居中 inline 文字，或 inline 元素 
+1h2 &amp;#123;text-align:center;&amp;#125;
+三：vertical-align:middle
+vertical-ali">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS居中大法">
+<meta property="og:url" content="http://blog.yongyuan.com/post/CSS居中大法.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="各种方法各有利弊，大家自己权衡吧，至少在需要居中时多个思路。
+一：
+，不建议用了。1&amp;lt;center&amp;gt;水平居中&amp;lt;/center&amp;gt;
+二：text-align:center
+在父容器里水平居中 inline 文字，或 inline 元素 
+1h2 &amp;#123;text-align:center;&amp;#125;
+三：vertical-align:middle
+vertical-ali">
+<meta property="og:updated_time" content="2015-09-11T16:46:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS居中大法">
+<meta name="twitter:description" content="各种方法各有利弊，大家自己权衡吧，至少在需要居中时多个思路。
+一：
+，不建议用了。1&amp;lt;center&amp;gt;水平居中&amp;lt;/center&amp;gt;
+二：text-align:center
+在父容器里水平居中 inline 文字，或 inline 元素 
+1h2 &amp;#123;text-align:center;&amp;#125;
+三：vertical-align:middle
+vertical-ali">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> CSS居中大法 </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> CSS居中大法 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2014-02-24T11:21:04+08:00" content="2014-02-24">
+              2014-02-24
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/CSS居中大法.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/CSS居中大法.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>各种方法各有利弊，大家自己权衡吧，至少在需要居中时多个思路。</p>
+<p>一：<center></center></p>
+<p><center></center>，不建议用了。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span>水平居中<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>二：text-align:center</p>
+<p>在父容器里水平居中 inline 文字，或 inline 元素 </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h2</span> &#123;<span class="attribute">text-align</span>:center;&#125;</span><br></pre></td></tr></table></figure>
+<p>三：vertical-align:middle</p>
+<p>vertical-align适用于 inline level, inline-block level 及 table-cells 元素上。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"middle"</span>&gt;</span><br><span class="line">	&lt;strong&gt;对象的内容与对象中部对齐&lt;/strong&gt;</span><br><span class="line">	&lt;p&gt;参考内容&lt;<span class="selector-tag">a</span> href=<span class="string">"?"</span>&gt;要对齐的内容&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">p&#123;<span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#000</span>;<span class="attribute">font-size</span>:<span class="number">16px</span>;<span class="attribute">line-height</span>:<span class="number">2</span>;&#125;</span><br><span class="line">a&#123;<span class="attribute">margin-left</span>:<span class="number">5px</span>;<span class="attribute">font-size</span>:<span class="number">12px</span>;&#125;</span><br><span class="line"><span class="selector-class">.middle</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">vertical-align</span>:middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>四：line-height</p>
+<p>与 height 联手，垂直居中文字.<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"middle"</span>&gt;</span><br><span class="line">	&lt;p&gt;参考内容,水平垂直居中&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.middle</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>####五：margin<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"box"</span>&gt;</span><br><span class="line">  &lt;<span class="selector-tag">div</span> class=<span class="string">"box2"</span>&gt;Hello World&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="selector-class">.box</span> &#123; </span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>; </span><br><span class="line">    <span class="attribute">background-color</span>:yellow;</span><br><span class="line">&#125;</span><br><span class="line">.box2&#123;</span><br><span class="line">     <span class="attribute">margin</span>:<span class="number">0px</span> auto; </span><br><span class="line">    <span class="attribute">background-color</span>:gray; </span><br><span class="line">    <span class="attribute">color</span>:white; </span><br><span class="line">    <span class="attribute">display</span>:table; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>####六：translate(-50%,-50%)</p>
+<p>这个就很厉害了，用 position 加 translate translate(-50%,-50%) 比较奇特，百分比计算不是以父元素为基准，而是以自己为基准。同样适用于没固定大小的内容，min-width，max-height，overflow:scroll等。 示例：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"container"</span>&gt;</span><br><span class="line">	&lt;<span class="selector-tag">div</span> class=<span class="string">"content"</span>&gt;hello world&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="selector-class">.container</span> &#123; </span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>; </span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>:yellow; </span><br><span class="line">    <span class="attribute">position</span>:relative; </span><br><span class="line">&#125;</span><br><span class="line">  <span class="selector-class">.content</span> &#123; </span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">50%</span>; </span><br><span class="line">    <span class="attribute">top</span>:<span class="number">50%</span>; </span><br><span class="line">    <span class="attribute">transform</span>:translate(-<span class="number">50%</span>,-<span class="number">50%</span>); </span><br><span class="line">    -webkit-<span class="attribute">transform</span>:translate(-<span class="number">50%</span>,-<span class="number">50%</span>); </span><br><span class="line">    <span class="attribute">background-color</span>:gray; </span><br><span class="line">    <span class="attribute">color</span>:white; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>七:绝对定位居中<br>注意：高度必须定义，建议加 overflow: auto，防止内容溢出。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"container"</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">	<span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">50%</span>;</span><br><span class="line">	<span class="attribute">overflow</span>: auto;</span><br><span class="line">	<span class="attribute">margin</span>: auto;</span><br><span class="line">	<span class="attribute">background</span>: blue;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>八：负 margin</p>
+<p>确切知道宽高，负 margin 是宽和高的一半。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"container"</span>&gt;</span><br><span class="line">	</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">	<span class="attribute">top</span>: <span class="number">50%</span>; <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">margin-left</span>: -<span class="number">170px</span>; <span class="comment">/* (width + padding)/2 */</span></span><br><span class="line">	<span class="attribute">margin-top</span>: -<span class="number">120px</span>; <span class="comment">/* (height + padding)/2 */</span></span><br><span class="line">	<span class="attribute">background</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>####九：Table-Cell<br> 该方案是有局限性的，因为IE8以下的浏览器不支持 display 的table系value，所以你只能在IE8及以上浏览器以及非IE浏览器下才能看到效果；<br>参考文章：Flexible height vertical centering with CSS, beyond IE7</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"container"</span>&gt;</span><br><span class="line">	&lt;p&gt;你们好&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">display</span>:table;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">500px</span>;</span><br><span class="line">	<span class="attribute">margin</span>:<span class="number">10px</span> auto;</span><br><span class="line">	<span class="attribute">background</span>:<span class="number">#eee</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">	<span class="attribute">display</span>:table-cell;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">vertical-align</span>:middle;</span><br><span class="line">	<span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>####十:FlexBox</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"container"</span>&gt;</span><br><span class="line">&lt;h1&gt;你们好&lt;/h1&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">.container &#123;</span><br><span class="line">	<span class="built_in">display</span>: -webkit-<span class="built_in">box</span>;</span><br><span class="line">	<span class="built_in">display</span>: -moz-<span class="built_in">box</span>;</span><br><span class="line">	<span class="built_in">display</span>: -ms-flexbox;</span><br><span class="line">	<span class="built_in">display</span>: -webkit-flex;</span><br><span class="line">	<span class="built_in">display</span>: flex;</span><br><span class="line">	-webkit-<span class="built_in">box</span>-align: <span class="built_in">center</span>;</span><br><span class="line">	-moz-<span class="built_in">box</span>-align: <span class="built_in">center</span>;</span><br><span class="line">	-ms-flex-align: <span class="built_in">center</span>;</span><br><span class="line">	-webkit-align-items: <span class="built_in">center</span>;</span><br><span class="line">	align-items: <span class="built_in">center</span>;</span><br><span class="line">	-webkit-<span class="built_in">box</span>-pack: <span class="built_in">center</span>;</span><br><span class="line">	-moz-<span class="built_in">box</span>-pack: <span class="built_in">center</span>;</span><br><span class="line">	-ms-flex-pack: <span class="built_in">center</span>;</span><br><span class="line">	-webkit-justify-<span class="built_in">content</span>: <span class="built_in">center</span>;</span><br><span class="line">	justify-<span class="built_in">content</span>: <span class="built_in">center</span>;</span><br><span class="line">	<span class="built_in">height</span>: 100px;</span><br><span class="line">	<span class="built_in">background</span>: #<span class="number">222</span>;</span><br><span class="line">	<span class="built_in">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>十一： display:inine-block</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="keyword">class</span>=<span class="string">"container"</span>&gt;</span><br><span class="line">	&lt;p&gt;这是<span class="built_in">display</span>:<span class="keyword">inline</span>-block实现水平垂直居中的终解&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">.container &#123;</span><br><span class="line">	<span class="built_in">width</span>: <span class="number">200</span>px;</span><br><span class="line">	<span class="built_in">height</span>:<span class="number">200</span>px;</span><br><span class="line">	<span class="built_in">text</span>-align:center;</span><br><span class="line">	font-<span class="built_in">size</span>:<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">background</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line">.container:after &#123;</span><br><span class="line">	content: <span class="string">"."</span>;</span><br><span class="line">	<span class="built_in">display</span>:<span class="keyword">inline</span>-block;</span><br><span class="line">	*<span class="built_in">display</span>:<span class="keyword">inline</span>;</span><br><span class="line">	*zoom:<span class="number">1</span>;</span><br><span class="line">	<span class="built_in">width</span>:<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">height</span>:<span class="number">100</span>%;</span><br><span class="line">	vertical-align:middle;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">p &#123;</span><br><span class="line">	<span class="built_in">display</span>:<span class="keyword">inline</span>-block;</span><br><span class="line">	*<span class="built_in">display</span>:<span class="keyword">inline</span>;</span><br><span class="line">	*zoom:<span class="number">1</span>;</span><br><span class="line">	vertical-align:middle;</span><br><span class="line">	font-<span class="built_in">size</span>:<span class="number">16</span>px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>十二 ： writing-mode大法</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">&lt;div class="container"&gt;</span></span><br><span class="line">	<span class="params">&lt;p&gt;</span>writing-mode法<span class="params">&lt;/p&gt;</span></span><br><span class="line"><span class="params">&lt;/div&gt;</span></span><br><span class="line"></span><br><span class="line">.container&#123;</span><br><span class="line"><span class="symbol">	width:</span> <span class="number">500</span>px;</span><br><span class="line"><span class="symbol"></span><br><span class="line">	height:</span> <span class="number">500</span>px;</span><br><span class="line">	line-height: <span class="number">500</span>px;</span><br><span class="line">	text-align: center;</span><br><span class="line"><span class="symbol">	background:</span> <span class="meta">#B9D6FF;</span></span><br><span class="line"><span class="symbol">	border:</span> <span class="number">1</span>px solid <span class="meta">#f00;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class">p </span>&#123;</span><br><span class="line"><span class="symbol">	height:</span> <span class="number">100</span>%\<span class="number">9</span>;</span><br><span class="line">	writing-mode: tb-rl\<span class="number">9</span>;</span><br><span class="line">	vertical-align: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>####十三: 诡异button大法</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">&lt;button&gt;</span><span class="params">&lt;span&gt;</span>这方法是要逆天？这里还可以放图片<span class="params">&lt;/span&gt;</span><span class="params">&lt;/button&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="class">button </span>&#123;</span><br><span class="line"><span class="symbol"> width:</span> <span class="number">400</span>px;</span><br><span class="line"><span class="symbol"> height:</span> <span class="number">400</span>px;     </span><br><span class="line"><span class="symbol"> background:</span> red;</span><br><span class="line"><span class="symbol"> border:</span> <span class="number">1</span>px solid <span class="meta">#ccc;    </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>####十四: 高端大气的 SVG大法</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">&lt;div&gt;</span></span><br><span class="line"><span class="params">&lt;svg&gt;</span></span><br><span class="line"><span class="params">&lt;text x="<span class="number">50</span>%" y="<span class="number">50</span>%" dy="<span class="number">.3</span>em"&gt;</span></span><br><span class="line">	Look, I’m centered!</span><br><span class="line"><span class="params">&lt;/text&gt;</span></span><br><span class="line"><span class="params">&lt;/svg&gt;</span></span><br><span class="line"><span class="params">&lt;/div&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="class">div </span>&#123;</span><br><span class="line"><span class="symbol">	width:</span> <span class="number">300</span>px;</span><br><span class="line"><span class="symbol">	height:</span> <span class="number">150</span>px;</span><br><span class="line"><span class="symbol">	background:</span> <span class="meta">#f06;</span></span><br><span class="line"><span class="symbol">	font:</span> bold <span class="number">150</span>% sans-serif;</span><br><span class="line">	text-shadow: <span class="number">0</span> <span class="number">1</span>px <span class="number">2</span>px rgba(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">.5</span>);</span><br><span class="line"><span class="symbol">	overflow:</span> hidden; resize: both; <span class="comment">/* just for this demo */</span></span><br><span class="line"><span class="symbol">	color:</span> white;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class">svg </span>&#123;</span><br><span class="line"><span class="symbol">	width:</span> <span class="number">100</span>%; height: <span class="number">100</span>%;</span><br><span class="line">	pointer-events: none; <span class="comment">/* so that you can resize the element */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class">text </span>&#123;</span><br><span class="line">	text-anchor: middle;</span><br><span class="line">	pointer-events: auto; <span class="comment">/* Cancel the svg’s pointer-events */</span></span><br><span class="line"><span class="symbol">	fill:</span> currentColor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#css" rel="tag">#css</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/CSS居中大法.html"
+           data-title="CSS居中大法" data-url="http://blog.yongyuan.com/post/CSS居中大法.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>

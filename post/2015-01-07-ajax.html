@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+<meta name="google-site-verification" content="asdadseqwerqgwehuyg" />
+
+
+
+
+<meta name="baidu-site-verification" content="fRBucd9VmI" />
+
+
+
+
+<meta name="baidu-gxt-verify-token" content="ca8f032797b876ef3be37c3d492168a0" />
+
+
+
+
+
+
+
+<meta name="keywords" content="^_^" />
+
+
+<meta name="description" content="##Ajax大部分人开发者在学习jQuery的时候，看到 $.ajax() 函数都会觉得这真是太棒了！是的，它魔法般的把 ajax 请求变得极其容易，同时提供了足够多的控制项。在浏览器API层面这些请求都是由 XMLHttpRequest 对象完成的，$.ajax() 函数对它做了包装，这篇文章里快速浏览一下如何通过浏览器API提交ajax请求，包括跨域的ajax请求，试过之后可以发现这其实也不是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4.Ajax">
+<meta property="og:url" content="http://blog.yongyuan.com/post/2015-01-07-ajax.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="##Ajax大部分人开发者在学习jQuery的时候，看到 $.ajax() 函数都会觉得这真是太棒了！是的，它魔法般的把 ajax 请求变得极其容易，同时提供了足够多的控制项。在浏览器API层面这些请求都是由 XMLHttpRequest 对象完成的，$.ajax() 函数对它做了包装，这篇文章里快速浏览一下如何通过浏览器API提交ajax请求，包括跨域的ajax请求，试过之后可以发现这其实也不是">
+<meta property="og:updated_time" content="2015-08-26T14:44:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="4.Ajax">
+<meta name="twitter:description" content="##Ajax大部分人开发者在学习jQuery的时候，看到 $.ajax() 函数都会觉得这真是太棒了！是的，它魔法般的把 ajax 请求变得极其容易，同时提供了足够多的控制项。在浏览器API层面这些请求都是由 XMLHttpRequest 对象完成的，$.ajax() 函数对它做了包装，这篇文章里快速浏览一下如何通过浏览器API提交ajax请求，包括跨域的ajax请求，试过之后可以发现这其实也不是">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 4.Ajax </title>
+  
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47d302b006bf28a09c22990da53cd3da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</head>
+<body lang="">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 4.Ajax </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2015-01-08T00:00:00+08:00" content="2015-01-08">
+              2015-01-08
+            </time>
+          </div>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <a href="/post/2015-01-07-ajax.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="post/2015-01-07-ajax.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/categories" rel="section">
+          Categories
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>##Ajax<br>大部分人开发者在学习jQuery的时候，看到 $.ajax() 函数都会觉得这真是太棒了！是的，它魔法般的把 ajax 请求变得极其容易，同时提供了足够多的控制项。在浏览器API层面这些请求都是由 XMLHttpRequest 对象完成的，$.ajax() 函数对它做了包装，这篇文章里快速浏览一下如何通过浏览器API提交ajax请求，包括跨域的ajax请求，试过之后可以发现这其实也不是很复杂。<br><a id="more"></a><br>译者注：在工程中使用原生代码进行Ajax操作是不明智的，作者也并非希望手工处理浏览器差异，只是希望能够理解jQuery背后的工作原理。<br>GETting POSTing URL Encoding JSON Uploading CORS JSONP Libraries to Consider Next in this Series</p>
+<p>####GET 请求<br>我们从一个简单的请求开始，向服务器提交一个查询，通过用户的ID查询用户的名字，在URI的参数中包含了请求的用户ID。在请求结束之后弹出alert对话框提示结果。</p>
+<p>jQuery</p>
+<p>在jQuery中提交GET请求有两种方法，可以使用 $.get() 函数进行简单的请求，或者使用 $.ajax() 函数来获得更多的控制。在这里我们统一使用 $.ajax() 函数来统一所有的请求。<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(<span class="string">'myservice/username'</span>, &#123;</span><br><span class="line">  <span class="keyword">data</span>: &#123;</span><br><span class="line">      id: <span class="string">'some-unique-id'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="keyword">then</span>(</span><br><span class="line">  <span class="function"><span class="keyword">function</span></span> success(<span class="keyword">name</span>) &#123;</span><br><span class="line">      alert(<span class="string">'User\'s name is '</span> + <span class="keyword">name</span>);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span></span> fail(<span class="keyword">data</span>, <span class="keyword">status</span>) &#123;</span><br><span class="line">      alert(<span class="string">'Request failed.  Returned status of '</span> + <span class="keyword">status</span>);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>Native XMLHttpRequest Object<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="symbol">'GET</span>', encodeURI(<span class="symbol">'myservice</span>/username?id=<span class="keyword">some</span>-unique-id'));</span><br><span class="line">xhr.onload = <span class="keyword">function</span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.status === <span class="number">200</span>) &#123;</span><br><span class="line">        alert(<span class="symbol">'User</span>\<span class="symbol">'s</span> name <span class="keyword">is</span> ' + xhr.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        alert(<span class="symbol">'Request</span> failed.  Returned status <span class="keyword">of</span> ' + xhr.status);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">xhr.send();</span><br></pre></td></tr></table></figure></p>
+<p>上面这段JS代码在IE 7及以上的浏览器中都能正常的工作，即使是IE 6中也提供了有限的支持。</p>
+<p>####POST 请求<br>上一节通过GET请求我们已经能够通过用户ID获取用户的名字，在这里我们进一步修改他/她的名字，并为其添加“地址”字段。当然这个操作通过GET请求也是可以完成的，但仍然推荐使用POST请求。我们需要向服务器提交POST请求，请求中包含了用户的新名字以及地址信息，服务器收到请求后会加以处理并将更新后的名字返回，在JS里我们要验证返回的新名字与我们要修改的是否一致。</p>
+<p>如果考虑到HTTP 1.1标准，这里我们更应该使用PATCH请求，PATCH并不是传统意义上通用的请求方式，在IE 8等较老的浏览器中存在某些问题，因此这里而我们只讨论POST请求。对于代码来说这两种请求的区别倒是不大，只有请求的方式字段不同。</p>
+<p>jQuery<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newName = <span class="string">'John Smith'</span>;</span><br><span class="line"></span><br><span class="line">$.ajax(<span class="string">'myservice/username?'</span> + $.param(&#123;id: <span class="string">'some-unique-id'</span>&#125;), &#123;</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        name: newName</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">.then(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">success</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (name !== newName) &#123;</span><br><span class="line">            alert(<span class="string">'Something went wrong.  Name is now '</span> + name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fail</span>(<span class="params">data, status</span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">'Request failed.  Returned status of '</span> + status);</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>Native XMLHttpRequest Object<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newName = <span class="string">'John Smith'</span>,</span><br><span class="line">    xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"></span><br><span class="line">xhr.open(<span class="string">'POST'</span>,</span><br><span class="line"><span class="built_in">encodeURI</span>(<span class="string">'myservice/username?id=some-unique-id'</span>));</span><br><span class="line">xhr.setRequestHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/x-www-form-urlencoded'</span>);</span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.status === <span class="number">200</span> &amp;&amp; xhr.responseText !== newName) &#123;</span><br><span class="line">        alert(<span class="string">'Something went wrong.  Name is now '</span> + xhr.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (xhr.status !== <span class="number">200</span>) &#123;</span><br><span class="line">        alert(<span class="string">'Request failed.  Returned status of '</span> + xhr.status);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">xhr.send(<span class="built_in">encodeURI</span>(<span class="string">'name='</span> + newName));</span><br></pre></td></tr></table></figure></p>
+<p>原生的API这样工作的也还算不错。</p>
+<blockquote>
+<p>译者注：原生的方式写起来很复杂，而且需要手工处理 Content-Type 这样的HTTP头，手工判断返回的HTTP状态码。工程中强烈不推荐使用这样的代码，作者在这里强调原生API也能完成POST请求，只是为了说明jQuery背后的工作原理，并非推荐在工程中直接使用这样的代码。</p>
+</blockquote>
+<p>####URL 编码<br>jQuery中提供了工具方法，对请求中需要传递的数据进行编码：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$.</span>param(&#123;</span><br><span class="line">    <span class="symbol">key1:</span> <span class="string">'some value'</span>,</span><br><span class="line">    <span class="string">'key 2'</span>: <span class="string">'another value'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>在浏览器API中，提供了两个函数：encodeURI 和 encodeURIComponent 用于进行URL转码，两者的区别在于前者用于完整的URI的转码，因此URI中的合法字符（斜线等）不会被转码；后者用于URI的一部分（比如协议、主机名、路径或查询字符串）转码，因此所有可以转码的内容都会被转码。</p>
+<p>如果我们想要“仿造”一个jQuery中的 $.param() 函数：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">param</span>(<span class="params"><span class="keyword">object</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> encodedString = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> <span class="keyword">object</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">object</span>.hasOwnProperty(prop)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (encodedString.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                encodedString += <span class="string">'&amp;'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            encodedString += encodeURI(prop + <span class="string">'='</span> + <span class="keyword">object</span>[prop]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> encodedString;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>####发送/接收 JSON<br>RESTful接口大行其道的今天，JSON数据的发送/接收用的越来越多，这里我们假设需要向服务器发送待更新的数据，在服务器处理完更新之后，返回更新之后的整体数据。这里最适合的HTTP方法是PUT：</p>
+<p>jQuery<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(<span class="string">'myservice/user/1234'</span>, &#123;</span><br><span class="line">    method: <span class="string">'PUT'</span>,</span><br><span class="line">    contentType: <span class="string">'application/json'</span>,</span><br><span class="line">    processData: <span class="literal">false</span>,</span><br><span class="line">    data: <span class="built_in">JSON</span>.stringify(&#123;</span><br><span class="line">        name: <span class="string">'John Smith'</span>,</span><br><span class="line">        age: <span class="number">34</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">.then(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">success</span>(<span class="params">userInfo</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// userInfo will be a JavaScript object containing properties such as</span></span><br><span class="line">        <span class="comment">// name, age, address, etc</span></span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>使用jQuery通过回调的方式提交Ajax请求有时候会把逻辑打散，事实上在不使用defer模式的情况下进行多重ajax请求是非常让人头晕的事情。jQuery默认的content-type是 application/x-www-form-urlencoded，如果需要使用其他的类型需要手工指定。</p>
+<blockquote>
+<p>译者注：作者这里对 $.ajax() 函数有误解，在 $.ajax() 函数中，data 的内容不需要手工通过 JSON.stringify() 进行序列化，而是可以通过指定 dataType=json 来实现对传入数据的序列化。</p>
+</blockquote>
+<p>####Web API<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">'PUT'</span>, <span class="string">'myservice/user/1234'</span>);</span><br><span class="line">xhr.setRequestHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/json'</span>);</span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.status === <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> userInfo = <span class="built_in">JSON</span>.parse(xhr.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">xhr.send(<span class="built_in">JSON</span>.stringify(&#123;</span><br><span class="line">    name: <span class="string">'John Smith'</span>,</span><br><span class="line">    age: <span class="number">34</span></span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure></p>
+<p>由于对JSON的支持问题，上面这段代码只有在IE 8及以上的浏览器中才能正常工作，如果要兼容比较旧的版本，只需要在页面加载json.js就好。</p>
+<p>####上传文件<br>在IE 9以及更早的浏览器中，在页面里上传文件的唯一方法是提交一个带有 <input type="file"> 标签的表单，在这里没有Web API可以使用。所以我们只能在现代浏览器中讨论上传文件，这里会用到File API。</p>
+<p>有两种方法可以上传文件，第一种是使用 <form enctype="multipart/form-data">将文件作为HTTP请求的一部分上传。第二种是将文件作为请求的整体上传到服务器，两种方法都需要使用 File 或 Blob 对象。</form></p>
+<p>假设上传文件的HTML标签是：<br><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"file"</span> id=<span class="string">"test-input"</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>jQuery</p>
+<p>首先可以通过 multipart/form-data 的方式上传文件：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">file</span> = $(<span class="string">'#test-input'</span>)[<span class="number">0</span>].files[<span class="number">0</span>],</span><br><span class="line">    formData = <span class="keyword">new</span> FormData();</span><br><span class="line"></span><br><span class="line">formData.<span class="keyword">append</span>(<span class="string">'file'</span>, <span class="keyword">file</span>);</span><br><span class="line"></span><br><span class="line">$.ajax(<span class="string">'myserver/uploads'</span>, &#123;</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">    contentType: <span class="keyword">false</span>,</span><br><span class="line">    processData: <span class="keyword">false</span>,</span><br><span class="line">    data: formData</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>第二种方式：<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">file</span> = <span class="symbol">$</span>(<span class="string">'#test-input'</span>)[<span class="number">0</span>].<span class="keyword">files</span>[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="symbol">$</span>.ajax(<span class="string">'myserver/uploads'</span>, &#123;</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">    contentType: <span class="keyword">file</span>.type,</span><br><span class="line">    processData: false,</span><br><span class="line">    data: <span class="keyword">file</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>两种方式中，都使用了 processData: false 来防止jQuery对文件内容进行编码。</p>
+<p>XMLHttpRequest</p>
+<p>第一种方式，multipart/form-data：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var formData = <span class="keyword">new</span> FormData(),</span><br><span class="line">    <span class="keyword">file</span> = document.getElementById(<span class="string">'test-input'</span>).files[<span class="number">0</span>],</span><br><span class="line">    xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"></span><br><span class="line">formData.<span class="keyword">append</span>(<span class="string">'file'</span>, <span class="keyword">file</span>);</span><br><span class="line">xhr.open(<span class="string">'POST'</span>, <span class="string">'myserver/uploads'</span>);</span><br><span class="line">xhr.send(formData);</span><br></pre></td></tr></table></figure></p>
+<p>第二种方式：<br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">file</span> = document.getElementById(<span class="symbol">'test</span>-input').files[<span class="number">0</span>],</span><br><span class="line">    xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"></span><br><span class="line">xhr.<span class="keyword">open</span>(<span class="symbol">'POST</span>', <span class="symbol">'myserver</span>/uploads');</span><br><span class="line">xhr.setRequestHeader(<span class="symbol">'Content</span>-<span class="keyword">Type</span>', <span class="keyword">file</span>.<span class="keyword">type</span>);</span><br><span class="line">xhr.send(<span class="keyword">file</span>);</span><br></pre></td></tr></table></figure></p>
+<p>####跨域请求</p>
+<blockquote>
+<p>译者注：jQuery及原生API的Ajax的跨域请求展开是一个很长的话题，原作者在这里介绍的并不详细，因此只是对原文稍加翻译，译者或许会在后面补一篇专门针对跨域Ajax的介绍。</p>
+</blockquote>
+<p>跨域请求，特别是IE 8及更早浏览器中的跨域请求这个专题展开讨论会很复杂，我们这里并不关心所有的细节，只讨论最基本的同源策略和跨域请求。Mozilla 开发者网络里可以找到关于跨域请求的详细说明。</p>
+<p>在现代浏览器中，跨域请求和非跨域请求在代码实现层面没有太大区别，只需要在服务器上做好相应设置，浏览器会完成剩下的判断和处理工作。跨域中还有一个需要注意的问题是，cookie 在默认情况不会被跨域请求携带，必须在 XMLHttpRequest 中指定 withCredentials 标记才会提交跨域cookie。</p>
+<p>jQuery<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(<span class="string">'http://someotherdomain.com'</span>, &#123;</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">    contentType: <span class="string">'text/plain'</span>,</span><br><span class="line">    data: <span class="string">'sometext'</span>,</span><br><span class="line">    beforeSend: <span class="function"><span class="keyword">function</span>(<span class="params">xmlHttpRequest</span>) </span>&#123;</span><br><span class="line">        xmlHttpRequest.withCredentials = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>XMLHttpRequest<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="type">XMLHttpRequest</span>();</span><br><span class="line">xhr.open(<span class="symbol">'POS</span>T', <span class="symbol">'http</span>:<span class="comment">//someotherdomain.com');</span></span><br><span class="line">xhr.withCredentials = <span class="literal">true</span>;</span><br><span class="line">xhr.setRequestHeader(<span class="symbol">'Content</span>-<span class="type">Type</span>', <span class="symbol">'text</span>/plain');</span><br><span class="line">xhr.send(<span class="symbol">'sometex</span>t');</span><br></pre></td></tr></table></figure></p>
+<p>jQuery actually becomes a headache to deal with when we need to send a cross-domain ajax request in IE8 or IE9. If you’re using jQuery for this purpose, you are truly trying to fit a square peg into a round hole.</p>
+<p>To understand why jQuery is a poor fit for cross-origin requests in IE9 and IE8, it’s important to understand a couple low-level points:</p>
+<p>Cross-origin ajax requests in IE8 and IE9 can only be sent using the IE-proprietary XDomainRequest transport. I’ll save the rant for why this was such a huge mistake by the IE development team for another blog post. Regardless, XDomainRequest is a stripped down version of XMLHttpReqest, and it must be used when making cross-origin ajax requests in IE8 and IE9. To read more about the (significant) restrictions imposed on this transport, read Eric Law’s MSDN post on the subject.</p>
+<p>jQuery’s ajax method (and all associated aliases) are just wrappers for XMLHttpRequest. It has a hard dependency on XMLHttpRequest.</p>
+<p>So, you need to use XDomainRequest to send the cross-origin request in IE8/9, but jQuery.ajax is hard-coded to use XMLHttpRequest. That’s a problem, and resolving it in the context of jQuery is not going to be pleasant. In fact, it’s so unpleasant that no one in their right mind would do it. Luckily, for those dead-set on using jQuery for this type of call, there are a few plug-ins that will “fix” jQuery in this regard. Essentially, the plug-ins must override jQuery’s ajax request sending/handling logic via the $.ajaxTransport method.</p>
+<p>But, sending ajax requests in IE8/9 is pretty simple without jQuery. In fact, even if you’re a die-hard jQuery fan, you should do it this way:</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">// For cross-origin requests, some simple logic</span><br><span class="line">//</span> <span class="keyword">to</span> determine <span class="keyword">if</span> XDomainReqeust <span class="keyword">is</span> needed.</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">new</span> XMLHttpRequest().withCredentials === <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> xdr = <span class="keyword">new</span> XDomainRequest();</span><br><span class="line">    xdr.open(<span class="string">'POST'</span>, <span class="string">'http://someotherdomain.com'</span>);</span><br><span class="line">    xdr.send(<span class="string">'sometext'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Note that you cannot set any request headers when using XDomainRequest. If you can avoid making cross-origin ajax requests in IE8/9, you should. But if you must, become familiar with its limitations.</p>
+<p>####JSONP<br>这里介绍JSONP并不是推荐你使用它，他会导致一些潜在的安全问题，在现代浏览器中如果可能，还是应该直接使用跨域Ajax。</p>
+<p>对于初学JSONP的同学，名字可能会造成一些困扰，事实上这里并没有JSON数据在网络上传输。一个很常见的误解是服务器一定返回包含JSON数据的HTTP包，然后客户端通过JSONP回调来使用。事实上服务器返回的是一段包含了数据结构的脚本代码，而非JSON。</p>
+<p>JSONP的实现方式并不优雅，它建立在 <code>&lt;script&gt;</code> 标签不需要遵守同源策略的基础上，同时需要在浏览器端和服务器端都针对JSONP调用书写特殊的代码，服务器通过解析 <code>&lt;script&gt;</code> 的请求地址，生成包含特定数据的文本并返回给客户端。</p>
+<p>jQuery<br><figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(<span class="string">'http://jsonp-aware-endpoint.com/user'</span>, &#123;</span><br><span class="line">    <span class="attribute">jsonp</span>: <span class="string">'callback'</span>,</span><br><span class="line">    <span class="attribute">dataType</span>: <span class="string">'jsonp'</span>,</span><br><span class="line">    <span class="attribute">data</span>: &#123;</span><br><span class="line">        <span class="attribute">id:</span><span class="string"> 123</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then</span>(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// handle requested data from server</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>我们在讨论一种并不优雅的实现方法，jQuery 中把他包装成和惯常ajax请求类似的格式。事实上下面这段代码更加接接近JSONP的本质：</p>
+<p>####Without jQuery<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.myJsonpCallback = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// handle requested data from server</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> scriptEl = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">scriptEl.setAttribute(<span class="string">'src'</span>,</span><br><span class="line">    <span class="string">'http://jsonp-aware-endpoint.com/user?callback=myJsonpCallback&amp;id=123'</span>);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(scriptEl);</span><br></pre></td></tr></table></figure></p>
+<p>####可以替代jQuery的库<br>上面已经阐述过了，在没有辅助库的帮助下，也可以通过原生API完成Ajax的大部分任务，如果为了简化开发流程同时兼顾浏览器兼容性，有几个库可以考虑：</p>
+<p>fetch: 这是一个polyfill（抱歉这个没有很好地翻译，可以看这里），能够帮助我们处理浏览器兼容性，在旧的浏览器中提供较好的ajax支持。</p>
+<p>xdomain: 跨浏览器实现的跨域请求库，通过 Web Messaging API 来实现。</p>
+<p>Lightweight-JSONP: 轻量级JSONP库，提供了对JSONP的支持。</p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+    </footer>
+
+  </article>
+
+
+
+      
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="post/2015-01-07-ajax.html"
+           data-title="4.Ajax" data-url="http://blog.yongyuan.com/post/2015-01-07-ajax.html">
+      </div>
+    
+  </div>
+
+</style>
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date(10/04/2015);
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiutongcheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>
