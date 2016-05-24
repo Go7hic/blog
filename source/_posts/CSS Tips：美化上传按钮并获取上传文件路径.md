@@ -2,7 +2,7 @@
 layout: post
 title: CSS Tips：美化上传按钮并获取上传文件路径
 date: 2014-11-19 11:21:04
-tags: css
+tags: CSS
 ---
 上传功能很常见了，就是一个 input file 功能。
 

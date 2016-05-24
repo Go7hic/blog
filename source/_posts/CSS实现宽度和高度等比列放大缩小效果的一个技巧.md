@@ -2,7 +2,7 @@
 layout: post
 title: CSS实现宽度和高度等比列放大缩小效果的一个技巧
 date: 2014-03-22 11:21:04
-tags: css
+tags: CSS
 ---
 
 先上 Demo：http://jsfiddle.net/gothic/tGv7G/light/

@@ -2,7 +2,7 @@
 layout: post
 title: CSS居中大法
 date: 2014-02-24 11:21:04
-tags: css
+tags: CSS
 ---
 
 各种方法各有利弊，大家自己权衡吧，至少在需要居中时多个思路。

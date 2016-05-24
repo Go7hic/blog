@@ -46,31 +46,25 @@ auto_excerpt:
   length: 200
 
 # 各种网站验证的验证码
-google_site_verification: asdadseqwerqgwehuyg
-baidu_site_verification: fRBucd9VmI
-baidu_gxt_verify_token: ca8f032797b876ef3be37c3d492168a0
+# google_site_verification: asdadseqwerqgwehuyg
+# baidu_site_verification: fRBucd9VmI
+# baidu_gxt_verify_token: ca8f032797b876ef3be37c3d492168a0
 
 # 百度分析验证码
-baidu_analytics: 47d302b006bf28a09c22990da53cd3da
+# baidu_analytics: 47d302b006bf28a09c22990da53cd3da
 
 # Make duoshuo show UA
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
-# 多说的服务信息
-duoshuo_info:
-  ua_enable: true
-  admin_enable: false
-  user_id: qiutongcheng
-  admin_nickname: qiutc
-duoshuo_shortname: qiutongcheng
+# 多说的服务信息g
 
 # Social links
 # 社会化链接
 social:
-  github: https://github.com/tongchengqiu
-  twitter: https://twitter.com/tongchengqiu
-  zhihu: http://www.zhihu.com/people/tongchengqiu
-  weibo: http://weibo.com/tongchengqiu
+  github: https://github.com/dyygtfx
+  twitter: https://twitter.com/go7hic
+  zhihu: http://www.zhihu.com/people/go7hic
+  weibo: http://weibo.com/go7hic
 
 # Use Lato font
 # Note: this option is avialable only when the language is not `zh-Hans`

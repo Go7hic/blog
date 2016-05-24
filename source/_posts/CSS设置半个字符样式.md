@@ -2,7 +2,7 @@
 layout: post
 title: CSS设置半个字符样式
 date: 2014-06-24 11:21:04
-tags: css
+tags: CSS
 ---
 
 在stackoverflow上看到的问题怎么给半个字符设置样式，很多大神给出了答案。我就等就来学习围观吧。

@@ -2,7 +2,7 @@
 layout: post
 title: CSS之BFC详解
 date: 2014-03-06 11:21:04
-tags: css
+tags: CSS
 ---
 
 

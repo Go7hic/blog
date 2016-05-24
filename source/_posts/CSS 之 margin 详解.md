@@ -2,7 +2,7 @@
 layout: post
 title: css之 margin 详解
 date: 2013-12-07 11:21:04
-tags: css
+tags: CSS
 ---
 
 mmargin大家应该都知道，我们通常称之为外边距，是css盒模型的基本组成部分。平常写css经常要用到margin，所以难免会出些问题。我们主要是注意以下几个地方：
