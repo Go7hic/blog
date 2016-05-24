@@ -2,7 +2,7 @@
 layout: post
 title: 纯 CSS 制作的居中弹出层
 date: 2014-09-13 11:21:04
-tags: css
+tags: CSS
 ---
 
 
