@@ -62,7 +62,7 @@ Sass和Less的争论可以结束了.在本文我将解释为什么Sass真的比�
 
 Sass和Less的争论可以结束了.在本文我将解释为什么Sass真的比较好以及为什么你应该从现在开始使用Sass如果你还没准备好的话。如果你对这个感兴趣的话，我之前也写过关">
 <meta property="og:image" content="http://dyyim.qiniudn.com/qiniu/3933/image/847b9b7ffe4d7077898905cbecd8560a.png">
-<meta property="og:updated_time" content="2015-09-11T16:24:03.000Z">
+<meta property="og:updated_time" content="2016-05-24T01:52:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】Less vs Sass? 是时候选择Sass了">
 <meta name="twitter:description" content="话说我之前也是Less党，觉得很容易上手，使用也方便，但是网上Less和Sass的争论一直就没停过，不过随着年初bootstrap也转用Sass，我也开始考虑Sass了，今天看到一篇文章，是时候考虑用Sass了，以下是全文：
@@ -254,16 +254,6 @@ Sass和Less的争论可以结束了.在本文我将解释为什么Sass真的比�
 
 
       
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="post/【译】Less vs Sass? 是时候选择Sass了.html"
-           data-title="【译】Less vs Sass? 是时候选择Sass了" data-url="http://blog.yongyuan.com/post/【译】Less vs Sass? 是时候选择Sass了.html">
-      </div>
-    
-  </div>
-
-</style>
-
 
 
     </main>

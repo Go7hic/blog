@@ -17,7 +17,7 @@
 
       {% block content %}{% endblock %}
 
-      {% include '_partials/comments.swig' %}
+      {# % include '_partials/comments.swig' % #}
 
 
     </main>
