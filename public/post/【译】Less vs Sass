@@ -148,11 +148,6 @@ Sass和Less的争论可以结束了.在本文我将解释为什么Sass真的比�
         </a>
       
         
-        <a class="nav-link" href="/categories" rel="section">
-          分类
-        </a>
-      
-        
         <a class="nav-link" href="/tags" rel="section">
           标签
         </a>

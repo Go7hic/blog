@@ -2,7 +2,7 @@
 layout: post
 title: Sticky footer css 固定网页底部
 date: 2015-01-03 11:21:04
-tags: css
+tags: CSS
 ---
 
 >经常看到一些网站页面内容比较少的时候，底部也往上走了，使得网站看上去很不和谐，起码我个人不喜欢这样看的。

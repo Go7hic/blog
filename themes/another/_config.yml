@@ -2,7 +2,6 @@
 # 导航菜单
 menu:
   home: /
-  categories: /categories
   tags: /tags
   about: /about
 
