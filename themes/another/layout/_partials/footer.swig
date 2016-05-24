@@ -6,7 +6,7 @@
     <span itemprop="copyrightYear">{{ current }}</span>
     <span class="author" itemprop="copyrightHolder">{{ config.author }}</span>
   </div>
-
+{#
   <div class="info">
     <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     {% if theme.birth_day %}
@@ -18,8 +18,7 @@
       var total= Math.floor(duration / (1000 * 60 * 60 * 24));
       document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
       </script>
-      ---
     {% endif %}
   </div>
-
+#}
 </footer>

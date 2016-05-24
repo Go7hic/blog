@@ -6,7 +6,7 @@
 .markdown-body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  color: #333;
+  color: #011627;
   font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
   line-height: 1.6;
@@ -138,6 +138,7 @@
   margin-top: 0;
   margin-bottom: 0;
   line-height: 1.5;
+  color: #2ec4b6;
 }
 
 .markdown-body h1 {
@@ -153,6 +154,7 @@
 }
 
 .markdown-body h4 {
+  color: #2EC4B6;
   font-size: 1.2rem;
 }
 
@@ -379,6 +381,7 @@
 }
 
 .markdown-body h4 {
+  color: #2EC4B6;
 }
 
 .markdown-body h4 .anchor {
@@ -727,5 +730,6 @@
   border-bottom-color: #eee;
 }
 .markdown-body p, .markdown-body li {
-  font-size: .9rem;
+  font-size: 1rem;
+  line-height: 2rem;
 }
