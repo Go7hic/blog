@@ -47,8 +47,8 @@
         </div>
         {% endif %}
       {% else %}
-        <h1 class="title"> {{ config.title }} </h1>
-        <h3 class="description">{{ theme.description }}</h3>
+        <h1 class="title"> <img src="images/title.png"  alt="go7hic"/> </h1>
+        <h3 class="description"> <img src="images/subtitle.png"  alt="go7hic"/></h3>
       {% endif %}
     </div>
     <!-- Navigation -->

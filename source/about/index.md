@@ -1,9 +1,12 @@
 title: Résumé
-date: 2015-07-24 00:13:43
+date: 2014-07-24 00:13:43
 ---
 
 
 >All things, hope to beauty, to be a beautiful thing, never fade.
+
+程序员
+
 
 
 
