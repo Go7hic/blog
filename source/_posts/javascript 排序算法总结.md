@@ -1,5 +1,5 @@
 layout: post
-title: javascript 排序算法总结
+title: JavaScript 排序算法总结
 date: 2015-07-24 11:21:04
 tags:
 ---

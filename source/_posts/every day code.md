@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:     every day code 上线网站了
+title:     Every day code 上线网站了
 date: 2016-02-17
 description: 
 ---

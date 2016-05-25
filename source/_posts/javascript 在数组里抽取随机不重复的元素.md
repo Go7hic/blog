@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript 在数组里抽取随机不重复的元素
+title: JavaScript 在数组里抽取随机不重复的元素
 date: 2015-07-26 11:21:04
 tags: JavaScript
 ---
