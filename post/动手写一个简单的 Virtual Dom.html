@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Just4fun" />
+
+
+
+
+<meta name="keywords" content="React," />
+
+
+<meta name="description" content="Virtual Dom 又叫虚拟 DOM，随着 React 一起火起来的一个概念。虚拟 DOM 做到极致能够极大的提升性能，据说 Vue2 的 Virtual DOM 实现性能提升了很高。不过这些我们暂时不管，我们只要知道大致原理就可以自己来试着实现一个类似的乞丐版 Virtual Dom。
+我们知道虚拟 DOM 最后也是要映射成真实DOM 的，所以我们可以用 JS 对象来表示真实的 DOM 树。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动手写一个简单的 Virtual Dom">
+<meta property="og:url" content="http://blog.yongyuan.com/post/动手写一个简单的 Virtual Dom.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="Virtual Dom 又叫虚拟 DOM，随着 React 一起火起来的一个概念。虚拟 DOM 做到极致能够极大的提升性能，据说 Vue2 的 Virtual DOM 实现性能提升了很高。不过这些我们暂时不管，我们只要知道大致原理就可以自己来试着实现一个类似的乞丐版 Virtual Dom。
+我们知道虚拟 DOM 最后也是要映射成真实DOM 的，所以我们可以用 JS 对象来表示真实的 DOM 树。">
+<meta property="og:updated_time" content="2016-06-04T09:05:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="动手写一个简单的 Virtual Dom">
+<meta name="twitter:description" content="Virtual Dom 又叫虚拟 DOM，随着 React 一起火起来的一个概念。虚拟 DOM 做到极致能够极大的提升性能，据说 Vue2 的 Virtual DOM 实现性能提升了很高。不过这些我们暂时不管，我们只要知道大致原理就可以自己来试着实现一个类似的乞丐版 Virtual Dom。
+我们知道虚拟 DOM 最后也是要映射成真实DOM 的，所以我们可以用 JS 对象来表示真实的 DOM 树。">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 动手写一个简单的 Virtual Dom </title>
+  
+
+
+
+
+  <script src="//cdn.bootcss.com/jquery/2.2.0/jquery.js"></script>
+</head>
+<body lang="en">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 动手写一个简单的 Virtual Dom </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2016-06-04T11:21:04+08:00" content="2016-06-04">
+              2016-06-04
+            </time>
+          </div>
+
+          
+
+          
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>Virtual Dom 又叫虚拟 DOM，随着 React 一起火起来的一个概念。虚拟 DOM 做到极致能够极大的提升性能，据说 Vue2 的 Virtual DOM 实现性能提升了很高。不过这些我们暂时不管，我们只要知道大致原理就可以自己来试着实现一个类似的乞丐版 Virtual Dom。</p>
+<p>我们知道虚拟 DOM 最后也是要映射成真实DOM 的，所以我们可以用 JS 对象来表示真实的 DOM 树。比如：</p>
+<p>比如有个这样的 DOM 树结构</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">”list”</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>item 1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>item 2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>用 JS 对象我们可以这样来描述</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123; type: ‘ul’, </span><br><span class="line">  props: &#123; ‘class’: ‘list’ &#125;, </span><br><span class="line">  children: [</span><br><span class="line">    &#123; type: ‘li’, props: &#123;&#125;, children: [‘item 1’] &#125;,</span><br><span class="line">    &#123; type: ‘li’, props: &#123;&#125;, children: [‘item 2’] &#125;</span><br><span class="line">  ] </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>考虑到我们不可能每个 DOM 标签都写一串这么长的对象来描述，我们可以封装一个简单的函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">h</span>(<span class="params">type, props, …children</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123; type, props, children &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中 type 表示元素标签，props 表示标签的属性，children 表示子元素，现在我们用上面的函数再表示一遍：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">h(‘ul’, &#123; ‘class’: ‘list’ &#125;,</span><br><span class="line">  h(‘li’, &#123;&#125;, ‘item 1’),</span><br><span class="line">  h(‘li’, &#123;&#125;, ‘item 2’),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>现在我们还差一个方法来把上面的 JS 对象映射成真实的 DOM。我们可以写一个简单的实现方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createElement</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> node === <span class="string">'string'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.createTextNode(node)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> $el = <span class="built_in">document</span>.createElement(node.type)</span><br><span class="line">  node.children.map(createElement).forEach($el.appendChild.bind($el))</span><br><span class="line">  <span class="keyword">return</span> $el</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>到这里基本的创建真实 DOM 功能就实现了，但是如果这就完了不是有点坑爹啊。哈哈，的确，Virtual Dom 的精华之处应该在其 diff 和 patch 上面，所谓 diff 应该就是 计算 [ 新的虚拟DOM ] 和 [ 旧虚拟DOM ] 的差异，然后开始 patch（根据计算的 差异, 更新真实DOM）。我想要优化 Virtual Dom 实现应该也是在这两方面优化吧。</p>
+<p>所以接下来我们可以来实现个简单的 diff 功能。在写代码之前我们可以先想一下一个 Dom 结构前后之间会有哪几种变化呢？<br>我列了几点：</p>
+<ul>
+<li>添加 DOM 元素 ，appendChild</li>
+<li>删除 Dom元素，removeChild</li>
+<li>替换 Dom 元素标签，标签和内容都变了，replaceChild</li>
+<li>元素标签变了，但是内容没变</li>
+</ul>
+<p>好了，我们就先看着这几个 diff 的实现吧，我们可以创建一个函数 updateElement ，用前面的那个 ul DOM结构为例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateElement</span>(<span class="params">$parent, newNode, oldNode, index = 0</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!oldNode) &#123;</span><br><span class="line">    <span class="comment">// 直接插入新的标签</span></span><br><span class="line">    $parent.appendChild(createElement(newNode));</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!newNode) &#123;</span><br><span class="line">    <span class="comment">// 把原来的标签删除</span></span><br><span class="line">    $parent.removeChild($parent.childNodes[index]);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (changed(newNode, oldNode)) &#123;</span><br><span class="line">    <span class="comment">// 替换 Dom 元素标签</span></span><br><span class="line">    $parent.replaceChild(createElement(newNode), $parent.childNodes[index]);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (newNode.type) &#123;</span><br><span class="line">    <span class="keyword">const</span> newLength = newNode.children.length;</span><br><span class="line">    <span class="keyword">const</span> oldLength = oldNode.children.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; newLength || i &lt; oldLength; i++) &#123;</span><br><span class="line">      updateElement($parent.childNodes[index], newNode.children[i], oldNode.children[i], i);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再解释一下上面的代码，其中 $parent 是DOM的最外层标签，newNode和oldNode是新老的虚拟DOM，其中 index 表示的是子元素 li 的位置。</p>
+<p>到这就差不多了，毕竟是乞丐版。下面是一个完整的例子：</p>
+<p><a href="https://jsfiddle.net/gothic/ogc3mme4/3/" target="_blank" rel="external">https://jsfiddle.net/gothic/ogc3mme4/3/</a></p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#React" rel="tag">#React</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2011-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>
