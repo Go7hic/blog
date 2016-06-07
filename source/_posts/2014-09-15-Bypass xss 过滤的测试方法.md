@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Bypass xss 过滤的测试方法
-date: 2014-09-15
+date: 2014-09-15 11:11:00
 tag: xss
 description:
 ---
@@ -381,3 +381,5 @@ http://drops.wooyun.org/tips/147
 原文 http://drops.wooyun.org/tips/845  乌云上的老文章了，因为有时候一些记不住，转载过来只为学习使用
 
 另外推荐一篇整理的也不错 http://insight-labs.org/?p=533
+
+

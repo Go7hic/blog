@@ -1,5 +1,8 @@
-title: Résumé
-date: 2014-07-24 00:13:43
+---
+layout: page
+title: About
+date: 2014-08-12 11:21:04
+tags: about
 ---
 
 
