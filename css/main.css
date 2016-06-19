@@ -423,7 +423,7 @@ body {
 .markdown-body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  color: #011627;
+  color: #525d67;
   font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
   line-height: 1.6;
@@ -1552,7 +1552,7 @@ body {
 }
 .index-content .post-item:hover .title-wrap .title a,
 .index-content .post-item .title-wrap .title a {
-  color: #011627;
+  color: #525d67;
 }
 .index-content .post-item:hover .title-wrap .title a:hover,
 .index-content .post-item .title-wrap .title a:hover {
@@ -1573,7 +1573,7 @@ body {
 }
 .index-content .post-item:hover .post-cont .text,
 .index-content .post-item .post-cont .text {
-  color: #011627;
+  color: #525d67;
   font-size: 1rem;
   line-height: 2rem;
   overflow: hidden;
