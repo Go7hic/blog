@@ -863,7 +863,7 @@
     <link href="http://blog.yongyuan.com/post/%20%E4%B8%80%E4%BA%9B%20HTML%20%E5%92%8C%20CSS%20%E4%B8%AD%E7%9A%84%E5%9D%91.html"/>
     <id>http://blog.yongyuan.com/post/ 一些 HTML 和 CSS 中的坑.html</id>
     <published>2016-03-05T16:00:00.000Z</published>
-    <updated>2016-05-24T01:52:57.000Z</updated>
+    <updated>2016-06-19T13:33:31.000Z</updated>
     
     <content type="html">&lt;h4 id=&quot;lt-DOCTYPE-gt-声明&quot;&gt;&lt;a href=&quot;#lt-DOCTYPE-gt-声明&quot; class=&quot;headerlink&quot; title=&quot;&amp;lt;!DOCTYPE&amp;gt; 声明&quot;&gt;&lt;/a&gt;&amp;lt;!DOCTYPE&amp;gt; 声明&lt;/h4&gt;&lt;p&gt;&amp;lt;!DOCTYPE&amp;gt; 会声明一个文档类型给浏览器识别，例如我们经常使用的 HTML5 的文档类型声明是这样的：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt;&lt;br&gt;如果你没有为页面声明文档类型，浏览器将会使用 Quirks 模式（兼容模式）去渲染页面上非标准的表格，input 控件和其它元素，这样可能会引发一些问题。&lt;/p&gt;
@@ -916,6 +916,8 @@
     </summary>
     
     
+      <category term="CSS" scheme="http://blog.yongyuan.com/tags/CSS/"/>
+    
   </entry>
   
   <entry>
@@ -923,7 +925,7 @@
     <link href="http://blog.yongyuan.com/post/every%20day%20code.html"/>
     <id>http://blog.yongyuan.com/post/every day code.html</id>
     <published>2016-02-16T16:00:00.000Z</published>
-    <updated>2016-05-25T10:59:29.000Z</updated>
+    <updated>2016-06-19T13:38:08.000Z</updated>
     
     <content type="html">&lt;p&gt;every day code 是我从 2014 年开始在 Github 上建的一个 repo，当时的意图是每天练习一个代码，可以是 js、html+css 等内容。&lt;br&gt;然而结果并没有向名字那样的每天都坚持写，但是也有一直断断续续的在写。&lt;/p&gt;
 &lt;p&gt;今天在 Github 上找到一个程序，可以基于 issues 生成一个网站，并且可以基于 labels 生成 tags。所以我就打算用它来把 every day code 这个生成一个网站，这样更易于我查看和分享。&lt;/p&gt;
@@ -938,6 +940,8 @@
     </summary>
     
     
+      <category term="杂谈" scheme="http://blog.yongyuan.com/tags/%E6%9D%82%E8%B0%88/"/>
+    
   </entry>
   
   <entry>
@@ -945,7 +949,7 @@
     <link href="http://blog.yongyuan.com/post/%E5%A6%82%E6%9E%9C%E8%AE%A9%E6%88%91%E7%BB%99%E5%89%8D%E7%AB%AF%E6%96%B0%E4%BA%BA%E6%8E%A8%E8%8D%90%E4%B8%89%E6%9C%AC%20JavaScript%20%E4%B9%A6.html"/>
     <id>http://blog.yongyuan.com/post/如果让我给前端新人推荐三本 JavaScript 书.html</id>
     <published>2016-01-23T16:00:00.000Z</published>
-    <updated>2016-05-24T01:52:57.000Z</updated>
+    <updated>2016-06-19T13:40:35.000Z</updated>
     
     <content type="html">&lt;p&gt;前端这几年发展迅猛，各种 js 书籍也是越来越多，很多一开始接触前端的新人可能学习 js 无从下手。如果让我给大家推荐三本 js 书的话，我可能会改变之前的观点了，之前我也是和很多人的观点一样，从 《javaScript Dom 编程艺术》以及 《javaScript 高级程序》开始学习过来的，犀牛书也放在身边，蝴蝶书也翻过。但是啊，因为高级程序和犀牛书太厚了，涉及的东西太全了。很多新人估计都没那个耐心看，不过说实话我到现在也只看完过高级程序，犀牛书就是粗略的翻过一些。&lt;/p&gt;
 &lt;p&gt;那么我现在的观点是啥呢，说实话 Js 还是有几本很棒的书的，除了上面说的几本经典的还有比如 《JavaScript 启示录》该书对 js 的对象进行详细的讲解，毕竟在 js 里一切皆对象，《javaScript 忍者秘籍》不错，但是买来看了几章，发现又是一本被翻译毁了的一本书，看了几章感兴趣的基本就不想看了，还有一些不错的书我就不举例了，因为那些都不是我要推荐的。&lt;/p&gt;
@@ -960,6 +964,8 @@
     </summary>
     
     
+      <category term="JavaScript" scheme="http://blog.yongyuan.com/tags/JavaScript/"/>
+    
   </entry>
   
   <entry>
@@ -967,7 +973,7 @@
     <link href="http://blog.yongyuan.com/post/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF%20.html"/>
     <id>http://blog.yongyuan.com/post/命令行的艺术 .html</id>
     <published>2016-01-16T16:00:00.000Z</published>
-    <updated>2016-05-24T01:52:57.000Z</updated>
+    <updated>2016-06-19T13:40:26.000Z</updated>
     
     <content type="html">&lt;p&gt;摘自： &lt;a href=&quot;https://github.com/jlevy/the-art-of-command-line&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/jlevy/the-art-of-command-line&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;命令行的艺术&quot;&gt;&lt;a href=&quot;#命令行的艺术&quot; class=&quot;headerlink&quot; title=&quot;命令行的艺术&quot;&gt;&lt;/a&gt;命令行的艺术&lt;/h1&gt;&lt;ul&gt;
@@ -1407,6 +1413,8 @@
     </summary>
     
     
+      <category term="Linux" scheme="http://blog.yongyuan.com/tags/Linux/"/>
+    
   </entry>
   
   <entry>
@@ -1471,7 +1479,7 @@
     <link href="http://blog.yongyuan.com/post/2015-12-02%20%E4%B9%B1%E8%B0%88.html"/>
     <id>http://blog.yongyuan.com/post/2015-12-02 乱谈.html</id>
     <published>2015-12-01T16:00:00.000Z</published>
-    <updated>2016-05-24T01:52:57.000Z</updated>
+    <updated>2016-06-19T13:36:25.000Z</updated>
     
     <content type="html">&lt;p&gt;今天不写技术文，随便写点东西吧，一些随想，记录。&lt;/p&gt;
 &lt;p&gt;最近公司一前技术大牛现在忽悠吹牛的前辈给我级几个新人讲了些程序员之道的东西，虽然很多东西我都已经看过或听过了，不过听身边的人和自己说感觉还是不一样的。&lt;/p&gt;
@@ -1488,6 +1496,8 @@
     
     </summary>
     
+    
+      <category term="杂谈" scheme="http://blog.yongyuan.com/tags/%E6%9D%82%E8%B0%88/"/>
     
   </entry>
   
@@ -1703,7 +1713,7 @@
     <link href="http://blog.yongyuan.com/post/%E7%B2%BE%E9%80%9A%20flex%20%E5%B8%83%E5%B1%80.html"/>
     <id>http://blog.yongyuan.com/post/精通 flex 布局.html</id>
     <published>2015-10-09T03:21:04.000Z</published>
-    <updated>2016-05-24T01:52:57.000Z</updated>
+    <updated>2016-06-19T13:40:57.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/dyygtfx/flexbox/master/display%3Aflexbox%7Cinline-flexbox%20%20%20%E5%BC%B9%E6%80%A7%E7%9B%92%E5%B8%83%E5%B1%80%E5%B1%9E%E6%80%A7.png&quot; alt=&quot;flexbox 思维导图&quot;&gt;&lt;/p&gt;
 &lt;p&gt;对应的 DEMO 为 flex.html。在 Github 上面：&lt;a href=&quot;https://github.com/dyygtfx/flexbox&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/dyygtfx/flexbox&lt;/a&gt;&lt;/p&gt;
@@ -1768,7 +1778,7 @@
     </summary>
     
     
-      <category term="JavaScript" scheme="http://blog.yongyuan.com/tags/JavaScript/"/>
+      <category term="CSS" scheme="http://blog.yongyuan.com/tags/CSS/"/>
     
   </entry>
   

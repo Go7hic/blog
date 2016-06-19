@@ -2,6 +2,7 @@
 layout:     post
 title:     Every day code 上线网站了
 date: 2016-02-17
+tags: 杂谈
 description: 
 ---
 every day code 是我从 2014 年开始在 Github 上建的一个 repo，当时的意图是每天练习一个代码，可以是 js、html+css 等内容。

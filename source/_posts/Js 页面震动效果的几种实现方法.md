@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Js 页面震动效果的几种实现方法
+title: JS 页面震动效果的几种实现方法
 date: 2015-01-08 11:21:04
 tags: JavaScript
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: css之 margin 详解
+title: CSS 之 margin 详解
 date: 2013-12-07 11:21:04
 tags: CSS
 ---

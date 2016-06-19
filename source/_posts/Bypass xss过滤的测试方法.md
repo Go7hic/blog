@@ -2,7 +2,7 @@
 layout: post
 title: Bypass xss过滤的测试方法
 date: 2014-09-15 11:21:04
-tags: JavaScript
+tags: xss
 ---
 0x00 背景
 

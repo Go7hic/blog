@@ -1,6 +1,6 @@
 ---
 layout: post
-title: css布局之等高列布局
+title: CSS 布局之等高列布局
 date: 2014-02-16 11:21:04
 tags: CSS
 ---

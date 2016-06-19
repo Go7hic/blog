@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 几个少数人知道的 css 知识
+title: 几个少数人知道的 CSS 知识
 date: 2015-07-18 11:21:04
 tags: CSS
 ---

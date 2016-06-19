@@ -2,6 +2,7 @@
 layout:     post
 title:     一些 HTML 和 CSS 中的坑
 date: 2016-03-06
+tags: CSS
 description:
 ---
 #### <!DOCTYPE> 声明

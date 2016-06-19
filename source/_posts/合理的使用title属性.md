@@ -2,7 +2,7 @@
 layout: post
 title: 合理的使用title属性
 date: 2014-06-03 11:21:04
-tags: html5
+tags: HTML5
 ---
 
 ####title属性不友好用户如下

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: css 新属性 object-fit 和 object-position 可用于 css sprite
+title: CSS 新属性 object-fit 和 object-position 可用于 CSS sprite
 date: 2015-03-04 10:21:04
 tags: CSS
 ---

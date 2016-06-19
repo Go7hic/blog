@@ -2,6 +2,7 @@
 layout:     post
 title:      js高手的六个秘密
 date: 2014-05-08
+tags: JavaScript
 description: 
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CSS居中大法
+title: CSS 居中大法
 date: 2014-02-24 11:21:04
 tags: CSS
 ---

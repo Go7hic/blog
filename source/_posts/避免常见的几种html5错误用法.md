@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 避免常见的几种html5错误用法
+title: 避免常见的几种 HTML5 错误用法
 date: 2013-12-21 11:21:04
 tags: HTML5
 ---

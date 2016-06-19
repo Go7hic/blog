@@ -2,7 +2,7 @@
 layout: post
 title: 你真的了解HTML头部标签吗？
 date: 2014-05-08 11:21:04
-tags: html5
+tags: HTML5
 ---
 习惯了Emmet这样的工具，我们几乎没怎么写过html文档头部标签了，今天这篇文章其实就是总结了一下当下各个设备的头部标签的写法。
 

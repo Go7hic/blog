@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 从一张图谈谈几个 css 小问题
+title: 从一张图谈谈几个 CSS 小问题
 date: 2015-05-26 11:21:04
-tags: JavaScript
+tags: CSS
 ---
 
 很久没写文章了，今天写一篇来充数。

@@ -2,6 +2,7 @@
 layout:     post
 title:     Navigation Timing测试页面加载速度
 date: 2014-07-10
+tags: JavaScript
 description: 
 ---
 

@@ -1,9 +1,9 @@
 
 ---
 layout: post
-title: HTML5学习小记：html5新增的全局属性
+title: HTML5 学习小记：HTML5 5新增的全局属性
 date: 2013-06-04 11:21:04
-tags: html5
+tags: HTML5
 ---
 
 刚刚谷歌了一下，发现我的和网上写的一些教程不一样，管它妹的，信自己。

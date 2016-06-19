@@ -2,6 +2,7 @@
 layout:     post
 title:      深入理解js里的回调函数
 date: 2014-06-27
+tags: JavaScript
 description: 
 ---
 

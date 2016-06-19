@@ -1,6 +1,6 @@
 ---
 layout: post
-title: css之伪类和伪元素区别详解
+title: CSS 之伪类和伪元素区别详解
 date: 2014-01-24 11:21:04
 tags: CSS
 ---

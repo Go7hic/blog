@@ -1,7 +1,7 @@
 layout: post
 title: JavaScript 排序算法总结
 date: 2015-07-24 11:21:04
-tags:
+tags: JavaScript
 ---
 JavaScript 排序算法总结
 在业务里有时候需要对一些数据进行排序操作，虽然现在用 lodash 比较多，但还是从网上总结了这几个排序方法，更具体的内容可以参考《数据结构与算法 javascript描述》http://www.ituring.com.cn/tupubarticle/1325#

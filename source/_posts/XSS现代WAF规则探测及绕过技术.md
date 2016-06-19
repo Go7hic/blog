@@ -2,7 +2,7 @@
 layout: post
 title: XSS现代WAF规则探测及绕过技术
 date: 2013-12-09 11:21:04
-tags: XSS
+tags: xss
 ---
 
 1、使用无害的payload，类似`<b>`,`<i>`,`<u>`观察响应，判断应用程序是否被HTML编码，是否标签被过滤，是否过滤<>等等；

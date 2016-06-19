@@ -2,6 +2,7 @@
 layout:     post
 title:      npm package.json 介绍中文版
 date: 2014-11-06
+tags: JavaScript
 description: 
 ---
 ###简介

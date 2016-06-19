@@ -1,6 +1,6 @@
 ---
 layout: post
-title: css布局之三栏布局
+title: CSS 布局之三栏布局
 date: 2014-02-13 11:21:04
 tags: CSS
 ---

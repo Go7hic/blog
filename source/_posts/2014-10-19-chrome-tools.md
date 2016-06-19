@@ -2,6 +2,7 @@
 layout:     post
 title:     Chrome开发者工具使用教程
 date: 2014-10-19
+tags: Chrome
 description: 
 ---
 
