@@ -8,7 +8,7 @@ tags: CSS
 
 原文地址： https://github.com/AllThingsSmitty/css-protips
 
-# CSS 专业的技巧 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+
 
 提示的收集，以帮助提升你的CSS技巧。
 
@@ -427,7 +427,6 @@ textarea {
 }
 ```
 
-:dancer:
 
 ### 支持情况
 
