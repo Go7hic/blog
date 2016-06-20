@@ -9,9 +9,6 @@ tags: CSS
 原文地址： https://github.com/AllThingsSmitty/css-protips
 
 
-
-提示的收集，以帮助提升你的CSS技巧。
-
 ## 目录
 
 * [专业的技巧](#protips)
