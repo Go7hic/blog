@@ -159,6 +159,39 @@
 
 
   <div class="title-wrap" style="background: url() center / cover">
+    <h2 class="title"><a href="/post/从一张图谈谈几个 css 小问题.html">从一张图谈谈几个 CSS 小问题</a></h2>
+  </div>
+
+  <div class="post-cont">
+    <span class="post-time">
+      Posted on
+      <time datetime="2015-05-26T11:21:04+08:00" content="2015-05-26">
+        2015-05-26
+      </time>
+    </span>
+    <div class="text">
+      
+      很久没写文章了，今天写一篇来充数。在公司前端群里看到有人发了一张某同事写的 css 代码截图，看完后真的是醉了，我暂且不敢说那样写不好，但是我肯定是写不出那样的 css 的。醉就醉了，过了一会看了一下他写的代码，发现里面一个问题。就是 当我们对某元素使用绝对定位 position: absolute;时，它已经脱了常规文章流，这时候对他设置 display 属性是无效的，应为它总是默认显示为 di
+      ...
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+
+    
+
+    
+  </div>
+</div>
+
+      
+        
+
+
+<div class="post-item without-bgimage">
+
+
+  <div class="title-wrap" style="background: url() center / cover">
     <h2 class="title"><a href="/post/CSS 新属性 object-fit 和 object-position 可用于 css sprite.html">CSS 新属性 object-fit 和 object-position 可用于 CSS sprite</a></h2>
   </div>
 
@@ -195,7 +228,7 @@ Demo: http://jsfiddle.net/gothic/aoqkqdyd/1/light/
 
 
   <div class="title-wrap" style="background: url() center / cover">
-    <h2 class="title"><a href="/post/多行文本溢出显示省略号解决方案.html">多行文本溢出显示省略号解决方案</a></h2>
+    <h2 class="title"><a href="/post/Mac 下安装 mongodb.html">Mac 下安装 mongodb</a></h2>
   </div>
 
   <div class="post-cont">
@@ -207,11 +240,11 @@ Demo: http://jsfiddle.net/gothic/aoqkqdyd/1/light/
     </span>
     <div class="text">
       
-      参考 http://css-tricks.com/line-clampin/
-不是一行，所以123overflow:hidden;white-space: nowrap;text-overflow: ellipsis;
-这个没用。
-我也只介绍上面那篇文章里看到的几种方法，具体看 demo ，里面有说明
-1234&lt;p class="box1"&gt;Lorem ipsum dolor sit 
+      我用的是 brew 安装的，简单记录一下安装过。
+1.brew update
+2.brew install mongodb
+3.安装好之后创建一个放数据库的地方  mkdir -p /data/db
+4.添加到环境变量里  subl ~/.bash_profile我是直接在终端通过命令来打开 sublimeText 来编辑这个文件打开之后把  export PATH=/usr/local/Cell
       ...
     </div>
   </div>
@@ -232,7 +265,7 @@ Demo: http://jsfiddle.net/gothic/aoqkqdyd/1/light/
 
 
   <div class="title-wrap" style="background: url() center / cover">
-    <h2 class="title"><a href="/post/Mac 下安装 mongodb.html">Mac 下安装 mongodb</a></h2>
+    <h2 class="title"><a href="/post/多行文本溢出显示省略号解决方案.html">多行文本溢出显示省略号解决方案</a></h2>
   </div>
 
   <div class="post-cont">
@@ -244,11 +277,11 @@ Demo: http://jsfiddle.net/gothic/aoqkqdyd/1/light/
     </span>
     <div class="text">
       
-      我用的是 brew 安装的，简单记录一下安装过。
-1.brew update
-2.brew install mongodb
-3.安装好之后创建一个放数据库的地方  mkdir -p /data/db
-4.添加到环境变量里  subl ~/.bash_profile我是直接在终端通过命令来打开 sublimeText 来编辑这个文件打开之后把  export PATH=/usr/local/Cell
+      参考 http://css-tricks.com/line-clampin/
+不是一行，所以123overflow:hidden;white-space: nowrap;text-overflow: ellipsis;
+这个没用。
+我也只介绍上面那篇文章里看到的几种方法，具体看 demo ，里面有说明
+1234&lt;p class="box1"&gt;Lorem ipsum dolor sit 
       ...
     </div>
   </div>
@@ -383,41 +416,6 @@ html1&lt;div id="shaking"&gt;Click Me&lt;/div&
     <div class="text">
       
       ###DOM API 之选择元素jQuery的选择符模块无比优雅，以至于我见过很多Web框架和应用中引用了庞大的jQuery，只是因为它提供了方便的DOM元素选择函数。我已经数不清自己写过多少次 $(#myElement) 或者 $(‘.myElement’) 了，以至于在没有jQuery时经常束手无策。事实上使用DOM API选择元素并没有那么难，它或许没有jQuery的那么简短，不过用起来也足
-      ...
-    </div>
-  </div>
-
-  <div class="bottom-bar">
-
-    
-
-    
-  </div>
-</div>
-
-      
-        
-
-
-<div class="post-item without-bgimage">
-
-
-  <div class="title-wrap" style="background: url() center / cover">
-    <h2 class="title"><a href="/post/2015-01-05-为什么抛弃 jQuery.html">1.为什么抛弃 jQuery?</a></h2>
-  </div>
-
-  <div class="post-cont">
-    <span class="post-time">
-      Posted on
-      <time datetime="2015-01-05T00:00:00+08:00" content="2015-01-05">
-        2015-01-05
-      </time>
-    </span>
-    <div class="text">
-      
-      PS: 本系列有四篇文章，原文是国外的朋友写的，翻译是国内朋友翻的http://blog.cabbit.me/you-dont-need-jquery/ ，转载仅为学习使用，后面几篇就不再声明了
-###为什么抛弃 jQuery?
-现在的Web工程师太依赖 jQuery 了，某种意义上说 jQuery 已经成了 JavaScript 的同义词。但是我们真的需要他么？或许我们应该反思一下什么时候才真的
       ...
     </div>
   </div>

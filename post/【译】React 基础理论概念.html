@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Just4fun" />
+
+
+
+
+<meta name="keywords" content="React," />
+
+
+<meta name="description" content="这份文档我试图解释我心中的 react 模式，试图去推导我们这么设计的一些原则。可能有些地方会有争议而且例子的设计可能也有问题，不过这仅仅是个开始，如果你有更好的想法可以发 Pull Request
+React 的实现充满实用的解决方案，渐进的步骤，算法优化，遗留代码，调试工具，你需要使它变得真正有用。
+TransformationReact的核心前提即是改变了jQuery这种以DOM操作为核心到">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】React 基础理论概念">
+<meta property="og:url" content="http://blog.yongyuan.com/post/【译】React 基础理论概念.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="这份文档我试图解释我心中的 react 模式，试图去推导我们这么设计的一些原则。可能有些地方会有争议而且例子的设计可能也有问题，不过这仅仅是个开始，如果你有更好的想法可以发 Pull Request
+React 的实现充满实用的解决方案，渐进的步骤，算法优化，遗留代码，调试工具，你需要使它变得真正有用。
+TransformationReact的核心前提即是改变了jQuery这种以DOM操作为核心到">
+<meta property="og:updated_time" content="2016-06-21T16:19:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】React 基础理论概念">
+<meta name="twitter:description" content="这份文档我试图解释我心中的 react 模式，试图去推导我们这么设计的一些原则。可能有些地方会有争议而且例子的设计可能也有问题，不过这仅仅是个开始，如果你有更好的想法可以发 Pull Request
+React 的实现充满实用的解决方案，渐进的步骤，算法优化，遗留代码，调试工具，你需要使它变得真正有用。
+TransformationReact的核心前提即是改变了jQuery这种以DOM操作为核心到">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 【译】React 基础理论概念 </title>
+  
+
+
+
+
+  <script src="//cdn.bootcss.com/jquery/2.2.0/jquery.js"></script>
+</head>
+<body lang="en">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 【译】React 基础理论概念 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2016-06-20T11:21:04+08:00" content="2016-06-20">
+              2016-06-20
+            </time>
+          </div>
+
+          
+
+          
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>这份文档我试图解释我心中的 react 模式，试图去推导我们这么设计的一些原则。可能有些地方会有争议而且例子的设计可能也有问题，不过这仅仅是个开始，如果你有更好的想法可以发 Pull Request</p>
+<p>React 的实现充满实用的解决方案，渐进的步骤，算法优化，遗留代码，调试工具，你需要使它变得真正有用。</p>
+<h2 id="Transformation"><a href="#Transformation" class="headerlink" title="Transformation"></a>Transformation</h2><p>React的核心前提即是改变了jQuery这种以DOM操作为核心到以数据流驱动为核心，View是不同的数据的投射。并且对于数据的处理函数应该是纯函数，即相同的输入有相同的输出而不会产生其他副作用：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title">NameBox</span>(name) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="type">&#123;</span> fontWeight: <span class="symbol">'bold</span>', labelContent: name &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="symbol">'Sebastian</span> Markbåge' -&gt;</span><br><span class="line">&#123; fontWeight: <span class="symbol">'bold</span>', labelContent: <span class="symbol">'Sebastian</span> Markbåge' &#125;;</span><br></pre></td></tr></table></figure>
+<p>这样可以极大地方便对于View构造函数的重用与单元测试等。</p>
+<h2 id="Abstraction-抽象"><a href="#Abstraction-抽象" class="headerlink" title="Abstraction(抽象)"></a>Abstraction(抽象)</h2><p>对于一个复杂的UI，肯定不能全都塞到一个函数里处理，这就是React另一个重要的思想，将UI抽象拆分为多个可重用的部分，并且各个部分要对上层隐藏实现细节，便如下面这样的进行函数调用：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-tag">function</span> <span class="selector-tag">FancyUserBox</span>(user) &#123;</span><br><span class="line">  <span class="selector-tag">return</span> &#123;</span><br><span class="line">    <span class="attribute">borderStyle</span>: <span class="string">'1px solid blue'</span>,</span><br><span class="line">    <span class="attribute">childContent</span>: [</span><br><span class="line">      <span class="string">'Name: '</span>,</span><br><span class="line">      NameBox(user.firstName + <span class="string">' '</span> + user.lastName)</span><br><span class="line">    ]</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attribute">firstName</span>: <span class="string">'Sebastian'</span>, lastName: <span class="string">'Markbåge'</span> &#125; <span class="selector-tag">-</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">borderStyle</span>: <span class="string">'1px solid blue'</span>,</span><br><span class="line">  childContent: [</span><br><span class="line">    <span class="string">'Name: '</span>,</span><br><span class="line">    &#123; fontWeight: <span class="string">'bold'</span>, labelContent: <span class="string">'Sebastian Markbåge'</span> &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Composition-组合"><a href="#Composition-组合" class="headerlink" title="Composition(组合)"></a>Composition(组合)</h2><p>为了达到真正意义上的重用目标，并不仅仅就是把那个叶子组件组合进一个新的容器，我们也需要在容器中构建出能够组合其他抽象组件的抽象组件。这里我认为的组合要点在于如何把两个或者更多的抽象组件合并成一个新的：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="ada"></span><br><span class="line"><span class="keyword">function</span> <span class="title">FancyBox</span>(children) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="type">&#123;</span></span><br><span class="line">    borderStyle: '<span class="number">1</span>px solid blue',</span><br><span class="line">    children: children</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title">UserBox</span>(user) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="type">FancyBox([</span></span><br><span class="line">    <span class="symbol">'Name</span>: ',</span><br><span class="line">    NameBox(user.firstName + <span class="string">' '</span> + user.lastName)</span><br><span class="line">  ]);</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><p>一个UI并不仅仅是服务端或者业务逻辑的重现，实际上有很多特定的状态会被投射到UI上。譬如，如果你正在输入一个文本框，这个并不会复制到其他的Tab或者你的手机浏览器中。另外，滚动位置也是一个典型的你并不想投射到其他地方的状态。我们希望我们的数据模型会更加地固定，因此，我们从顶部组件开始将更新函数一级一级地注入到实际的显示的那个模块上。</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="actionscript"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FancyNameBox</span><span class="params">(user, likes, onClick)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> FancyBox([</span><br><span class="line">    <span class="string">'Name: '</span>, NameBox(user.firstName + <span class="string">' '</span> + user.lastName),</span><br><span class="line">    <span class="string">'Likes: '</span>, LikeBox(likes),</span><br><span class="line">    LikeButton(onClick)</span><br><span class="line">  ]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Implementation Details</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> likes = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addOneMoreLike</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  likes++;</span><br><span class="line">  rerender();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Init</span></span><br><span class="line"></span><br><span class="line">FancyNameBox(</span><br><span class="line">  &#123; firstName: <span class="string">'Sebastian'</span>, lastName: <span class="string">'Markbåge'</span> &#125;,</span><br><span class="line">  likes,</span><br><span class="line">  addOneMoreLike</span><br><span class="line">);</span></span><br></pre></td></tr></table></figure>
+<p>注意，这里的例子还是用了带副作用的函数来更新状态，不过我本意是想采用纯函数，即每次返回最新的状态来完成这个工作。我会在下面的例子里阐述这个观点。</p>
+<h2 id="Memoization"><a href="#Memoization" class="headerlink" title="Memoization"></a>Memoization</h2><p>纯函数的一个好处就是其结果是可以缓存的，这就避免了重复调用带来的性能浪费。我们可以创建一个自带缓存的函数来记录最后调用的参数与返回值，这样我们可以自动地在相同参数的情况下直接返回：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="actionscript"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">memoize</span><span class="params">(fn)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> cachedArg;</span><br><span class="line">  <span class="keyword">var</span> cachedResult;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(arg)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (cachedArg === arg) &#123;</span><br><span class="line">      <span class="keyword">return</span> cachedResult;</span><br><span class="line">    &#125;</span><br><span class="line">    cachedArg = arg;</span><br><span class="line">    cachedResult = fn(arg);</span><br><span class="line">    <span class="keyword">return</span> cachedResult;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> MemoizedNameBox = memoize(NameBox);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">NameAndAgeBox</span><span class="params">(user, currentTime)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> FancyBox([</span><br><span class="line">    <span class="string">'Name: '</span>,</span><br><span class="line">    MemoizedNameBox(user.firstName + <span class="string">' '</span> + user.lastName),</span><br><span class="line">    <span class="string">'Age in milliseconds: '</span>,</span><br><span class="line">    currentTime - user.dateOfBirth</span><br><span class="line">  ]);</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h2><p>大部分的UI组件都是会包含着列表，每一行会显示不同的值。我们需要维护一个Map来记录列表中每个项目的状态信息：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="php"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">UserList</span><span class="params">(users, likesPerUser, updateUserLikes)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> users.map(user =&gt; FancyNameBox(</span><br><span class="line">    user,</span><br><span class="line">    likesPerUser.get(user.id),</span><br><span class="line">    () =&gt; updateUserLikes(user.id, likesPerUser.get(user.id) + <span class="number">1</span>)</span><br><span class="line">  ));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> likesPerUser = <span class="keyword">new</span> Map();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateUserLikes</span><span class="params">(id, likeCount)</span> </span>&#123;</span><br><span class="line">  likesPerUser.set(id, likeCount);</span><br><span class="line">  rerender();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">UserList(data.users, likesPerUser, updateUserLikes);</span></span><br></pre></td></tr></table></figure>
+<p>注意，在这个函数里我们传入了多个值，这样就不能缓存结果了。</p>
+<h2 id="Continuations"><a href="#Continuations" class="headerlink" title="Continuations"></a>Continuations</h2><p>B狗的事情发生了，因为存在着很多的列表，我们也需要维护很多的模板，不同的列表显示的数据有交集有差异，譬如用户列表和你关注的用户列表，它们可能就是操作按钮上的不同。我们可以将部分模板和业务逻辑解耦合以下，譬如使用柯里化这种构造高阶函数的手段。这种手段本身并不能减少业务逻辑或者最终模板的复杂度，不过能够将一部分代码移出业务逻辑：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FancyUserList</span><span class="params">(users)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> FancyBox(</span><br><span class="line"></span><br><span class="line">    UserList.bind(<span class="literal">null</span>, users)</span><br><span class="line"></span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> box = FancyUserList(data.users);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> resolvedChildren = box.children(likesPerUser, updateUserLikes);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> resolvedBox = &#123;</span><br><span class="line"></span><br><span class="line">  ...box,</span><br><span class="line"></span><br><span class="line">  children: resolvedChildren</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="State-Map"><a href="#State-Map" class="headerlink" title="State Map"></a>State Map</h2><p>早前我们就知道著名的23种设计模式里会避免重复的实现一些通用模式，我们也可以将一些状态管理的逻辑函数移到统一的初级函数里，这样就方便重复使用了：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FancyBoxWithState</span><span class="params">(</span><br><span class="line">  children,</span><br><span class="line">  stateMap,</span><br><span class="line">  updateState</span><br><span class="line">)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> FancyBox(</span><br><span class="line">    children.map(child =&gt; child.continuation(</span><br><span class="line">      stateMap.get(child.key),</span><br><span class="line">      updateState</span><br><span class="line">    ))</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">UserList</span><span class="params">(users)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> users.map(user =&gt; &#123;</span><br><span class="line">    continuation: FancyNameBox.bind(<span class="keyword">null</span>, user),</span><br><span class="line">    key: user.id</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FancyUserList</span><span class="params">(users)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> FancyBoxWithState.bind(<span class="keyword">null</span>,</span><br><span class="line">    UserList(users)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> continuation = FancyUserList(data.users);</span><br><span class="line">continuation(likesPerUser, updateUserLikes);</span><br></pre></td></tr></table></figure>
+<h2 id="Memoization-Map"><a href="#Memoization-Map" class="headerlink" title="Memoization Map"></a>Memoization Map</h2><p>上面提到过，当存在多个输入参数的情况下要再想进行缓存就会麻烦一点，我们要使用一些复杂的缓存策略来平衡内存使用与频次。幸运的是很多地方View还是比较固定的，整个树上的相同位置的值一般都是相同的，因此可以用树结构来进行缓存。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">memoize</span><span class="params">(fn)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(arg, memoizationCache)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (memoizationCache.arg === arg) &#123;</span><br><span class="line">      <span class="keyword">return</span> memoizationCache.result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> result = fn(arg);</span><br><span class="line">    memoizationCache.arg = arg;</span><br><span class="line">    memoizationCache.result = result;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FancyBoxWithState</span><span class="params">(</span><br><span class="line">  children,</span><br><span class="line">  stateMap,</span><br><span class="line">  updateState,</span><br><span class="line">  memoizationCache</span><br><span class="line">)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> FancyBox(</span><br><span class="line">    children.map(child =&gt; child.continuation(</span><br><span class="line">      stateMap.get(child.key),</span><br><span class="line">      updateState,</span><br><span class="line">      memoizationCache.get(child.key)</span><br><span class="line">    ))</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> MemoizedFancyNameBox = memoize(FancyNameBox);</span><br></pre></td></tr></table></figure>
+<h2 id="Algebraic-Effects"><a href="#Algebraic-Effects" class="headerlink" title="Algebraic Effects"></a>Algebraic Effects</h2><p>如果我们在一个嵌套多层的UI体系里每次都把一些参数一级一级的传递下去，那约莫是非常麻烦的。因此我们需要创造一些捷径来在两个不直接相连的抽象组件之间传递数据，而不需要通过中间层。在React里面叫他Context。（官方文档里Context还是属于测试阶段）。有时候这个数据依赖的关系并不严格按照抽象树的逻辑，譬如在一个布局算法里你需要知道你的子元素的大小你才能够完整地决定他们的位置。我在这里使用 Algebraic Effects 作为 proposed for ECMAScript。</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="qml"><span class="function"><span class="keyword">function</span> <span class="title">ThemeBorderColorRequest</span>(<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FancyBox</span>(<span class="params">children</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="built_in">color</span> = raise <span class="keyword">new</span> ThemeBorderColorRequest();</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attribute">borderWidth</span>: <span class="string">'1px'</span>,</span><br><span class="line">    <span class="attribute">borderColor</span>: <span class="built_in">color</span>,</span><br><span class="line">    <span class="attribute">children</span>: children</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">BlueTheme</span>(<span class="params">children</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title">try</span> &#123;</span><br><span class="line">    children();</span><br><span class="line">  &#125; <span class="keyword">catch</span> effect ThemeBorderColorRequest -&gt; [, continuation] &#123;</span><br><span class="line">    continuation(<span class="string">'blue'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> BlueTheme(</span><br><span class="line">    FancyUserList.bind(<span class="literal">null</span>, data.users)</span><br><span class="line">  );</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Transformation"><span class="nav-text">Transformation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstraction-抽象"><span class="nav-text">Abstraction(抽象)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Composition-组合"><span class="nav-text">Composition(组合)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#State"><span class="nav-text">State</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memoization"><span class="nav-text">Memoization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lists"><span class="nav-text">Lists</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Continuations"><span class="nav-text">Continuations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#State-Map"><span class="nav-text">State Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memoization-Map"><span class="nav-text">Memoization Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algebraic-Effects"><span class="nav-text">Algebraic Effects</span></a></li></ol></div>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#React" rel="tag">#React</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2011-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>
