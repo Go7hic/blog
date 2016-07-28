@@ -459,7 +459,7 @@
     <link href="http://blog.yongyuan.com/post/%20350%20%E4%B8%AA%E7%89%B9%E6%80%A7%E4%BA%86%E8%A7%A3%20ES6.html"/>
     <id>http://blog.yongyuan.com/post/ 350 个特性了解 ES6.html</id>
     <published>2016-03-07T16:00:00.000Z</published>
-    <updated>2016-06-19T13:29:20.000Z</updated>
+    <updated>2016-07-28T12:21:41.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;ES6 - 也被叫做 Harmony、&lt;code&gt;es-next&lt;/code&gt;、ES2015，是这门语言最新的标准规范&lt;/li&gt;
@@ -510,8 +510,8 @@
 &lt;/li&gt;
 &lt;li&gt;参考阅读 &lt;a href=&quot;https://ponyfoo.com/articles/es6-destructuring-in-depth&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;深入理解 ES6 JavaScript 解构&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;展开运算符和不定参数&quot;&gt;&lt;a href=&quot;#展开运算符和不定参数&quot; class=&quot;headerlink&quot; title=&quot;展开运算符和不定参数&quot;&gt;&lt;/a&gt;展开运算符和不定参数&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;不定参数比&lt;code&gt;arguments&lt;/code&gt; 更好&lt;/p&gt;
+&lt;h3 id=&quot;展开运算符-spread-和不定-Rest-参数&quot;&gt;&lt;a href=&quot;#展开运算符-spread-和不定-Rest-参数&quot; class=&quot;headerlink&quot; title=&quot;展开运算符(spread)和不定(Rest)参数&quot;&gt;&lt;/a&gt;展开运算符(spread)和不定(Rest)参数&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;不定(Rest)参数比&lt;code&gt;arguments&lt;/code&gt; 更好&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;你可以在一个方法里面像这样声明：&lt;code&gt;function foo (...everything) {}&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;everything&lt;/code&gt; 是一个数组，里面所有元素都是传递给该函数 &lt;code&gt;foo&lt;/code&gt; 的多出来的实参的值.&lt;/li&gt;
@@ -520,7 +520,7 @@
 &lt;li&gt;&lt;code&gt;...rest&lt;/code&gt; 一定是在参数列表的最后&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;展开运算符比 magic 更强大，并且支持&lt;code&gt;...&lt;/code&gt;语法&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;展开(spread)运算符比 magic 更强大，并且支持&lt;code&gt;...&lt;/code&gt;语法&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;避免使用 &lt;code&gt;.apply&lt;/code&gt; 调用方法，&lt;code&gt;fn(...[1,2,3])&lt;/code&gt; 和 &lt;code&gt;fn(1,2,3)&lt;/code&gt; 是等效的&lt;/li&gt;
 &lt;li&gt;数组之间更容易连接 ，比如&lt;code&gt;[1, 2, ...[3, 4, 5], 6, 7]&lt;/code&gt;&lt;/li&gt;
@@ -543,8 +543,7 @@
 &lt;li&gt;当使用代码块的时候，没有隐式的 &lt;code&gt;return&lt;/code&gt;，你要自己去提供一个：&lt;code&gt;() =&amp;gt; { return &amp;#39;foo&amp;#39; }&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;You can’t name arrow functions statically, but runtimes are now much better at inferring names for most methods&lt;/li&gt;
-&lt;li&gt;你不能静态的命名箭头函数&lt;/li&gt;
+&lt;li&gt;你不能静态的命名箭头函数，最后是函数运行的时候直接写箭头函数&lt;/li&gt;
 &lt;li&gt;箭头函数会绑定它们自己的词法作用域&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;this&lt;/code&gt; 就是父作用域上下文所在的 &lt;code&gt;this&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;this&lt;/code&gt; 不能被 &lt;code&gt;.call&lt;/code&gt;,&lt;code&gt;.apply&lt;/code&gt; 或者类似的反射类型方法修改&lt;/li&gt;
@@ -573,7 +572,7 @@
 &lt;li&gt;你可以用 &lt;code&gt;{foo}&lt;/code&gt; 的写法代替&lt;code&gt;{foo:foo}&lt;/code&gt; – 属性值简写&lt;/li&gt;
 &lt;li&gt;计算属性名,比如 &lt;code&gt;{ [prefix + &amp;#39;Foo&amp;#39;]: &amp;#39;bar&amp;#39; }&lt;/code&gt;, 如果 &lt;code&gt;prefix: &amp;#39;moz&amp;#39;&lt;/code&gt;, 那么将得到 &lt;code&gt;{ mozFoo: &amp;#39;bar&amp;#39; }&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;你不能快速合并计算属性名字和属性值，&lt;code&gt;{ [foo] }&lt;/code&gt; 是无效的&lt;/li&gt;
-&lt;li&gt;方法定义一个对象字面可以使用另一个声明,更简洁的语法&lt;/li&gt;
+&lt;li&gt;方法定义一个对象字面量可以使用另一个声明,更简洁的语法&lt;/li&gt;
 &lt;li&gt;在一个对象里面定义方法可以使用另外一个声明，更简单的语法，&lt;code&gt;{foo() {}}&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;参考 &lt;a href=&quot;#object&quot;&gt;&lt;code&gt;Object&lt;/code&gt;&lt;/a&gt; 部分&lt;/li&gt;
 &lt;li&gt;阅读 &lt;a href=&quot;https://ponyfoo.com/articles/es6-object-literal-features-in-depth&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;深入理解 ES6 对象字面量&lt;/a&gt;&lt;/li&gt;
@@ -590,14 +589,12 @@
 &lt;h3 id=&quot;Let-和-Const&quot;&gt;&lt;a href=&quot;#Let-和-Const&quot; class=&quot;headerlink&quot; title=&quot;Let 和 Const&quot;&gt;&lt;/a&gt;Let 和 Const&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;声明变量的时候，用&lt;code&gt;let&lt;/code&gt;和&lt;code&gt;const&lt;/code&gt;代替&lt;code&gt;var&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;let&lt;/code&gt;是个块级作用域，代替一个函数的词法作用域&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;let&lt;/code&gt;是一个块级作用域，而不是&lt;code&gt;function&lt;/code&gt;的词法作用域&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;let&lt;/code&gt; 声明的变量会 &lt;a href=&quot;https://ponyfoo.com/articles/javascript-variable-hoisting&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;提升&lt;/a&gt; 块级作用域的顶部, 而 &lt;code&gt;var&lt;/code&gt; 生命的变量会提升到函数的顶部&lt;/li&gt;
-&lt;li&gt;“暂时性死区” – TDZ 简介&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;let&lt;/code&gt; 声明的变量会 &lt;a href=&quot;https://ponyfoo.com/articles/javascript-variable-hoisting&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;提升&lt;/a&gt; 至块级作用域的顶部, 而 &lt;code&gt;var&lt;/code&gt; 生命的变量会提升到函数的顶部&lt;/li&gt;
+&lt;li&gt;“暂时性死区（Temporal Dead Zone）” – TDZ 简介&lt;ul&gt;
 &lt;li&gt;块作用域在 &lt;code&gt;let foo&lt;/code&gt; 声明的时候开始&lt;/li&gt;
 &lt;li&gt;结束的地方让foo的声明放置在用户代码&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;let foo&lt;/code&gt; 声明被用户的代码替换后结束作用域块&lt;/li&gt;
-&lt;li&gt;Attempts to access or assign to &lt;code&gt;foo&lt;/code&gt; within the TDZ &lt;em&gt;(before the &lt;code&gt;let foo&lt;/code&gt; statement is reached)&lt;/em&gt; result in an error&lt;/li&gt;
-&lt;li&gt;有助于在变量未声明前操作变量产生的神奇 bug。&lt;/li&gt;
+&lt;li&gt;有助于在变量未声明前操作变量产生的神奇 bug&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;code&gt;const&lt;/code&gt; 也是一个块级作用域，提升以及受限于 TDZ 语义&lt;/li&gt;
@@ -660,11 +657,11 @@
 &lt;li&gt;&lt;code&gt;done&lt;/code&gt; 属性是一个布尔值，表示遍历是否结束，即是否还有必要再一次调用next方法。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Objects that have a &lt;code&gt;[Symbol.iterator]&lt;/code&gt; value are &lt;em&gt;iterable&lt;/em&gt;, because they subscribe to the iterable protocol&lt;/li&gt;
-&lt;li&gt;Some built-ins like &lt;code&gt;Array&lt;/code&gt;, &lt;code&gt;String&lt;/code&gt;, or &lt;code&gt;arguments&lt;/code&gt; – and &lt;code&gt;NodeList&lt;/code&gt; in browsers – are iterable by default in ES6&lt;/li&gt;
-&lt;li&gt;Iterable objects can be looped over with &lt;code&gt;for..of&lt;/code&gt;, such as &lt;code&gt;for (let el of document.querySelectorAll(&amp;#39;a&amp;#39;))&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Iterable objects can be synthesized using the spread operator, like &lt;code&gt;[...document.querySelectorAll(&amp;#39;a&amp;#39;)]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;You can also use &lt;code&gt;Array.from(document.querySelectorAll(&amp;#39;a&amp;#39;))&lt;/code&gt; to synthesize an iterable sequence into an array&lt;/li&gt;
+&lt;li&gt;Objects 只要有 &lt;code&gt;[Symbol.iterator]&lt;/code&gt;属性就是可遍历的， &lt;/li&gt;
+&lt;li&gt;一些内置的数据解构像 &lt;code&gt;Array&lt;/code&gt;,&lt;code&gt;String&lt;/code&gt;或者 &lt;code&gt;arguments&lt;/code&gt;以及浏览器里的 &lt;code&gt;NodeList&lt;/code&gt; 在 ES6 里默认都是 iterable&lt;/li&gt;
+&lt;li&gt;Iterable objects 可以通过 &lt;code&gt;for..of&lt;/code&gt; 实现循环，比如 &lt;code&gt;for (let el of document.querySelectorAll(&amp;#39;a&amp;#39;))&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Iterable objects 可以使用 &lt;code&gt;spread operator&lt;/code&gt;, 比如 &lt;code&gt;[...document.querySelectorAll(&amp;#39;a&amp;#39;)]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;可以通过&lt;code&gt;Array.from(document.querySelectorAll(&amp;#39;a&amp;#39;))&lt;/code&gt;去把一个 iterable队列转成数组&lt;/li&gt;
 &lt;li&gt;Iterators are &lt;em&gt;lazy&lt;/em&gt;, and those that produce an infinite sequence still can lead to valid programs&lt;/li&gt;
 &lt;li&gt;Be careful not to attempt to synthesize an infinite sequence with &lt;code&gt;...&lt;/code&gt; or &lt;code&gt;Array.from&lt;/code&gt; as that &lt;strong&gt;will&lt;/strong&gt; cause an infinite loop&lt;/li&gt;
 &lt;li&gt;阅读 &lt;a href=&quot;https://ponyfoo.com/articles/es6-iterators-in-depth&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;深入理解 ES6 迭代器&lt;/a&gt;&lt;/li&gt;
@@ -694,7 +691,7 @@
 &lt;li&gt;Call &lt;code&gt;g.next()&lt;/code&gt;, unsuspending execution in user code&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Read &lt;a href=&quot;https://ponyfoo.com/articles/es6-generators-in-depth&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ES6 Generators in Depth&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;阅读 &lt;a href=&quot;https://ponyfoo.com/articles/es6-generators-in-depth&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ES6 Generators in Depth&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;Promises&quot;&gt;&lt;a href=&quot;#Promises&quot; class=&quot;headerlink&quot; title=&quot;Promises&quot;&gt;&lt;/a&gt;Promises&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Follows the &lt;a href=&quot;https://promisesaplus.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;Promises/A+&lt;/code&gt;&lt;/a&gt; specification, was widely implemented in the wild before ES6 was standarized &lt;em&gt;(e.g &lt;a href=&quot;https://github.com/petkaantonov/bluebird&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;bluebird&lt;/code&gt;&lt;/a&gt;)&lt;/em&gt;&lt;/li&gt;
@@ -721,7 +718,7 @@
 &lt;li&gt;Read &lt;a href=&quot;https://ponyfoo.com/articles/es6-promises-in-depth&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ES6 Promises in Depth&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;Maps&quot;&gt;&lt;a href=&quot;#Maps&quot; class=&quot;headerlink&quot; title=&quot;Maps&quot;&gt;&lt;/a&gt;Maps&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;A replacement to the common pattern of creating a hash-map using plain JavaScript objects&lt;ul&gt;
+&lt;li&gt;一个代替原来 js object 创建 hash-map 的方法&lt;ul&gt;
 &lt;li&gt;Avoids security issues with user-provided keys&lt;/li&gt;
 &lt;li&gt;Allows keys to be arbitrary values, you can even use DOM elements or functions as the &lt;code&gt;key&lt;/code&gt; to an entry&lt;/li&gt;
 &lt;/ul&gt;
@@ -729,15 +726,15 @@
 &lt;li&gt;&lt;code&gt;Map&lt;/code&gt; adheres to &lt;em&gt;&lt;a href=&quot;#iterators&quot;&gt;iterable&lt;/a&gt;&lt;/em&gt; protocol&lt;/li&gt;
 &lt;li&gt;用 &lt;code&gt;new Map()&lt;/code&gt; 创建 &lt;code&gt;map&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;用 &lt;code&gt;iterable&lt;/code&gt; 初始化一个 map ，类似 &lt;code&gt;new Map(iterable)&lt;/code&gt; 里面的 &lt;code&gt;[[key1, value1], [key2, value2]]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;用 &lt;code&gt;map.set(key, value)&lt;/code&gt; 去添加条目&lt;/li&gt;
-&lt;li&gt;用 &lt;code&gt;map.get(key)&lt;/code&gt; 获取条目&lt;/li&gt;
-&lt;li&gt;用 &lt;code&gt;map.has(key)&lt;/code&gt; 检查 &lt;code&gt;key&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;通过 &lt;code&gt;map.delete(key)&lt;/code&gt; 删除条目&lt;/li&gt;
+&lt;li&gt;用 &lt;code&gt;map.set(key, value)&lt;/code&gt; 去添加键值&lt;/li&gt;
+&lt;li&gt;用 &lt;code&gt;map.get(key)&lt;/code&gt; 获取键值&lt;/li&gt;
+&lt;li&gt;用 &lt;code&gt;map.has(key)&lt;/code&gt; 检查某个 &lt;code&gt;key&lt;/code&gt;是否在 Map 里面，返回的布尔值&lt;/li&gt;
+&lt;li&gt;通过 &lt;code&gt;map.delete(key)&lt;/code&gt; 删除某个 &lt;code&gt;key&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Iterate over &lt;code&gt;map&lt;/code&gt; with &lt;code&gt;for (let [key, value] of map)&lt;/code&gt;, the spread operator, &lt;code&gt;Array.from&lt;/code&gt;, etc&lt;/li&gt;
 &lt;li&gt;阅读 &lt;a href=&quot;https://ponyfoo.com/articles/es6-maps-in-depth&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ES6 Maps in Depth&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;WeakMaps&quot;&gt;&lt;a href=&quot;#WeakMaps&quot; class=&quot;headerlink&quot; title=&quot;WeakMaps&quot;&gt;&lt;/a&gt;WeakMaps&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;和 &lt;code&gt;Map&lt;/code&gt; ；类似，但是不完全相同&lt;/li&gt;
+&lt;li&gt;和 &lt;code&gt;Map&lt;/code&gt; 类似，但是不完全相同&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;WeakMap&lt;/code&gt; isn’t iterable, so you don’t get enumeration methods like &lt;code&gt;.forEach&lt;/code&gt;, &lt;code&gt;.clear&lt;/code&gt;, and others you had in &lt;code&gt;Map&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;WeakMap&lt;/code&gt; keys must be reference types. You can’t use value types like symbols, numbers, or strings as keys&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;WeakMap&lt;/code&gt; entries with a &lt;code&gt;key&lt;/code&gt; that’s the only reference to the referenced variable are subject to garbage collection&lt;/li&gt;

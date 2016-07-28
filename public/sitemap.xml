@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.yongyuan.com/about/index.html</loc>
+    
+    <lastmod>2016-07-28T12:25:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.yongyuan.com/post/%20350%20%E4%B8%AA%E7%89%B9%E6%80%A7%E4%BA%86%E8%A7%A3%20ES6.html</loc>
+    
+    <lastmod>2016-07-28T12:21:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.yongyuan.com/post/%E3%80%90%E8%AF%91%E3%80%91React%20%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA%E6%A6%82%E5%BF%B5.html</loc>
     
     <lastmod>2016-06-21T16:19:58.000Z</lastmod>
@@ -320,20 +334,6 @@
     <loc>http://blog.yongyuan.com/post/%20%E4%B8%80%E4%BA%9B%20HTML%20%E5%92%8C%20CSS%20%E4%B8%AD%E7%9A%84%E5%9D%91.html</loc>
     
     <lastmod>2016-06-19T13:33:31.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.yongyuan.com/post/%20350%20%E4%B8%AA%E7%89%B9%E6%80%A7%E4%BA%86%E8%A7%A3%20ES6.html</loc>
-    
-    <lastmod>2016-06-19T13:29:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.yongyuan.com/about/index.html</loc>
-    
-    <lastmod>2016-06-07T16:19:01.000Z</lastmod>
     
   </url>
   

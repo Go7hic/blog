@@ -65,7 +65,7 @@ ES6 规范在 2015 年 6 月正式通过
 年度发布时间，没有被确定的功能会被放到下一个版本
 在 ES6 被确定之前，我们大部分人一直称之为 ES6
 从  ES2016(ES7) 开始，我们应该用 ES">
-<meta property="og:updated_time" content="2016-06-19T13:29:20.000Z">
+<meta property="og:updated_time" content="2016-07-28T12:21:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="350 个特性了解 ES6">
 <meta name="twitter:description" content="介绍
@@ -235,8 +235,8 @@ ES6 规范在 2015 年 6 月正式通过
 </li>
 <li>参考阅读 <a href="https://ponyfoo.com/articles/es6-destructuring-in-depth" target="_blank" rel="external">深入理解 ES6 JavaScript 解构</a></li>
 </ul>
-<h3 id="展开运算符和不定参数"><a href="#展开运算符和不定参数" class="headerlink" title="展开运算符和不定参数"></a>展开运算符和不定参数</h3><ul>
-<li><p>不定参数比<code>arguments</code> 更好</p>
+<h3 id="展开运算符-spread-和不定-Rest-参数"><a href="#展开运算符-spread-和不定-Rest-参数" class="headerlink" title="展开运算符(spread)和不定(Rest)参数"></a>展开运算符(spread)和不定(Rest)参数</h3><ul>
+<li><p>不定(Rest)参数比<code>arguments</code> 更好</p>
 <ul>
 <li>你可以在一个方法里面像这样声明：<code>function foo (...everything) {}</code></li>
 <li><code>everything</code> 是一个数组，里面所有元素都是传递给该函数 <code>foo</code> 的多出来的实参的值.</li>
@@ -245,7 +245,7 @@ ES6 规范在 2015 年 6 月正式通过
 <li><code>...rest</code> 一定是在参数列表的最后</li>
 </ul>
 </li>
-<li><p>展开运算符比 magic 更强大，并且支持<code>...</code>语法</p>
+<li><p>展开(spread)运算符比 magic 更强大，并且支持<code>...</code>语法</p>
 <ul>
 <li>避免使用 <code>.apply</code> 调用方法，<code>fn(...[1,2,3])</code> 和 <code>fn(1,2,3)</code> 是等效的</li>
 <li>数组之间更容易连接 ，比如<code>[1, 2, ...[3, 4, 5], 6, 7]</code></li>
@@ -268,8 +268,7 @@ ES6 规范在 2015 年 6 月正式通过
 <li>当使用代码块的时候，没有隐式的 <code>return</code>，你要自己去提供一个：<code>() =&gt; { return &#39;foo&#39; }</code></li>
 </ul>
 </li>
-<li>You can’t name arrow functions statically, but runtimes are now much better at inferring names for most methods</li>
-<li>你不能静态的命名箭头函数</li>
+<li>你不能静态的命名箭头函数，最后是函数运行的时候直接写箭头函数</li>
 <li>箭头函数会绑定它们自己的词法作用域<ul>
 <li><code>this</code> 就是父作用域上下文所在的 <code>this</code></li>
 <li><code>this</code> 不能被 <code>.call</code>,<code>.apply</code> 或者类似的反射类型方法修改</li>
@@ -298,7 +297,7 @@ ES6 规范在 2015 年 6 月正式通过
 <li>你可以用 <code>{foo}</code> 的写法代替<code>{foo:foo}</code> – 属性值简写</li>
 <li>计算属性名,比如 <code>{ [prefix + &#39;Foo&#39;]: &#39;bar&#39; }</code>, 如果 <code>prefix: &#39;moz&#39;</code>, 那么将得到 <code>{ mozFoo: &#39;bar&#39; }</code></li>
 <li>你不能快速合并计算属性名字和属性值，<code>{ [foo] }</code> 是无效的</li>
-<li>方法定义一个对象字面可以使用另一个声明,更简洁的语法</li>
+<li>方法定义一个对象字面量可以使用另一个声明,更简洁的语法</li>
 <li>在一个对象里面定义方法可以使用另外一个声明，更简单的语法，<code>{foo() {}}</code></li>
 <li>参考 <a href="#object"><code>Object</code></a> 部分</li>
 <li>阅读 <a href="https://ponyfoo.com/articles/es6-object-literal-features-in-depth" target="_blank" rel="external">深入理解 ES6 对象字面量</a></li>
@@ -315,14 +314,12 @@ ES6 规范在 2015 年 6 月正式通过
 <h3 id="Let-和-Const"><a href="#Let-和-Const" class="headerlink" title="Let 和 Const"></a>Let 和 Const</h3><ul>
 <li>声明变量的时候，用<code>let</code>和<code>const</code>代替<code>var</code></li>
 <li><code>let</code>是个块级作用域，代替一个函数的词法作用域</li>
-<li><code>let</code>是一个块级作用域，而不是<code>function</code>的词法作用域</li>
-<li><code>let</code> 声明的变量会 <a href="https://ponyfoo.com/articles/javascript-variable-hoisting" target="_blank" rel="external">提升</a> 块级作用域的顶部, 而 <code>var</code> 生命的变量会提升到函数的顶部</li>
-<li>“暂时性死区” – TDZ 简介<ul>
+<li><code>let</code> 声明的变量会 <a href="https://ponyfoo.com/articles/javascript-variable-hoisting" target="_blank" rel="external">提升</a> 至块级作用域的顶部, 而 <code>var</code> 生命的变量会提升到函数的顶部</li>
+<li>“暂时性死区（Temporal Dead Zone）” – TDZ 简介<ul>
 <li>块作用域在 <code>let foo</code> 声明的时候开始</li>
 <li>结束的地方让foo的声明放置在用户代码</li>
 <li><code>let foo</code> 声明被用户的代码替换后结束作用域块</li>
-<li>Attempts to access or assign to <code>foo</code> within the TDZ <em>(before the <code>let foo</code> statement is reached)</em> result in an error</li>
-<li>有助于在变量未声明前操作变量产生的神奇 bug。</li>
+<li>有助于在变量未声明前操作变量产生的神奇 bug</li>
 </ul>
 </li>
 <li><code>const</code> 也是一个块级作用域，提升以及受限于 TDZ 语义</li>
@@ -385,11 +382,11 @@ ES6 规范在 2015 年 6 月正式通过
 <li><code>done</code> 属性是一个布尔值，表示遍历是否结束，即是否还有必要再一次调用next方法。</li>
 </ul>
 </li>
-<li>Objects that have a <code>[Symbol.iterator]</code> value are <em>iterable</em>, because they subscribe to the iterable protocol</li>
-<li>Some built-ins like <code>Array</code>, <code>String</code>, or <code>arguments</code> – and <code>NodeList</code> in browsers – are iterable by default in ES6</li>
-<li>Iterable objects can be looped over with <code>for..of</code>, such as <code>for (let el of document.querySelectorAll(&#39;a&#39;))</code></li>
-<li>Iterable objects can be synthesized using the spread operator, like <code>[...document.querySelectorAll(&#39;a&#39;)]</code></li>
-<li>You can also use <code>Array.from(document.querySelectorAll(&#39;a&#39;))</code> to synthesize an iterable sequence into an array</li>
+<li>Objects 只要有 <code>[Symbol.iterator]</code>属性就是可遍历的， </li>
+<li>一些内置的数据解构像 <code>Array</code>,<code>String</code>或者 <code>arguments</code>以及浏览器里的 <code>NodeList</code> 在 ES6 里默认都是 iterable</li>
+<li>Iterable objects 可以通过 <code>for..of</code> 实现循环，比如 <code>for (let el of document.querySelectorAll(&#39;a&#39;))</code></li>
+<li>Iterable objects 可以使用 <code>spread operator</code>, 比如 <code>[...document.querySelectorAll(&#39;a&#39;)]</code></li>
+<li>可以通过<code>Array.from(document.querySelectorAll(&#39;a&#39;))</code>去把一个 iterable队列转成数组</li>
 <li>Iterators are <em>lazy</em>, and those that produce an infinite sequence still can lead to valid programs</li>
 <li>Be careful not to attempt to synthesize an infinite sequence with <code>...</code> or <code>Array.from</code> as that <strong>will</strong> cause an infinite loop</li>
 <li>阅读 <a href="https://ponyfoo.com/articles/es6-iterators-in-depth" target="_blank" rel="external">深入理解 ES6 迭代器</a></li>
@@ -419,7 +416,7 @@ ES6 规范在 2015 年 6 月正式通过
 <li>Call <code>g.next()</code>, unsuspending execution in user code</li>
 </ul>
 </li>
-<li>Read <a href="https://ponyfoo.com/articles/es6-generators-in-depth" target="_blank" rel="external">ES6 Generators in Depth</a></li>
+<li>阅读 <a href="https://ponyfoo.com/articles/es6-generators-in-depth" target="_blank" rel="external">ES6 Generators in Depth</a></li>
 </ul>
 <h3 id="Promises"><a href="#Promises" class="headerlink" title="Promises"></a>Promises</h3><ul>
 <li>Follows the <a href="https://promisesaplus.com/" target="_blank" rel="external"><code>Promises/A+</code></a> specification, was widely implemented in the wild before ES6 was standarized <em>(e.g <a href="https://github.com/petkaantonov/bluebird" target="_blank" rel="external"><code>bluebird</code></a>)</em></li>
@@ -446,7 +443,7 @@ ES6 规范在 2015 年 6 月正式通过
 <li>Read <a href="https://ponyfoo.com/articles/es6-promises-in-depth" target="_blank" rel="external">ES6 Promises in Depth</a></li>
 </ul>
 <h3 id="Maps"><a href="#Maps" class="headerlink" title="Maps"></a>Maps</h3><ul>
-<li>A replacement to the common pattern of creating a hash-map using plain JavaScript objects<ul>
+<li>一个代替原来 js object 创建 hash-map 的方法<ul>
 <li>Avoids security issues with user-provided keys</li>
 <li>Allows keys to be arbitrary values, you can even use DOM elements or functions as the <code>key</code> to an entry</li>
 </ul>
@@ -454,15 +451,15 @@ ES6 规范在 2015 年 6 月正式通过
 <li><code>Map</code> adheres to <em><a href="#iterators">iterable</a></em> protocol</li>
 <li>用 <code>new Map()</code> 创建 <code>map</code></li>
 <li>用 <code>iterable</code> 初始化一个 map ，类似 <code>new Map(iterable)</code> 里面的 <code>[[key1, value1], [key2, value2]]</code></li>
-<li>用 <code>map.set(key, value)</code> 去添加条目</li>
-<li>用 <code>map.get(key)</code> 获取条目</li>
-<li>用 <code>map.has(key)</code> 检查 <code>key</code></li>
-<li>通过 <code>map.delete(key)</code> 删除条目</li>
+<li>用 <code>map.set(key, value)</code> 去添加键值</li>
+<li>用 <code>map.get(key)</code> 获取键值</li>
+<li>用 <code>map.has(key)</code> 检查某个 <code>key</code>是否在 Map 里面，返回的布尔值</li>
+<li>通过 <code>map.delete(key)</code> 删除某个 <code>key</code></li>
 <li>Iterate over <code>map</code> with <code>for (let [key, value] of map)</code>, the spread operator, <code>Array.from</code>, etc</li>
 <li>阅读 <a href="https://ponyfoo.com/articles/es6-maps-in-depth" target="_blank" rel="external">ES6 Maps in Depth</a></li>
 </ul>
 <h3 id="WeakMaps"><a href="#WeakMaps" class="headerlink" title="WeakMaps"></a>WeakMaps</h3><ul>
-<li>和 <code>Map</code> ；类似，但是不完全相同</li>
+<li>和 <code>Map</code> 类似，但是不完全相同</li>
 <li><code>WeakMap</code> isn’t iterable, so you don’t get enumeration methods like <code>.forEach</code>, <code>.clear</code>, and others you had in <code>Map</code></li>
 <li><code>WeakMap</code> keys must be reference types. You can’t use value types like symbols, numbers, or strings as keys</li>
 <li><code>WeakMap</code> entries with a <code>key</code> that’s the only reference to the referenced variable are subject to garbage collection</li>
@@ -627,7 +624,7 @@ ES6 规范在 2015 年 6 月正式通过
     <div class="post-toc">
       
       
-        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具"><span class="nav-text">工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解构赋值"><span class="nav-text">解构赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#展开运算符和不定参数"><span class="nav-text">展开运算符和不定参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数"><span class="nav-text">箭头函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板字符串"><span class="nav-text">模板字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象字面量"><span class="nav-text">对象字面量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Classes"><span class="nav-text">Classes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Let-和-Const"><span class="nav-text">Let 和 Const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbols"><span class="nav-text">Symbols</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterators-遍历器"><span class="nav-text">Iterators (遍历器)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generators"><span class="nav-text">Generators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promises"><span class="nav-text">Promises</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maps"><span class="nav-text">Maps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WeakMaps"><span class="nav-text">WeakMaps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sets"><span class="nav-text">Sets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WeakSets"><span class="nav-text">WeakSets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxies"><span class="nav-text">Proxies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflection"><span class="nav-text">Reflection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number"><span class="nav-text">Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math"><span class="nav-text">Math</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array"><span class="nav-text">Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object"><span class="nav-text">Object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串和编码"><span class="nav-text">字符串和编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modules"><span class="nav-text">Modules</span></a></li></ol></div>
+        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具"><span class="nav-text">工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解构赋值"><span class="nav-text">解构赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#展开运算符-spread-和不定-Rest-参数"><span class="nav-text">展开运算符(spread)和不定(Rest)参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数"><span class="nav-text">箭头函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板字符串"><span class="nav-text">模板字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象字面量"><span class="nav-text">对象字面量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Classes"><span class="nav-text">Classes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Let-和-Const"><span class="nav-text">Let 和 Const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbols"><span class="nav-text">Symbols</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterators-遍历器"><span class="nav-text">Iterators (遍历器)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generators"><span class="nav-text">Generators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promises"><span class="nav-text">Promises</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maps"><span class="nav-text">Maps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WeakMaps"><span class="nav-text">WeakMaps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sets"><span class="nav-text">Sets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WeakSets"><span class="nav-text">WeakSets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxies"><span class="nav-text">Proxies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflection"><span class="nav-text">Reflection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number"><span class="nav-text">Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math"><span class="nav-text">Math</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array"><span class="nav-text">Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object"><span class="nav-text">Object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串和编码"><span class="nav-text">字符串和编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modules"><span class="nav-text">Modules</span></a></li></ol></div>
       
     </div>
   </section>
