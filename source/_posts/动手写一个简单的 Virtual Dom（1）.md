@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 动手写一个简单的 Virtual Dom
+title: 动手写一个简单的 Virtual Dom（1）
 date: 2016-06-04 11:21:04
 tags: React
 ---
