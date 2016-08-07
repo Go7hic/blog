@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="theme.author, theme.email">
+<meta name="reply-to" content="theme.email">
+<meta name="owner" content="theme.author">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Just4fun" />
+
+
+
+
+<meta name="keywords" content="React," />
+
+
+<meta name="description" content="前一篇文章介绍了 Virtual Dom 的属性设置等，现在再讲一下  Virtual Dom 怎么绑定事件。平常我们给 DOM 绑定事件的写法可能是这样：querySelector(&amp;#39;xx&amp;#39;).addEventListener(..)但是在 React 里面我们不这样写，我们直接在 DOM 上通过属性来绑定：
+1&amp;lt;button onClick=&amp;#123;() =&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动手写一个简单的 Virtual Dom（3）">
+<meta property="og:url" content="http://blog.yongyuan.com/post/动手写一个简单的 Virtual Dom（3）.html">
+<meta property="og:site_name" content="Go7hic">
+<meta property="og:description" content="前一篇文章介绍了 Virtual Dom 的属性设置等，现在再讲一下  Virtual Dom 怎么绑定事件。平常我们给 DOM 绑定事件的写法可能是这样：querySelector(&amp;#39;xx&amp;#39;).addEventListener(..)但是在 React 里面我们不这样写，我们直接在 DOM 上通过属性来绑定：
+1&amp;lt;button onClick=&amp;#123;() =&amp;gt;">
+<meta property="og:updated_time" content="2016-08-07T15:52:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="动手写一个简单的 Virtual Dom（3）">
+<meta name="twitter:description" content="前一篇文章介绍了 Virtual Dom 的属性设置等，现在再讲一下  Virtual Dom 怎么绑定事件。平常我们给 DOM 绑定事件的写法可能是这样：querySelector(&amp;#39;xx&amp;#39;).addEventListener(..)但是在 React 里面我们不这样写，我们直接在 DOM 上通过属性来绑定：
+1&amp;lt;button onClick=&amp;#123;() =&amp;gt;">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.1" />
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.1"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> 动手写一个简单的 Virtual Dom（3） </title>
+  
+
+
+
+
+  <script src="//cdn.bootcss.com/jquery/2.2.0/jquery.js"></script>
+</head>
+<body lang="en">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title"> 动手写一个简单的 Virtual Dom（3） </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            Posted on
+            <time  datetime="2016-08-06T11:21:04+08:00" content="2016-08-06">
+              2016-08-06
+            </time>
+          </div>
+
+          
+
+          
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          Home
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          Tags
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          About
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+    <div class="post-body">
+
+      <div class="content markdown-body"><p>前一篇文章介绍了 Virtual Dom 的属性设置等，现在再讲一下  Virtual Dom 怎么绑定事件。<br>平常我们给 DOM 绑定事件的写法可能是这样：<code>querySelector(&#39;xx&#39;).addEventListener(..)</code><br>但是在 React 里面我们不这样写，我们直接在 DOM 上通过属性来绑定：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> alert(‘hi!’)&#125;&gt;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面我们有一个专门监听事件的属性，并且都以 ‘on’ 开头，下面我们写一个函数来判断该属性是不是绑定事件的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEventProp</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="regexp">/^on/</span>.test(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面我们还需要一个方法来从属性里面把 事件属性名给提出来：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extractEventName</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> name.slice(<span class="number">2</span>).toLowerCase();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在还有个问题就是我们这个监听事件的属性其实和其他的正常属性是不一样的，所以我们需要在 isCustomProp 里面<br>处理这个属性：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isCustomProp</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> isEventProp(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来就是真正的给 Dom 监听事件的属性添加监听函数了：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEventListeners</span>(<span class="params">$target, props</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">Object</span>.keys(props).forEach(name =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (isEventProp(name)) &#123;</span><br><span class="line">      $target.addEventListener(</span><br><span class="line">        extractEventName(name),</span><br><span class="line">        props[name]</span><br><span class="line">      );</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后把上面这个放到 <code>createElement</code> 里面去：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createElement</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> node === ‘string’) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.createTextNode(node);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> $el = <span class="built_in">document</span>.createElement(node.type);</span><br><span class="line">  setProps($el, node.props);</span><br><span class="line">  addEventListeners($el, node.props);</span><br><span class="line">  node.children</span><br><span class="line">    .map(createElement)</span><br><span class="line">    .forEach($el.appendChild.bind($el));</span><br><span class="line">  <span class="keyword">return</span> $el;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>到这里监听事件的功能基本上就好了，但是还有一个小问题，就是重复添加事件的问题，虽然这个需求很少，但是还是不可避免的会有，<br>所以我们可以添加一个强制更新的属性 ‘forceUpdate’，然后修改之前的那个 change 函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changed</span>(<span class="params">node1, node2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> node1 !== <span class="keyword">typeof</span> node2 ||</span><br><span class="line">         <span class="keyword">typeof</span> node1 === ‘string’ &amp;&amp; node1 !== node2 ||</span><br><span class="line">         node1.type !== node2.type ||</span><br><span class="line">         node.props.forceUpdate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当 ‘forceUpdate’ 为 true 时，这个 Dom 节点会完全重新重新创建并且把事件监听加上，这里就还需要修改下之前的 isCustomProp 函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isCustomProp</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> isEventProp(name) || name === ‘forceUpdate’;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是完整的 DEMO：<a href="https://jsfiddle.net/gothic/as87qdyc/3/" target="_blank" rel="external">https://jsfiddle.net/gothic/as87qdyc/3/</a></p>
+</div>
+
+      <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+      
+    </div>
+  </section>
+</div>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags#React" rel="tag">#React</a>
+          
+        </div>
+      
+    </footer>
+
+  </article>
+
+
+
+      
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2011-
+    <span itemprop="copyrightYear">2016</span>
+    <span class="author" itemprop="copyrightHolder">Go7hic</span>
+  </div>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+
+<script type="text/javascript" src="/js/main.js?v=0.0.1"></script>
+
+
+</body>
+</html>
